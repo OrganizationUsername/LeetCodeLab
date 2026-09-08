@@ -1,0 +1,6 @@
+{ "id": 150, "slug": "evaluate-reverse-polish-notation", "title": "Evaluate Reverse Polish Notation",
+  "difficulty": "Medium", "topics": ["Array","Math","Stack"],
+  "url": "https://leetcode.com/problems/evaluate-reverse-polish-notation/", "comparison": "Exact",
+  "cases": [ { "args": [["2","1","+","3","*"]], "expected": 9 },
+    { "args": [["4","13","5","/","+"]], "expected": 6 },
+    { "args": [["10","6","9","3","+","-11","*","/","*","17","+","5","+"]], "expected": 22 } ] }

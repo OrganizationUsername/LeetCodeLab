@@ -1,0 +1,6 @@
+{ "id": 19, "slug": "remove-nth-node-from-end-of-list", "title": "Remove Nth Node From End of List",
+  "difficulty": "Medium", "topics": ["Linked List","Two Pointers"],
+  "url": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/", "comparison": "Exact",
+  "cases": [ { "args": [[1,2,3,4,5], 2], "expected": [1,2,3,5] },
+    { "args": [[1], 1], "expected": [] },
+    { "args": [[1,2], 1], "expected": [1] } ] }

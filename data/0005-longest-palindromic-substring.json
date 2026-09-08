@@ -1,0 +1,9 @@
+{ "id": 5, "slug": "longest-palindromic-substring", "title": "Longest Palindromic Substring",
+  "difficulty": "Medium", "topics": ["Two Pointers","String","Dynamic Programming"],
+  "url": "https://leetcode.com/problems/longest-palindromic-substring/",
+  "comparison": "AnyValid",
+  "cases": [
+    { "name": "babad (bab or aba)", "args": ["babad"], "expected": "bab" },
+    { "args": ["cbbd"], "expected": "bb" },
+    { "args": ["a"], "expected": "a" },
+    { "name": "ac (a or c)", "args": ["ac"], "expected": "a" } ] }

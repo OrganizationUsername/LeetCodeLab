@@ -1,0 +1,13 @@
+{
+  "id": 146, "slug": "lru-cache", "title": "LRU Cache",
+  "difficulty": "Medium", "topics": ["Hash Table", "Linked List", "Design", "Doubly-Linked List"],
+  "url": "https://leetcode.com/problems/lru-cache/",
+  "comparison": "Design",
+  "cases": [
+    {
+      "ops": ["LRUCache","put","put","get","put","get","put","get","get","get"],
+      "args": [[2],[1,1],[2,2],[1],[3,3],[2],[4,4],[1],[3],[4]],
+      "expected": [null,null,null,1,null,-1,null,-1,3,4]
+    }
+  ]
+}

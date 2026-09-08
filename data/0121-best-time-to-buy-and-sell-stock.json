@@ -1,0 +1,53 @@
+{
+  "id": 121,
+  "slug": "best-time-to-buy-and-sell-stock",
+  "title": "Best Time to Buy and Sell Stock",
+  "difficulty": "Easy",
+  "topics": [
+    "Array",
+    "Dynamic Programming"
+  ],
+  "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+  "comparison": "Exact",
+  "timeoutMs": 3000,
+  "cases": [
+    {
+      "args": [
+        [
+          7,
+          1,
+          5,
+          3,
+          6,
+          4
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "args": [
+        [
+          7,
+          6,
+          4,
+          3,
+          1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "stress: 200k prices",
+      "args": [
+        {
+          "$gen": "ints",
+          "seed": 11,
+          "count": 200000,
+          "min": 0,
+          "max": 100000
+        }
+      ],
+      "expected": 99999
+    }
+  ]
+}

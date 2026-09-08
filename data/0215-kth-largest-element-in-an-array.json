@@ -1,0 +1,61 @@
+{
+  "id": 215,
+  "slug": "kth-largest-element-in-an-array",
+  "title": "Kth Largest Element in an Array",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Divide and Conquer",
+    "Sorting",
+    "Heap",
+    "Quickselect"
+  ],
+  "url": "https://leetcode.com/problems/kth-largest-element-in-an-array/",
+  "comparison": "Exact",
+  "timeoutMs": 3000,
+  "cases": [
+    {
+      "args": [
+        [
+          3,
+          2,
+          1,
+          5,
+          6,
+          4
+        ],
+        2
+      ],
+      "expected": 5
+    },
+    {
+      "args": [
+        [
+          3,
+          2,
+          3,
+          1,
+          2,
+          4,
+          5,
+          5,
+          6
+        ],
+        4
+      ],
+      "expected": 4
+    },
+    {
+      "name": "stress: 200k permutation, k=1000",
+      "args": [
+        {
+          "$gen": "permutation",
+          "seed": 13,
+          "count": 200000
+        },
+        1000
+      ],
+      "expected": 199000
+    }
+  ]
+}

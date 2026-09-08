@@ -1,0 +1,11 @@
+{
+  "id": 26, "slug": "remove-duplicates-from-sorted-array",
+  "title": "Remove Duplicates from Sorted Array",
+  "difficulty": "Easy", "topics": ["Array", "Two Pointers"],
+  "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-array/",
+  "comparison": "InPlacePrefix",
+  "cases": [
+    { "args": [[1,1,2]], "expected": 2, "expectedArray": [1,2] },
+    { "args": [[0,0,1,1,1,2,2,3,3,4]], "expected": 5, "expectedArray": [0,1,2,3,4] }
+  ]
+}

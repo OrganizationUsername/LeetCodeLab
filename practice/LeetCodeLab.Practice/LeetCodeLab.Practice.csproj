@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsProblemTestProject>true</IsProblemTestProject>
+    <RootNamespace>LeetCodeLab.Practice</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="xunit.v3" Version="4.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\LeetCodeLab.Harness\LeetCodeLab.Harness.csproj" />
+  </ItemGroup>
+</Project>

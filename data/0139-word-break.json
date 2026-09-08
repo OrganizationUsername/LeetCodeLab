@@ -1,0 +1,68 @@
+{
+  "id": 139,
+  "slug": "word-break",
+  "title": "Word Break",
+  "difficulty": "Medium",
+  "topics": [
+    "Hash Table",
+    "String",
+    "Dynamic Programming",
+    "Trie"
+  ],
+  "url": "https://leetcode.com/problems/word-break/",
+  "comparison": "Exact",
+  "timeoutMs": 3000,
+  "cases": [
+    {
+      "args": [
+        "leetcode",
+        [
+          "leet",
+          "code"
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        "applepenapple",
+        [
+          "apple",
+          "pen"
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        "catsandog",
+        [
+          "cats",
+          "dog",
+          "sand",
+          "and",
+          "cat"
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "stress: 1000 a's, exponential trap",
+      "args": [
+        {
+          "$gen": "repeatedChar",
+          "count": 1000,
+          "char": "a"
+        },
+        [
+          "a",
+          "aa",
+          "aaa",
+          "aaaa",
+          "aaaaa"
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

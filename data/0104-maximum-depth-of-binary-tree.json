@@ -1,0 +1,6 @@
+{ "id": 104, "slug": "maximum-depth-of-binary-tree", "title": "Maximum Depth of Binary Tree",
+  "difficulty": "Easy", "topics": ["Tree","DFS","BFS","Binary Tree"],
+  "url": "https://leetcode.com/problems/maximum-depth-of-binary-tree/", "comparison": "Exact",
+  "cases": [ { "args": [[3,9,20,null,null,15,7]], "expected": 3 },
+    { "args": [[1,null,2]], "expected": 2 },
+    { "args": [[]], "expected": 0 } ] }

@@ -1,0 +1,59 @@
+{
+  "id": 322,
+  "slug": "coin-change",
+  "title": "Coin Change",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Dynamic Programming",
+    "BFS"
+  ],
+  "url": "https://leetcode.com/problems/coin-change/",
+  "comparison": "Exact",
+  "timeoutMs": 3000,
+  "maxAllocatedBytes": 16777216,
+  "cases": [
+    {
+      "args": [
+        [
+          1,
+          2,
+          5
+        ],
+        11
+      ],
+      "expected": 3
+    },
+    {
+      "args": [
+        [
+          2
+        ],
+        3
+      ],
+      "expected": -1
+    },
+    {
+      "args": [
+        [
+          1
+        ],
+        0
+      ],
+      "expected": 0
+    },
+    {
+      "name": "stress: amount 100000",
+      "args": [
+        [
+          1,
+          7,
+          13,
+          29
+        ],
+        100000
+      ],
+      "expected": 3450
+    }
+  ]
+}

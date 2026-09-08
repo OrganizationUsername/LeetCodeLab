@@ -1,0 +1,65 @@
+{
+  "id": 53,
+  "slug": "maximum-subarray",
+  "title": "Maximum Subarray",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Divide and Conquer",
+    "Dynamic Programming"
+  ],
+  "url": "https://leetcode.com/problems/maximum-subarray/",
+  "comparison": "Exact",
+  "timeoutMs": 3000,
+  "cases": [
+    {
+      "args": [
+        [
+          -2,
+          1,
+          -3,
+          4,
+          -1,
+          2,
+          1,
+          -5,
+          4
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "args": [
+        [
+          5,
+          4,
+          -1,
+          7,
+          8
+        ]
+      ],
+      "expected": 23
+    },
+    {
+      "name": "stress: 200k values",
+      "args": [
+        {
+          "$gen": "ints",
+          "seed": 7,
+          "count": 200000,
+          "min": -1000,
+          "max": 1000
+        }
+      ],
+      "expected": 194196
+    }
+  ]
+}

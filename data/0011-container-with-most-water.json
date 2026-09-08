@@ -1,0 +1,6 @@
+{ "id": 11, "slug": "container-with-most-water", "title": "Container With Most Water", "difficulty": "Medium",
+  "topics": ["Array","Two Pointers","Greedy"], "url": "https://leetcode.com/problems/container-with-most-water/",
+  "comparison": "Exact",
+  "cases": [
+    { "args": [[1,8,6,2,5,4,8,3,7]], "expected": 49 },
+    { "args": [[1,1]], "expected": 1 } ] }

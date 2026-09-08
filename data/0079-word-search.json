@@ -1,0 +1,7 @@
+{ "id": 79, "slug": "word-search", "title": "Word Search", "difficulty": "Medium",
+  "topics": ["Array","Backtracking","Matrix"], "url": "https://leetcode.com/problems/word-search/",
+  "comparison": "Exact",
+  "cases": [
+    { "args": [[["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "ABCCED"], "expected": true },
+    { "args": [[["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "SEE"], "expected": true },
+    { "args": [[["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "ABCB"], "expected": false } ] }

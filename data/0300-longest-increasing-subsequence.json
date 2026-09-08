@@ -1,0 +1,71 @@
+{
+  "id": 300,
+  "slug": "longest-increasing-subsequence",
+  "title": "Longest Increasing Subsequence",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Binary Search",
+    "Dynamic Programming"
+  ],
+  "url": "https://leetcode.com/problems/longest-increasing-subsequence/",
+  "comparison": "Exact",
+  "timeoutMs": 3000,
+  "cases": [
+    {
+      "args": [
+        [
+          10,
+          9,
+          2,
+          5,
+          3,
+          7,
+          101,
+          18
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "args": [
+        [
+          0,
+          1,
+          0,
+          3,
+          2,
+          3
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "args": [
+        [
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "stress: 100k values (quadratic DP will not finish)",
+      "args": [
+        {
+          "$gen": "ints",
+          "seed": 17,
+          "count": 100000,
+          "min": 0,
+          "max": 1000000
+        }
+      ],
+      "expected": 621
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+<Project>
+  <!-- Every test project gets the shared case data copied next to its assembly. -->
+  <ItemGroup Condition="'$(IsProblemTestProject)' == 'true'">
+    <Content Include="$(RepoRoot)data\*.json"
+             Link="data\%(Filename)%(Extension)"
+             CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

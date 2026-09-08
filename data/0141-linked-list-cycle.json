@@ -1,0 +1,11 @@
+{
+  "id": 141, "slug": "linked-list-cycle", "title": "Linked List Cycle",
+  "difficulty": "Easy", "topics": ["Hash Table", "Linked List", "Two Pointers"],
+  "url": "https://leetcode.com/problems/linked-list-cycle/",
+  "comparison": "Exact",
+  "cases": [
+    { "name": "head=[3,2,0,-4], pos=1", "args": [[3,2,0,-4]], "cyclePos": 1, "expected": true },
+    { "name": "head=[1,2], pos=0",     "args": [[1,2]],       "cyclePos": 0, "expected": true },
+    { "name": "head=[1], pos=-1",      "args": [[1]],         "cyclePos": -1, "expected": false }
+  ]
+}

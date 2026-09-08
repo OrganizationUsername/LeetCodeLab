@@ -1,0 +1,7 @@
+{ "id": 242, "slug": "valid-anagram", "title": "Valid Anagram", "difficulty": "Easy",
+  "topics": ["Hash Table","String","Sorting"], "url": "https://leetcode.com/problems/valid-anagram/",
+  "comparison": "Exact",
+  "cases": [
+    { "args": ["anagram","nagaram"], "expected": true },
+    { "args": ["rat","car"], "expected": false },
+    { "args": ["a","ab"], "expected": false } ] }

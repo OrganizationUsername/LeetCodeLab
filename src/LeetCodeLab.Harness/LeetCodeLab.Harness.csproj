@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="xunit.v3.extensibility.core" Version="4.0.0" />
+    <PackageReference Include="xunit.v3.assert" Version="4.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LeetCodeLab.Core\LeetCodeLab.Core.csproj" />
+  </ItemGroup>
+</Project>

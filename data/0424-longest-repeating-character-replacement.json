@@ -1,0 +1,8 @@
+{ "id": 424, "slug": "longest-repeating-character-replacement",
+  "title": "Longest Repeating Character Replacement", "difficulty": "Medium",
+  "topics": ["Hash Table","String","Sliding Window"],
+  "url": "https://leetcode.com/problems/longest-repeating-character-replacement/",
+  "comparison": "Exact",
+  "cases": [
+    { "args": ["ABAB", 2], "expected": 4 },
+    { "args": ["AABABBA", 1], "expected": 4 } ] }

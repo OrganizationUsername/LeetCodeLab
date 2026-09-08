@@ -1,0 +1,5 @@
+{ "id": 572, "slug": "subtree-of-another-tree", "title": "Subtree of Another Tree", "difficulty": "Easy",
+  "topics": ["Tree","DFS","String Matching","Binary Tree"],
+  "url": "https://leetcode.com/problems/subtree-of-another-tree/", "comparison": "Exact",
+  "cases": [ { "args": [[3,4,5,1,2],[4,1,2]], "expected": true },
+    { "args": [[3,4,5,1,2,null,null,null,null,0],[4,1,2]], "expected": false } ] }

@@ -1,0 +1,12 @@
+{
+  "id": 49, "slug": "group-anagrams", "title": "Group Anagrams",
+  "difficulty": "Medium", "topics": ["Array", "Hash Table", "String", "Sorting"],
+  "url": "https://leetcode.com/problems/group-anagrams/",
+  "comparison": "UnorderedNested",
+  "cases": [
+    { "args": [["eat","tea","tan","ate","nat","bat"]],
+      "expected": [["bat"],["nat","tan"],["ate","eat","tea"]] },
+    { "args": [[""]], "expected": [[""]] },
+    { "args": [["a"]], "expected": [["a"]] }
+  ]
+}

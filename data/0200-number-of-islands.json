@@ -1,0 +1,12 @@
+{
+  "id": 200, "slug": "number-of-islands", "title": "Number of Islands",
+  "difficulty": "Medium", "topics": ["Array", "DFS", "BFS", "Union Find", "Matrix"],
+  "url": "https://leetcode.com/problems/number-of-islands/",
+  "comparison": "Exact",
+  "cases": [
+    { "args": [[["1","1","1","1","0"],["1","1","0","1","0"],["1","1","0","0","0"],["0","0","0","0","0"]]],
+      "expected": 1 },
+    { "args": [[["1","1","0","0","0"],["1","1","0","0","0"],["0","0","1","0","0"],["0","0","0","1","1"]]],
+      "expected": 3 }
+  ]
+}

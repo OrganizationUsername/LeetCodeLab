@@ -1,0 +1,6 @@
+{ "id": 102, "slug": "binary-tree-level-order-traversal", "title": "Binary Tree Level Order Traversal",
+  "difficulty": "Medium", "topics": ["Tree","BFS","Binary Tree"],
+  "url": "https://leetcode.com/problems/binary-tree-level-order-traversal/", "comparison": "Exact",
+  "cases": [ { "args": [[3,9,20,null,null,15,7]], "expected": [[3],[9,20],[15,7]] },
+    { "args": [[1]], "expected": [[1]] },
+    { "args": [[]], "expected": [] } ] }

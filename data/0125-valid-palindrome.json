@@ -1,0 +1,7 @@
+{ "id": 125, "slug": "valid-palindrome", "title": "Valid Palindrome", "difficulty": "Easy",
+  "topics": ["Two Pointers","String"], "url": "https://leetcode.com/problems/valid-palindrome/",
+  "comparison": "Exact",
+  "cases": [
+    { "args": ["A man, a plan, a canal: Panama"], "expected": true },
+    { "args": ["race a car"], "expected": false },
+    { "args": [" "], "expected": true } ] }
