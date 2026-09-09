@@ -30,6 +30,37 @@ public sealed class SetMatrixZeroes : ProblemTests<SetMatrixZeroes>
 {
     public void Solve(int[][] matrix)
     {
-        throw new NotImplementedException();
+        var jMax = matrix.GetLength(0);
+        var iMax = matrix[0].GetLength(0);
+        var rowSet = new HashSet<int>();
+        var colSet = new HashSet<int>();
+        for (var j = 0; j < jMax; j++)
+        {
+            for (var i = 0; i < iMax; i++)
+            {
+                if (matrix[j][i] == 0)
+                {
+                    rowSet.Add(j);
+                    colSet.Add(i);
+                }
+            }
+        }
+
+        foreach (var i in colSet)
+        {
+            for (var j = 0; j < jMax; j++)
+            {
+                matrix[j][i] = 0;
+            }
+        }
+
+        foreach (var j in rowSet)
+        {
+            for (var i = 0; i < iMax; i++)
+            {
+                matrix[j][i] = 0;
+            }
+        }
+
     }
 }
