@@ -1,0 +1,83 @@
+{
+  "id": 617,
+  "slug": "merge-two-binary-trees",
+  "title": "Merge Two Binary Trees",
+  "difficulty": "Easy",
+  "topics": [
+    "Tree",
+    "DFS",
+    "BFS",
+    "Binary Tree"
+  ],
+  "url": "https://leetcode.com/problems/merge-two-binary-trees/",
+  "comparison": "Exact",
+  "folder": "Trees",
+  "className": "MergeTwoBinaryTrees",
+  "signature": "TreeNode? Solve(TreeNode? root1, TreeNode? root2)",
+  "statement": "Overlay the two trees. Where both have a node, the merged value is their sum. Where only one has a node, that subtree is used as is. Return the merged tree.",
+  "constraints": [
+    "0 <= node count <= 2000 in each tree"
+  ],
+  "hints": [
+    "If either node is null, the answer at that position is simply the other one.",
+    "Otherwise create a node holding the sum and recurse into both left pairs and both right pairs.",
+    "You may build a fresh tree or mutate one in place; either is accepted."
+  ],
+  "complexity": "O(n) time, O(h) space",
+  "cases": [
+    {
+      "args": [
+        [
+          1,
+          3,
+          2,
+          5
+        ],
+        [
+          2,
+          1,
+          3,
+          null,
+          4,
+          null,
+          7
+        ]
+      ],
+      "expected": [
+        3,
+        4,
+        5,
+        5,
+        4,
+        null,
+        7
+      ]
+    },
+    {
+      "args": [
+        [
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        2,
+        2
+      ]
+    },
+    {
+      "args": [
+        [],
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    }
+  ]
+}

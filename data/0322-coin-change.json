@@ -9,6 +9,20 @@
     "BFS"
   ],
   "url": "https://leetcode.com/problems/coin-change/",
+  "folder": "DynamicProgramming",
+  "className": "CoinChange",
+  "statement": "Return the fewest coins that add up to amount, or -1 if no combination does. You have unlimited coins of each denomination.",
+  "constraints": [
+    "1 <= coins.Length <= 12",
+    "0 <= amount <= 10^4 on the examples, 100000 on the stress case"
+  ],
+  "hints": [
+    "Greedily taking the largest coin is wrong. Coins [1,3,4] and amount 6 is the classic counterexample.",
+    "Build up from 0: best[v] is the fewest coins making value v, and best[0] is 0.",
+    "best[v] = 1 + min over coins c <= v of best[v-c]. Seed the array with a sentinel above any real answer so unreachable values stay recognisable."
+  ],
+  "complexity": "O(amount * coins) time",
+  "signature": "int Solve(int[] coins, int amount)",
   "comparison": "Exact",
   "timeoutMs": 3000,
   "maxAllocatedBytes": 16777216,

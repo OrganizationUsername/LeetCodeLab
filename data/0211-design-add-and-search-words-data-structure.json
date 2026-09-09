@@ -1,0 +1,84 @@
+{
+  "id": 211,
+  "slug": "design-add-and-search-words-data-structure",
+  "title": "Design Add and Search Words Data Structure",
+  "difficulty": "Medium",
+  "topics": [
+    "String",
+    "Depth-First Search",
+    "Design",
+    "Trie"
+  ],
+  "url": "https://leetcode.com/problems/design-add-and-search-words-data-structure/",
+  "comparison": "Design",
+  "folder": "Design",
+  "className": "WordDictionaryTests",
+  "statement": "Store words and search them, where a search string may contain dots. A dot matches any single letter. AddWord adds a word; Search returns whether any stored word matches the pattern.",
+  "constraints": [
+    "1 <= word.Length <= 25",
+    "added words are lowercase letters",
+    "search patterns may contain dots"
+  ],
+  "hints": [
+    "Start from a plain trie, exactly as in Implement Trie.",
+    "Search can no longer be a simple loop, because a dot forks the walk.",
+    "Make search recursive over (node, index). On a normal letter follow that one child; on a dot recurse into EVERY child. A miss just returns false and lets another branch try."
+  ],
+  "complexity": "O(length) per add, O(26^dots * length) per search",
+  "design": {
+    "type": "WordDictionary",
+    "members": [
+      "WordDictionary()",
+      "void AddWord(string word)",
+      "bool Search(string word)"
+    ]
+  },
+  "cases": [
+    {
+      "ops": [
+        "WordDictionary",
+        "AddWord",
+        "AddWord",
+        "AddWord",
+        "Search",
+        "Search",
+        "Search",
+        "Search"
+      ],
+      "args": [
+        [],
+        [
+          "bad"
+        ],
+        [
+          "dad"
+        ],
+        [
+          "mad"
+        ],
+        [
+          "pad"
+        ],
+        [
+          "bad"
+        ],
+        [
+          ".ad"
+        ],
+        [
+          "b.."
+        ]
+      ],
+      "expected": [
+        null,
+        null,
+        null,
+        null,
+        false,
+        true,
+        true,
+        true
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": 567,
+  "slug": "permutation-in-string",
+  "title": "Permutation in String",
+  "difficulty": "Medium",
+  "topics": [
+    "Hash Table",
+    "Two Pointers",
+    "String",
+    "Sliding Window"
+  ],
+  "url": "https://leetcode.com/problems/permutation-in-string/",
+  "comparison": "Exact",
+  "folder": "SlidingWindow",
+  "className": "PermutationInString",
+  "statement": "Return true when s2 contains a contiguous slice that is a rearrangement of s1.",
+  "constraints": [
+    "1 <= s1.Length, s2.Length <= 10^4",
+    "lowercase English letters"
+  ],
+  "hints": [
+    "Any rearrangement of s1 has exactly the same letter counts and exactly the same length.",
+    "So slide a window of s1.Length across s2 and compare letter counts.",
+    "Do not rebuild the counts each step. Add the entering character and remove the leaving one, so each step is O(1) over a 26-slot array."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "signature": "bool Solve(string s1, string s2)",
+  "cases": [
+    {
+      "args": [
+        "ab",
+        "eidbaooo"
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        "ab",
+        "eidboaoo"
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        "adc",
+        "dcda"
+      ],
+      "expected": true
+    }
+  ]
+}

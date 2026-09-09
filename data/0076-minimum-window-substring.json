@@ -1,0 +1,50 @@
+{
+  "id": 76,
+  "slug": "minimum-window-substring",
+  "title": "Minimum Window Substring",
+  "difficulty": "Hard",
+  "topics": [
+    "Hash Table",
+    "String",
+    "Sliding Window"
+  ],
+  "url": "https://leetcode.com/problems/minimum-window-substring/",
+  "comparison": "Exact",
+  "folder": "SlidingWindow",
+  "className": "MinimumWindowSubstring",
+  "statement": "Return the shortest slice of s containing every character of t, counting repeats. Return an empty string when no such slice exists. The answer is unique.",
+  "constraints": [
+    "1 <= s.Length, t.Length <= 10^5",
+    "upper and lower case English letters"
+  ],
+  "hints": [
+    "Count what t requires. Then grow a window to the right until it satisfies every requirement.",
+    "Track how many distinct characters are currently satisfied rather than re-comparing the whole count table each step.",
+    "Once the window is valid, shrink from the left while it stays valid, recording the best. Then resume growing. Each index moves at most twice."
+  ],
+  "complexity": "O(n + m) time",
+  "signature": "string Solve(string s, string t)",
+  "cases": [
+    {
+      "args": [
+        "ADOBECODEBANC",
+        "ABC"
+      ],
+      "expected": "BANC"
+    },
+    {
+      "args": [
+        "a",
+        "a"
+      ],
+      "expected": "a"
+    },
+    {
+      "args": [
+        "a",
+        "aa"
+      ],
+      "expected": ""
+    }
+  ]
+}

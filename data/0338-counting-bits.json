@@ -1,0 +1,58 @@
+{
+  "id": 338,
+  "slug": "counting-bits",
+  "title": "Counting Bits",
+  "difficulty": "Easy",
+  "topics": [
+    "Dynamic Programming",
+    "Bit Manipulation"
+  ],
+  "url": "https://leetcode.com/problems/counting-bits/",
+  "comparison": "Exact",
+  "folder": "BitManipulation",
+  "className": "CountingBits",
+  "signature": "int[] Solve(int n)",
+  "statement": "Return an array of length n + 1 where entry i is the number of set bits in i.",
+  "constraints": [
+    "0 <= n <= 10^5"
+  ],
+  "hints": [
+    "Calling a popcount routine for each i is O(n log n) and works.",
+    "For O(n), reuse answers you already have: i and i >> 1 differ only by the lowest bit of i.",
+    "So result[i] = result[i >> 1] + (i & 1)."
+  ],
+  "complexity": "O(n) time",
+  "cases": [
+    {
+      "args": [
+        2
+      ],
+      "expected": [
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        5
+      ],
+      "expected": [
+        0,
+        1,
+        1,
+        2,
+        1,
+        2
+      ]
+    },
+    {
+      "args": [
+        0
+      ],
+      "expected": [
+        0
+      ]
+    }
+  ]
+}

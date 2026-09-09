@@ -1,7 +1,72 @@
-{ "id": 167, "slug": "two-sum-ii-input-array-is-sorted", "title": "Two Sum II - Input Array Is Sorted", "difficulty": "Medium",
-  "topics": ["Array","Two Pointers","Binary Search"], "url": "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/",
+{
+  "id": 167,
+  "slug": "two-sum-ii-input-array-is-sorted",
+  "title": "Two Sum II - Input Array Is Sorted",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Two Pointers",
+    "Binary Search"
+  ],
+  "url": "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/",
+  "folder": "TwoPointers",
+  "className": "TwoSumSortedInput",
+  "signature": "int[] Solve(int[] numbers, int target)",
+  "statement": "Like Two Sum, but the array is sorted ascending and the returned indices are ONE-based. Use constant extra space.",
+  "constraints": [
+    "2 <= numbers.Length <= 3*10^4",
+    "numbers is sorted ascending",
+    "exactly one solution exists"
+  ],
+  "hints": [
+    "Sortedness is the whole gift here. You do not need a dictionary.",
+    "One pointer at each end. Their sum is too small or too large, and that tells you unambiguously which pointer to move.",
+    "Remember to add 1 to each index before returning."
+  ],
+  "complexity": "O(n) time, O(1) space",
   "comparison": "Exact",
   "cases": [
-    { "args": [[2,7,11,15], 9], "expected": [1,2] },
-    { "args": [[2,3,4], 6], "expected": [1,3] },
-    { "args": [[-1,0], -1], "expected": [1,2] } ] }
+    {
+      "args": [
+        [
+          2,
+          7,
+          11,
+          15
+        ],
+        9
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "args": [
+        [
+          2,
+          3,
+          4
+        ],
+        6
+      ],
+      "expected": [
+        1,
+        3
+      ]
+    },
+    {
+      "args": [
+        [
+          -1,
+          0
+        ],
+        -1
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    }
+  ]
+}

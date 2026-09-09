@@ -8,6 +8,21 @@
     "Binary Search"
   ],
   "url": "https://leetcode.com/problems/koko-eating-bananas/",
+  "folder": "Searching",
+  "className": "KokoEatingBananas",
+  "signature": "int Solve(int[] piles, int h)",
+  "statement": "Koko eats bananas at k per hour. Each hour she picks one pile and eats up to k from it; if the pile has fewer, she eats it and stops for that hour. Return the smallest k that clears every pile within h hours.",
+  "constraints": [
+    "1 <= piles.Length <= 10^4",
+    "piles.Length <= h <= 10^9",
+    "1 <= piles[i] <= 10^9"
+  ],
+  "hints": [
+    "Do not search the array. Binary search the ANSWER: the value of k, between 1 and the largest pile.",
+    "For a candidate k, hours needed is the sum over piles of ceiling(pile / k). Use (pile + k - 1) / k.",
+    "Feasibility is monotonic: if k works so does every larger k. Shrink toward the smallest k that still fits in h."
+  ],
+  "complexity": "O(n log(max pile)) time",
   "comparison": "Exact",
   "timeoutMs": 3000,
   "cases": [

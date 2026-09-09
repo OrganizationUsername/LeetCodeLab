@@ -1,6 +1,72 @@
-{ "id": 102, "slug": "binary-tree-level-order-traversal", "title": "Binary Tree Level Order Traversal",
-  "difficulty": "Medium", "topics": ["Tree","BFS","Binary Tree"],
-  "url": "https://leetcode.com/problems/binary-tree-level-order-traversal/", "comparison": "Exact",
-  "cases": [ { "args": [[3,9,20,null,null,15,7]], "expected": [[3],[9,20],[15,7]] },
-    { "args": [[1]], "expected": [[1]] },
-    { "args": [[]], "expected": [] } ] }
+{
+  "id": 102,
+  "slug": "binary-tree-level-order-traversal",
+  "title": "Binary Tree Level Order Traversal",
+  "difficulty": "Medium",
+  "topics": [
+    "Tree",
+    "BFS",
+    "Binary Tree"
+  ],
+  "url": "https://leetcode.com/problems/binary-tree-level-order-traversal/",
+  "folder": "Trees",
+  "className": "BinaryTreeLevelOrderTraversal",
+  "statement": "Return the node values level by level, top to bottom and left to right within each level. An empty tree returns an empty list.",
+  "constraints": [
+    "0 <= node count <= 2000"
+  ],
+  "hints": [
+    "This is breadth-first search with one extra detail: you must know where each level ends.",
+    "Before draining the queue, record its current Count. That count is exactly the width of the current level.",
+    "Process precisely that many nodes into one list, enqueuing children as you go, then start the next level."
+  ],
+  "complexity": "O(n) time, O(n) space",
+  "signature": "IList<IList<int>> Solve(TreeNode? root)",
+  "comparison": "Exact",
+  "cases": [
+    {
+      "args": [
+        [
+          3,
+          9,
+          20,
+          null,
+          null,
+          15,
+          7
+        ]
+      ],
+      "expected": [
+        [
+          3
+        ],
+        [
+          9,
+          20
+        ],
+        [
+          15,
+          7
+        ]
+      ]
+    },
+    {
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "args": [
+        []
+      ],
+      "expected": []
+    }
+  ]
+}

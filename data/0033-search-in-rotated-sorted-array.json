@@ -1,6 +1,67 @@
-{ "id": 33, "slug": "search-in-rotated-sorted-array", "title": "Search in Rotated Sorted Array",
-  "difficulty": "Medium", "topics": ["Array","Binary Search"],
-  "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/", "comparison": "Exact",
-  "cases": [ { "args": [[4,5,6,7,0,1,2], 0], "expected": 4 },
-    { "args": [[4,5,6,7,0,1,2], 3], "expected": -1 },
-    { "args": [[1], 0], "expected": -1 } ] }
+{
+  "id": 33,
+  "slug": "search-in-rotated-sorted-array",
+  "title": "Search in Rotated Sorted Array",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Binary Search"
+  ],
+  "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+  "folder": "Searching",
+  "className": "SearchInRotatedSortedArray",
+  "signature": "int Solve(int[] nums, int target)",
+  "statement": "A sorted array of distinct values was rotated at some unknown pivot. Return the index of target, or -1. Must run in logarithmic time.",
+  "constraints": [
+    "1 <= nums.Length <= 5000",
+    "all values distinct"
+  ],
+  "hints": [
+    "Even after rotation, at least one half of any subrange is still sorted.",
+    "Compare nums[lo] with nums[mid] to work out which half is the sorted one.",
+    "If target lies inside that sorted half range, search there; otherwise search the other half."
+  ],
+  "complexity": "O(log n) time",
+  "comparison": "Exact",
+  "cases": [
+    {
+      "args": [
+        [
+          4,
+          5,
+          6,
+          7,
+          0,
+          1,
+          2
+        ],
+        0
+      ],
+      "expected": 4
+    },
+    {
+      "args": [
+        [
+          4,
+          5,
+          6,
+          7,
+          0,
+          1,
+          2
+        ],
+        3
+      ],
+      "expected": -1
+    },
+    {
+      "args": [
+        [
+          1
+        ],
+        0
+      ],
+      "expected": -1
+    }
+  ]
+}

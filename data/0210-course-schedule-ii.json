@@ -1,0 +1,103 @@
+{
+  "id": 210,
+  "slug": "course-schedule-ii",
+  "title": "Course Schedule II",
+  "difficulty": "Medium",
+  "topics": [
+    "DFS",
+    "BFS",
+    "Graph",
+    "Topological Sort"
+  ],
+  "url": "https://leetcode.com/problems/course-schedule-ii/",
+  "comparison": "AnyValid",
+  "folder": "Graphs",
+  "className": "CourseScheduleII",
+  "statement": "Each entry [a, b] means b must be taken before a. Return any ordering of all the courses that respects every prerequisite, or an empty array when no such ordering exists.",
+  "constraints": [
+    "1 <= numCourses <= 2000",
+    "0 <= prerequisites.Length <= numCourses*(numCourses-1)"
+  ],
+  "hints": [
+    "Same graph as Course Schedule, but now you must produce the order rather than just a yes or no.",
+    "Kahn topological sort gives it directly: repeatedly take a course with no remaining prerequisites and append it to the output.",
+    "If the output is shorter than numCourses when the queue empties, a cycle blocked you, so return an empty array."
+  ],
+  "complexity": "O(V + E) time",
+  "signature": "int[] Solve(int numCourses, int[][] prerequisites)",
+  "extraMembers": [
+    "/// <summary>\n/// Harness plumbing: any ordering that respects every prerequisite is accepted.\n/// An unsolvable case must return an empty array.\n/// </summary>\npublic static bool Validate(object?[] args, object? actual, JsonElement expected)\n{\n    int numCourses = (int)args[0]!;\n    int[][] prerequisites = (int[][])args[1]!;\n    if (actual is not int[] order) return false;\n\n    if (expected.GetArrayLength() == 0) return order.Length == 0;\n    if (order.Length != numCourses) return false;\n\n    int[] position = new int[numCourses];\n    bool[] seen = new bool[numCourses];\n    for (int i = 0; i < order.Length; i++)\n    {\n        int course = order[i];\n        if (course < 0 || course >= numCourses || seen[course]) return false;\n        seen[course] = true;\n        position[course] = i;\n    }\n\n    foreach (int[] edge in prerequisites)\n        if (position[edge[1]] > position[edge[0]]) return false;\n\n    return true;\n}"
+  ],
+  "cases": [
+    {
+      "args": [
+        2,
+        [
+          [
+            1,
+            0
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "args": [
+        4,
+        [
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "args": [
+        1,
+        []
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "cyclic, no ordering exists",
+      "args": [
+        2,
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": []
+    }
+  ]
+}

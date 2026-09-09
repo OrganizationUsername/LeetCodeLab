@@ -1,5 +1,62 @@
-{ "id": 198, "slug": "house-robber", "title": "House Robber", "difficulty": "Medium",
-  "topics": ["Array","Dynamic Programming"], "url": "https://leetcode.com/problems/house-robber/",
+{
+  "id": 198,
+  "slug": "house-robber",
+  "title": "House Robber",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Dynamic Programming"
+  ],
+  "url": "https://leetcode.com/problems/house-robber/",
+  "folder": "DynamicProgramming",
+  "className": "HouseRobber",
+  "statement": "Each value is the money in a house along a street. You cannot rob two adjacent houses. Return the maximum you can take.",
+  "constraints": [
+    "1 <= nums.Length <= 100",
+    "0 <= nums[i] <= 400"
+  ],
+  "hints": [
+    "At each house you either take it, which forces you to skip the previous one, or you skip it.",
+    "best(i) = max(best(i-1), best(i-2) + nums[i]).",
+    "Only two running values are needed, so this is O(1) space."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "signature": "int Solve(int[] nums)",
   "comparison": "Exact",
-  "cases": [ { "args": [[1,2,3,1]], "expected": 4 }, { "args": [[2,7,9,3,1]], "expected": 12 },
-    { "args": [[2,1,1,2]], "expected": 4 } ] }
+  "cases": [
+    {
+      "args": [
+        [
+          1,
+          2,
+          3,
+          1
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "args": [
+        [
+          2,
+          7,
+          9,
+          3,
+          1
+        ]
+      ],
+      "expected": 12
+    },
+    {
+      "args": [
+        [
+          2,
+          1,
+          1,
+          2
+        ]
+      ],
+      "expected": 4
+    }
+  ]
+}

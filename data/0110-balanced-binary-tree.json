@@ -1,0 +1,64 @@
+{
+  "id": 110,
+  "slug": "balanced-binary-tree",
+  "title": "Balanced Binary Tree",
+  "difficulty": "Easy",
+  "topics": [
+    "Tree",
+    "DFS",
+    "Binary Tree"
+  ],
+  "url": "https://leetcode.com/problems/balanced-binary-tree/",
+  "comparison": "Exact",
+  "folder": "Trees",
+  "className": "BalancedBinaryTree",
+  "signature": "bool Solve(TreeNode? root)",
+  "statement": "Return true when the tree is height-balanced, meaning that at every node the two subtree heights differ by at most one.",
+  "constraints": [
+    "0 <= node count <= 5000"
+  ],
+  "hints": [
+    "Computing height separately at every node re-walks the tree and gives O(n^2).",
+    "Instead have one recursion return the height AND signal imbalance in the same pass.",
+    "A common trick is returning -1 as a sentinel for already unbalanced, which then propagates straight up."
+  ],
+  "complexity": "O(n) time, O(h) space",
+  "cases": [
+    {
+      "args": [
+        [
+          3,
+          9,
+          20,
+          null,
+          null,
+          15,
+          7
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        [
+          1,
+          2,
+          2,
+          3,
+          3,
+          null,
+          null,
+          4,
+          4
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        []
+      ],
+      "expected": true
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "id": 134,
+  "slug": "gas-station",
+  "title": "Gas Station",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Greedy"
+  ],
+  "url": "https://leetcode.com/problems/gas-station/",
+  "comparison": "Exact",
+  "folder": "Greedy",
+  "className": "GasStation",
+  "statement": "Stations are arranged in a circle. At station i you gain gas[i] and spend cost[i] driving to the next. Return the starting index that lets you complete the loop, or -1 if none does. The answer is unique when it exists.",
+  "constraints": [
+    "1 <= gas.Length <= 10^5",
+    "0 <= gas[i], cost[i] <= 10^4"
+  ],
+  "hints": [
+    "If the total gas is less than the total cost, no start works. That check alone settles the -1 case.",
+    "Otherwise a valid start exists and is unique, so you only need to find it.",
+    "Sweep once with a running tank. Whenever the tank goes negative, no station from the current candidate up to here can be the start, so make the next station the candidate and reset the tank."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "signature": "int Solve(int[] gas, int[] cost)",
+  "cases": [
+    {
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          3,
+          4,
+          5,
+          1,
+          2
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "args": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          3,
+          4,
+          3
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "args": [
+        [
+          5,
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          4,
+          4,
+          1,
+          5,
+          1
+        ]
+      ],
+      "expected": 4
+    }
+  ]
+}

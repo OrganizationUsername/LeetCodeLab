@@ -1,0 +1,52 @@
+{
+  "id": 91,
+  "slug": "decode-ways",
+  "title": "Decode Ways",
+  "difficulty": "Medium",
+  "topics": [
+    "String",
+    "Dynamic Programming"
+  ],
+  "url": "https://leetcode.com/problems/decode-ways/",
+  "comparison": "Exact",
+  "folder": "DynamicProgramming",
+  "className": "DecodeWays",
+  "statement": "A maps to 1 through Z maps to 26. Given a string of digits, count how many ways it can be decoded back into letters. A leading zero is never valid, so 06 does not decode as 6.",
+  "constraints": [
+    "1 <= s.Length <= 100",
+    "s contains only digits"
+  ],
+  "hints": [
+    "Same shape as Climbing Stairs, but each step has to be legal.",
+    "ways[i] counts decodings of the first i characters. You extend by one digit when it is not 0, and by two digits when they form 10 to 26.",
+    "ways[i] = (single digit valid ? ways[i-1] : 0) + (pair valid ? ways[i-2] : 0). A string starting with 0 has zero decodings."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "signature": "int Solve(string s)",
+  "cases": [
+    {
+      "args": [
+        "12"
+      ],
+      "expected": 2
+    },
+    {
+      "args": [
+        "226"
+      ],
+      "expected": 3
+    },
+    {
+      "args": [
+        "06"
+      ],
+      "expected": 0
+    },
+    {
+      "args": [
+        "10"
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -8,6 +8,20 @@
     "Dynamic Programming"
   ],
   "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+  "folder": "Arrays",
+  "className": "BestTimeToBuyAndSellStock",
+  "signature": "int Solve(int[] prices)",
+  "statement": "prices[i] is the price on day i. Buy on one day and sell on a strictly later day, and return the maximum profit. If no trade is profitable, return 0.",
+  "constraints": [
+    "1 <= prices.Length <= 10^5",
+    "0 <= prices[i] <= 10^4"
+  ],
+  "hints": [
+    "For any selling day, the best you could have done is to have bought at the cheapest price before it.",
+    "So one pass suffices: track the minimum price seen so far, and the best profit seen so far.",
+    "Be consistent about update order so you never sell before you buy."
+  ],
+  "complexity": "O(n) time, O(1) space",
   "comparison": "Exact",
   "timeoutMs": 3000,
   "cases": [

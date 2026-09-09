@@ -1,0 +1,57 @@
+{
+  "id": 28,
+  "slug": "find-the-index-of-the-first-occurrence-in-a-string",
+  "title": "Find the Index of the First Occurrence in a String",
+  "difficulty": "Easy",
+  "topics": [
+    "Two Pointers",
+    "String",
+    "String Matching"
+  ],
+  "url": "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/",
+  "comparison": "Exact",
+  "folder": "Strings",
+  "className": "FirstOccurrenceInString",
+  "signature": "int Solve(string haystack, string needle)",
+  "statement": "Return the index of the first occurrence of needle in haystack, or -1 when it does not occur.",
+  "constraints": [
+    "1 <= haystack.Length, needle.Length <= 10^4",
+    "lowercase English letters"
+  ],
+  "hints": [
+    "The straightforward approach tries every starting position and compares forward.",
+    "That is O(n*m), which is fine at these limits.",
+    "If you want to go further, look up Knuth-Morris-Pratt, which precomputes how far to jump on a mismatch to reach O(n + m)."
+  ],
+  "complexity": "O(n*m) time naively, O(n+m) with KMP",
+  "cases": [
+    {
+      "args": [
+        "sadbutsad",
+        "sad"
+      ],
+      "expected": 0
+    },
+    {
+      "args": [
+        "leetcode",
+        "leeto"
+      ],
+      "expected": -1
+    },
+    {
+      "args": [
+        "hello",
+        "ll"
+      ],
+      "expected": 2
+    },
+    {
+      "args": [
+        "abc",
+        "c"
+      ],
+      "expected": 2
+    }
+  ]
+}

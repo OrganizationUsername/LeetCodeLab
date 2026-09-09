@@ -1,6 +1,82 @@
-{ "id": 207, "slug": "course-schedule", "title": "Course Schedule", "difficulty": "Medium",
-  "topics": ["DFS","BFS","Graph","Topological Sort"], "url": "https://leetcode.com/problems/course-schedule/",
+{
+  "id": 207,
+  "slug": "course-schedule",
+  "title": "Course Schedule",
+  "difficulty": "Medium",
+  "topics": [
+    "DFS",
+    "BFS",
+    "Graph",
+    "Topological Sort"
+  ],
+  "url": "https://leetcode.com/problems/course-schedule/",
+  "folder": "Graphs",
+  "className": "CourseSchedule",
+  "statement": "Each entry [a, b] means you must take b before a. Return true when some ordering lets you finish every course, which is exactly the question of whether the dependency graph is free of cycles.",
+  "constraints": [
+    "1 <= numCourses <= 2000",
+    "0 <= prerequisites.Length <= 5000"
+  ],
+  "hints": [
+    "Model it as a directed graph with an edge from b to a, then ask whether it has a cycle.",
+    "Kahn topological sort: count incoming edges per course, queue everything with zero, and remove them one by one.",
+    "If you manage to remove all numCourses nodes there was no cycle. Anything left over is stuck in one."
+  ],
+  "complexity": "O(V + E) time",
+  "signature": "bool Solve(int numCourses, int[][] prerequisites)",
   "comparison": "Exact",
-  "cases": [ { "args": [2, [[1,0]]], "expected": true },
-    { "args": [2, [[1,0],[0,1]]], "expected": false },
-    { "args": [5, [[1,4],[2,4],[3,1],[3,2]]], "expected": true } ] }
+  "cases": [
+    {
+      "args": [
+        2,
+        [
+          [
+            1,
+            0
+          ]
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        2,
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        5,
+        [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ]
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

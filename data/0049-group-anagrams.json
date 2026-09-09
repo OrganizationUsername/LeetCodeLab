@@ -1,12 +1,81 @@
 {
-  "id": 49, "slug": "group-anagrams", "title": "Group Anagrams",
-  "difficulty": "Medium", "topics": ["Array", "Hash Table", "String", "Sorting"],
+  "id": 49,
+  "slug": "group-anagrams",
+  "title": "Group Anagrams",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Hash Table",
+    "String",
+    "Sorting"
+  ],
   "url": "https://leetcode.com/problems/group-anagrams/",
+  "folder": "Arrays",
+  "className": "GroupAnagrams",
+  "signature": "IList<IList<string>> Solve(string[] strs)",
+  "statement": "Group the strings so that words made of the same letters land in the same group. Return the groups in any order, and the words within a group in any order.",
+  "constraints": [
+    "1 <= strs.Length <= 10^4",
+    "0 <= strs[i].Length <= 100",
+    "lowercase English letters only"
+  ],
+  "hints": [
+    "Two words are anagrams exactly when some canonical form of them is equal.",
+    "Sorting a word characters gives such a canonical form. So does a 26-slot letter count.",
+    "Use that canonical form as a Dictionary key mapping to the list of words that produced it."
+  ],
+  "complexity": "O(n * k log k) time, where k is word length",
   "comparison": "UnorderedNested",
   "cases": [
-    { "args": [["eat","tea","tan","ate","nat","bat"]],
-      "expected": [["bat"],["nat","tan"],["ate","eat","tea"]] },
-    { "args": [[""]], "expected": [[""]] },
-    { "args": [["a"]], "expected": [["a"]] }
+    {
+      "args": [
+        [
+          "eat",
+          "tea",
+          "tan",
+          "ate",
+          "nat",
+          "bat"
+        ]
+      ],
+      "expected": [
+        [
+          "bat"
+        ],
+        [
+          "nat",
+          "tan"
+        ],
+        [
+          "ate",
+          "eat",
+          "tea"
+        ]
+      ]
+    },
+    {
+      "args": [
+        [
+          ""
+        ]
+      ],
+      "expected": [
+        [
+          ""
+        ]
+      ]
+    },
+    {
+      "args": [
+        [
+          "a"
+        ]
+      ],
+      "expected": [
+        [
+          "a"
+        ]
+      ]
+    }
   ]
 }

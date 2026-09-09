@@ -1,7 +1,75 @@
-{ "id": 347, "slug": "top-k-frequent-elements", "title": "Top K Frequent Elements", "difficulty": "Medium",
-  "topics": ["Array","Hash Table","Heap","Bucket Sort"], "url": "https://leetcode.com/problems/top-k-frequent-elements/",
+{
+  "id": 347,
+  "slug": "top-k-frequent-elements",
+  "title": "Top K Frequent Elements",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Hash Table",
+    "Heap",
+    "Bucket Sort"
+  ],
+  "url": "https://leetcode.com/problems/top-k-frequent-elements/",
+  "folder": "Arrays",
+  "className": "TopKFrequentElements",
+  "signature": "int[] Solve(int[] nums, int k)",
+  "statement": "Return the k values that occur most often, in any order. The answer is guaranteed unique.",
+  "constraints": [
+    "1 <= nums.Length <= 10^5",
+    "k is between 1 and the number of distinct values"
+  ],
+  "hints": [
+    "Start with a Dictionary of value to occurrence count.",
+    "Then you need the k largest counts. Sorting the distinct values by count is acceptable.",
+    "For linear time: bucket by count, since no count can exceed nums.Length, then read buckets from the top down."
+  ],
+  "complexity": "O(n log n) with sorting, O(n) with bucketing",
   "comparison": "Unordered",
   "cases": [
-    { "args": [[1,1,1,2,2,3], 2], "expected": [1,2] },
-    { "args": [[1], 1], "expected": [1] },
-    { "args": [[4,4,4,5,5,6], 2], "expected": [4,5] } ] }
+    {
+      "args": [
+        [
+          1,
+          1,
+          1,
+          2,
+          2,
+          3
+        ],
+        2
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "args": [
+        [
+          1
+        ],
+        1
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "args": [
+        [
+          4,
+          4,
+          4,
+          5,
+          5,
+          6
+        ],
+        2
+      ],
+      "expected": [
+        4,
+        5
+      ]
+    }
+  ]
+}

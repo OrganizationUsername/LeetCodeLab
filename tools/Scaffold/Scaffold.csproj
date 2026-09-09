@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>LeetCodeLab.Scaffold</RootNamespace>
+    <AssemblyName>Scaffold</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\LeetCodeLab.Harness\LeetCodeLab.Harness.csproj" />
+  </ItemGroup>
+</Project>

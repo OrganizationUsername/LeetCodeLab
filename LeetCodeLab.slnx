@@ -6,6 +6,9 @@
     <Project Path="src/LeetCodeLab.Core/LeetCodeLab.Core.csproj" />
     <Project Path="src/LeetCodeLab.Harness/LeetCodeLab.Harness.csproj" />
   </Folder>
+  <Folder Name="/tools/">
+    <Project Path="tools/Scaffold/Scaffold.csproj" />
+  </Folder>
   <Folder Name="/verify/">
     <Project Path="verify/LeetCodeLab.Verify/LeetCodeLab.Verify.csproj" />
   </Folder>

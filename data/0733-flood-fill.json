@@ -1,0 +1,133 @@
+{
+  "id": 733,
+  "slug": "flood-fill",
+  "title": "Flood Fill",
+  "difficulty": "Easy",
+  "topics": [
+    "Array",
+    "DFS",
+    "BFS",
+    "Matrix"
+  ],
+  "url": "https://leetcode.com/problems/flood-fill/",
+  "comparison": "Exact",
+  "folder": "Graphs",
+  "className": "FloodFill",
+  "signature": "int[][] Solve(int[][] image, int sr, int sc, int color)",
+  "statement": "Starting from pixel (sr, sc), repaint it and every edge-connected pixel of the same original colour with the new colour. Return the image.",
+  "constraints": [
+    "1 <= rows, cols <= 50",
+    "0 <= colour values <= 65535"
+  ],
+  "hints": [
+    "Record the starting colour BEFORE you repaint anything, or the comparison changes under you.",
+    "Then depth-first search, repainting cells that still hold that original colour.",
+    "Watch the case where the new colour already equals the original: repainting changes nothing, so the recursion never terminates. Return early."
+  ],
+  "complexity": "O(rows * cols) time",
+  "cases": [
+    {
+      "args": [
+        [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ]
+        ],
+        1,
+        1,
+        2
+      ],
+      "expected": [
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          0
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "args": [
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "args": [
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ]
+        ],
+        1,
+        1,
+        1
+      ],
+      "expected": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": 647,
+  "slug": "palindromic-substrings",
+  "title": "Palindromic Substrings",
+  "difficulty": "Medium",
+  "topics": [
+    "Two Pointers",
+    "String",
+    "Dynamic Programming"
+  ],
+  "url": "https://leetcode.com/problems/palindromic-substrings/",
+  "comparison": "Exact",
+  "folder": "DynamicProgramming",
+  "className": "PalindromicSubstrings",
+  "statement": "Count how many substrings of s are palindromes. Substrings at different positions count separately even when they look identical.",
+  "constraints": [
+    "1 <= s.Length <= 1000",
+    "lowercase English letters"
+  ],
+  "hints": [
+    "Same machinery as Longest Palindromic Substring: expand around every centre.",
+    "There are 2n-1 centres, one per character and one between each adjacent pair.",
+    "Every successful expansion step IS another palindrome, so just count the steps rather than tracking the longest."
+  ],
+  "complexity": "O(n^2) time, O(1) space",
+  "signature": "int Solve(string s)",
+  "cases": [
+    {
+      "args": [
+        "abc"
+      ],
+      "expected": 3
+    },
+    {
+      "args": [
+        "aaa"
+      ],
+      "expected": 6
+    },
+    {
+      "args": [
+        "aba"
+      ],
+      "expected": 4
+    }
+  ]
+}

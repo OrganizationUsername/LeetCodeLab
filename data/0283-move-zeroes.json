@@ -1,11 +1,69 @@
 {
-  "id": 283, "slug": "move-zeroes", "title": "Move Zeroes",
-  "difficulty": "Easy", "topics": ["Array", "Two Pointers"],
+  "id": 283,
+  "slug": "move-zeroes",
+  "title": "Move Zeroes",
+  "difficulty": "Easy",
+  "topics": [
+    "Array",
+    "Two Pointers"
+  ],
   "url": "https://leetcode.com/problems/move-zeroes/",
+  "folder": "Arrays",
+  "className": "MoveZeroes",
+  "signature": "void Solve(int[] nums)",
+  "statement": "Move every zero to the end of the array while keeping the non-zero values in their original relative order. Do it in place; the method returns nothing and the array itself is checked.",
+  "constraints": [
+    "1 <= nums.Length <= 10^4"
+  ],
+  "hints": [
+    "Two cursors: one reading, one marking where the next non-zero should be written.",
+    "First pass, copy every non-zero value to the write cursor and advance it.",
+    "Second pass, fill everything from the write cursor onward with zeros."
+  ],
+  "complexity": "O(n) time, O(1) space",
   "comparison": "MutatedArg",
   "cases": [
-    { "args": [[0,1,0,3,12]], "expected": [1,3,12,0,0] },
-    { "args": [[0]], "expected": [0] },
-    { "args": [[1,0,1]], "expected": [1,1,0] }
+    {
+      "args": [
+        [
+          0,
+          1,
+          0,
+          3,
+          12
+        ]
+      ],
+      "expected": [
+        1,
+        3,
+        12,
+        0,
+        0
+      ]
+    },
+    {
+      "args": [
+        [
+          0
+        ]
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "args": [
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        1,
+        0
+      ]
+    }
   ]
 }

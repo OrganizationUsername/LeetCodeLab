@@ -1,7 +1,50 @@
-{ "id": 242, "slug": "valid-anagram", "title": "Valid Anagram", "difficulty": "Easy",
-  "topics": ["Hash Table","String","Sorting"], "url": "https://leetcode.com/problems/valid-anagram/",
+{
+  "id": 242,
+  "slug": "valid-anagram",
+  "title": "Valid Anagram",
+  "difficulty": "Easy",
+  "topics": [
+    "Hash Table",
+    "String",
+    "Sorting"
+  ],
+  "url": "https://leetcode.com/problems/valid-anagram/",
+  "folder": "Arrays",
+  "className": "ValidAnagram",
+  "signature": "bool Solve(string s, string t)",
+  "statement": "Return true when t is a rearrangement of s, using exactly the same letters the same number of times.",
+  "constraints": [
+    "1 <= s.Length, t.Length <= 5*10^4",
+    "lowercase English letters"
+  ],
+  "hints": [
+    "Different lengths can be rejected immediately.",
+    "Count how many times each character occurs in s, then decrement while walking t.",
+    "If a decrement would take a count below zero, or a character is missing entirely, it is not an anagram."
+  ],
+  "complexity": "O(n) time, O(1) space (26 counters)",
   "comparison": "Exact",
   "cases": [
-    { "args": ["anagram","nagaram"], "expected": true },
-    { "args": ["rat","car"], "expected": false },
-    { "args": ["a","ab"], "expected": false } ] }
+    {
+      "args": [
+        "anagram",
+        "nagaram"
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        "rat",
+        "car"
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        "a",
+        "ab"
+      ],
+      "expected": false
+    }
+  ]
+}

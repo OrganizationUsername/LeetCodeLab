@@ -1,7 +1,107 @@
-{ "id": 79, "slug": "word-search", "title": "Word Search", "difficulty": "Medium",
-  "topics": ["Array","Backtracking","Matrix"], "url": "https://leetcode.com/problems/word-search/",
+{
+  "id": 79,
+  "slug": "word-search",
+  "title": "Word Search",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Backtracking",
+    "Matrix"
+  ],
+  "url": "https://leetcode.com/problems/word-search/",
+  "folder": "Backtracking",
+  "className": "WordSearch",
+  "statement": "Return true if word can be spelled by walking the grid from cell to cell through shared edges, without reusing a cell within that path. Cells may be reused across different starting attempts.",
+  "constraints": [
+    "1 <= rows, cols <= 6",
+    "1 <= word.Length <= 15"
+  ],
+  "hints": [
+    "Try to start the walk from every cell, and depth-first search from each.",
+    "At each step the current cell must match the current letter; otherwise this path fails immediately.",
+    "Mark the cell as visited before recursing and restore it afterwards. Overwriting with a sentinel character avoids a second visited array."
+  ],
+  "complexity": "O(rows * cols * 4^len) worst case",
+  "signature": "bool Solve(char[][] board, string word)",
   "comparison": "Exact",
   "cases": [
-    { "args": [[["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "ABCCED"], "expected": true },
-    { "args": [[["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "SEE"], "expected": true },
-    { "args": [[["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "ABCB"], "expected": false } ] }
+    {
+      "args": [
+        [
+          [
+            "A",
+            "B",
+            "C",
+            "E"
+          ],
+          [
+            "S",
+            "F",
+            "C",
+            "S"
+          ],
+          [
+            "A",
+            "D",
+            "E",
+            "E"
+          ]
+        ],
+        "ABCCED"
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        [
+          [
+            "A",
+            "B",
+            "C",
+            "E"
+          ],
+          [
+            "S",
+            "F",
+            "C",
+            "S"
+          ],
+          [
+            "A",
+            "D",
+            "E",
+            "E"
+          ]
+        ],
+        "SEE"
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        [
+          [
+            "A",
+            "B",
+            "C",
+            "E"
+          ],
+          [
+            "S",
+            "F",
+            "C",
+            "S"
+          ],
+          [
+            "A",
+            "D",
+            "E",
+            "E"
+          ]
+        ],
+        "ABCB"
+      ],
+      "expected": false
+    }
+  ]
+}

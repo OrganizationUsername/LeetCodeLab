@@ -1,12 +1,100 @@
 {
-  "id": 200, "slug": "number-of-islands", "title": "Number of Islands",
-  "difficulty": "Medium", "topics": ["Array", "DFS", "BFS", "Union Find", "Matrix"],
+  "id": 200,
+  "slug": "number-of-islands",
+  "title": "Number of Islands",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "DFS",
+    "BFS",
+    "Union Find",
+    "Matrix"
+  ],
   "url": "https://leetcode.com/problems/number-of-islands/",
+  "folder": "Graphs",
+  "className": "NumberOfIslands",
+  "statement": "The grid holds the characters 1 for land and 0 for water. An island is a group of land cells joined edge to edge, not diagonally. Return how many islands there are.",
+  "constraints": [
+    "1 <= rows, cols <= 300"
+  ],
+  "hints": [
+    "Scan every cell. When you hit land you have found a new island, so increment the counter.",
+    "Then immediately flood the entire island so you never count it again, by depth-first or breadth-first search from that cell.",
+    "The simplest flood overwrites each visited land cell with 0. Mutating the input is allowed here."
+  ],
+  "complexity": "O(rows * cols) time",
+  "signature": "int Solve(char[][] grid)",
   "comparison": "Exact",
   "cases": [
-    { "args": [[["1","1","1","1","0"],["1","1","0","1","0"],["1","1","0","0","0"],["0","0","0","0","0"]]],
-      "expected": 1 },
-    { "args": [[["1","1","0","0","0"],["1","1","0","0","0"],["0","0","1","0","0"],["0","0","0","1","1"]]],
-      "expected": 3 }
+    {
+      "args": [
+        [
+          [
+            "1",
+            "1",
+            "1",
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1",
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "args": [
+        [
+          [
+            "1",
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1",
+            "1"
+          ]
+        ]
+      ],
+      "expected": 3
+    }
   ]
 }

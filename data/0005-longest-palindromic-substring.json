@@ -1,9 +1,57 @@
-{ "id": 5, "slug": "longest-palindromic-substring", "title": "Longest Palindromic Substring",
-  "difficulty": "Medium", "topics": ["Two Pointers","String","Dynamic Programming"],
+{
+  "id": 5,
+  "slug": "longest-palindromic-substring",
+  "title": "Longest Palindromic Substring",
+  "difficulty": "Medium",
+  "topics": [
+    "Two Pointers",
+    "String",
+    "Dynamic Programming"
+  ],
   "url": "https://leetcode.com/problems/longest-palindromic-substring/",
+  "folder": "DynamicProgramming",
+  "className": "LongestPalindromicSubstring",
+  "statement": "Return the longest contiguous substring of s that is a palindrome. Several answers can tie, and any of the longest is accepted.",
+  "constraints": [
+    "1 <= s.Length <= 1000"
+  ],
+  "hints": [
+    "Every palindrome has a centre. There are 2n-1 of them: one at each character, and one between each adjacent pair.",
+    "From each centre, expand outward while the characters match, and remember the longest span you achieve.",
+    "Handle odd and even length palindromes as two separate expansions from each index."
+  ],
+  "complexity": "O(n^2) time, O(1) space",
+  "signature": "string Solve(string s)",
   "comparison": "AnyValid",
   "cases": [
-    { "name": "babad (bab or aba)", "args": ["babad"], "expected": "bab" },
-    { "args": ["cbbd"], "expected": "bb" },
-    { "args": ["a"], "expected": "a" },
-    { "name": "ac (a or c)", "args": ["ac"], "expected": "a" } ] }
+    {
+      "name": "babad (bab or aba)",
+      "args": [
+        "babad"
+      ],
+      "expected": "bab"
+    },
+    {
+      "args": [
+        "cbbd"
+      ],
+      "expected": "bb"
+    },
+    {
+      "args": [
+        "a"
+      ],
+      "expected": "a"
+    },
+    {
+      "name": "ac (a or c)",
+      "args": [
+        "ac"
+      ],
+      "expected": "a"
+    }
+  ],
+  "extraMembers": [
+    "/// <summary>\n/// Harness plumbing, not part of your solution: several answers can be correct,\n/// so any palindromic substring of s with the known best length is accepted.\n/// </summary>\npublic static bool Validate(object?[] args, object? actual, JsonElement expected)\n{\n    string input = (string)args[0]!;\n    if (actual is not string answer) return false;\n    if (answer.Length != expected.GetString()!.Length) return false;\n    if (!input.Contains(answer, StringComparison.Ordinal)) return false;\n\n    for (int i = 0, j = answer.Length - 1; i < j; i++, j--)\n        if (answer[i] != answer[j]) return false;\n\n    return true;\n}"
+  ]
+}

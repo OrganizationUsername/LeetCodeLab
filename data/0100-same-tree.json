@@ -1,5 +1,73 @@
-{ "id": 100, "slug": "same-tree", "title": "Same Tree", "difficulty": "Easy",
-  "topics": ["Tree","DFS","BFS","Binary Tree"], "url": "https://leetcode.com/problems/same-tree/", "comparison": "Exact",
-  "cases": [ { "args": [[1,2,3],[1,2,3]], "expected": true },
-    { "args": [[1,2],[1,null,2]], "expected": false },
-    { "args": [[1,2,1],[1,1,2]], "expected": false } ] }
+{
+  "id": 100,
+  "slug": "same-tree",
+  "title": "Same Tree",
+  "difficulty": "Easy",
+  "topics": [
+    "Tree",
+    "DFS",
+    "BFS",
+    "Binary Tree"
+  ],
+  "url": "https://leetcode.com/problems/same-tree/",
+  "folder": "Trees",
+  "className": "SameTree",
+  "statement": "Return true when the two trees have identical structure and identical values at every position.",
+  "constraints": [
+    "0 <= node count <= 100"
+  ],
+  "hints": [
+    "Handle the null cases first: both null is true, exactly one null is false.",
+    "Otherwise the values must match and both pairs of subtrees must match.",
+    "That is a three-line recursion once the null case is out of the way."
+  ],
+  "complexity": "O(n) time, O(h) space",
+  "signature": "bool Solve(TreeNode? p, TreeNode? q)",
+  "comparison": "Exact",
+  "cases": [
+    {
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          null,
+          2
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

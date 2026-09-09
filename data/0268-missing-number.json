@@ -1,0 +1,65 @@
+{
+  "id": 268,
+  "slug": "missing-number",
+  "title": "Missing Number",
+  "difficulty": "Easy",
+  "topics": [
+    "Array",
+    "Hash Table",
+    "Math",
+    "Bit Manipulation"
+  ],
+  "url": "https://leetcode.com/problems/missing-number/",
+  "comparison": "Exact",
+  "folder": "Arrays",
+  "className": "MissingNumber",
+  "signature": "int Solve(int[] nums)",
+  "statement": "The array holds n distinct values drawn from the range 0 to n inclusive, so exactly one of them is absent. Return the missing value.",
+  "constraints": [
+    "1 <= nums.Length <= 10^4",
+    "all values distinct and within 0..n"
+  ],
+  "hints": [
+    "Sorting or a HashSet both work.",
+    "For O(1) space, the sum 0+1+...+n has a closed form: n*(n+1)/2. Subtract the actual sum.",
+    "XOR also works: XOR every index and every value together and the survivor is the missing one."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "cases": [
+    {
+      "args": [
+        [
+          3,
+          0,
+          1
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "args": [
+        [
+          0,
+          1
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "args": [
+        [
+          9,
+          6,
+          4,
+          2,
+          3,
+          5,
+          7,
+          0,
+          1
+        ]
+      ],
+      "expected": 8
+    }
+  ]
+}

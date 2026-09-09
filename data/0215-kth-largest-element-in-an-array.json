@@ -11,6 +11,19 @@
     "Quickselect"
   ],
   "url": "https://leetcode.com/problems/kth-largest-element-in-an-array/",
+  "folder": "Heap",
+  "className": "KthLargestElementInAnArray",
+  "statement": "Return the kth largest value by sort order, not the kth distinct value. Duplicates count each time they appear.",
+  "constraints": [
+    "1 <= k <= nums.Length <= 10^5"
+  ],
+  "hints": [
+    "Sorting and indexing from the end is O(n log n) and passes comfortably.",
+    "For O(n log k), keep a min-heap of size k: push everything, and drop the smallest whenever the heap grows past k. The root is then the answer.",
+    "For average O(n), quickselect partitions around a pivot and recurses into only one side."
+  ],
+  "complexity": "O(n log n) sorting, O(n log k) with a heap",
+  "signature": "int Solve(int[] nums, int k)",
   "comparison": "Exact",
   "timeoutMs": 3000,
   "cases": [

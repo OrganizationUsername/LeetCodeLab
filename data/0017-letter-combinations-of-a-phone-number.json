@@ -1,0 +1,61 @@
+{
+  "id": 17,
+  "slug": "letter-combinations-of-a-phone-number",
+  "title": "Letter Combinations of a Phone Number",
+  "difficulty": "Medium",
+  "topics": [
+    "Hash Table",
+    "String",
+    "Backtracking"
+  ],
+  "url": "https://leetcode.com/problems/letter-combinations-of-a-phone-number/",
+  "comparison": "Unordered",
+  "folder": "Backtracking",
+  "className": "LetterCombinations",
+  "statement": "Given digits from 2 to 9, return every letter combination the number could spell, using the classic phone keypad. An empty input returns an empty list. Any order is accepted.",
+  "constraints": [
+    "0 <= digits.Length <= 4",
+    "digits are 2 through 9"
+  ],
+  "hints": [
+    "Map each digit to its letters. Note that 7 and 9 have four letters, not three.",
+    "Then it is a straightforward product: for each letter of the current digit, recurse on the rest.",
+    "Handle the empty input as a special case: it returns an empty list, not a list containing an empty string."
+  ],
+  "complexity": "O(4^n) results",
+  "signature": "IList<string> Solve(string digits)",
+  "cases": [
+    {
+      "args": [
+        "23"
+      ],
+      "expected": [
+        "ad",
+        "ae",
+        "af",
+        "bd",
+        "be",
+        "bf",
+        "cd",
+        "ce",
+        "cf"
+      ]
+    },
+    {
+      "args": [
+        ""
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        "2"
+      ],
+      "expected": [
+        "a",
+        "b",
+        "c"
+      ]
+    }
+  ]
+}

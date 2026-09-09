@@ -1,0 +1,118 @@
+{
+  "id": 54,
+  "slug": "spiral-matrix",
+  "title": "Spiral Matrix",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Matrix",
+    "Simulation"
+  ],
+  "url": "https://leetcode.com/problems/spiral-matrix/",
+  "comparison": "Exact",
+  "folder": "Matrix",
+  "className": "SpiralMatrix",
+  "statement": "Return all values of the matrix read in spiral order: left to right along the top, down the right side, right to left along the bottom, up the left side, then inward.",
+  "constraints": [
+    "1 <= rows, cols <= 10"
+  ],
+  "hints": [
+    "Hold four boundaries: top, bottom, left and right.",
+    "Walk one edge at a time and shrink the corresponding boundary afterwards.",
+    "The trap is a non-square matrix, where you can exhaust the rows before the columns. Re-check that the boundaries have not crossed before the bottom edge and the left edge."
+  ],
+  "complexity": "O(rows*cols) time",
+  "signature": "IList<int> Solve(int[][] matrix)",
+  "cases": [
+    {
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6
+          ],
+          [
+            7,
+            8,
+            9
+          ]
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        6,
+        9,
+        8,
+        7,
+        4,
+        5
+      ]
+    },
+    {
+      "args": [
+        [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            5,
+            6,
+            7,
+            8
+          ],
+          [
+            9,
+            10,
+            11,
+            12
+          ]
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        4,
+        8,
+        12,
+        11,
+        10,
+        9,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "args": [
+        [
+          [
+            7
+          ],
+          [
+            9
+          ],
+          [
+            6
+          ]
+        ]
+      ],
+      "expected": [
+        7,
+        9,
+        6
+      ]
+    }
+  ]
+}

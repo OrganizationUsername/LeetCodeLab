@@ -1,0 +1,67 @@
+{
+  "id": 213,
+  "slug": "house-robber-ii",
+  "title": "House Robber II",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Dynamic Programming"
+  ],
+  "url": "https://leetcode.com/problems/house-robber-ii/",
+  "comparison": "Exact",
+  "folder": "DynamicProgramming",
+  "className": "HouseRobberII",
+  "statement": "Same as House Robber, except the houses are arranged in a CIRCLE, so the first and last are adjacent and cannot both be robbed. Return the maximum you can take.",
+  "constraints": [
+    "1 <= nums.Length <= 100",
+    "0 <= nums[i] <= 1000"
+  ],
+  "hints": [
+    "The circle only adds one constraint: house 0 and house n-1 cannot both be chosen.",
+    "So either you skip the last house, or you skip the first. Every valid plan falls into one of those two cases.",
+    "Run the plain House Robber solver twice, on nums[0..n-2] and on nums[1..n-1], and take the larger. Handle the single-house array separately."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "signature": "int Solve(int[] nums)",
+  "cases": [
+    {
+      "args": [
+        [
+          2,
+          3,
+          2
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "args": [
+        [
+          1,
+          2,
+          3,
+          1
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "args": [
+        [
+          5
+        ]
+      ],
+      "expected": 5
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "id": 88,
+  "slug": "merge-sorted-array",
+  "title": "Merge Sorted Array",
+  "difficulty": "Easy",
+  "topics": [
+    "Array",
+    "Two Pointers",
+    "Sorting"
+  ],
+  "url": "https://leetcode.com/problems/merge-sorted-array/",
+  "comparison": "MutatedArg",
+  "folder": "Arrays",
+  "className": "MergeSortedArray",
+  "signature": "void Solve(int[] nums1, int m, int[] nums2, int n)",
+  "statement": "nums1 has length m + n: the first m slots hold its values and the trailing n slots are zero padding. nums2 holds n values. Merge them into nums1 in sorted order, in place. Nothing is returned; nums1 itself is checked.",
+  "constraints": [
+    "nums1.Length == m + n",
+    "nums2.Length == n",
+    "both inputs are sorted ascending"
+  ],
+  "hints": [
+    "Merging front to back forces you to shift elements out of the way.",
+    "Fill from the BACK instead. The last slot of nums1 is free, and you always know the largest remaining value.",
+    "Walk three cursors backwards: one in each source, one writing. If nums2 empties first you are done, because the rest of nums1 is already in place."
+  ],
+  "complexity": "O(m + n) time, O(1) space",
+  "cases": [
+    {
+      "args": [
+        [
+          1,
+          2,
+          3,
+          0,
+          0,
+          0
+        ],
+        3,
+        [
+          2,
+          5,
+          6
+        ],
+        3
+      ],
+      "expected": [
+        1,
+        2,
+        2,
+        3,
+        5,
+        6
+      ]
+    },
+    {
+      "args": [
+        [
+          1
+        ],
+        1,
+        [],
+        0
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "args": [
+        [
+          0
+        ],
+        0,
+        [
+          1
+        ],
+        1
+      ],
+      "expected": [
+        1
+      ]
+    }
+  ]
+}

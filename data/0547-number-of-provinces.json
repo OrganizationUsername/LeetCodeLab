@@ -1,0 +1,96 @@
+{
+  "id": 547,
+  "slug": "number-of-provinces",
+  "title": "Number of Provinces",
+  "difficulty": "Medium",
+  "topics": [
+    "DFS",
+    "BFS",
+    "Union Find",
+    "Graph"
+  ],
+  "url": "https://leetcode.com/problems/number-of-provinces/",
+  "comparison": "Exact",
+  "folder": "Graphs",
+  "className": "NumberOfProvinces",
+  "signature": "int Solve(int[][] isConnected)",
+  "statement": "isConnected is an adjacency matrix over n cities, where entry [i][j] is 1 when city i and city j are directly connected. A province is a maximal group of cities all reachable from each other. Return how many provinces there are.",
+  "constraints": [
+    "1 <= n <= 200",
+    "the matrix is symmetric with 1s on the diagonal"
+  ],
+  "hints": [
+    "This is counting connected components, the same shape as Number of Islands but on an explicit graph.",
+    "Keep a visited array. For each unvisited city, increment the counter and flood everything reachable from it.",
+    "Union-Find also solves it neatly: union every connected pair, then count distinct roots."
+  ],
+  "complexity": "O(n^2) time",
+  "cases": [
+    {
+      "args": [
+        [
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "args": [
+        [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "args": [
+        [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,13 +1,75 @@
 {
-  "id": 155, "slug": "min-stack", "title": "Min Stack",
-  "difficulty": "Medium", "topics": ["Stack", "Design"],
+  "id": 155,
+  "slug": "min-stack",
+  "title": "Min Stack",
+  "difficulty": "Medium",
+  "topics": [
+    "Stack",
+    "Design"
+  ],
   "url": "https://leetcode.com/problems/min-stack/",
+  "folder": "Design",
+  "className": "MinStackTests",
+  "statement": "A stack that also reports its minimum. Push, Pop, Top and GetMin must all be O(1). Pop and Top are only called on a non-empty stack.",
+  "constraints": [
+    "up to 3*10^4 calls",
+    "values fit in a 32-bit integer"
+  ],
+  "hints": [
+    "Scanning for the minimum on demand is O(n), so the minimum has to be maintained as you go.",
+    "A single minimum variable fails: popping the minimum leaves you with no idea what the new one is.",
+    "Keep a second stack holding the minimum as of each push. Push min(value, current minimum) alongside every value and pop both together."
+  ],
+  "complexity": "O(1) per operation",
+  "design": {
+    "type": "MinStack",
+    "members": [
+      "MinStack()",
+      "void Push(int val)",
+      "void Pop()",
+      "int Top()",
+      "int GetMin()"
+    ]
+  },
   "comparison": "Design",
   "cases": [
     {
-      "ops": ["MinStack","push","push","push","getMin","pop","top","getMin"],
-      "args": [[],[-2],[0],[-3],[],[],[],[]],
-      "expected": [null,null,null,null,-3,null,0,-2]
+      "ops": [
+        "MinStack",
+        "push",
+        "push",
+        "push",
+        "getMin",
+        "pop",
+        "top",
+        "getMin"
+      ],
+      "args": [
+        [],
+        [
+          -2
+        ],
+        [
+          0
+        ],
+        [
+          -3
+        ],
+        [],
+        [],
+        [],
+        []
+      ],
+      "expected": [
+        null,
+        null,
+        null,
+        null,
+        -3,
+        null,
+        0,
+        -2
+      ]
     }
   ]
 }

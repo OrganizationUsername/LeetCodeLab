@@ -1,0 +1,105 @@
+{
+  "id": 48,
+  "slug": "rotate-image",
+  "title": "Rotate Image",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Math",
+    "Matrix"
+  ],
+  "url": "https://leetcode.com/problems/rotate-image/",
+  "comparison": "MutatedArg",
+  "folder": "Matrix",
+  "className": "RotateImage",
+  "statement": "Rotate the square matrix 90 degrees clockwise, in place. Nothing is returned; the matrix itself is checked.",
+  "constraints": [
+    "1 <= n <= 20",
+    "the matrix is square"
+  ],
+  "hints": [
+    "Allocating a second matrix is easy but the problem asks for in place.",
+    "A clockwise rotation is the same as transposing (mirroring across the main diagonal) and then reversing each row.",
+    "When transposing, only touch entries above the diagonal, or you swap everything back."
+  ],
+  "complexity": "O(n^2) time, O(1) space",
+  "signature": "void Solve(int[][] matrix)",
+  "cases": [
+    {
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6
+          ],
+          [
+            7,
+            8,
+            9
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          7,
+          4,
+          1
+        ],
+        [
+          8,
+          5,
+          2
+        ],
+        [
+          9,
+          6,
+          3
+        ]
+      ]
+    },
+    {
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          2
+        ]
+      ]
+    },
+    {
+      "args": [
+        [
+          [
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          1
+        ]
+      ]
+    }
+  ]
+}

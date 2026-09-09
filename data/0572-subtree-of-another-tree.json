@@ -1,5 +1,69 @@
-{ "id": 572, "slug": "subtree-of-another-tree", "title": "Subtree of Another Tree", "difficulty": "Easy",
-  "topics": ["Tree","DFS","String Matching","Binary Tree"],
-  "url": "https://leetcode.com/problems/subtree-of-another-tree/", "comparison": "Exact",
-  "cases": [ { "args": [[3,4,5,1,2],[4,1,2]], "expected": true },
-    { "args": [[3,4,5,1,2,null,null,null,null,0],[4,1,2]], "expected": false } ] }
+{
+  "id": 572,
+  "slug": "subtree-of-another-tree",
+  "title": "Subtree of Another Tree",
+  "difficulty": "Easy",
+  "topics": [
+    "Tree",
+    "DFS",
+    "String Matching",
+    "Binary Tree"
+  ],
+  "url": "https://leetcode.com/problems/subtree-of-another-tree/",
+  "folder": "Trees",
+  "className": "SubtreeOfAnotherTree",
+  "statement": "Return true when some node of root has a subtree identical in structure and values to subRoot.",
+  "constraints": [
+    "1 <= root node count <= 2000",
+    "1 <= subRoot node count <= 1000"
+  ],
+  "hints": [
+    "You already have the tool: an equality check between two trees, which is Same Tree.",
+    "At every node of root, ask whether the tree rooted here equals subRoot.",
+    "If not, recurse into both children. TreeNodes.Equal in LeetCodeLab.Core does the equality half for you."
+  ],
+  "complexity": "O(n * m) time",
+  "signature": "bool Solve(TreeNode? root, TreeNode? subRoot)",
+  "comparison": "Exact",
+  "cases": [
+    {
+      "args": [
+        [
+          3,
+          4,
+          5,
+          1,
+          2
+        ],
+        [
+          4,
+          1,
+          2
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        [
+          3,
+          4,
+          5,
+          1,
+          2,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        [
+          4,
+          1,
+          2
+        ]
+      ],
+      "expected": false
+    }
+  ]
+}

@@ -1,11 +1,71 @@
 {
-  "id": 226, "slug": "invert-binary-tree", "title": "Invert Binary Tree",
-  "difficulty": "Easy", "topics": ["Tree", "DFS", "BFS", "Binary Tree"],
+  "id": 226,
+  "slug": "invert-binary-tree",
+  "title": "Invert Binary Tree",
+  "difficulty": "Easy",
+  "topics": [
+    "Tree",
+    "DFS",
+    "BFS",
+    "Binary Tree"
+  ],
   "url": "https://leetcode.com/problems/invert-binary-tree/",
+  "folder": "Trees",
+  "className": "InvertBinaryTree",
+  "statement": "Mirror the tree left to right and return the root.",
+  "constraints": [
+    "0 <= node count <= 100"
+  ],
+  "hints": [
+    "At each node, its two subtrees swap places.",
+    "Invert each subtree, then assign them to the opposite sides.",
+    "Careful with the swap: assigning left before you have read the old left loses it. Tuple assignment does it safely in one statement."
+  ],
+  "complexity": "O(n) time, O(h) space",
+  "signature": "TreeNode? Solve(TreeNode? root)",
   "comparison": "Exact",
   "cases": [
-    { "args": [[4,2,7,1,3,6,9]], "expected": [4,7,2,9,6,3,1] },
-    { "args": [[2,1,3]], "expected": [2,3,1] },
-    { "args": [[]], "expected": [] }
+    {
+      "args": [
+        [
+          4,
+          2,
+          7,
+          1,
+          3,
+          6,
+          9
+        ]
+      ],
+      "expected": [
+        4,
+        7,
+        2,
+        9,
+        6,
+        3,
+        1
+      ]
+    },
+    {
+      "args": [
+        [
+          2,
+          1,
+          3
+        ]
+      ],
+      "expected": [
+        2,
+        3,
+        1
+      ]
+    },
+    {
+      "args": [
+        []
+      ],
+      "expected": []
+    }
   ]
 }

@@ -1,0 +1,65 @@
+{
+  "id": 111,
+  "slug": "minimum-depth-of-binary-tree",
+  "title": "Minimum Depth of Binary Tree",
+  "difficulty": "Easy",
+  "topics": [
+    "Tree",
+    "DFS",
+    "BFS",
+    "Binary Tree"
+  ],
+  "url": "https://leetcode.com/problems/minimum-depth-of-binary-tree/",
+  "comparison": "Exact",
+  "folder": "Trees",
+  "className": "MinimumDepthOfBinaryTree",
+  "signature": "int Solve(TreeNode? root)",
+  "statement": "Return the number of nodes on the shortest path from the root down to a LEAF. An empty tree has depth 0.",
+  "constraints": [
+    "0 <= node count <= 10^5"
+  ],
+  "hints": [
+    "The naive mirror of Maximum Depth is wrong: taking min over a missing child returns 0 and reports a fake short path.",
+    "A node with only one child must take that child depth, not the minimum with the null side.",
+    "Handle the three cases explicitly, or use BFS and return the depth of the first leaf you meet, which is faster on skewed trees."
+  ],
+  "complexity": "O(n) time",
+  "cases": [
+    {
+      "args": [
+        [
+          3,
+          9,
+          20,
+          null,
+          null,
+          15,
+          7
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "args": [
+        [
+          2,
+          null,
+          3,
+          null,
+          4,
+          null,
+          5,
+          null,
+          6
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "args": [
+        []
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,6 +1,74 @@
-{ "id": 150, "slug": "evaluate-reverse-polish-notation", "title": "Evaluate Reverse Polish Notation",
-  "difficulty": "Medium", "topics": ["Array","Math","Stack"],
-  "url": "https://leetcode.com/problems/evaluate-reverse-polish-notation/", "comparison": "Exact",
-  "cases": [ { "args": [["2","1","+","3","*"]], "expected": 9 },
-    { "args": [["4","13","5","/","+"]], "expected": 6 },
-    { "args": [["10","6","9","3","+","-11","*","/","*","17","+","5","+"]], "expected": 22 } ] }
+{
+  "id": 150,
+  "slug": "evaluate-reverse-polish-notation",
+  "title": "Evaluate Reverse Polish Notation",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Math",
+    "Stack"
+  ],
+  "url": "https://leetcode.com/problems/evaluate-reverse-polish-notation/",
+  "folder": "Stacks",
+  "className": "EvaluateReversePolishNotation",
+  "signature": "int Solve(string[] tokens)",
+  "statement": "Evaluate an expression in reverse Polish notation, where each operator follows its two operands. Division truncates toward zero.",
+  "constraints": [
+    "1 <= tokens.Length <= 10^4",
+    "operators are + - * /",
+    "the expression is always valid"
+  ],
+  "hints": [
+    "Push numbers. On an operator, pop two values, apply, push the result.",
+    "Order matters for subtraction and division: the value popped FIRST is the right-hand operand.",
+    "C# integer division already truncates toward zero, so a / b needs no adjustment."
+  ],
+  "complexity": "O(n) time, O(n) space",
+  "comparison": "Exact",
+  "cases": [
+    {
+      "args": [
+        [
+          "2",
+          "1",
+          "+",
+          "3",
+          "*"
+        ]
+      ],
+      "expected": 9
+    },
+    {
+      "args": [
+        [
+          "4",
+          "13",
+          "5",
+          "/",
+          "+"
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "args": [
+        [
+          "10",
+          "6",
+          "9",
+          "3",
+          "+",
+          "-11",
+          "*",
+          "/",
+          "*",
+          "17",
+          "+",
+          "5",
+          "+"
+        ]
+      ],
+      "expected": 22
+    }
+  ]
+}

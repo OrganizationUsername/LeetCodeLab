@@ -1,0 +1,72 @@
+{
+  "id": 209,
+  "slug": "minimum-size-subarray-sum",
+  "title": "Minimum Size Subarray Sum",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Binary Search",
+    "Sliding Window",
+    "Prefix Sum"
+  ],
+  "url": "https://leetcode.com/problems/minimum-size-subarray-sum/",
+  "comparison": "Exact",
+  "folder": "SlidingWindow",
+  "className": "MinimumSizeSubarraySum",
+  "statement": "All values are positive. Return the length of the shortest contiguous slice whose sum is at least target, or 0 if no slice qualifies.",
+  "constraints": [
+    "1 <= target <= 10^9",
+    "1 <= nums.Length <= 10^5",
+    "1 <= nums[i] <= 10^4"
+  ],
+  "hints": [
+    "All values being positive is what makes a sliding window valid: growing the window can only increase the sum.",
+    "Grow the right edge, adding to a running sum.",
+    "While the sum is at least target, record the window length and shrink from the left. Each index enters and leaves once, so this is linear."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "signature": "int Solve(int target, int[] nums)",
+  "cases": [
+    {
+      "args": [
+        7,
+        [
+          2,
+          3,
+          1,
+          2,
+          4,
+          3
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "args": [
+        4,
+        [
+          1,
+          4,
+          4
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "args": [
+        11,
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "id": 876,
+  "slug": "middle-of-the-linked-list",
+  "title": "Middle of the Linked List",
+  "difficulty": "Easy",
+  "topics": [
+    "Linked List",
+    "Two Pointers"
+  ],
+  "url": "https://leetcode.com/problems/middle-of-the-linked-list/",
+  "comparison": "Exact",
+  "folder": "LinkedLists",
+  "className": "MiddleOfTheLinkedList",
+  "signature": "ListNode? Solve(ListNode? head)",
+  "statement": "Return the middle node of the list. When the length is even there are two middles, and you return the SECOND one.",
+  "constraints": [
+    "1 <= list length <= 100"
+  ],
+  "hints": [
+    "Counting the length then walking half of it is two passes and completely fine.",
+    "For one pass, advance a slow pointer one step and a fast pointer two steps.",
+    "When fast falls off the end, slow is at the middle. Looping while fast and fast.next are both non-null lands on the second middle for even lengths."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "cases": [
+    {
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": [
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "expected": [
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    }
+  ]
+}

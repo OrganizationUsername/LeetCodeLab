@@ -1,0 +1,69 @@
+{
+  "id": 234,
+  "slug": "palindrome-linked-list",
+  "title": "Palindrome Linked List",
+  "difficulty": "Easy",
+  "topics": [
+    "Linked List",
+    "Two Pointers",
+    "Stack",
+    "Recursion"
+  ],
+  "url": "https://leetcode.com/problems/palindrome-linked-list/",
+  "comparison": "Exact",
+  "folder": "LinkedLists",
+  "className": "PalindromeLinkedList",
+  "signature": "bool Solve(ListNode? head)",
+  "statement": "Return true when the list values read the same forwards and backwards.",
+  "constraints": [
+    "1 <= list length <= 10^5"
+  ],
+  "hints": [
+    "Copying the values into a List and checking with two indices is O(n) space and perfectly correct.",
+    "For O(1) space, find the middle with slow and fast pointers, then reverse the second half.",
+    "Walk the two halves in step comparing values. The odd-length middle node never needs comparing."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "cases": [
+    {
+      "args": [
+        [
+          1,
+          2,
+          2,
+          1
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        [
+          1,
+          2,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "id": 45,
+  "slug": "jump-game-ii",
+  "title": "Jump Game II",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Dynamic Programming",
+    "Greedy"
+  ],
+  "url": "https://leetcode.com/problems/jump-game-ii/",
+  "comparison": "Exact",
+  "folder": "DynamicProgramming",
+  "className": "JumpGameII",
+  "statement": "Same jumping rule as Jump Game, but the last index is always reachable. Return the minimum number of jumps needed to get there.",
+  "constraints": [
+    "1 <= nums.Length <= 10^4",
+    "the last index is always reachable"
+  ],
+  "hints": [
+    "Think of it as breadth-first search on ranges: jump 1 covers some window of indices, jump 2 covers the next window, and so on.",
+    "Sweep left to right holding the end of the current window and the furthest index any element in it can reach.",
+    "When you arrive at the window end, you must spend a jump, and the new window end becomes that furthest reach."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "signature": "int Solve(int[] nums)",
+  "cases": [
+    {
+      "args": [
+        [
+          2,
+          3,
+          1,
+          1,
+          4
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "args": [
+        [
+          2,
+          3,
+          0,
+          1,
+          4
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

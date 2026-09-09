@@ -1,6 +1,59 @@
-{ "id": 104, "slug": "maximum-depth-of-binary-tree", "title": "Maximum Depth of Binary Tree",
-  "difficulty": "Easy", "topics": ["Tree","DFS","BFS","Binary Tree"],
-  "url": "https://leetcode.com/problems/maximum-depth-of-binary-tree/", "comparison": "Exact",
-  "cases": [ { "args": [[3,9,20,null,null,15,7]], "expected": 3 },
-    { "args": [[1,null,2]], "expected": 2 },
-    { "args": [[]], "expected": 0 } ] }
+{
+  "id": 104,
+  "slug": "maximum-depth-of-binary-tree",
+  "title": "Maximum Depth of Binary Tree",
+  "difficulty": "Easy",
+  "topics": [
+    "Tree",
+    "DFS",
+    "BFS",
+    "Binary Tree"
+  ],
+  "url": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
+  "folder": "Trees",
+  "className": "MaximumDepthOfBinaryTree",
+  "statement": "Return the number of nodes on the longest path from the root down to a leaf. An empty tree has depth 0.",
+  "constraints": [
+    "0 <= node count <= 10^4"
+  ],
+  "hints": [
+    "The depth of a tree is one more than the depth of its deeper subtree.",
+    "The empty tree is the base case, with depth 0.",
+    "That is the entire solution: one line of recursion."
+  ],
+  "complexity": "O(n) time, O(h) space",
+  "signature": "int Solve(TreeNode? root)",
+  "comparison": "Exact",
+  "cases": [
+    {
+      "args": [
+        [
+          3,
+          9,
+          20,
+          null,
+          null,
+          15,
+          7
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "args": [
+        [
+          1,
+          null,
+          2
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "args": [
+        []
+      ],
+      "expected": 0
+    }
+  ]
+}

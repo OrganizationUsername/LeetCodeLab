@@ -1,13 +1,99 @@
 {
-  "id": 146, "slug": "lru-cache", "title": "LRU Cache",
-  "difficulty": "Medium", "topics": ["Hash Table", "Linked List", "Design", "Doubly-Linked List"],
+  "id": 146,
+  "slug": "lru-cache",
+  "title": "LRU Cache",
+  "difficulty": "Medium",
+  "topics": [
+    "Hash Table",
+    "Linked List",
+    "Design",
+    "Doubly-Linked List"
+  ],
   "url": "https://leetcode.com/problems/lru-cache/",
+  "folder": "Design",
+  "className": "LruCacheTests",
+  "statement": "Build a fixed-capacity cache with least-recently-used eviction. Get returns the value or -1 if absent. Put inserts or updates. Both count as a use. When Put would exceed capacity, evict the least recently used key first. Both operations must be O(1) on average.",
+  "constraints": [
+    "1 <= capacity <= 3000",
+    "up to 2*10^5 calls"
+  ],
+  "hints": [
+    "A Dictionary gives O(1) lookup but no idea of recency; a list gives ordering but O(n) removal. You need both at once.",
+    "Combine a Dictionary with a doubly linked list, where the dictionary maps a key to its list NODE.",
+    "Holding the node is what makes unlinking O(1). Move a node to the front on every access; evict from the back. LinkedList<T> and LinkedListNode<T> in the BCL are doubly linked already."
+  ],
+  "complexity": "O(1) per operation",
+  "design": {
+    "type": "LRUCache",
+    "members": [
+      "LRUCache(int capacity)",
+      "int Get(int key)",
+      "void Put(int key, int value)"
+    ]
+  },
   "comparison": "Design",
   "cases": [
     {
-      "ops": ["LRUCache","put","put","get","put","get","put","get","get","get"],
-      "args": [[2],[1,1],[2,2],[1],[3,3],[2],[4,4],[1],[3],[4]],
-      "expected": [null,null,null,1,null,-1,null,-1,3,4]
+      "ops": [
+        "LRUCache",
+        "put",
+        "put",
+        "get",
+        "put",
+        "get",
+        "put",
+        "get",
+        "get",
+        "get"
+      ],
+      "args": [
+        [
+          2
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          1
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          2
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          1
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "expected": [
+        null,
+        null,
+        null,
+        1,
+        null,
+        -1,
+        null,
+        -1,
+        3,
+        4
+      ]
     }
   ]
 }

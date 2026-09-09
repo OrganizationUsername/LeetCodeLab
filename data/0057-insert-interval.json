@@ -1,0 +1,114 @@
+{
+  "id": 57,
+  "slug": "insert-interval",
+  "title": "Insert Interval",
+  "difficulty": "Medium",
+  "topics": [
+    "Array"
+  ],
+  "url": "https://leetcode.com/problems/insert-interval/",
+  "comparison": "Exact",
+  "folder": "Intervals",
+  "className": "InsertInterval",
+  "signature": "int[][] Solve(int[][] intervals, int[] newInterval)",
+  "statement": "The intervals are already sorted by start and do not overlap. Insert newInterval, merging where necessary, and return the result still sorted and non-overlapping.",
+  "constraints": [
+    "0 <= intervals.Length <= 10^4",
+    "intervals are sorted by start and disjoint"
+  ],
+  "hints": [
+    "The input is already sorted, so no sort is needed and the whole thing is O(n).",
+    "Three phases: copy everything ending strictly before the new interval starts, then absorb everything that overlaps, then copy the rest.",
+    "While absorbing, widen the new interval to the min of the starts and the max of the ends. Emit it once the overlapping run is done."
+  ],
+  "complexity": "O(n) time",
+  "cases": [
+    {
+      "args": [
+        [
+          [
+            1,
+            3
+          ],
+          [
+            6,
+            9
+          ]
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          5
+        ],
+        [
+          6,
+          9
+        ]
+      ]
+    },
+    {
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            8,
+            10
+          ],
+          [
+            12,
+            16
+          ]
+        ],
+        [
+          4,
+          8
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          10
+        ],
+        [
+          12,
+          16
+        ]
+      ]
+    },
+    {
+      "args": [
+        [],
+        [
+          5,
+          7
+        ]
+      ],
+      "expected": [
+        [
+          5,
+          7
+        ]
+      ]
+    }
+  ]
+}

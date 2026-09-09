@@ -1,7 +1,80 @@
-{ "id": 208, "slug": "implement-trie-prefix-tree", "title": "Implement Trie (Prefix Tree)",
-  "difficulty": "Medium", "topics": ["Hash Table","String","Design","Trie"],
-  "url": "https://leetcode.com/problems/implement-trie-prefix-tree/", "comparison": "Design",
-  "cases": [ {
-    "ops": ["Trie","insert","search","search","startsWith","insert","search"],
-    "args": [[],["apple"],["apple"],["app"],["app"],["app"],["app"]],
-    "expected": [null,null,true,false,true,null,true] } ] }
+{
+  "id": 208,
+  "slug": "implement-trie-prefix-tree",
+  "title": "Implement Trie (Prefix Tree)",
+  "difficulty": "Medium",
+  "topics": [
+    "Hash Table",
+    "String",
+    "Design",
+    "Trie"
+  ],
+  "url": "https://leetcode.com/problems/implement-trie-prefix-tree/",
+  "folder": "Design",
+  "className": "TrieTests",
+  "statement": "Implement a prefix tree over lowercase words. Insert adds a word. Search returns true only for a complete inserted word. StartsWith returns true when any inserted word begins with the given prefix.",
+  "constraints": [
+    "1 <= word.Length <= 2000",
+    "lowercase English letters",
+    "up to 3*10^4 calls"
+  ],
+  "hints": [
+    "Each node owns a map from next character to child node, plus a flag for is a word ending here.",
+    "Insert walks the characters, creating missing children, and sets the flag on the final node.",
+    "Search and StartsWith are the same walk; they differ only in whether reaching the end requires that flag. Write the walk once and share it."
+  ],
+  "complexity": "O(length) per operation",
+  "design": {
+    "type": "Trie",
+    "members": [
+      "Trie()",
+      "void Insert(string word)",
+      "bool Search(string word)",
+      "bool StartsWith(string prefix)"
+    ]
+  },
+  "comparison": "Design",
+  "cases": [
+    {
+      "ops": [
+        "Trie",
+        "insert",
+        "search",
+        "search",
+        "startsWith",
+        "insert",
+        "search"
+      ],
+      "args": [
+        [],
+        [
+          "apple"
+        ],
+        [
+          "apple"
+        ],
+        [
+          "app"
+        ],
+        [
+          "app"
+        ],
+        [
+          "app"
+        ],
+        [
+          "app"
+        ]
+      ],
+      "expected": [
+        null,
+        null,
+        true,
+        false,
+        true,
+        null,
+        true
+      ]
+    }
+  ]
+}

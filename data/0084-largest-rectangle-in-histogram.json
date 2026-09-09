@@ -1,0 +1,60 @@
+{
+  "id": 84,
+  "slug": "largest-rectangle-in-histogram",
+  "title": "Largest Rectangle in Histogram",
+  "difficulty": "Hard",
+  "topics": [
+    "Array",
+    "Stack",
+    "Monotonic Stack"
+  ],
+  "url": "https://leetcode.com/problems/largest-rectangle-in-histogram/",
+  "comparison": "Exact",
+  "folder": "Stacks",
+  "className": "LargestRectangleInHistogram",
+  "statement": "Each value is the height of a bar of width one. Return the area of the largest rectangle that fits entirely inside the histogram.",
+  "constraints": [
+    "1 <= heights.Length <= 10^5",
+    "0 <= heights[i] <= 10^4"
+  ],
+  "hints": [
+    "Every maximal rectangle is capped by some bar being its full height. So for each bar, how far left and right can it extend before hitting something shorter?",
+    "A monotonic increasing stack of indices answers that. While the incoming bar is shorter than the stack top, that top bar can extend no further right.",
+    "On popping, the width runs from the new stack top (exclusive) to the current index (exclusive). A sentinel of height 0 at the end flushes the stack."
+  ],
+  "complexity": "O(n) time, O(n) space",
+  "signature": "int Solve(int[] heights)",
+  "cases": [
+    {
+      "args": [
+        [
+          2,
+          1,
+          5,
+          6,
+          2,
+          3
+        ]
+      ],
+      "expected": 10
+    },
+    {
+      "args": [
+        [
+          2,
+          4
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 2
+    }
+  ]
+}

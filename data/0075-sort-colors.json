@@ -1,0 +1,73 @@
+{
+  "id": 75,
+  "slug": "sort-colors",
+  "title": "Sort Colors",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Two Pointers",
+    "Sorting"
+  ],
+  "url": "https://leetcode.com/problems/sort-colors/",
+  "comparison": "MutatedArg",
+  "folder": "TwoPointers",
+  "className": "SortColors",
+  "signature": "void Solve(int[] nums)",
+  "statement": "The array holds only 0, 1 and 2, representing red, white and blue. Sort it in place in a single pass without using a library sort.",
+  "constraints": [
+    "1 <= nums.Length <= 300",
+    "nums[i] is 0, 1 or 2"
+  ],
+  "hints": [
+    "Counting how many of each value and rewriting the array is two passes and perfectly valid.",
+    "For one pass, keep three regions: settled 0s at the front, settled 2s at the back, and 1s in the middle.",
+    "This is the Dutch national flag partition: a low pointer, a high pointer, and a scanner. On a 2 you swap to the back but must NOT advance the scanner, since the swapped-in value is unexamined."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "cases": [
+    {
+      "args": [
+        [
+          2,
+          0,
+          2,
+          1,
+          1,
+          0
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "args": [
+        [
+          2,
+          0,
+          1
+        ]
+      ],
+      "expected": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "args": [
+        [
+          0
+        ]
+      ],
+      "expected": [
+        0
+      ]
+    }
+  ]
+}

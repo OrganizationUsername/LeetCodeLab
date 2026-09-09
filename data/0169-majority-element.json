@@ -1,0 +1,62 @@
+{
+  "id": 169,
+  "slug": "majority-element",
+  "title": "Majority Element",
+  "difficulty": "Easy",
+  "topics": [
+    "Array",
+    "Hash Table",
+    "Sorting",
+    "Counting"
+  ],
+  "url": "https://leetcode.com/problems/majority-element/",
+  "comparison": "Exact",
+  "folder": "Arrays",
+  "className": "MajorityElement",
+  "signature": "int Solve(int[] nums)",
+  "statement": "One value occupies more than half the array. Return it. You may assume it always exists.",
+  "constraints": [
+    "1 <= nums.Length <= 5*10^4",
+    "the majority element always exists"
+  ],
+  "hints": [
+    "Counting occurrences in a Dictionary works and is O(n) space.",
+    "Sorting also works: the majority element must occupy the middle position.",
+    "For O(1) space use the Boyer-Moore vote: hold a candidate and a count, increment on a match, decrement otherwise, and swap candidate when the count hits zero."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "cases": [
+    {
+      "args": [
+        [
+          3,
+          2,
+          3
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "args": [
+        [
+          2,
+          2,
+          1,
+          1,
+          1,
+          2,
+          2
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,11 +1,62 @@
 {
-  "id": 141, "slug": "linked-list-cycle", "title": "Linked List Cycle",
-  "difficulty": "Easy", "topics": ["Hash Table", "Linked List", "Two Pointers"],
+  "id": 141,
+  "slug": "linked-list-cycle",
+  "title": "Linked List Cycle",
+  "difficulty": "Easy",
+  "topics": [
+    "Hash Table",
+    "Linked List",
+    "Two Pointers"
+  ],
   "url": "https://leetcode.com/problems/linked-list-cycle/",
+  "folder": "LinkedLists",
+  "className": "LinkedListCycle",
+  "statement": "Return true if the list contains a cycle. The test data specifies the cycle with a position index, and the harness wires the tail back before calling you; your method just receives the head.",
+  "constraints": [
+    "0 <= list length <= 10^4"
+  ],
+  "hints": [
+    "A HashSet of visited nodes works and is O(n) space.",
+    "For O(1) space, run a slow pointer one step at a time and a fast pointer two steps at a time.",
+    "If there is a cycle the fast pointer laps the slow one and they meet. If there is not, the fast pointer reaches null. Compare by reference, not by value."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "signature": "bool Solve(ListNode? head)",
   "comparison": "Exact",
   "cases": [
-    { "name": "head=[3,2,0,-4], pos=1", "args": [[3,2,0,-4]], "cyclePos": 1, "expected": true },
-    { "name": "head=[1,2], pos=0",     "args": [[1,2]],       "cyclePos": 0, "expected": true },
-    { "name": "head=[1], pos=-1",      "args": [[1]],         "cyclePos": -1, "expected": false }
+    {
+      "name": "head=[3,2,0,-4], pos=1",
+      "args": [
+        [
+          3,
+          2,
+          0,
+          -4
+        ]
+      ],
+      "cyclePos": 1,
+      "expected": true
+    },
+    {
+      "name": "head=[1,2], pos=0",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "cyclePos": 0,
+      "expected": true
+    },
+    {
+      "name": "head=[1], pos=-1",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "cyclePos": -1,
+      "expected": false
+    }
   ]
 }

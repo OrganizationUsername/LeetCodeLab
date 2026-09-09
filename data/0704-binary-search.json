@@ -1,6 +1,56 @@
-{ "id": 704, "slug": "binary-search", "title": "Binary Search", "difficulty": "Easy",
-  "topics": ["Array","Binary Search"], "url": "https://leetcode.com/problems/binary-search/",
+{
+  "id": 704,
+  "slug": "binary-search",
+  "title": "Binary Search",
+  "difficulty": "Easy",
+  "topics": [
+    "Array",
+    "Binary Search"
+  ],
+  "url": "https://leetcode.com/problems/binary-search/",
+  "folder": "Searching",
+  "className": "BinarySearch",
+  "signature": "int Solve(int[] nums, int target)",
+  "statement": "Plain binary search on a sorted ascending array of distinct values. Return the index of target, or -1.",
+  "constraints": [
+    "1 <= nums.Length <= 10^4",
+    "sorted ascending, all distinct"
+  ],
+  "hints": [
+    "Two inclusive bounds, lo and hi, and loop while lo <= hi.",
+    "Compute mid as lo + (hi - lo) / 2 rather than (lo + hi) / 2 to avoid overflow.",
+    "Narrow to mid + 1 or mid - 1, never to mid, or the loop will not terminate."
+  ],
+  "complexity": "O(log n) time, O(1) space",
   "comparison": "Exact",
   "cases": [
-    { "args": [[-1,0,3,5,9,12], 9], "expected": 4 },
-    { "args": [[-1,0,3,5,9,12], 2], "expected": -1 } ] }
+    {
+      "args": [
+        [
+          -1,
+          0,
+          3,
+          5,
+          9,
+          12
+        ],
+        9
+      ],
+      "expected": 4
+    },
+    {
+      "args": [
+        [
+          -1,
+          0,
+          3,
+          5,
+          9,
+          12
+        ],
+        2
+      ],
+      "expected": -1
+    }
+  ]
+}

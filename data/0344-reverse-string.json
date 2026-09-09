@@ -1,0 +1,65 @@
+{
+  "id": 344,
+  "slug": "reverse-string",
+  "title": "Reverse String",
+  "difficulty": "Easy",
+  "topics": [
+    "Two Pointers",
+    "String"
+  ],
+  "url": "https://leetcode.com/problems/reverse-string/",
+  "comparison": "MutatedArg",
+  "folder": "TwoPointers",
+  "className": "ReverseString",
+  "signature": "void Solve(char[] s)",
+  "statement": "Reverse the character array in place using constant extra space. Nothing is returned; the array itself is checked.",
+  "constraints": [
+    "1 <= s.Length <= 10^5"
+  ],
+  "hints": [
+    "One pointer at each end.",
+    "Swap the two characters, then step both pointers inward.",
+    "Stop when they meet or cross. Tuple assignment swaps without a temporary."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "cases": [
+    {
+      "args": [
+        [
+          "h",
+          "e",
+          "l",
+          "l",
+          "o"
+        ]
+      ],
+      "expected": [
+        "o",
+        "l",
+        "l",
+        "e",
+        "h"
+      ]
+    },
+    {
+      "args": [
+        [
+          "H",
+          "a",
+          "n",
+          "n",
+          "a",
+          "h"
+        ]
+      ],
+      "expected": [
+        "h",
+        "a",
+        "n",
+        "n",
+        "a",
+        "H"
+      ]
+    }
+  ]
+}

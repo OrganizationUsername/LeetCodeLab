@@ -1,13 +1,69 @@
 {
-  "id": 295, "slug": "find-median-from-data-stream", "title": "Find Median from Data Stream",
-  "difficulty": "Hard", "topics": ["Two Pointers", "Design", "Sorting", "Heap"],
+  "id": 295,
+  "slug": "find-median-from-data-stream",
+  "title": "Find Median from Data Stream",
+  "difficulty": "Hard",
+  "topics": [
+    "Two Pointers",
+    "Design",
+    "Sorting",
+    "Heap"
+  ],
   "url": "https://leetcode.com/problems/find-median-from-data-stream/",
+  "folder": "Design",
+  "className": "MedianFinderTests",
+  "statement": "Numbers arrive one at a time. FindMedian returns the median of everything added so far: the middle value for an odd count, the average of the two middle values for an even count. Sorting on every query is too slow.",
+  "constraints": [
+    "-10^5 <= num <= 10^5",
+    "FindMedian is only called after at least one AddNum"
+  ],
+  "hints": [
+    "Keep the values split into a smaller half and a larger half, sized equally or with one extra in the smaller half.",
+    "Store the smaller half in a max-heap and the larger half in a min-heap. The median is then read off one or both roots.",
+    "Always push into one heap and move its extreme across to the other, then rebalance sizes. C# PriorityQueue is a min-heap, so negate the priority to build a max-heap."
+  ],
+  "complexity": "O(log n) per add, O(1) per query",
+  "design": {
+    "type": "MedianFinder",
+    "members": [
+      "MedianFinder()",
+      "void AddNum(int num)",
+      "double FindMedian()"
+    ]
+  },
   "comparison": "Design",
   "cases": [
     {
-      "ops": ["MedianFinder","addNum","addNum","findMedian","addNum","findMedian"],
-      "args": [[],[1],[2],[],[3],[]],
-      "expected": [null,null,null,1.5,null,2.0]
+      "ops": [
+        "MedianFinder",
+        "addNum",
+        "addNum",
+        "findMedian",
+        "addNum",
+        "findMedian"
+      ],
+      "args": [
+        [],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [],
+        [
+          3
+        ],
+        []
+      ],
+      "expected": [
+        null,
+        null,
+        null,
+        1.5,
+        null,
+        2.0
+      ]
     }
   ]
 }

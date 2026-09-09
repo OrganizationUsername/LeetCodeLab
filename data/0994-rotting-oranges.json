@@ -1,0 +1,84 @@
+{
+  "id": 994,
+  "slug": "rotting-oranges",
+  "title": "Rotting Oranges",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "BFS",
+    "Matrix"
+  ],
+  "url": "https://leetcode.com/problems/rotting-oranges/",
+  "comparison": "Exact",
+  "folder": "Graphs",
+  "className": "RottingOranges",
+  "signature": "int Solve(int[][] grid)",
+  "statement": "Cells hold 0 for empty, 1 for a fresh orange and 2 for a rotten one. Every minute, any fresh orange edge-adjacent to a rotten one also rots. Return the minutes until no fresh orange remains, or -1 if that never happens.",
+  "constraints": [
+    "1 <= rows, cols <= 10",
+    "cell values are 0, 1 or 2"
+  ],
+  "hints": [
+    "Rot spreads outward in simultaneous waves, which is breadth-first search, not depth-first.",
+    "Seed the queue with EVERY initially rotten orange, so all sources expand together. Count the fresh ones as you go.",
+    "Process the queue one full level per minute. At the end, any fresh orange left unreached means -1. Zero fresh oranges at the start means 0."
+  ],
+  "complexity": "O(rows * cols) time",
+  "cases": [
+    {
+      "args": [
+        [
+          [
+            2,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "args": [
+        [
+          [
+            2,
+            1,
+            1
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "args": [
+        [
+          [
+            0,
+            2
+          ]
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,6 +1,62 @@
-{ "id": 238, "slug": "product-of-array-except-self", "title": "Product of Array Except Self", "difficulty": "Medium",
-  "topics": ["Array","Prefix Sum"], "url": "https://leetcode.com/problems/product-of-array-except-self/",
+{
+  "id": 238,
+  "slug": "product-of-array-except-self",
+  "title": "Product of Array Except Self",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Prefix Sum"
+  ],
+  "url": "https://leetcode.com/problems/product-of-array-except-self/",
+  "folder": "Arrays",
+  "className": "ProductOfArrayExceptSelf",
+  "signature": "int[] Solve(int[] nums)",
+  "statement": "Return an array where result[i] is the product of every element except nums[i]. Division is not allowed, partly because the array may contain zeros.",
+  "constraints": [
+    "2 <= nums.Length <= 10^5",
+    "the answer fits in a 32-bit integer"
+  ],
+  "hints": [
+    "Everything except position i splits into two independent halves: everything left of i, and everything right of i.",
+    "One left-to-right pass can fill result[i] with the product of everything to its left.",
+    "A second right-to-left pass multiplies in the product of everything to the right, using a single running variable."
+  ],
+  "complexity": "O(n) time, O(1) extra space beyond the output",
   "comparison": "Exact",
   "cases": [
-    { "args": [[1,2,3,4]], "expected": [24,12,8,6] },
-    { "args": [[-1,1,0,-3,3]], "expected": [0,0,9,0,0] } ] }
+    {
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": [
+        24,
+        12,
+        8,
+        6
+      ]
+    },
+    {
+      "args": [
+        [
+          -1,
+          1,
+          0,
+          -3,
+          3
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        9,
+        0,
+        0
+      ]
+    }
+  ]
+}

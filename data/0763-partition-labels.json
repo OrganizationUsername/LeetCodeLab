@@ -1,0 +1,58 @@
+{
+  "id": 763,
+  "slug": "partition-labels",
+  "title": "Partition Labels",
+  "difficulty": "Medium",
+  "topics": [
+    "Hash Table",
+    "Two Pointers",
+    "String",
+    "Greedy"
+  ],
+  "url": "https://leetcode.com/problems/partition-labels/",
+  "comparison": "Exact",
+  "folder": "Greedy",
+  "className": "PartitionLabels",
+  "statement": "Cut the string into as many pieces as possible so that no letter appears in more than one piece. Return the piece lengths in order.",
+  "constraints": [
+    "1 <= s.Length <= 500",
+    "lowercase English letters"
+  ],
+  "hints": [
+    "A piece cannot end before the LAST occurrence of every letter it contains.",
+    "So first record the last index of each letter in one pass.",
+    "Then sweep, extending the current piece end to the furthest last-occurrence seen so far. When the scan index reaches that end, the piece closes."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "signature": "IList<int> Solve(string s)",
+  "cases": [
+    {
+      "args": [
+        "ababcbacadefegdehijhklij"
+      ],
+      "expected": [
+        9,
+        7,
+        8
+      ]
+    },
+    {
+      "args": [
+        "eccbbbbdec"
+      ],
+      "expected": [
+        10
+      ]
+    },
+    {
+      "args": [
+        "abc"
+      ],
+      "expected": [
+        1,
+        1,
+        1
+      ]
+    }
+  ]
+}

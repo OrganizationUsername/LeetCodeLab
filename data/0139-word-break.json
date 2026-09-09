@@ -10,6 +10,20 @@
     "Trie"
   ],
   "url": "https://leetcode.com/problems/word-break/",
+  "folder": "DynamicProgramming",
+  "className": "WordBreak",
+  "statement": "Return true when s can be cut into a sequence of dictionary words. Words may be reused, and not every dictionary word has to be used.",
+  "constraints": [
+    "1 <= s.Length <= 300",
+    "dictionary words are distinct"
+  ],
+  "hints": [
+    "Plain recursion re-solves the same suffixes over and over and blows up exponentially. The stress case is built to punish exactly that.",
+    "Define reachable[i] as: the first i characters can be segmented. reachable[0] is true.",
+    "reachable[end] is true when some earlier reachable[start] is true and the slice from start to end is in the dictionary. Put the dictionary in a HashSet."
+  ],
+  "complexity": "O(n^2) time with O(1) dictionary lookups",
+  "signature": "bool Solve(string s, IList<string> wordDict)",
   "comparison": "Exact",
   "timeoutMs": 3000,
   "cases": [

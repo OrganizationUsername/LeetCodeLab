@@ -1,0 +1,91 @@
+{
+  "id": 2,
+  "slug": "add-two-numbers",
+  "title": "Add Two Numbers",
+  "difficulty": "Medium",
+  "topics": [
+    "Linked List",
+    "Math",
+    "Recursion"
+  ],
+  "url": "https://leetcode.com/problems/add-two-numbers/",
+  "comparison": "Exact",
+  "folder": "LinkedLists",
+  "className": "AddTwoNumbers",
+  "signature": "ListNode? Solve(ListNode? l1, ListNode? l2)",
+  "statement": "Two non-negative integers are stored as linked lists with their digits in REVERSE order, one digit per node. Add them and return the sum in the same reversed form.",
+  "constraints": [
+    "1 <= each list length <= 100",
+    "0 <= node value <= 9",
+    "no leading zeros except the number 0"
+  ],
+  "hints": [
+    "Reverse order is a gift: you meet the least significant digits first, which is where addition starts.",
+    "Walk both lists together holding a carry, and keep going while either list has nodes left OR the carry is non-zero.",
+    "Treat a missing node as digit 0. A dummy head node keeps the append loop uniform."
+  ],
+  "complexity": "O(max(n, m)) time",
+  "cases": [
+    {
+      "args": [
+        [
+          2,
+          4,
+          3
+        ],
+        [
+          5,
+          6,
+          4
+        ]
+      ],
+      "expected": [
+        7,
+        0,
+        8
+      ]
+    },
+    {
+      "args": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "args": [
+        [
+          9,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9
+        ],
+        [
+          9,
+          9,
+          9,
+          9
+        ]
+      ],
+      "expected": [
+        8,
+        9,
+        9,
+        9,
+        0,
+        0,
+        0,
+        1
+      ]
+    }
+  ]
+}

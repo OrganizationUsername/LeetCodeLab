@@ -1,6 +1,54 @@
-{ "id": 11, "slug": "container-with-most-water", "title": "Container With Most Water", "difficulty": "Medium",
-  "topics": ["Array","Two Pointers","Greedy"], "url": "https://leetcode.com/problems/container-with-most-water/",
+{
+  "id": 11,
+  "slug": "container-with-most-water",
+  "title": "Container With Most Water",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Two Pointers",
+    "Greedy"
+  ],
+  "url": "https://leetcode.com/problems/container-with-most-water/",
+  "folder": "TwoPointers",
+  "className": "ContainerWithMostWater",
+  "signature": "int Solve(int[] height)",
+  "statement": "Each height[i] is a vertical line at position i. Pick two lines so that the water held between them is maximal, and return that area. Area is the horizontal distance times the shorter of the two lines.",
+  "constraints": [
+    "2 <= height.Length <= 10^5",
+    "0 <= height[i] <= 10^4"
+  ],
+  "hints": [
+    "Start with the widest possible pair: one pointer at each end.",
+    "Moving either pointer inward always loses width, so it is only worth it if height might increase.",
+    "The shorter line is the one capping the area, so move that one. Keeping it can never help."
+  ],
+  "complexity": "O(n) time, O(1) space",
   "comparison": "Exact",
   "cases": [
-    { "args": [[1,8,6,2,5,4,8,3,7]], "expected": 49 },
-    { "args": [[1,1]], "expected": 1 } ] }
+    {
+      "args": [
+        [
+          1,
+          8,
+          6,
+          2,
+          5,
+          4,
+          8,
+          3,
+          7
+        ]
+      ],
+      "expected": 49
+    },
+    {
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

@@ -1,11 +1,71 @@
 {
-  "id": 1, "slug": "two-sum", "title": "Two Sum",
-  "difficulty": "Easy", "topics": ["Array", "Hash Table"],
+  "id": 1,
+  "slug": "two-sum",
+  "title": "Two Sum",
+  "difficulty": "Easy",
+  "topics": [
+    "Array",
+    "Hash Table"
+  ],
   "url": "https://leetcode.com/problems/two-sum/",
+  "folder": "Arrays",
+  "className": "TwoSum",
+  "signature": "int[] Solve(int[] nums, int target)",
+  "statement": "Find the two entries of nums that add up to target and return their positions. Exactly one pair works, you may not use the same element twice, and either order is accepted.",
+  "constraints": [
+    "2 <= nums.Length <= 10^4",
+    "-10^9 <= nums[i], target <= 10^9",
+    "exactly one valid answer exists"
+  ],
+  "hints": [
+    "The obvious double loop is O(n^2). What is it recomputing?",
+    "While scanning, for each x you want to know whether target - x has already appeared.",
+    "A Dictionary from value to index answers that in O(1). Store as you go, so you never match an element with itself."
+  ],
+  "complexity": "O(n) time, O(n) space",
   "comparison": "Unordered",
   "cases": [
-    { "args": [[2,7,11,15], 9], "expected": [0,1] },
-    { "args": [[3,2,4], 6], "expected": [1,2] },
-    { "args": [[3,3], 6], "expected": [0,1] }
+    {
+      "args": [
+        [
+          2,
+          7,
+          11,
+          15
+        ],
+        9
+      ],
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "args": [
+        [
+          3,
+          2,
+          4
+        ],
+        6
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "args": [
+        [
+          3,
+          3
+        ],
+        6
+      ],
+      "expected": [
+        0,
+        1
+      ]
+    }
   ]
 }

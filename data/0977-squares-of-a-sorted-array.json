@@ -1,0 +1,81 @@
+{
+  "id": 977,
+  "slug": "squares-of-a-sorted-array",
+  "title": "Squares of a Sorted Array",
+  "difficulty": "Easy",
+  "topics": [
+    "Array",
+    "Two Pointers",
+    "Sorting"
+  ],
+  "url": "https://leetcode.com/problems/squares-of-a-sorted-array/",
+  "comparison": "Exact",
+  "folder": "TwoPointers",
+  "className": "SquaresOfASortedArray",
+  "signature": "int[] Solve(int[] nums)",
+  "statement": "The input is sorted ascending but may contain negatives. Return the squares of its values, sorted ascending. Aim for linear time.",
+  "constraints": [
+    "1 <= nums.Length <= 10^4",
+    "nums is sorted ascending"
+  ],
+  "hints": [
+    "Squaring and sorting is O(n log n) and correct. The point is to beat it.",
+    "The largest square is always at one END of the array, since negatives grow when squared.",
+    "Two pointers from both ends, writing into the result from the BACK forwards."
+  ],
+  "complexity": "O(n) time",
+  "cases": [
+    {
+      "args": [
+        [
+          -4,
+          -1,
+          0,
+          3,
+          10
+        ]
+      ],
+      "expected": [
+        0,
+        1,
+        9,
+        16,
+        100
+      ]
+    },
+    {
+      "args": [
+        [
+          -7,
+          -3,
+          2,
+          3,
+          11
+        ]
+      ],
+      "expected": [
+        4,
+        9,
+        9,
+        49,
+        121
+      ]
+    },
+    {
+      "args": [
+        [
+          -5,
+          -3,
+          -2,
+          -1
+        ]
+      ],
+      "expected": [
+        1,
+        4,
+        9,
+        25
+      ]
+    }
+  ]
+}

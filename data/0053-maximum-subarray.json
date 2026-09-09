@@ -9,6 +9,20 @@
     "Dynamic Programming"
   ],
   "url": "https://leetcode.com/problems/maximum-subarray/",
+  "folder": "Arrays",
+  "className": "MaximumSubarray",
+  "signature": "int Solve(int[] nums)",
+  "statement": "Return the largest sum obtainable from a contiguous non-empty slice of nums. Values may be negative.",
+  "constraints": [
+    "1 <= nums.Length <= 10^5",
+    "-10^4 <= nums[i] <= 10^4"
+  ],
+  "hints": [
+    "Walk left to right holding the best sum of a slice that ends exactly at the current index.",
+    "Extending the previous slice is only worth it while that running sum is positive. Otherwise start fresh at the current element.",
+    "This is the Kadane recurrence: running = max(x, running + x), and track the best running value seen."
+  ],
+  "complexity": "O(n) time, O(1) space",
   "comparison": "Exact",
   "timeoutMs": 3000,
   "cases": [

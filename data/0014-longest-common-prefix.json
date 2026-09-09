@@ -1,0 +1,67 @@
+{
+  "id": 14,
+  "slug": "longest-common-prefix",
+  "title": "Longest Common Prefix",
+  "difficulty": "Easy",
+  "topics": [
+    "String",
+    "Trie"
+  ],
+  "url": "https://leetcode.com/problems/longest-common-prefix/",
+  "comparison": "Exact",
+  "folder": "Strings",
+  "className": "LongestCommonPrefix",
+  "signature": "string Solve(string[] strs)",
+  "statement": "Return the longest string that every input begins with. Return an empty string when there is no shared prefix.",
+  "constraints": [
+    "1 <= strs.Length <= 200",
+    "0 <= strs[i].Length <= 200",
+    "lowercase English letters"
+  ],
+  "hints": [
+    "Take the first string as a working prefix.",
+    "Trim it against each subsequent string until that string starts with it.",
+    "Alternatively compare column by column: walk position 0, 1, 2 across all strings and stop at the first mismatch or the first string that ends."
+  ],
+  "complexity": "O(total characters) time",
+  "cases": [
+    {
+      "args": [
+        [
+          "flower",
+          "flow",
+          "flight"
+        ]
+      ],
+      "expected": "fl"
+    },
+    {
+      "args": [
+        [
+          "dog",
+          "racecar",
+          "car"
+        ]
+      ],
+      "expected": ""
+    },
+    {
+      "args": [
+        [
+          "interspecies",
+          "interstellar",
+          "interstate"
+        ]
+      ],
+      "expected": "inters"
+    },
+    {
+      "args": [
+        [
+          "a"
+        ]
+      ],
+      "expected": "a"
+    }
+  ]
+}

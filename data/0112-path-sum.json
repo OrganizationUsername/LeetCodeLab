@@ -1,0 +1,69 @@
+{
+  "id": 112,
+  "slug": "path-sum",
+  "title": "Path Sum",
+  "difficulty": "Easy",
+  "topics": [
+    "Tree",
+    "DFS",
+    "BFS",
+    "Binary Tree"
+  ],
+  "url": "https://leetcode.com/problems/path-sum/",
+  "comparison": "Exact",
+  "folder": "Trees",
+  "className": "PathSum",
+  "signature": "bool Solve(TreeNode? root, int targetSum)",
+  "statement": "Return true when some root-to-LEAF path has values summing to targetSum. A leaf is a node with no children; stopping partway down does not count.",
+  "constraints": [
+    "0 <= node count <= 5000",
+    "values may be negative"
+  ],
+  "hints": [
+    "Carry the remaining target down the recursion, subtracting each node value.",
+    "The success test happens at a leaf: no children left AND the remainder is exactly zero.",
+    "The empty tree is false. Be careful not to treat a node with one child as a leaf."
+  ],
+  "complexity": "O(n) time, O(h) space",
+  "cases": [
+    {
+      "args": [
+        [
+          5,
+          4,
+          8,
+          11,
+          null,
+          13,
+          4,
+          7,
+          2,
+          null,
+          null,
+          null,
+          1
+        ],
+        22
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        5
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        [],
+        0
+      ],
+      "expected": false
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "id": 136,
+  "slug": "single-number",
+  "title": "Single Number",
+  "difficulty": "Easy",
+  "topics": [
+    "Array",
+    "Bit Manipulation"
+  ],
+  "url": "https://leetcode.com/problems/single-number/",
+  "comparison": "Exact",
+  "folder": "Arrays",
+  "className": "SingleNumber",
+  "signature": "int Solve(int[] nums)",
+  "statement": "Every value appears exactly twice except one, which appears once. Return that one. Use linear time and constant extra space.",
+  "constraints": [
+    "1 <= nums.Length <= 3*10^4",
+    "every element appears twice except one"
+  ],
+  "hints": [
+    "A HashSet solves it but costs O(n) space, which the problem forbids.",
+    "You need an operation where combining a value with itself cancels out.",
+    "XOR does exactly that: x ^ x is 0 and x ^ 0 is x. XOR the whole array together."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "cases": [
+    {
+      "args": [
+        [
+          2,
+          2,
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "args": [
+        [
+          4,
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    }
+  ]
+}

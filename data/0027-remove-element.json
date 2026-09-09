@@ -1,0 +1,76 @@
+{
+  "id": 27,
+  "slug": "remove-element",
+  "title": "Remove Element",
+  "difficulty": "Easy",
+  "topics": [
+    "Array",
+    "Two Pointers"
+  ],
+  "url": "https://leetcode.com/problems/remove-element/",
+  "comparison": "InPlacePrefix",
+  "folder": "Arrays",
+  "className": "RemoveElement",
+  "signature": "int Solve(int[] nums, int val)",
+  "statement": "Remove every occurrence of val from nums in place and return the count k of values that remain. Only the first k slots are checked, and their order does not matter.",
+  "constraints": [
+    "0 <= nums.Length <= 100",
+    "0 <= nums[i], val <= 100"
+  ],
+  "hints": [
+    "Same shape as Remove Duplicates: a read cursor and a write cursor.",
+    "Copy every element that is not val to the write cursor and advance it.",
+    "The write cursor ends up holding exactly the count you return."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "prefixOrdered": false,
+  "cases": [
+    {
+      "args": [
+        [
+          3,
+          2,
+          2,
+          3
+        ],
+        3
+      ],
+      "expected": 2,
+      "expectedArray": [
+        2,
+        2
+      ]
+    },
+    {
+      "args": [
+        [
+          0,
+          1,
+          2,
+          2,
+          3,
+          0,
+          4,
+          2
+        ],
+        2
+      ],
+      "expected": 5,
+      "expectedArray": [
+        0,
+        1,
+        3,
+        0,
+        4
+      ]
+    },
+    {
+      "args": [
+        [],
+        1
+      ],
+      "expected": 0,
+      "expectedArray": []
+    }
+  ]
+}

@@ -1,7 +1,79 @@
-{ "id": 15, "slug": "3sum", "title": "3Sum", "difficulty": "Medium",
-  "topics": ["Array","Two Pointers","Sorting"], "url": "https://leetcode.com/problems/3sum/",
+{
+  "id": 15,
+  "slug": "3sum",
+  "title": "3Sum",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Two Pointers",
+    "Sorting"
+  ],
+  "url": "https://leetcode.com/problems/3sum/",
+  "folder": "TwoPointers",
+  "className": "ThreeSum",
+  "signature": "IList<IList<int>> Solve(int[] nums)",
+  "statement": "Return every distinct triple of values from nums that sums to zero. No triple may repeat, though a value can appear twice in a triple if it appears twice in the input. Order of triples, and of values within a triple, does not matter.",
+  "constraints": [
+    "3 <= nums.Length <= 3000",
+    "-10^5 <= nums[i] <= 10^5"
+  ],
+  "hints": [
+    "Sort first. Sorting makes duplicates adjacent and enables two-pointer scanning.",
+    "Fix the first value, then the rest is Two Sum on a sorted array: a pointer from each end moving inward.",
+    "Skip over equal neighbours at every level, otherwise you emit the same triple repeatedly."
+  ],
+  "complexity": "O(n^2) time",
   "comparison": "UnorderedNested",
   "cases": [
-    { "args": [[-1,0,1,2,-1,-4]], "expected": [[-1,-1,2],[-1,0,1]] },
-    { "args": [[0,1,1]], "expected": [] },
-    { "args": [[0,0,0]], "expected": [[0,0,0]] } ] }
+    {
+      "args": [
+        [
+          -1,
+          0,
+          1,
+          2,
+          -1,
+          -4
+        ]
+      ],
+      "expected": [
+        [
+          -1,
+          -1,
+          2
+        ],
+        [
+          -1,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "args": [
+        [
+          0,
+          1,
+          1
+        ]
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ]
+}

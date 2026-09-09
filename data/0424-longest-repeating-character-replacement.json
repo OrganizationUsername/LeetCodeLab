@@ -1,8 +1,44 @@
-{ "id": 424, "slug": "longest-repeating-character-replacement",
-  "title": "Longest Repeating Character Replacement", "difficulty": "Medium",
-  "topics": ["Hash Table","String","Sliding Window"],
+{
+  "id": 424,
+  "slug": "longest-repeating-character-replacement",
+  "title": "Longest Repeating Character Replacement",
+  "difficulty": "Medium",
+  "topics": [
+    "Hash Table",
+    "String",
+    "Sliding Window"
+  ],
   "url": "https://leetcode.com/problems/longest-repeating-character-replacement/",
+  "folder": "SlidingWindow",
+  "className": "LongestRepeatingCharacterReplacement",
+  "signature": "int Solve(string s, int k)",
+  "statement": "You may change at most k characters to any uppercase letter. Return the length of the longest run of a single repeated letter you can produce.",
+  "constraints": [
+    "1 <= s.Length <= 10^5",
+    "uppercase English letters",
+    "0 <= k <= s.Length"
+  ],
+  "hints": [
+    "A window is valid when window length minus the count of its most common letter is at most k, since that difference is how many changes it needs.",
+    "Grow the window one character at a time, keeping 26 letter counts.",
+    "When the window becomes invalid, shrink from the left. The answer is the largest valid window seen."
+  ],
+  "complexity": "O(n) time, O(1) space",
   "comparison": "Exact",
   "cases": [
-    { "args": ["ABAB", 2], "expected": 4 },
-    { "args": ["AABABBA", 1], "expected": 4 } ] }
+    {
+      "args": [
+        "ABAB",
+        2
+      ],
+      "expected": 4
+    },
+    {
+      "args": [
+        "AABABBA",
+        1
+      ],
+      "expected": 4
+    }
+  ]
+}

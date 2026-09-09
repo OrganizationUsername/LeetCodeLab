@@ -1,0 +1,50 @@
+{
+  "id": 62,
+  "slug": "unique-paths",
+  "title": "Unique Paths",
+  "difficulty": "Medium",
+  "topics": [
+    "Math",
+    "Dynamic Programming",
+    "Combinatorics"
+  ],
+  "url": "https://leetcode.com/problems/unique-paths/",
+  "comparison": "Exact",
+  "folder": "DynamicProgramming",
+  "className": "UniquePaths",
+  "statement": "A robot starts at the top-left of an m by n grid and may only move right or down. Return how many distinct paths reach the bottom-right corner.",
+  "constraints": [
+    "1 <= m, n <= 100",
+    "the answer fits in a 32-bit integer"
+  ],
+  "hints": [
+    "Every cell is reached only from above or from the left, so paths[r][c] = paths[r-1][c] + paths[r][c-1].",
+    "The top row and left column each have exactly one path.",
+    "One row of the table is enough if you overwrite it left to right. There is also a pure combinatorics answer, since every path is a fixed multiset of moves."
+  ],
+  "complexity": "O(m*n) time, O(n) space",
+  "signature": "int Solve(int m, int n)",
+  "cases": [
+    {
+      "args": [
+        3,
+        7
+      ],
+      "expected": 28
+    },
+    {
+      "args": [
+        3,
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "args": [
+        1,
+        1
+      ],
+      "expected": 1
+    }
+  ]
+}

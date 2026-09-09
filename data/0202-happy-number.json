@@ -1,0 +1,52 @@
+{
+  "id": 202,
+  "slug": "happy-number",
+  "title": "Happy Number",
+  "difficulty": "Easy",
+  "topics": [
+    "Hash Table",
+    "Math",
+    "Two Pointers"
+  ],
+  "url": "https://leetcode.com/problems/happy-number/",
+  "comparison": "Exact",
+  "folder": "Numbers",
+  "className": "HappyNumber",
+  "signature": "bool Solve(int n)",
+  "statement": "Repeatedly replace n with the sum of the squares of its digits. n is happy if this reaches 1. Otherwise it loops forever without reaching 1. Return whether n is happy.",
+  "constraints": [
+    "1 <= n <= 2^31 - 1"
+  ],
+  "hints": [
+    "The process either reaches 1 or enters a cycle, so you need to detect repetition.",
+    "A HashSet of values already seen is the direct approach: a repeat means an unhappy number.",
+    "For O(1) space, this is cycle detection on an implicit linked list, so slow and fast pointers work exactly as in Linked List Cycle."
+  ],
+  "complexity": "O(log n) time per step, O(1) space with the two-pointer version",
+  "cases": [
+    {
+      "args": [
+        19
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        2
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        1
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        7
+      ],
+      "expected": true
+    }
+  ]
+}

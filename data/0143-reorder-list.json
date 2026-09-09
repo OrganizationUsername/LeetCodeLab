@@ -1,5 +1,63 @@
-{ "id": 143, "slug": "reorder-list", "title": "Reorder List", "difficulty": "Medium",
-  "topics": ["Linked List","Two Pointers","Stack","Recursion"],
-  "url": "https://leetcode.com/problems/reorder-list/", "comparison": "MutatedArg",
-  "cases": [ { "args": [[1,2,3,4]], "expected": [1,4,2,3] },
-    { "args": [[1,2,3,4,5]], "expected": [1,5,2,4,3] } ] }
+{
+  "id": 143,
+  "slug": "reorder-list",
+  "title": "Reorder List",
+  "difficulty": "Medium",
+  "topics": [
+    "Linked List",
+    "Two Pointers",
+    "Stack",
+    "Recursion"
+  ],
+  "url": "https://leetcode.com/problems/reorder-list/",
+  "folder": "LinkedLists",
+  "className": "ReorderList",
+  "statement": "Reorder the list in place so it interleaves front and back: first, last, second, second-last, and so on. Return nothing; the list itself is checked.",
+  "constraints": [
+    "1 <= list length <= 5*10^4"
+  ],
+  "hints": [
+    "Three classic sub-problems in sequence.",
+    "First find the midpoint with slow and fast pointers, and cut the list in two.",
+    "Reverse the second half, then weave the two halves together one node at a time. Remember to null out the first half tail before reversing, or you build a cycle."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "signature": "void Solve(ListNode? head)",
+  "comparison": "MutatedArg",
+  "cases": [
+    {
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": [
+        1,
+        4,
+        2,
+        3
+      ]
+    },
+    {
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": [
+        1,
+        5,
+        2,
+        4,
+        3
+      ]
+    }
+  ]
+}

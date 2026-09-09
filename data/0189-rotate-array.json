@@ -1,0 +1,82 @@
+{
+  "id": 189,
+  "slug": "rotate-array",
+  "title": "Rotate Array",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Math",
+    "Two Pointers"
+  ],
+  "url": "https://leetcode.com/problems/rotate-array/",
+  "comparison": "MutatedArg",
+  "folder": "Arrays",
+  "className": "RotateArray",
+  "signature": "void Solve(int[] nums, int k)",
+  "statement": "Rotate the array right by k positions, in place. k may exceed the array length. Nothing is returned; the array itself is checked.",
+  "constraints": [
+    "1 <= nums.Length <= 10^5",
+    "0 <= k <= 10^5"
+  ],
+  "hints": [
+    "Reduce k modulo the length first, or you will do redundant work.",
+    "Copying into a fresh array at index (i + k) % n is the easy O(n) space answer.",
+    "For O(1) space, reverse the whole array, then reverse the first k elements, then reverse the rest."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "cases": [
+    {
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        3
+      ],
+      "expected": [
+        5,
+        6,
+        7,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "args": [
+        [
+          -1,
+          -100,
+          3,
+          99
+        ],
+        2
+      ],
+      "expected": [
+        3,
+        99,
+        -1,
+        -100
+      ]
+    },
+    {
+      "args": [
+        [
+          1,
+          2
+        ],
+        3
+      ],
+      "expected": [
+        2,
+        1
+      ]
+    }
+  ]
+}

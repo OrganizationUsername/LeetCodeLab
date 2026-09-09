@@ -1,0 +1,65 @@
+{
+  "id": 101,
+  "slug": "symmetric-tree",
+  "title": "Symmetric Tree",
+  "difficulty": "Easy",
+  "topics": [
+    "Tree",
+    "DFS",
+    "BFS",
+    "Binary Tree"
+  ],
+  "url": "https://leetcode.com/problems/symmetric-tree/",
+  "comparison": "Exact",
+  "folder": "Trees",
+  "className": "SymmetricTree",
+  "signature": "bool Solve(TreeNode? root)",
+  "statement": "Return true when the tree is a mirror image of itself about its centre line.",
+  "constraints": [
+    "1 <= node count <= 1000"
+  ],
+  "hints": [
+    "This is not the same as comparing a tree with itself. You need a mirrored comparison.",
+    "Write a helper taking TWO nodes and asking whether they are mirrors of each other.",
+    "Two nodes mirror when their values match AND left mirrors the other right, and right mirrors the other left. Start it on root.left and root.right."
+  ],
+  "complexity": "O(n) time, O(h) space",
+  "cases": [
+    {
+      "args": [
+        [
+          1,
+          2,
+          2,
+          3,
+          4,
+          4,
+          3
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        [
+          1,
+          2,
+          2,
+          null,
+          3,
+          null,
+          3
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

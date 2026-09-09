@@ -1,7 +1,46 @@
-{ "id": 125, "slug": "valid-palindrome", "title": "Valid Palindrome", "difficulty": "Easy",
-  "topics": ["Two Pointers","String"], "url": "https://leetcode.com/problems/valid-palindrome/",
+{
+  "id": 125,
+  "slug": "valid-palindrome",
+  "title": "Valid Palindrome",
+  "difficulty": "Easy",
+  "topics": [
+    "Two Pointers",
+    "String"
+  ],
+  "url": "https://leetcode.com/problems/valid-palindrome/",
+  "folder": "TwoPointers",
+  "className": "ValidPalindrome",
+  "signature": "bool Solve(string s)",
+  "statement": "Return true when the string reads the same forwards and backwards, considering only letters and digits and ignoring case. Everything else is skipped.",
+  "constraints": [
+    "1 <= s.Length <= 2*10^5",
+    "printable ASCII"
+  ],
+  "hints": [
+    "Two pointers, one from each end, walking toward each other.",
+    "Advance each pointer past anything that is not a letter or digit before comparing.",
+    "Compare case-insensitively. char.IsLetterOrDigit and char.ToLowerInvariant do the work."
+  ],
+  "complexity": "O(n) time, O(1) space",
   "comparison": "Exact",
   "cases": [
-    { "args": ["A man, a plan, a canal: Panama"], "expected": true },
-    { "args": ["race a car"], "expected": false },
-    { "args": [" "], "expected": true } ] }
+    {
+      "args": [
+        "A man, a plan, a canal: Panama"
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        "race a car"
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        " "
+      ],
+      "expected": true
+    }
+  ]
+}

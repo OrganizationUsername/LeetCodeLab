@@ -1,0 +1,49 @@
+{
+  "id": 1143,
+  "slug": "longest-common-subsequence",
+  "title": "Longest Common Subsequence",
+  "difficulty": "Medium",
+  "topics": [
+    "String",
+    "Dynamic Programming"
+  ],
+  "url": "https://leetcode.com/problems/longest-common-subsequence/",
+  "comparison": "Exact",
+  "folder": "DynamicProgramming",
+  "className": "LongestCommonSubsequence",
+  "statement": "Return the length of the longest subsequence common to both strings. A subsequence keeps relative order but need not be contiguous.",
+  "constraints": [
+    "1 <= each length <= 1000",
+    "lowercase English letters"
+  ],
+  "hints": [
+    "This is the classic two-dimensional table. best[i][j] is the answer for the first i characters of one string and the first j of the other.",
+    "If the two current characters match, best[i][j] = best[i-1][j-1] + 1.",
+    "If they do not, you must drop one character from one side: best[i][j] = max(best[i-1][j], best[i][j-1])."
+  ],
+  "complexity": "O(n*m) time",
+  "signature": "int Solve(string text1, string text2)",
+  "cases": [
+    {
+      "args": [
+        "abcde",
+        "ace"
+      ],
+      "expected": 3
+    },
+    {
+      "args": [
+        "abc",
+        "abc"
+      ],
+      "expected": 3
+    },
+    {
+      "args": [
+        "abc",
+        "def"
+      ],
+      "expected": 0
+    }
+  ]
+}

@@ -1,6 +1,67 @@
-{ "id": 19, "slug": "remove-nth-node-from-end-of-list", "title": "Remove Nth Node From End of List",
-  "difficulty": "Medium", "topics": ["Linked List","Two Pointers"],
-  "url": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/", "comparison": "Exact",
-  "cases": [ { "args": [[1,2,3,4,5], 2], "expected": [1,2,3,5] },
-    { "args": [[1], 1], "expected": [] },
-    { "args": [[1,2], 1], "expected": [1] } ] }
+{
+  "id": 19,
+  "slug": "remove-nth-node-from-end-of-list",
+  "title": "Remove Nth Node From End of List",
+  "difficulty": "Medium",
+  "topics": [
+    "Linked List",
+    "Two Pointers"
+  ],
+  "url": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
+  "folder": "LinkedLists",
+  "className": "RemoveNthNodeFromEndOfList",
+  "statement": "Remove the nth node counting from the end of the list and return the head. n is always valid. Try to do it in one pass.",
+  "constraints": [
+    "1 <= list length <= 30",
+    "1 <= n <= list length"
+  ],
+  "hints": [
+    "Counting the length first and then walking again works, and is a fine first solution.",
+    "For one pass: start two pointers at the head and move the lead one n steps ahead.",
+    "Now advance both until the lead falls off the end. The trailing pointer is sitting just before the node to unlink. A dummy node before the head removes the special case of deleting the first node."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "signature": "ListNode? Solve(ListNode? head, int n)",
+  "comparison": "Exact",
+  "cases": [
+    {
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        2
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        5
+      ]
+    },
+    {
+      "args": [
+        [
+          1
+        ],
+        1
+      ],
+      "expected": []
+    },
+    {
+      "args": [
+        [
+          1,
+          2
+        ],
+        1
+      ],
+      "expected": [
+        1
+      ]
+    }
+  ]
+}

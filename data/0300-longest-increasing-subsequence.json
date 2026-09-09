@@ -9,6 +9,19 @@
     "Dynamic Programming"
   ],
   "url": "https://leetcode.com/problems/longest-increasing-subsequence/",
+  "folder": "DynamicProgramming",
+  "className": "LongestIncreasingSubsequence",
+  "statement": "Return the length of the longest strictly increasing subsequence. The chosen elements keep their relative order but need not be adjacent.",
+  "constraints": [
+    "1 <= nums.Length <= 2500 on the examples, 100000 on the stress case"
+  ],
+  "hints": [
+    "The O(n^2) DP, where length[i] is the best subsequence ending at i, is the natural first solution. It will not survive the stress case.",
+    "For O(n log n), keep a list where tails[L] is the smallest possible tail of an increasing subsequence of length L+1. That list is always sorted.",
+    "For each value, binary search for its insertion point: replace if it lands inside, append if it is larger than everything. The answer is the final list length."
+  ],
+  "complexity": "O(n log n) time",
+  "signature": "int Solve(int[] nums)",
   "comparison": "Exact",
   "timeoutMs": 3000,
   "cases": [

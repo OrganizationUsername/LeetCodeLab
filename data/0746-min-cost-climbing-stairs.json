@@ -1,0 +1,64 @@
+{
+  "id": 746,
+  "slug": "min-cost-climbing-stairs",
+  "title": "Min Cost Climbing Stairs",
+  "difficulty": "Easy",
+  "topics": [
+    "Array",
+    "Dynamic Programming"
+  ],
+  "url": "https://leetcode.com/problems/min-cost-climbing-stairs/",
+  "comparison": "Exact",
+  "folder": "DynamicProgramming",
+  "className": "MinCostClimbingStairs",
+  "statement": "cost[i] is what you pay to step off stair i. You may start at stair 0 or stair 1, and from any stair you climb one or two steps. Return the cheapest way to get past the top.",
+  "constraints": [
+    "2 <= cost.Length <= 1000",
+    "0 <= cost[i] <= 999"
+  ],
+  "hints": [
+    "Define best[i] as the cheapest way to REACH stair i, having not yet paid for it.",
+    "You arrive at i either from i-1 or from i-2, paying that stair cost on the way.",
+    "best[i] = min(best[i-1] + cost[i-1], best[i-2] + cost[i-2]). The answer is best at the position just past the last stair."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "signature": "int Solve(int[] cost)",
+  "cases": [
+    {
+      "args": [
+        [
+          10,
+          15,
+          20
+        ]
+      ],
+      "expected": 15
+    },
+    {
+      "args": [
+        [
+          1,
+          100,
+          1,
+          1,
+          1,
+          100,
+          1,
+          1,
+          100,
+          1
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "args": [
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

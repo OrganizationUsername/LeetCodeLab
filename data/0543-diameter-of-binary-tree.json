@@ -1,0 +1,57 @@
+{
+  "id": 543,
+  "slug": "diameter-of-binary-tree",
+  "title": "Diameter of Binary Tree",
+  "difficulty": "Easy",
+  "topics": [
+    "Tree",
+    "DFS",
+    "Binary Tree"
+  ],
+  "url": "https://leetcode.com/problems/diameter-of-binary-tree/",
+  "comparison": "Exact",
+  "folder": "Trees",
+  "className": "DiameterOfBinaryTree",
+  "signature": "int Solve(TreeNode? root)",
+  "statement": "Return the length of the longest path between any two nodes, measured in edges. The path does not have to pass through the root.",
+  "constraints": [
+    "1 <= node count <= 10^4"
+  ],
+  "hints": [
+    "For any node, the longest path THROUGH it is leftHeight + rightHeight edges.",
+    "So compute heights recursively, and while doing so track the best value of that sum anywhere.",
+    "The answer is that running maximum, not the return value of the recursion. Those are two different quantities."
+  ],
+  "complexity": "O(n) time, O(h) space",
+  "cases": [
+    {
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

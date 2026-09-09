@@ -1,0 +1,189 @@
+{
+  "id": 695,
+  "slug": "max-area-of-island",
+  "title": "Max Area of Island",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "DFS",
+    "BFS",
+    "Union Find",
+    "Matrix"
+  ],
+  "url": "https://leetcode.com/problems/max-area-of-island/",
+  "comparison": "Exact",
+  "folder": "Graphs",
+  "className": "MaxAreaOfIsland",
+  "signature": "int Solve(int[][] grid)",
+  "statement": "The grid holds 0 for water and 1 for land. An island is land joined edge to edge. Return the size of the largest island, or 0 when there is none.",
+  "constraints": [
+    "1 <= rows, cols <= 50"
+  ],
+  "hints": [
+    "Same sweep as Number of Islands, but the flood must COUNT what it visits.",
+    "Have the recursion return 1 plus the sum of the four neighbouring calls.",
+    "Mark visited cells as you go, by overwriting with 0 or with a separate visited grid, or the count will run away."
+  ],
+  "complexity": "O(rows * cols) time",
+  "cases": [
+    {
+      "args": [
+        [
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "args": [
+        [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "args": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      ],
+      "expected": 3
+    }
+  ]
+}

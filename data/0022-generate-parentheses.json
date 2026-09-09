@@ -1,0 +1,57 @@
+{
+  "id": 22,
+  "slug": "generate-parentheses",
+  "title": "Generate Parentheses",
+  "difficulty": "Medium",
+  "topics": [
+    "String",
+    "Dynamic Programming",
+    "Backtracking"
+  ],
+  "url": "https://leetcode.com/problems/generate-parentheses/",
+  "comparison": "Unordered",
+  "folder": "Backtracking",
+  "className": "GenerateParentheses",
+  "statement": "Return every well-formed string of n pairs of parentheses. Any order is accepted.",
+  "constraints": [
+    "1 <= n <= 8"
+  ],
+  "hints": [
+    "Build the string one character at a time rather than filtering all possible strings.",
+    "Track how many opening and closing brackets you have placed so far.",
+    "You may place an opening bracket while fewer than n have been used, and a closing bracket only while it would not outnumber the openings. That rule alone guarantees well-formedness."
+  ],
+  "complexity": "O(4^n / sqrt(n)) results",
+  "signature": "IList<string> Solve(int n)",
+  "cases": [
+    {
+      "args": [
+        3
+      ],
+      "expected": [
+        "((()))",
+        "(()())",
+        "(())()",
+        "()(())",
+        "()()()"
+      ]
+    },
+    {
+      "args": [
+        1
+      ],
+      "expected": [
+        "()"
+      ]
+    },
+    {
+      "args": [
+        2
+      ],
+      "expected": [
+        "(())",
+        "()()"
+      ]
+    }
+  ]
+}

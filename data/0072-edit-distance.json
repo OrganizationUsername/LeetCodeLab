@@ -1,0 +1,49 @@
+{
+  "id": 72,
+  "slug": "edit-distance",
+  "title": "Edit Distance",
+  "difficulty": "Medium",
+  "topics": [
+    "String",
+    "Dynamic Programming"
+  ],
+  "url": "https://leetcode.com/problems/edit-distance/",
+  "comparison": "Exact",
+  "folder": "DynamicProgramming",
+  "className": "EditDistance",
+  "statement": "Return the minimum number of single-character insertions, deletions or replacements needed to turn word1 into word2.",
+  "constraints": [
+    "0 <= each length <= 500",
+    "lowercase English letters"
+  ],
+  "hints": [
+    "Another two-dimensional table: best[i][j] is the cost of converting the first i characters into the first j.",
+    "Seed the edges: converting a prefix into the empty string costs one deletion per character, and vice versa.",
+    "On a character match, carry best[i-1][j-1] across for free. Otherwise take 1 + the minimum of the three neighbours, which correspond to replace, delete and insert."
+  ],
+  "complexity": "O(n*m) time",
+  "signature": "int Solve(string word1, string word2)",
+  "cases": [
+    {
+      "args": [
+        "horse",
+        "ros"
+      ],
+      "expected": 3
+    },
+    {
+      "args": [
+        "intention",
+        "execution"
+      ],
+      "expected": 5
+    },
+    {
+      "args": [
+        "",
+        "abc"
+      ],
+      "expected": 3
+    }
+  ]
+}

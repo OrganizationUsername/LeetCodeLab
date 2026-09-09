@@ -1,11 +1,66 @@
 {
-  "id": 26, "slug": "remove-duplicates-from-sorted-array",
+  "id": 26,
+  "slug": "remove-duplicates-from-sorted-array",
   "title": "Remove Duplicates from Sorted Array",
-  "difficulty": "Easy", "topics": ["Array", "Two Pointers"],
+  "difficulty": "Easy",
+  "topics": [
+    "Array",
+    "Two Pointers"
+  ],
   "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-array/",
+  "folder": "Arrays",
+  "className": "RemoveDuplicatesFromSortedArray",
+  "signature": "int Solve(int[] nums)",
+  "statement": "The array is sorted. Remove duplicates in place so each value appears once, and return the count k of unique values. Only the first k slots are checked; whatever is left beyond them is ignored.",
+  "constraints": [
+    "1 <= nums.Length <= 3*10^4",
+    "nums is sorted ascending"
+  ],
+  "hints": [
+    "You cannot resize a C# array, which is exactly why the answer is a count.",
+    "Keep a write cursor separate from the read cursor. Only advance the write cursor when you see something new.",
+    "Because the array is sorted, new just means different from the last value you wrote."
+  ],
+  "complexity": "O(n) time, O(1) extra space",
   "comparison": "InPlacePrefix",
   "cases": [
-    { "args": [[1,1,2]], "expected": 2, "expectedArray": [1,2] },
-    { "args": [[0,0,1,1,1,2,2,3,3,4]], "expected": 5, "expectedArray": [0,1,2,3,4] }
+    {
+      "args": [
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "expected": 2,
+      "expectedArray": [
+        1,
+        2
+      ]
+    },
+    {
+      "args": [
+        [
+          0,
+          0,
+          1,
+          1,
+          1,
+          2,
+          2,
+          3,
+          3,
+          4
+        ]
+      ],
+      "expected": 5,
+      "expectedArray": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    }
   ]
 }

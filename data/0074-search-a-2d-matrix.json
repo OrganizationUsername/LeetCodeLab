@@ -1,0 +1,92 @@
+{
+  "id": 74,
+  "slug": "search-a-2d-matrix",
+  "title": "Search a 2D Matrix",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Binary Search",
+    "Matrix"
+  ],
+  "url": "https://leetcode.com/problems/search-a-2d-matrix/",
+  "comparison": "Exact",
+  "folder": "Searching",
+  "className": "SearchA2DMatrix",
+  "statement": "Each row is sorted ascending, and the first value of each row is greater than the last value of the previous row. Return whether target is present, in logarithmic time.",
+  "constraints": [
+    "1 <= rows, cols <= 100",
+    "the matrix is fully sorted when read row by row"
+  ],
+  "hints": [
+    "Because of the second condition, reading the matrix row by row gives one single sorted sequence.",
+    "So run an ordinary binary search over the index range 0 to rows*cols - 1.",
+    "Convert a flat index back with row = index / cols and column = index % cols."
+  ],
+  "complexity": "O(log(rows*cols)) time",
+  "signature": "bool Solve(int[][] matrix, int target)",
+  "cases": [
+    {
+      "args": [
+        [
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            10,
+            11,
+            16,
+            20
+          ],
+          [
+            23,
+            30,
+            34,
+            60
+          ]
+        ],
+        3
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        [
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            10,
+            11,
+            16,
+            20
+          ],
+          [
+            23,
+            30,
+            34,
+            60
+          ]
+        ],
+        13
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        [
+          [
+            1
+          ]
+        ],
+        1
+      ],
+      "expected": true
+    }
+  ]
+}

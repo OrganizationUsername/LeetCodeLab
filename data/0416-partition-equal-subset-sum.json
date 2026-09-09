@@ -1,0 +1,59 @@
+{
+  "id": 416,
+  "slug": "partition-equal-subset-sum",
+  "title": "Partition Equal Subset Sum",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Dynamic Programming"
+  ],
+  "url": "https://leetcode.com/problems/partition-equal-subset-sum/",
+  "comparison": "Exact",
+  "folder": "DynamicProgramming",
+  "className": "PartitionEqualSubsetSum",
+  "statement": "Return true when nums can be split into two groups with equal sums.",
+  "constraints": [
+    "1 <= nums.Length <= 200",
+    "1 <= nums[i] <= 100"
+  ],
+  "hints": [
+    "If the total is odd the answer is immediately false.",
+    "Otherwise the question becomes: can some subset sum to exactly half the total? That is the subset-sum problem.",
+    "Keep a bool array over achievable sums, seeded with 0. For each number, sweep the array DOWNWARD so each number is used at most once."
+  ],
+  "complexity": "O(n * sum) time",
+  "signature": "bool Solve(int[] nums)",
+  "cases": [
+    {
+      "args": [
+        [
+          1,
+          5,
+          11,
+          5
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        [
+          1,
+          2,
+          3,
+          5
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        [
+          2,
+          2
+        ]
+      ],
+      "expected": true
+    }
+  ]
+}

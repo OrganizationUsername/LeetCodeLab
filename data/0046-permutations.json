@@ -1,6 +1,99 @@
-{ "id": 46, "slug": "permutations", "title": "Permutations", "difficulty": "Medium",
-  "topics": ["Array","Backtracking"], "url": "https://leetcode.com/problems/permutations/",
+{
+  "id": 46,
+  "slug": "permutations",
+  "title": "Permutations",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Backtracking"
+  ],
+  "url": "https://leetcode.com/problems/permutations/",
+  "folder": "Backtracking",
+  "className": "Permutations",
+  "statement": "The values are distinct. Return every possible ordering of them. The list of permutations may be in any order, but each permutation is a specific sequence and its internal order matters.",
+  "constraints": [
+    "1 <= nums.Length <= 6",
+    "all values distinct"
+  ],
+  "hints": [
+    "Build the permutation one position at a time.",
+    "Track which indices are already used with a bool array, and try every unused value at each position.",
+    "When the working list reaches full length, copy it into the results. Copy it, do not add the list you keep mutating."
+  ],
+  "complexity": "O(n * n!) time",
+  "signature": "IList<IList<int>> Solve(int[] nums)",
   "comparison": "Unordered",
-  "cases": [ { "args": [[1,2,3]], "expected": [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]] },
-    { "args": [[0,1]], "expected": [[0,1],[1,0]] },
-    { "args": [[1]], "expected": [[1]] } ] }
+  "cases": [
+    {
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          2,
+          1,
+          3
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          3,
+          1,
+          2
+        ],
+        [
+          3,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "args": [
+        [
+          0,
+          1
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": [
+        [
+          1
+        ]
+      ]
+    }
+  ]
+}

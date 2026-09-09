@@ -1,7 +1,80 @@
-{ "id": 703, "slug": "kth-largest-element-in-a-stream", "title": "Kth Largest Element in a Stream",
-  "difficulty": "Easy", "topics": ["Tree","Design","BST","Heap"],
-  "url": "https://leetcode.com/problems/kth-largest-element-in-a-stream/", "comparison": "Design",
-  "cases": [ {
-    "ops": ["KthLargest","add","add","add","add","add"],
-    "args": [[3,[4,5,8,2]],[3],[5],[10],[9],[4]],
-    "expected": [null,4,5,5,8,8] } ] }
+{
+  "id": 703,
+  "slug": "kth-largest-element-in-a-stream",
+  "title": "Kth Largest Element in a Stream",
+  "difficulty": "Easy",
+  "topics": [
+    "Tree",
+    "Design",
+    "BST",
+    "Heap"
+  ],
+  "url": "https://leetcode.com/problems/kth-largest-element-in-a-stream/",
+  "folder": "Design",
+  "className": "KthLargestTests",
+  "statement": "The constructor takes k and a starting array. Each Add inserts a value and returns the kth largest element in the collection at that moment, counting duplicates.",
+  "constraints": [
+    "1 <= k <= 10^4",
+    "the collection always has at least k elements when Add returns"
+  ],
+  "hints": [
+    "You never need the whole collection sorted, only the k largest of it.",
+    "Keep a min-heap holding exactly those k largest. Its root is the kth largest, which is the answer.",
+    "On each add, push and then drop the smallest while the heap exceeds size k. Run the constructor array through the same Add path rather than duplicating logic."
+  ],
+  "complexity": "O(log k) per add",
+  "design": {
+    "type": "KthLargest",
+    "members": [
+      "KthLargest(int k, int[] nums)",
+      "int Add(int val)"
+    ]
+  },
+  "comparison": "Design",
+  "cases": [
+    {
+      "ops": [
+        "KthLargest",
+        "add",
+        "add",
+        "add",
+        "add",
+        "add"
+      ],
+      "args": [
+        [
+          3,
+          [
+            4,
+            5,
+            8,
+            2
+          ]
+        ],
+        [
+          3
+        ],
+        [
+          5
+        ],
+        [
+          10
+        ],
+        [
+          9
+        ],
+        [
+          4
+        ]
+      ],
+      "expected": [
+        null,
+        4,
+        5,
+        5,
+        8,
+        8
+      ]
+    }
+  ]
+}

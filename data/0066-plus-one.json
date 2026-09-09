@@ -1,0 +1,84 @@
+{
+  "id": 66,
+  "slug": "plus-one",
+  "title": "Plus One",
+  "difficulty": "Easy",
+  "topics": [
+    "Array",
+    "Math"
+  ],
+  "url": "https://leetcode.com/problems/plus-one/",
+  "comparison": "Exact",
+  "folder": "Arrays",
+  "className": "PlusOne",
+  "signature": "int[] Solve(int[] digits)",
+  "statement": "The array holds the decimal digits of a non-negative integer, most significant first. Add one and return the resulting digits.",
+  "constraints": [
+    "1 <= digits.Length <= 100",
+    "no leading zeros except the number 0 itself"
+  ],
+  "hints": [
+    "Do not convert to an integer; the number can exceed every built-in type.",
+    "Walk from the last digit backwards. A digit below 9 just increments and you are finished.",
+    "A 9 becomes 0 and carries. If you fall off the front still carrying, the answer is one digit longer and starts with 1."
+  ],
+  "complexity": "O(n) time",
+  "cases": [
+    {
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        4
+      ]
+    },
+    {
+      "args": [
+        [
+          4,
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": [
+        4,
+        3,
+        2,
+        2
+      ]
+    },
+    {
+      "args": [
+        [
+          9
+        ]
+      ],
+      "expected": [
+        1,
+        0
+      ]
+    },
+    {
+      "args": [
+        [
+          9,
+          9,
+          9
+        ]
+      ],
+      "expected": [
+        1,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

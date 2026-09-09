@@ -1,0 +1,58 @@
+{
+  "id": 1046,
+  "slug": "last-stone-weight",
+  "title": "Last Stone Weight",
+  "difficulty": "Easy",
+  "topics": [
+    "Array",
+    "Heap"
+  ],
+  "url": "https://leetcode.com/problems/last-stone-weight/",
+  "comparison": "Exact",
+  "folder": "Heap",
+  "className": "LastStoneWeight",
+  "statement": "Repeatedly smash the two heaviest stones together. Equal stones destroy each other; otherwise the heavier one survives with the weight difference. Return the weight of the last stone, or 0 if none remain.",
+  "constraints": [
+    "1 <= stones.Length <= 30",
+    "1 <= stones[i] <= 1000"
+  ],
+  "hints": [
+    "You need the two largest values repeatedly, and the set changes after each smash.",
+    "That is exactly a max-heap. C# PriorityQueue is a min-heap, so enqueue with a negated priority.",
+    "Loop while more than one stone remains, popping two and pushing the difference back when it is non-zero."
+  ],
+  "complexity": "O(n log n) time",
+  "signature": "int Solve(int[] stones)",
+  "cases": [
+    {
+      "args": [
+        [
+          2,
+          7,
+          4,
+          1,
+          8,
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "args": [
+        [
+          2,
+          2
+        ]
+      ],
+      "expected": 0
+    }
+  ]
+}

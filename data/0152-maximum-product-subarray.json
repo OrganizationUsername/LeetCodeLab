@@ -1,0 +1,59 @@
+{
+  "id": 152,
+  "slug": "maximum-product-subarray",
+  "title": "Maximum Product Subarray",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Dynamic Programming"
+  ],
+  "url": "https://leetcode.com/problems/maximum-product-subarray/",
+  "comparison": "Exact",
+  "folder": "DynamicProgramming",
+  "className": "MaximumProductSubarray",
+  "statement": "Return the largest product obtainable from a contiguous non-empty slice of nums.",
+  "constraints": [
+    "1 <= nums.Length <= 2*10^4",
+    "the answer fits in a 32-bit integer"
+  ],
+  "hints": [
+    "The Kadane trick does not transfer directly, because a large negative product becomes large and positive when multiplied by another negative.",
+    "So track BOTH the maximum and the minimum product ending at the current index.",
+    "On a negative value the two swap roles. Compute both from the old pair before overwriting either."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "signature": "int Solve(int[] nums)",
+  "cases": [
+    {
+      "args": [
+        [
+          2,
+          3,
+          -2,
+          4
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "args": [
+        [
+          -2,
+          0,
+          -1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "args": [
+        [
+          -2,
+          3,
+          -4
+        ]
+      ],
+      "expected": 24
+    }
+  ]
+}

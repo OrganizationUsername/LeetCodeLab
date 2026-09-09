@@ -2,10 +2,31 @@ using System.Text.Json;
 
 namespace LeetCodeLab.Practice.Problems.DynamicProgramming;
 
-// 5. Longest Palindromic Substring (Medium)
-// https://leetcode.com/problems/longest-palindromic-substring/
-// "babad" has two correct answers, so the harness calls Validate instead of comparing
-// against a single expected string.
+// ============================================================================
+//  5. Longest Palindromic Substring                                   [Medium]
+//  https://leetcode.com/problems/longest-palindromic-substring/
+// ----------------------------------------------------------------------------
+//  Return the longest contiguous substring of s that is a palindrome. Several
+//  answers can tie, and any of the longest is accepted.
+//
+//  Examples
+//    s = "babad"  ->  "bab"  (other answers may also be accepted)
+//    s = "cbbd"  ->  "bb"  (other answers may also be accepted)
+//    s = "a"  ->  "a"  (other answers may also be accepted)
+//
+//  Constraints
+//    1 <= s.Length <= 1000
+//
+//  Hints (read only as many as you need)
+//    1. Every palindrome has a centre. There are 2n-1 of them: one at each
+//       character, and one between each adjacent pair.
+//    2. From each centre, expand outward while the characters match, and
+//       remember the longest span you achieve.
+//    3. Handle odd and even length palindromes as two separate expansions
+//       from each index.
+//
+//  Aim for O(n^2) time, O(1) space
+// ============================================================================
 [Problem(5)]
 public sealed class LongestPalindromicSubstring : ProblemTests<LongestPalindromicSubstring>
 {
@@ -14,7 +35,10 @@ public sealed class LongestPalindromicSubstring : ProblemTests<LongestPalindromi
         throw new NotImplementedException();
     }
 
-    /// <summary>Any palindromic substring of s matching the known best length is accepted.</summary>
+    /// <summary>
+    /// Harness plumbing, not part of your solution: several answers can be correct,
+    /// so any palindromic substring of s with the known best length is accepted.
+    /// </summary>
     public static bool Validate(object?[] args, object? actual, JsonElement expected)
     {
         string input = (string)args[0]!;

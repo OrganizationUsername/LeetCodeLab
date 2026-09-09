@@ -1,5 +1,57 @@
-{ "id": 20, "slug": "valid-parentheses", "title": "Valid Parentheses", "difficulty": "Easy",
-  "topics": ["String","Stack"], "url": "https://leetcode.com/problems/valid-parentheses/", "comparison": "Exact",
-  "cases": [ { "args": ["()"], "expected": true }, { "args": ["()[]{}"], "expected": true },
-    { "args": ["(]"], "expected": false }, { "args": ["([])"], "expected": true },
-    { "args": ["([)]"], "expected": false } ] }
+{
+  "id": 20,
+  "slug": "valid-parentheses",
+  "title": "Valid Parentheses",
+  "difficulty": "Easy",
+  "topics": [
+    "String",
+    "Stack"
+  ],
+  "url": "https://leetcode.com/problems/valid-parentheses/",
+  "folder": "Stacks",
+  "className": "ValidParentheses",
+  "signature": "bool Solve(string s)",
+  "statement": "The string contains only the six bracket characters. Return true when every bracket is closed by the matching type in the correct order.",
+  "constraints": [
+    "1 <= s.Length <= 10^4"
+  ],
+  "hints": [
+    "Counting brackets is not enough: the string ([)] has balanced counts but is wrong.",
+    "Push every opening bracket. On a closing bracket, the most recent unmatched opener must be its partner.",
+    "That is exactly a stack. Reject on a mismatch or on a closing bracket with an empty stack, and require the stack to be empty at the end."
+  ],
+  "complexity": "O(n) time, O(n) space",
+  "comparison": "Exact",
+  "cases": [
+    {
+      "args": [
+        "()"
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        "()[]{}"
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        "(]"
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        "([])"
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        "([)]"
+      ],
+      "expected": false
+    }
+  ]
+}

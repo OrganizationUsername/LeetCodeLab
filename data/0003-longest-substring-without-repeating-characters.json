@@ -9,6 +9,20 @@
     "Sliding Window"
   ],
   "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+  "folder": "SlidingWindow",
+  "className": "LongestSubstringWithoutRepeatingCharacters",
+  "signature": "int Solve(string s)",
+  "statement": "Return the length of the longest contiguous run of characters in which no character repeats.",
+  "constraints": [
+    "0 <= s.Length <= 5*10^4",
+    "letters, digits, symbols and spaces"
+  ],
+  "hints": [
+    "Maintain a window from start to i that is always free of repeats.",
+    "When s[i] has been seen before AND its last position is inside the window, jump start to just past that position.",
+    "A Dictionary from character to its most recent index makes that jump O(1). Never move start backwards."
+  ],
+  "complexity": "O(n) time, O(min(n, alphabet)) space",
   "comparison": "Exact",
   "timeoutMs": 3000,
   "maxAllocatedBytes": 33554432,

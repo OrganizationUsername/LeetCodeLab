@@ -89,8 +89,10 @@ public static class ProblemRunner
                     Fail(testCase, args, $"returned {count} but argument 0 only has {mutated.Count} elements");
 
                 Assert(
-                    ResultComparer.Compare(mutated.Take(count).ToList(), Canonical.Of(expectedPrefix),
-                        Comparison.Exact),
+                    ResultComparer.Compare(
+                        mutated.Take(count).ToList(),
+                        Canonical.Of(expectedPrefix),
+                        definition.PrefixOrdered ? Comparison.Exact : Comparison.Unordered),
                     testCase, args, $"first {count} element(s) of argument 0");
                 return;
             }

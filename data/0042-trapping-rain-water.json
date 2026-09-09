@@ -10,6 +10,20 @@
     "Stack"
   ],
   "url": "https://leetcode.com/problems/trapping-rain-water/",
+  "folder": "TwoPointers",
+  "className": "TrappingRainWater",
+  "signature": "int Solve(int[] height)",
+  "statement": "The array is an elevation map of unit-width bars. Return how many units of water are trapped after rain.",
+  "constraints": [
+    "1 <= height.Length <= 2*10^4",
+    "0 <= height[i] <= 10^5"
+  ],
+  "hints": [
+    "Think per column, not per pool. Water above column i is min(tallest to its left, tallest to its right) - height[i].",
+    "Precomputing both maxima into two arrays gives an easy O(n) time, O(n) space solution.",
+    "For O(1) space, walk two pointers inward and always advance the side with the smaller running maximum: that side answer is already determined."
+  ],
+  "complexity": "O(n) time, O(1) space",
   "comparison": "Exact",
   "timeoutMs": 3000,
   "maxAllocatedBytes": 16777216,

@@ -1,0 +1,75 @@
+{
+  "id": 55,
+  "slug": "jump-game",
+  "title": "Jump Game",
+  "difficulty": "Medium",
+  "topics": [
+    "Array",
+    "Dynamic Programming",
+    "Greedy"
+  ],
+  "url": "https://leetcode.com/problems/jump-game/",
+  "comparison": "Exact",
+  "folder": "DynamicProgramming",
+  "className": "JumpGame",
+  "statement": "Each nums[i] is the maximum number of steps you may jump forward from index i. Starting at index 0, return whether you can reach the last index.",
+  "constraints": [
+    "1 <= nums.Length <= 10^4 on the examples, 200000 on the stress case",
+    "0 <= nums[i] <= 10^5"
+  ],
+  "hints": [
+    "The quadratic DP that asks is index j reachable for every pair will not survive the stress case.",
+    "Sweep once, holding the furthest index reachable so far.",
+    "If you ever stand on an index beyond that reach, you are stuck and the answer is false. Otherwise extend the reach to max(reach, i + nums[i])."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "signature": "bool Solve(int[] nums)",
+  "timeoutMs": 3000,
+  "cases": [
+    {
+      "args": [
+        [
+          2,
+          3,
+          1,
+          1,
+          4
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        [
+          3,
+          2,
+          1,
+          0,
+          4
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        [
+          0
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "stress: 200k positive jumps",
+      "args": [
+        {
+          "$gen": "ints",
+          "seed": 31,
+          "count": 200000,
+          "min": 1,
+          "max": 5
+        }
+      ],
+      "expected": true
+    }
+  ]
+}

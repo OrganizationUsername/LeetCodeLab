@@ -1,0 +1,62 @@
+{
+  "id": 83,
+  "slug": "remove-duplicates-from-sorted-list",
+  "title": "Remove Duplicates from Sorted List",
+  "difficulty": "Easy",
+  "topics": [
+    "Linked List"
+  ],
+  "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-list/",
+  "comparison": "Exact",
+  "folder": "LinkedLists",
+  "className": "RemoveDuplicatesFromSortedList",
+  "signature": "ListNode? Solve(ListNode? head)",
+  "statement": "The list is sorted ascending. Delete nodes so each value appears once, and return the head.",
+  "constraints": [
+    "0 <= list length <= 300",
+    "the list is sorted ascending"
+  ],
+  "hints": [
+    "Because the list is sorted, duplicates are always adjacent.",
+    "Walk a single pointer. When the next node holds the same value, unlink it by skipping over it.",
+    "Do NOT advance in that case: the new next node might be a duplicate too."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "cases": [
+    {
+      "args": [
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "args": [
+        [
+          1,
+          1,
+          2,
+          3,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "args": [
+        []
+      ],
+      "expected": []
+    }
+  ]
+}

@@ -9,6 +9,20 @@
     "Union Find"
   ],
   "url": "https://leetcode.com/problems/longest-consecutive-sequence/",
+  "folder": "Arrays",
+  "className": "LongestConsecutiveSequence",
+  "signature": "int Solve(int[] nums)",
+  "statement": "Return the length of the longest run of consecutive integers present in nums. The values need not be adjacent in the array. Sorting solves it, but aim for linear time.",
+  "constraints": [
+    "0 <= nums.Length <= 10^5",
+    "-10^9 <= nums[i] <= 10^9"
+  ],
+  "hints": [
+    "Put everything in a HashSet so membership is O(1).",
+    "Do not walk a run from the middle: you would walk it once per member, which is quadratic.",
+    "Only start counting at a value n where n-1 is absent. That makes each run walked exactly once."
+  ],
+  "complexity": "O(n) time, O(n) space",
   "comparison": "Exact",
   "timeoutMs": 3000,
   "cases": [

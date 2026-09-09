@@ -9,6 +9,20 @@
     "Sorting"
   ],
   "url": "https://leetcode.com/problems/contains-duplicate/",
+  "folder": "Arrays",
+  "className": "ContainsDuplicate",
+  "signature": "bool Solve(int[] nums)",
+  "statement": "Return true if any value appears at least twice, false if every element is distinct.",
+  "constraints": [
+    "1 <= nums.Length <= 10^5",
+    "-10^9 <= nums[i] <= 10^9"
+  ],
+  "hints": [
+    "Comparing every pair is O(n^2) and will time out on the stress case.",
+    "A HashSet gives you have-I-seen-this in O(1).",
+    "You do not even need a loop: a set built from the array has fewer elements than the array exactly when there was a duplicate."
+  ],
+  "complexity": "O(n) time, O(n) space",
   "comparison": "Exact",
   "timeoutMs": 3000,
   "cases": [

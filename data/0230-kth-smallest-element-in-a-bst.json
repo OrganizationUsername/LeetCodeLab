@@ -1,5 +1,58 @@
-{ "id": 230, "slug": "kth-smallest-element-in-a-bst", "title": "Kth Smallest Element in a BST",
-  "difficulty": "Medium", "topics": ["Tree","DFS","BST","Binary Tree"],
-  "url": "https://leetcode.com/problems/kth-smallest-element-in-a-bst/", "comparison": "Exact",
-  "cases": [ { "args": [[3,1,4,null,2], 1], "expected": 1 },
-    { "args": [[5,3,6,2,4,null,null,1], 3], "expected": 3 } ] }
+{
+  "id": 230,
+  "slug": "kth-smallest-element-in-a-bst",
+  "title": "Kth Smallest Element in a BST",
+  "difficulty": "Medium",
+  "topics": [
+    "Tree",
+    "DFS",
+    "BST",
+    "Binary Tree"
+  ],
+  "url": "https://leetcode.com/problems/kth-smallest-element-in-a-bst/",
+  "folder": "Trees",
+  "className": "KthSmallestElementInABst",
+  "statement": "The tree is a valid BST. Return its kth smallest value, counting from 1.",
+  "constraints": [
+    "1 <= k <= node count <= 10^4"
+  ],
+  "hints": [
+    "An in-order traversal of a BST visits values in ascending order. That is the entire insight.",
+    "So you want the kth node produced by an in-order walk.",
+    "Rather than collecting everything, count as you go and stop at k. An explicit stack lets you bail out early without unwinding recursion."
+  ],
+  "complexity": "O(h + k) time",
+  "signature": "int Solve(TreeNode? root, int k)",
+  "comparison": "Exact",
+  "cases": [
+    {
+      "args": [
+        [
+          3,
+          1,
+          4,
+          null,
+          2
+        ],
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "args": [
+        [
+          5,
+          3,
+          6,
+          2,
+          4,
+          null,
+          null,
+          1
+        ],
+        3
+      ],
+      "expected": 3
+    }
+  ]
+}

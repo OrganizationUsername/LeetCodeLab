@@ -1,0 +1,50 @@
+{
+  "id": 9,
+  "slug": "palindrome-number",
+  "title": "Palindrome Number",
+  "difficulty": "Easy",
+  "topics": [
+    "Math"
+  ],
+  "url": "https://leetcode.com/problems/palindrome-number/",
+  "comparison": "Exact",
+  "folder": "Numbers",
+  "className": "PalindromeNumber",
+  "signature": "bool Solve(int x)",
+  "statement": "Return true when the integer reads the same forwards and backwards. Negative numbers are never palindromes because of the minus sign. Try it without converting to a string.",
+  "constraints": [
+    "-2^31 <= x <= 2^31 - 1"
+  ],
+  "hints": [
+    "Negatives are false immediately, as is any positive multiple of 10 other than 0.",
+    "Repeatedly peel the last digit with % 10 and / 10 to build a reversed number.",
+    "To dodge overflow entirely, only reverse HALF the digits and stop when the reversed half reaches or passes the remaining half."
+  ],
+  "complexity": "O(number of digits) time, O(1) space",
+  "cases": [
+    {
+      "args": [
+        121
+      ],
+      "expected": true
+    },
+    {
+      "args": [
+        -121
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        10
+      ],
+      "expected": false
+    },
+    {
+      "args": [
+        0
+      ],
+      "expected": true
+    }
+  ]
+}

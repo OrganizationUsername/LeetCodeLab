@@ -1,0 +1,62 @@
+{
+  "id": 124,
+  "slug": "binary-tree-maximum-path-sum",
+  "title": "Binary Tree Maximum Path Sum",
+  "difficulty": "Hard",
+  "topics": [
+    "Dynamic Programming",
+    "Tree",
+    "DFS",
+    "Binary Tree"
+  ],
+  "url": "https://leetcode.com/problems/binary-tree-maximum-path-sum/",
+  "comparison": "Exact",
+  "folder": "Trees",
+  "className": "BinaryTreeMaximumPathSum",
+  "signature": "int Solve(TreeNode? root)",
+  "statement": "A path is any sequence of nodes connected by edges, in which no node repeats. It need not pass through the root. Return the largest possible sum of the values along such a path.",
+  "constraints": [
+    "1 <= node count <= 3*10^4",
+    "-1000 <= node value <= 1000"
+  ],
+  "hints": [
+    "Two different quantities again. What you RETURN upward is the best path that goes down one side only, because a parent can only extend a single branch.",
+    "What you RECORD is the best path that turns at this node: value + best left branch + best right branch.",
+    "Clamp negative branch contributions to zero, since you are free to not take a branch at all."
+  ],
+  "complexity": "O(n) time, O(h) space",
+  "cases": [
+    {
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "args": [
+        [
+          -10,
+          9,
+          20,
+          null,
+          null,
+          15,
+          7
+        ]
+      ],
+      "expected": 42
+    },
+    {
+      "args": [
+        [
+          -3
+        ]
+      ],
+      "expected": -3
+    }
+  ]
+}
