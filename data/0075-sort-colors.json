@@ -68,6 +68,92 @@
       "expected": [
         0
       ]
+    },
+    {
+      "name": "single one",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "single two",
+      "args": [
+        [
+          2
+        ]
+      ],
+      "expected": [
+        2
+      ]
+    },
+    {
+      "name": "already two values",
+      "args": [
+        [
+          1,
+          0
+        ]
+      ],
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "all twos",
+      "args": [
+        [
+          2,
+          2,
+          2
+        ]
+      ],
+      "expected": [
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "all zeros",
+      "args": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "reverse order",
+      "args": [
+        [
+          2,
+          1,
+          0,
+          2,
+          1,
+          0
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        2
+      ]
     }
   ]
 }

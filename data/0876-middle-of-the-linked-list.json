@@ -65,6 +65,47 @@
       "expected": [
         1
       ]
+    },
+    {
+      "name": "two nodes takes the second",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        2
+      ]
+    },
+    {
+      "name": "three nodes",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "four nodes takes the third",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": [
+        3,
+        4
+      ]
     }
   ]
 }

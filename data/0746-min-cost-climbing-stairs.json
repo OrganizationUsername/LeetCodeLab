@@ -59,6 +59,65 @@
         ]
       ],
       "expected": 0
+    },
+    {
+      "name": "the standard example",
+      "args": [
+        [
+          10,
+          15,
+          20
+        ]
+      ],
+      "expected": 15
+    },
+    {
+      "name": "longer example",
+      "args": [
+        [
+          1,
+          100,
+          1,
+          1,
+          1,
+          100,
+          1,
+          1,
+          100,
+          1
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "free steps",
+      "args": [
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "start at the second step",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "start at the first and jump over",
+      "args": [
+        [
+          10,
+          15
+        ]
+      ],
+      "expected": 10
     }
   ]
 }

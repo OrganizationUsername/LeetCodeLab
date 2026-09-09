@@ -72,6 +72,72 @@
         }
       ],
       "expected": 100118088
+    },
+    {
+      "name": "single bar holds nothing",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "descending holds nothing",
+      "args": [
+        [
+          2,
+          1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "a simple basin",
+      "args": [
+        [
+          3,
+          0,
+          3
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "one trapped unit",
+      "args": [
+        [
+          5,
+          4,
+          1,
+          2
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "flat ground",
+      "args": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "symmetric valley",
+      "args": [
+        [
+          3,
+          2,
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 4
     }
   ]
 }

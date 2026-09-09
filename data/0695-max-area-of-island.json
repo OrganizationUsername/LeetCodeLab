@@ -184,6 +184,83 @@
         ]
       ],
       "expected": 3
+    },
+    {
+      "name": "single land cell",
+      "args": [
+        [
+          [
+            1
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "single water cell",
+      "args": [
+        [
+          [
+            0
+          ]
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "diagonals do not join",
+      "args": [
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "a solid block",
+      "args": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "an L shape and an island",
+      "args": [
+        [
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": 3
     }
   ]
 }

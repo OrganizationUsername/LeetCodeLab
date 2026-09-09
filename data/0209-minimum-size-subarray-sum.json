@@ -67,6 +67,66 @@
         ]
       ],
       "expected": 0
+    },
+    {
+      "name": "single element reaching the target",
+      "args": [
+        1,
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "target unreachable",
+      "args": [
+        2,
+        [
+          1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "three of five",
+      "args": [
+        11,
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "the whole array exactly",
+      "args": [
+        15,
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "one large element suffices",
+      "args": [
+        6,
+        [
+          10,
+          2,
+          3
+        ]
+      ],
+      "expected": 1
     }
   ]
 }

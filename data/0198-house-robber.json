@@ -57,6 +57,72 @@
         ]
       ],
       "expected": 4
+    },
+    {
+      "name": "single house",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "take the larger of two",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "take the first of two",
+      "args": [
+        [
+          2,
+          1
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "the standard example",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          1
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "skip two",
+      "args": [
+        [
+          2,
+          7,
+          9,
+          3,
+          1
+        ]
+      ],
+      "expected": 12
+    },
+    {
+      "name": "ends beat the middle",
+      "args": [
+        [
+          2,
+          1,
+          1,
+          2
+        ]
+      ],
+      "expected": 4
     }
   ]
 }

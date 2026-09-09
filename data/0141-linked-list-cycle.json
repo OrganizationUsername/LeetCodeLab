@@ -57,6 +57,52 @@
       ],
       "cyclePos": -1,
       "expected": false
+    },
+    {
+      "name": "empty list",
+      "args": [
+        []
+      ],
+      "expected": false,
+      "cyclePos": -1
+    },
+    {
+      "name": "no cycle",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": false,
+      "cyclePos": -1
+    },
+    {
+      "name": "tail loops to itself",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": true,
+      "cyclePos": 2
+    },
+    {
+      "name": "loops back to the head",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": true,
+      "cyclePos": 0
     }
   ]
 }

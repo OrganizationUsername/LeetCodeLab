@@ -56,6 +56,75 @@
         ]
       ],
       "expected": 0
+    },
+    {
+      "name": "already at the end",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "one jump",
+      "args": [
+        [
+          2,
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "the standard example",
+      "args": [
+        [
+          2,
+          3,
+          1,
+          1,
+          4
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "a zero that is jumped over",
+      "args": [
+        [
+          2,
+          3,
+          0,
+          1,
+          4
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "all single steps",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "one big jump covers everything",
+      "args": [
+        [
+          10,
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": 1
     }
   ]
 }

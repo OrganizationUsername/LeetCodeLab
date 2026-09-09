@@ -71,6 +71,74 @@
       ],
       "expected": 0,
       "expectedArray": []
+    },
+    {
+      "name": "remove the only element",
+      "args": [
+        [
+          1
+        ],
+        1
+      ],
+      "expected": 0,
+      "expectedArray": []
+    },
+    {
+      "name": "nothing to remove",
+      "args": [
+        [
+          1
+        ],
+        2
+      ],
+      "expected": 1,
+      "expectedArray": [
+        1
+      ]
+    },
+    {
+      "name": "every element removed",
+      "args": [
+        [
+          2,
+          2,
+          2
+        ],
+        2
+      ],
+      "expected": 0,
+      "expectedArray": []
+    },
+    {
+      "name": "value not present",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        4
+      ],
+      "expected": 3,
+      "expectedArray": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "remove the first of two",
+      "args": [
+        [
+          4,
+          5
+        ],
+        4
+      ],
+      "expected": 1,
+      "expectedArray": [
+        5
+      ]
     }
   ]
 }

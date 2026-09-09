@@ -62,6 +62,68 @@
         ]
       ],
       "expected": []
+    },
+    {
+      "name": "single element, nothing missing",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": []
+    },
+    {
+      "name": "one duplicate, one missing",
+      "args": [
+        [
+          2,
+          2
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "all the same",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "a permutation",
+      "args": [
+        [
+          2,
+          3,
+          1
+        ]
+      ],
+      "expected": []
+    },
+    {
+      "name": "three missing",
+      "args": [
+        [
+          3,
+          3,
+          3,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        4
+      ]
     }
   ]
 }

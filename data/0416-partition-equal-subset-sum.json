@@ -54,6 +54,86 @@
         ]
       ],
       "expected": true
+    },
+    {
+      "name": "the standard example",
+      "args": [
+        [
+          1,
+          5,
+          11,
+          5
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "odd sum cannot split",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          5
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "a matching pair",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "two different values",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "even sum but no subset reaches half",
+      "args": [
+        [
+          2,
+          2,
+          3,
+          5
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "three values, no split",
+      "args": [
+        [
+          1,
+          2,
+          5
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "three threes make half",
+      "args": [
+        [
+          3,
+          3,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": true
     }
   ]
 }

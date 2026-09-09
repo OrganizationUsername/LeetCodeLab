@@ -58,6 +58,49 @@
         []
       ],
       "expected": []
+    },
+    {
+      "name": "single node",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "three nodes",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "name": "four nodes",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": [
+        4,
+        3,
+        2,
+        1
+      ]
     }
   ]
 }

@@ -57,6 +57,70 @@
         ]
       ],
       "expected": -3
+    },
+    {
+      "name": "single node",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "single negative node",
+      "args": [
+        [
+          -3
+        ]
+      ],
+      "expected": -3
+    },
+    {
+      "name": "through the root",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 6
+    },
+    {
+      "name": "best path avoids the root",
+      "args": [
+        [
+          -10,
+          9,
+          20,
+          null,
+          null,
+          15,
+          7
+        ]
+      ],
+      "expected": 42
+    },
+    {
+      "name": "negative child is dropped",
+      "args": [
+        [
+          2,
+          -1
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "all negative, take the least bad",
+      "args": [
+        [
+          -2,
+          -1
+        ]
+      ],
+      "expected": -1
     }
   ]
 }

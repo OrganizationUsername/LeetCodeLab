@@ -62,6 +62,73 @@
         }
       ],
       "expected": 99999
+    },
+    {
+      "name": "single day",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "one rise",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "one fall",
+      "args": [
+        [
+          2,
+          1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "peak before the dip",
+      "args": [
+        [
+          2,
+          4,
+          1
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "best buy is not the global minimum",
+      "args": [
+        [
+          3,
+          2,
+          6,
+          5,
+          0,
+          3
+        ]
+      ],
+      "expected": 4
+    },
+    {
+      "name": "monotone rise",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": 4
     }
   ]
 }

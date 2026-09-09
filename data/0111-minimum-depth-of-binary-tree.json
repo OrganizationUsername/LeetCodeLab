@@ -60,6 +60,75 @@
         []
       ],
       "expected": 0
+    },
+    {
+      "name": "empty tree",
+      "args": [
+        null
+      ],
+      "expected": 0
+    },
+    {
+      "name": "single node",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "one child: the leaf is two down, not one",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "only a right child",
+      "args": [
+        [
+          1,
+          null,
+          2
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "long right chain",
+      "args": [
+        [
+          2,
+          null,
+          3,
+          null,
+          4,
+          null,
+          5,
+          null,
+          6
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "shallow leaf on the left",
+      "args": [
+        [
+          3,
+          9,
+          20,
+          null,
+          null,
+          15,
+          7
+        ]
+      ],
+      "expected": 2
     }
   ]
 }

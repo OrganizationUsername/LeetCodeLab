@@ -83,6 +83,126 @@
         1,
         2
       ]
+    },
+    {
+      "name": "single node",
+      "args": [
+        [
+          -1
+        ],
+        [
+          -1
+        ]
+      ],
+      "expected": [
+        -1
+      ]
+    },
+    {
+      "name": "left child only",
+      "args": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "right child only",
+      "args": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        1,
+        null,
+        2
+      ]
+    },
+    {
+      "name": "the standard example",
+      "args": [
+        [
+          3,
+          9,
+          20,
+          15,
+          7
+        ],
+        [
+          9,
+          3,
+          15,
+          20,
+          7
+        ]
+      ],
+      "expected": [
+        3,
+        9,
+        20,
+        null,
+        null,
+        15,
+        7
+      ]
+    },
+    {
+      "name": "left-skewed",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          3,
+          2,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        null,
+        3
+      ]
+    },
+    {
+      "name": "right-skewed",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        null,
+        2,
+        null,
+        3
+      ]
     }
   ]
 }

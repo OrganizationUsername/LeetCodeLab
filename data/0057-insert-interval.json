@@ -109,6 +109,164 @@
           7
         ]
       ]
+    },
+    {
+      "name": "new interval swallowed",
+      "args": [
+        [
+          [
+            1,
+            5
+          ]
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "name": "new interval after everything",
+      "args": [
+        [
+          [
+            1,
+            5
+          ]
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          5
+        ],
+        [
+          6,
+          8
+        ]
+      ]
+    },
+    {
+      "name": "new interval before everything",
+      "args": [
+        [
+          [
+            1,
+            5
+          ]
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    {
+      "name": "appended at the end",
+      "args": [
+        [
+          [
+            1,
+            3
+          ],
+          [
+            6,
+            9
+          ]
+        ],
+        [
+          10,
+          12
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          3
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          10,
+          12
+        ]
+      ]
+    },
+    {
+      "name": "a single point in a gap",
+      "args": [
+        [
+          [
+            3,
+            5
+          ],
+          [
+            12,
+            15
+          ]
+        ],
+        [
+          6,
+          6
+        ]
+      ],
+      "expected": [
+        [
+          3,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          12,
+          15
+        ]
+      ]
+    },
+    {
+      "name": "extends the last interval",
+      "args": [
+        [
+          [
+            1,
+            5
+          ]
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          7
+        ]
+      ]
     }
   ]
 }

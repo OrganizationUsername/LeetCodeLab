@@ -81,6 +81,119 @@
         1
       ],
       "expected": []
+    },
+    {
+      "name": "the standard example",
+      "args": [
+        [
+          2,
+          3,
+          6,
+          7
+        ],
+        7
+      ],
+      "expected": [
+        [
+          2,
+          2,
+          3
+        ],
+        [
+          7
+        ]
+      ]
+    },
+    {
+      "name": "longer combinations",
+      "args": [
+        [
+          2,
+          3,
+          5
+        ],
+        8
+      ],
+      "expected": [
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ]
+      ]
+    },
+    {
+      "name": "target below the only candidate",
+      "args": [
+        [
+          2
+        ],
+        1
+      ],
+      "expected": []
+    },
+    {
+      "name": "a repeated candidate",
+      "args": [
+        [
+          2
+        ],
+        4
+      ],
+      "expected": [
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "name": "three candidates",
+      "args": [
+        [
+          3,
+          5,
+          8
+        ],
+        11
+      ],
+      "expected": [
+        [
+          3,
+          3,
+          5
+        ],
+        [
+          3,
+          8
+        ]
+      ]
+    },
+    {
+      "name": "ones only",
+      "args": [
+        [
+          1
+        ],
+        3
+      ],
+      "expected": [
+        [
+          1,
+          1,
+          1
+        ]
+      ]
     }
   ]
 }

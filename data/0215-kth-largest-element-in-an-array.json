@@ -69,6 +69,61 @@
         1000
       ],
       "expected": 199000
+    },
+    {
+      "name": "single element",
+      "args": [
+        [
+          1
+        ],
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "largest of two",
+      "args": [
+        [
+          2,
+          1
+        ],
+        1
+      ],
+      "expected": 2
+    },
+    {
+      "name": "smallest of two",
+      "args": [
+        [
+          2,
+          1
+        ],
+        2
+      ],
+      "expected": 1
+    },
+    {
+      "name": "duplicates count separately",
+      "args": [
+        [
+          3,
+          3,
+          3
+        ],
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "negatives",
+      "args": [
+        [
+          -1,
+          -2
+        ],
+        1
+      ],
+      "expected": -1
     }
   ]
 }

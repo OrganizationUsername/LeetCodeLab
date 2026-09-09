@@ -87,6 +87,154 @@
         1
       ],
       "expected": true
+    },
+    {
+      "name": "single cell miss",
+      "args": [
+        [
+          [
+            1
+          ]
+        ],
+        2
+      ],
+      "expected": false
+    },
+    {
+      "name": "single row",
+      "args": [
+        [
+          [
+            1,
+            3
+          ]
+        ],
+        3
+      ],
+      "expected": true
+    },
+    {
+      "name": "single column",
+      "args": [
+        [
+          [
+            1
+          ],
+          [
+            3
+          ]
+        ],
+        3
+      ],
+      "expected": true
+    },
+    {
+      "name": "first value",
+      "args": [
+        [
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            10,
+            11,
+            16,
+            20
+          ],
+          [
+            23,
+            30,
+            34,
+            60
+          ]
+        ],
+        1
+      ],
+      "expected": true
+    },
+    {
+      "name": "last value",
+      "args": [
+        [
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            10,
+            11,
+            16,
+            20
+          ],
+          [
+            23,
+            30,
+            34,
+            60
+          ]
+        ],
+        60
+      ],
+      "expected": true
+    },
+    {
+      "name": "below the range",
+      "args": [
+        [
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            10,
+            11,
+            16,
+            20
+          ],
+          [
+            23,
+            30,
+            34,
+            60
+          ]
+        ],
+        0
+      ],
+      "expected": false
+    },
+    {
+      "name": "above the range",
+      "args": [
+        [
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            10,
+            11,
+            16,
+            20
+          ],
+          [
+            23,
+            30,
+            34,
+            60
+          ]
+        ],
+        61
+      ],
+      "expected": false
     }
   ]
 }

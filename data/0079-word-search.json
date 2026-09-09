@@ -102,6 +102,158 @@
         "ABCB"
       ],
       "expected": false
+    },
+    {
+      "name": "the standard example",
+      "args": [
+        [
+          [
+            "A",
+            "B",
+            "C",
+            "E"
+          ],
+          [
+            "S",
+            "F",
+            "C",
+            "S"
+          ],
+          [
+            "A",
+            "D",
+            "E",
+            "E"
+          ]
+        ],
+        "ABCCED"
+      ],
+      "expected": true
+    },
+    {
+      "name": "a shorter word",
+      "args": [
+        [
+          [
+            "A",
+            "B",
+            "C",
+            "E"
+          ],
+          [
+            "S",
+            "F",
+            "C",
+            "S"
+          ],
+          [
+            "A",
+            "D",
+            "E",
+            "E"
+          ]
+        ],
+        "SEE"
+      ],
+      "expected": true
+    },
+    {
+      "name": "not present",
+      "args": [
+        [
+          [
+            "A",
+            "B",
+            "C",
+            "E"
+          ],
+          [
+            "S",
+            "F",
+            "C",
+            "S"
+          ],
+          [
+            "A",
+            "D",
+            "E",
+            "E"
+          ]
+        ],
+        "ABCB"
+      ],
+      "expected": false
+    },
+    {
+      "name": "single cell hit",
+      "args": [
+        [
+          [
+            "a"
+          ]
+        ],
+        "a"
+      ],
+      "expected": true
+    },
+    {
+      "name": "single cell miss",
+      "args": [
+        [
+          [
+            "a"
+          ]
+        ],
+        "b"
+      ],
+      "expected": false
+    },
+    {
+      "name": "cells cannot be reused",
+      "args": [
+        [
+          [
+            "a",
+            "a"
+          ]
+        ],
+        "aaa"
+      ],
+      "expected": false
+    },
+    {
+      "name": "a path that turns",
+      "args": [
+        [
+          [
+            "a",
+            "b"
+          ],
+          [
+            "c",
+            "d"
+          ]
+        ],
+        "abdc"
+      ],
+      "expected": true
+    },
+    {
+      "name": "the other way round",
+      "args": [
+        [
+          [
+            "a",
+            "b"
+          ],
+          [
+            "c",
+            "d"
+          ]
+        ],
+        "acdb"
+      ],
+      "expected": true
     }
   ]
 }

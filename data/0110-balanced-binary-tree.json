@@ -59,6 +59,76 @@
         []
       ],
       "expected": true
+    },
+    {
+      "name": "empty tree",
+      "args": [
+        null
+      ],
+      "expected": true
+    },
+    {
+      "name": "single node",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "one child is still balanced",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "a chain of three is not",
+      "args": [
+        [
+          1,
+          2,
+          null,
+          3
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "the standard balanced example",
+      "args": [
+        [
+          3,
+          9,
+          20,
+          null,
+          null,
+          15,
+          7
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "unbalanced deeper down",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          3,
+          3,
+          null,
+          null,
+          4,
+          4
+        ]
+      ],
+      "expected": false
     }
   ]
 }

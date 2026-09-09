@@ -45,6 +45,54 @@
         "ab"
       ],
       "expected": false
+    },
+    {
+      "name": "both empty",
+      "args": [
+        "",
+        ""
+      ],
+      "expected": true
+    },
+    {
+      "name": "single matching letter",
+      "args": [
+        "a",
+        "a"
+      ],
+      "expected": true
+    },
+    {
+      "name": "swapped pair",
+      "args": [
+        "ab",
+        "ba"
+      ],
+      "expected": true
+    },
+    {
+      "name": "same letters, different counts",
+      "args": [
+        "aacc",
+        "ccac"
+      ],
+      "expected": false
+    },
+    {
+      "name": "identical",
+      "args": [
+        "ab",
+        "ab"
+      ],
+      "expected": true
+    },
+    {
+      "name": "reversed",
+      "args": [
+        "abc",
+        "cba"
+      ],
+      "expected": true
     }
   ]
 }

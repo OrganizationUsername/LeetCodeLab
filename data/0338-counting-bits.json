@@ -53,6 +53,70 @@
       "expected": [
         0
       ]
+    },
+    {
+      "name": "up to one",
+      "args": [
+        1
+      ],
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "up to three",
+      "args": [
+        3
+      ],
+      "expected": [
+        0,
+        1,
+        1,
+        2
+      ]
+    },
+    {
+      "name": "up to eight",
+      "args": [
+        8
+      ],
+      "expected": [
+        0,
+        1,
+        1,
+        2,
+        1,
+        2,
+        2,
+        3,
+        1
+      ]
+    },
+    {
+      "name": "up to sixteen",
+      "args": [
+        16
+      ],
+      "expected": [
+        0,
+        1,
+        1,
+        2,
+        1,
+        2,
+        2,
+        3,
+        1,
+        2,
+        2,
+        3,
+        2,
+        3,
+        3,
+        4,
+        1
+      ]
     }
   ]
 }

@@ -44,6 +44,54 @@
         "def"
       ],
       "expected": 0
+    },
+    {
+      "name": "the standard example",
+      "args": [
+        "abcde",
+        "ace"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "identical",
+      "args": [
+        "abc",
+        "abc"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "nothing in common",
+      "args": [
+        "abc",
+        "def"
+      ],
+      "expected": 0
+    },
+    {
+      "name": "single matching character",
+      "args": [
+        "a",
+        "a"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "repeated characters",
+      "args": [
+        "abcba",
+        "abcbcba"
+      ],
+      "expected": 5
+    },
+    {
+      "name": "one character in common",
+      "args": [
+        "bl",
+        "yby"
+      ],
+      "expected": 1
     }
   ]
 }

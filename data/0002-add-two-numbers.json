@@ -86,6 +86,90 @@
         0,
         1
       ]
+    },
+    {
+      "name": "carry into a new digit",
+      "args": [
+        [
+          5
+        ],
+        [
+          5
+        ]
+      ],
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "different lengths",
+      "args": [
+        [
+          1
+        ],
+        [
+          9,
+          9
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "longer second number",
+      "args": [
+        [
+          2,
+          4,
+          9
+        ],
+        [
+          5,
+          6,
+          4,
+          9
+        ]
+      ],
+      "expected": [
+        7,
+        0,
+        4,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "single carry",
+      "args": [
+        [
+          9
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "adding zero",
+      "args": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1
+      ]
     }
   ]
 }

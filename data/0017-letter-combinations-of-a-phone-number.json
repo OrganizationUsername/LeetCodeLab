@@ -56,6 +56,89 @@
         "b",
         "c"
       ]
+    },
+    {
+      "name": "no digits",
+      "args": [
+        ""
+      ],
+      "expected": []
+    },
+    {
+      "name": "one digit",
+      "args": [
+        "2"
+      ],
+      "expected": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "two digits",
+      "args": [
+        "23"
+      ],
+      "expected": [
+        "ad",
+        "ae",
+        "af",
+        "bd",
+        "be",
+        "bf",
+        "cd",
+        "ce",
+        "cf"
+      ]
+    },
+    {
+      "name": "a four-letter key",
+      "args": [
+        "7"
+      ],
+      "expected": [
+        "p",
+        "q",
+        "r",
+        "s"
+      ]
+    },
+    {
+      "name": "the other four-letter key",
+      "args": [
+        "9"
+      ],
+      "expected": [
+        "w",
+        "x",
+        "y",
+        "z"
+      ]
+    },
+    {
+      "name": "two four-letter keys",
+      "args": [
+        "79"
+      ],
+      "expected": [
+        "pw",
+        "px",
+        "py",
+        "pz",
+        "qw",
+        "qx",
+        "qy",
+        "qz",
+        "rw",
+        "rx",
+        "ry",
+        "rz",
+        "sw",
+        "sx",
+        "sy",
+        "sz"
+      ]
     }
   ]
 }

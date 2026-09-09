@@ -67,6 +67,83 @@
         1,
         2
       ]
+    },
+    {
+      "name": "two elements",
+      "args": [
+        [
+          1,
+          2
+        ],
+        3
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "last two",
+      "args": [
+        [
+          2,
+          3,
+          4
+        ],
+        7
+      ],
+      "expected": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "spanning zero",
+      "args": [
+        [
+          -3,
+          -1,
+          0,
+          2,
+          5
+        ],
+        1
+      ],
+      "expected": [
+        2,
+        4
+      ]
+    },
+    {
+      "name": "the two largest",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        9
+      ],
+      "expected": [
+        4,
+        5
+      ]
+    },
+    {
+      "name": "two zeros",
+      "args": [
+        [
+          0,
+          0
+        ],
+        0
+      ],
+      "expected": [
+        1,
+        2
+      ]
     }
   ]
 }

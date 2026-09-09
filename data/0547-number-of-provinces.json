@@ -91,6 +91,81 @@
         ]
       ],
       "expected": 1
+    },
+    {
+      "name": "single city",
+      "args": [
+        [
+          [
+            1
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "two connected",
+      "args": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "two isolated",
+      "args": [
+        [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "two pairs",
+      "args": [
+        [
+          [
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            1
+          ],
+          [
+            0,
+            0,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": 2
     }
   ]
 }

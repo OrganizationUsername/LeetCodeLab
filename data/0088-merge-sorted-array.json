@@ -80,6 +80,104 @@
       "expected": [
         1
       ]
+    },
+    {
+      "name": "one from each",
+      "args": [
+        [
+          2,
+          0
+        ],
+        1,
+        [
+          1
+        ],
+        1
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "second array sorts first entirely",
+      "args": [
+        [
+          4,
+          5,
+          6,
+          0,
+          0,
+          0
+        ],
+        3,
+        [
+          1,
+          2,
+          3
+        ],
+        3
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "name": "appended at the end",
+      "args": [
+        [
+          1,
+          0
+        ],
+        1,
+        [
+          2
+        ],
+        1
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "duplicates across both",
+      "args": [
+        [
+          -1,
+          0,
+          0,
+          3,
+          3,
+          3,
+          0,
+          0,
+          0
+        ],
+        6,
+        [
+          1,
+          2,
+          2
+        ],
+        3
+      ],
+      "expected": [
+        -1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        3,
+        3,
+        3
+      ]
     }
   ]
 }

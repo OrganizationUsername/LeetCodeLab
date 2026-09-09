@@ -45,6 +45,54 @@
         "aa"
       ],
       "expected": ""
+    },
+    {
+      "name": "no window exists",
+      "args": [
+        "a",
+        "b"
+      ],
+      "expected": ""
+    },
+    {
+      "name": "window is the last character",
+      "args": [
+        "ab",
+        "b"
+      ],
+      "expected": "b"
+    },
+    {
+      "name": "window is the first character",
+      "args": [
+        "ab",
+        "a"
+      ],
+      "expected": "a"
+    },
+    {
+      "name": "duplicate requirement",
+      "args": [
+        "aa",
+        "aa"
+      ],
+      "expected": "aa"
+    },
+    {
+      "name": "window at the end",
+      "args": [
+        "bba",
+        "ab"
+      ],
+      "expected": "ba"
+    },
+    {
+      "name": "longer search",
+      "args": [
+        "cabwefgewcwaefgcf",
+        "cae"
+      ],
+      "expected": "cwae"
     }
   ]
 }

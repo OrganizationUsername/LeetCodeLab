@@ -52,6 +52,63 @@
         ]
       ],
       "expected": 0
+    },
+    {
+      "name": "single node has diameter zero",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "one edge",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "the standard example",
+      "args": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "through the root",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "a straight chain of four",
+      "args": [
+        [
+          1,
+          2,
+          null,
+          3,
+          null,
+          4
+        ]
+      ],
+      "expected": 3
     }
   ]
 }

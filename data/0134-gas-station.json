@@ -76,6 +76,72 @@
         ]
       ],
       "expected": 4
+    },
+    {
+      "name": "single station that works",
+      "args": [
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "single station short of fuel",
+      "args": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "single station with spare fuel",
+      "args": [
+        [
+          2
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "start at the beginning",
+      "args": [
+        [
+          3,
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "start at the second station",
+      "args": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "expected": 1
     }
   ]
 }

@@ -42,6 +42,48 @@
         "aba"
       ],
       "expected": 4
+    },
+    {
+      "name": "all distinct",
+      "args": [
+        "abc"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "three identical",
+      "args": [
+        "aaa"
+      ],
+      "expected": 6
+    },
+    {
+      "name": "single character",
+      "args": [
+        "a"
+      ],
+      "expected": 1
+    },
+    {
+      "name": "a pair",
+      "args": [
+        "aa"
+      ],
+      "expected": 3
+    },
+    {
+      "name": "odd palindrome",
+      "args": [
+        "aba"
+      ],
+      "expected": 4
+    },
+    {
+      "name": "even palindrome",
+      "args": [
+        "abba"
+      ],
+      "expected": 6
     }
   ]
 }

@@ -53,6 +53,56 @@
         ]
       ],
       "expected": 0
+    },
+    {
+      "name": "two equal stones cancel",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "two unequal stones",
+      "args": [
+        [
+          3,
+          1
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "a single stone survives",
+      "args": [
+        [
+          10
+        ]
+      ],
+      "expected": 10
+    },
+    {
+      "name": "three equal stones",
+      "args": [
+        [
+          2,
+          2,
+          2
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "smaller first",
+      "args": [
+        [
+          1,
+          3
+        ]
+      ],
+      "expected": 2
     }
   ]
 }

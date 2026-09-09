@@ -66,6 +66,84 @@
         0,
         1
       ]
+    },
+    {
+      "name": "two elements",
+      "args": [
+        [
+          1,
+          2
+        ],
+        3
+      ],
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "all negative",
+      "args": [
+        [
+          -1,
+          -2,
+          -3,
+          -4,
+          -5
+        ],
+        -8
+      ],
+      "expected": [
+        2,
+        4
+      ]
+    },
+    {
+      "name": "a pair of zeros",
+      "args": [
+        [
+          0,
+          4,
+          3,
+          0
+        ],
+        0
+      ],
+      "expected": [
+        0,
+        3
+      ]
+    },
+    {
+      "name": "negative plus positive",
+      "args": [
+        [
+          -3,
+          4,
+          3,
+          90
+        ],
+        0
+      ],
+      "expected": [
+        0,
+        2
+      ]
+    },
+    {
+      "name": "answer at the end",
+      "args": [
+        [
+          5,
+          75,
+          25
+        ],
+        100
+      ],
+      "expected": [
+        1,
+        2
+      ]
     }
   ]
 }

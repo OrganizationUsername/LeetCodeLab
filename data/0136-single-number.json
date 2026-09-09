@@ -53,6 +53,61 @@
         ]
       ],
       "expected": 1
+    },
+    {
+      "name": "three values",
+      "args": [
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "negatives",
+      "args": [
+        [
+          -1,
+          -1,
+          -2
+        ]
+      ],
+      "expected": -2
+    },
+    {
+      "name": "the single is in the middle",
+      "args": [
+        [
+          0,
+          1,
+          0
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "single element",
+      "args": [
+        [
+          7
+        ]
+      ],
+      "expected": 7
+    },
+    {
+      "name": "two pairs and a single",
+      "args": [
+        [
+          1,
+          2,
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": 3
     }
   ]
 }

@@ -4,7 +4,7 @@ LeetCode as a failing unit test suite. Open the solution in Visual Studio, look 
 Explorer, pick a red test, make it green. No browser, no login, no network — and you get
 breakpoints, the watch window and the profiler, which the website does not give you.
 
-**215 problems, 1111 test cases.** 65 Easy / 137 Medium / 13 Hard, across 31 topics.
+**215 problems, 1559 test cases.** 65 Easy / 137 Medium / 13 Hard, across 31 topics.
 
 18 of them are original engineering problems with no LeetCode page, where the point is to
 work the solution out rather than recall it — see [Original problems](#original-problems).
@@ -16,7 +16,7 @@ reference solution that passes its cases (see [Verification](#verification)).
 ## Quick start
 
 ```
-dotnet test --project practice/LeetCodeLab.Practice   # 1111 red, 1 green
+dotnet test --project practice/LeetCodeLab.Practice   # 1559 red, 1 green
 ```
 
 Or open `LeetCodeLab.slnx` in Visual Studio and use Test Explorer. That is the XML solution
@@ -170,7 +170,7 @@ The case files are hand-written, and hand-written expectations are worth nothing
 something proves them. So every problem has a reference solution in `verify/`, and
 
 ```
-dotnet test --project verify/LeetCodeLab.Verify      # 1132 tests, all green
+dotnet test --project verify/LeetCodeLab.Verify      # 1580 tests, all green
 ```
 
 going green means the expectations you are judged against are correct. It caught three real

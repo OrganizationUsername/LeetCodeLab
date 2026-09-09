@@ -45,6 +45,54 @@
         1
       ],
       "expected": 1
+    },
+    {
+      "name": "one by one",
+      "args": [
+        1,
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "name": "single row",
+      "args": [
+        1,
+        5
+      ],
+      "expected": 1
+    },
+    {
+      "name": "the standard example",
+      "args": [
+        3,
+        7
+      ],
+      "expected": 28
+    },
+    {
+      "name": "three by two",
+      "args": [
+        3,
+        2
+      ],
+      "expected": 3
+    },
+    {
+      "name": "transposed is the same",
+      "args": [
+        7,
+        3
+      ],
+      "expected": 28
+    },
+    {
+      "name": "ten by ten",
+      "args": [
+        10,
+        10
+      ],
+      "expected": 48620
     }
   ]
 }

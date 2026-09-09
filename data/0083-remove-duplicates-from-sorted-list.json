@@ -57,6 +57,75 @@
         []
       ],
       "expected": []
+    },
+    {
+      "name": "single node",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "a duplicate pair",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "three identical",
+      "args": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "no duplicates",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "duplicates throughout",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          2,
+          3,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3
+      ]
     }
   ]
 }

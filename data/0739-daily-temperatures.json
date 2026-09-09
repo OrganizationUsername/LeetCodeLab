@@ -78,6 +78,72 @@
         1,
         0
       ]
+    },
+    {
+      "name": "single day",
+      "args": [
+        [
+          30
+        ]
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "cooling",
+      "args": [
+        [
+          30,
+          20
+        ]
+      ],
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "warming",
+      "args": [
+        [
+          20,
+          30
+        ]
+      ],
+      "expected": [
+        1,
+        0
+      ]
+    },
+    {
+      "name": "a long wait at the front",
+      "args": [
+        [
+          89,
+          62,
+          70,
+          58,
+          47,
+          47,
+          46,
+          76,
+          100,
+          70
+        ]
+      ],
+      "expected": [
+        8,
+        1,
+        5,
+        4,
+        3,
+        2,
+        1,
+        1,
+        0,
+        0
+      ]
     }
   ]
 }

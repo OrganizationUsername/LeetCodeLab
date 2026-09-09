@@ -60,6 +60,61 @@
         ]
       ],
       "expected": 11
+    },
+    {
+      "name": "single element",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "rotated pair",
+      "args": [
+        [
+          2,
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "unrotated pair",
+      "args": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "pivot at the end",
+      "args": [
+        [
+          2,
+          3,
+          4,
+          5,
+          1
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "pivot near the start",
+      "args": [
+        [
+          5,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected": 1
     }
   ]
 }

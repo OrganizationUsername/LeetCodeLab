@@ -3,7 +3,11 @@
   "slug": "range-sum-query-2d-immutable",
   "title": "Range Sum Query 2D - Immutable",
   "difficulty": "Medium",
-  "topics": ["Matrix", "Prefix Sum", "Design"],
+  "topics": [
+    "Matrix",
+    "Prefix Sum",
+    "Design"
+  ],
   "url": "https://leetcode.com/problems/range-sum-query-2d-immutable/",
   "comparison": "Design",
   "folder": "Matrix",
@@ -30,33 +34,202 @@
   "cases": [
     {
       "name": "the classic 5x5 example",
-      "ops": ["NumMatrix", "sumRegion", "sumRegion", "sumRegion", "sumRegion", "sumRegion"],
-      "args": [
-        [[[3,0,1,4,2],[5,6,3,2,1],[1,2,0,1,5],[4,1,0,1,7],[1,0,3,0,5]]],
-        [2,1,4,3],
-        [1,1,2,2],
-        [1,2,2,4],
-        [0,0,4,4],
-        [0,0,0,0]
+      "ops": [
+        "NumMatrix",
+        "sumRegion",
+        "sumRegion",
+        "sumRegion",
+        "sumRegion",
+        "sumRegion"
       ],
-      "expected": [null, 8, 11, 12, 58, 3]
+      "args": [
+        [
+          [
+            [
+              3,
+              0,
+              1,
+              4,
+              2
+            ],
+            [
+              5,
+              6,
+              3,
+              2,
+              1
+            ],
+            [
+              1,
+              2,
+              0,
+              1,
+              5
+            ],
+            [
+              4,
+              1,
+              0,
+              1,
+              7
+            ],
+            [
+              1,
+              0,
+              3,
+              0,
+              5
+            ]
+          ]
+        ],
+        [
+          2,
+          1,
+          4,
+          3
+        ],
+        [
+          1,
+          1,
+          2,
+          2
+        ],
+        [
+          1,
+          2,
+          2,
+          4
+        ],
+        [
+          0,
+          0,
+          4,
+          4
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        null,
+        8,
+        11,
+        12,
+        58,
+        3
+      ]
     },
     {
       "name": "1x1 matrix",
-      "ops": ["NumMatrix", "sumRegion"],
-      "args": [[[[7]]], [0,0,0,0]],
-      "expected": [null, 7]
+      "ops": [
+        "NumMatrix",
+        "sumRegion"
+      ],
+      "args": [
+        [
+          [
+            [
+              7
+            ]
+          ]
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        null,
+        7
+      ]
     },
     {
       "name": "negatives, whole-row and whole-column queries",
-      "ops": ["NumMatrix", "sumRegion", "sumRegion", "sumRegion"],
-      "args": [
-        [[[-1,2],[3,-4]]],
-        [0,0,0,1],
-        [0,0,1,0],
-        [0,0,1,1]
+      "ops": [
+        "NumMatrix",
+        "sumRegion",
+        "sumRegion",
+        "sumRegion"
       ],
-      "expected": [null, 1, 2, 0]
+      "args": [
+        [
+          [
+            [
+              -1,
+              2
+            ],
+            [
+              3,
+              -4
+            ]
+          ]
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ]
+      ],
+      "expected": [
+        null,
+        1,
+        2,
+        0
+      ]
+    },
+    {
+      "name": "a single row",
+      "ops": [
+        "NumMatrix",
+        "sumRegion",
+        "sumRegion"
+      ],
+      "args": [
+        [
+          [
+            [
+              1,
+              2,
+              3
+            ]
+          ]
+        ],
+        [
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "expected": [
+        null,
+        6,
+        2
+      ]
     }
   ]
 }

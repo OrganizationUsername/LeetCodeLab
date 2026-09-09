@@ -70,6 +70,81 @@
         4,
         5
       ]
+    },
+    {
+      "name": "two distinct values",
+      "args": [
+        [
+          1,
+          2
+        ],
+        2
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "clear top two",
+      "args": [
+        [
+          1,
+          1,
+          2,
+          2,
+          3
+        ],
+        2
+      ],
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "all the same",
+      "args": [
+        [
+          5,
+          5,
+          5
+        ],
+        1
+      ],
+      "expected": [
+        5
+      ]
+    },
+    {
+      "name": "negative majority",
+      "args": [
+        [
+          -1,
+          -1,
+          2
+        ],
+        1
+      ],
+      "expected": [
+        -1
+      ]
+    },
+    {
+      "name": "k equals the distinct count",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ],
+        3
+      ],
+      "expected": [
+        1,
+        2,
+        3
+      ]
     }
   ]
 }

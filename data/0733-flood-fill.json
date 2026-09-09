@@ -128,6 +128,98 @@
           1
         ]
       ]
+    },
+    {
+      "name": "single pixel recoloured",
+      "args": [
+        [
+          [
+            1
+          ]
+        ],
+        0,
+        0,
+        2
+      ],
+      "expected": [
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "name": "single pixel, same colour",
+      "args": [
+        [
+          [
+            1
+          ]
+        ],
+        0,
+        0,
+        1
+      ],
+      "expected": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "name": "whole image flooded",
+      "args": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        0,
+        0,
+        3
+      ],
+      "expected": [
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          3
+        ]
+      ]
+    },
+    {
+      "name": "diagonal neighbours are not filled",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        0,
+        0,
+        3
+      ],
+      "expected": [
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ]
     }
   ]
 }

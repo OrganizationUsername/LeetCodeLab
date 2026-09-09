@@ -64,6 +64,90 @@
         0
       ],
       "expected": false
+    },
+    {
+      "name": "empty tree has no root-to-leaf path",
+      "args": [
+        null,
+        0
+      ],
+      "expected": false
+    },
+    {
+      "name": "single node hit",
+      "args": [
+        [
+          1
+        ],
+        1
+      ],
+      "expected": true
+    },
+    {
+      "name": "single node miss",
+      "args": [
+        [
+          1
+        ],
+        2
+      ],
+      "expected": false
+    },
+    {
+      "name": "the root alone is not a leaf path",
+      "args": [
+        [
+          1,
+          2
+        ],
+        1
+      ],
+      "expected": false
+    },
+    {
+      "name": "root plus its only child",
+      "args": [
+        [
+          1,
+          2
+        ],
+        3
+      ],
+      "expected": true
+    },
+    {
+      "name": "the standard example",
+      "args": [
+        [
+          5,
+          4,
+          8,
+          11,
+          null,
+          13,
+          4,
+          7,
+          2,
+          null,
+          null,
+          null,
+          1
+        ],
+        22
+      ],
+      "expected": true
+    },
+    {
+      "name": "negative values",
+      "args": [
+        [
+          -2,
+          null,
+          -3
+        ],
+        -5
+      ],
+      "expected": true
     }
   ]
 }

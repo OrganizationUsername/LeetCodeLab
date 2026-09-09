@@ -76,6 +76,71 @@
         9,
         25
       ]
+    },
+    {
+      "name": "single zero",
+      "args": [
+        [
+          0
+        ]
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "name": "single negative",
+      "args": [
+        [
+          -1
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "two negatives",
+      "args": [
+        [
+          -2,
+          -1
+        ]
+      ],
+      "expected": [
+        1,
+        4
+      ]
+    },
+    {
+      "name": "all positive",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        4,
+        9
+      ]
+    },
+    {
+      "name": "symmetric around zero",
+      "args": [
+        [
+          -3,
+          0,
+          3
+        ]
+      ],
+      "expected": [
+        0,
+        9,
+        9
+      ]
     }
   ]
 }

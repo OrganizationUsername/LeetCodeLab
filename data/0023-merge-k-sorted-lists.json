@@ -69,6 +69,89 @@
         ]
       ],
       "expected": []
+    },
+    {
+      "name": "one list",
+      "args": [
+        [
+          [
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "an empty list among them",
+      "args": [
+        [
+          [],
+          [
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "two single-node lists",
+      "args": [
+        [
+          [
+            1
+          ],
+          [
+            0
+          ]
+        ]
+      ],
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "empty in the middle",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [],
+          [
+            3
+          ]
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "negative values",
+      "args": [
+        [
+          [
+            -2,
+            -1
+          ],
+          [
+            -3
+          ]
+        ]
+      ],
+      "expected": [
+        -3,
+        -2,
+        -1
+      ]
     }
   ]
 }

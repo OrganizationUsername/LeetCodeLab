@@ -69,6 +69,79 @@
         ]
       ],
       "expected": 22
+    },
+    {
+      "name": "a single number",
+      "args": [
+        [
+          "3"
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "a single negative",
+      "args": [
+        [
+          "-3"
+        ]
+      ],
+      "expected": -3
+    },
+    {
+      "name": "exact division",
+      "args": [
+        [
+          "4",
+          "2",
+          "/"
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "division truncates toward zero",
+      "args": [
+        [
+          "7",
+          "2",
+          "/"
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "negative division truncates toward zero",
+      "args": [
+        [
+          "-7",
+          "2",
+          "/"
+        ]
+      ],
+      "expected": -3
+    },
+    {
+      "name": "subtraction order",
+      "args": [
+        [
+          "5",
+          "3",
+          "-"
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "subtraction the other way",
+      "args": [
+        [
+          "3",
+          "5",
+          "-"
+        ]
+      ],
+      "expected": -2
     }
   ]
 }

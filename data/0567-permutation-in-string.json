@@ -46,6 +46,54 @@
         "dcda"
       ],
       "expected": true
+    },
+    {
+      "name": "single matching letter",
+      "args": [
+        "a",
+        "a"
+      ],
+      "expected": true
+    },
+    {
+      "name": "single mismatched letter",
+      "args": [
+        "a",
+        "b"
+      ],
+      "expected": false
+    },
+    {
+      "name": "exact match",
+      "args": [
+        "ab",
+        "ab"
+      ],
+      "expected": true
+    },
+    {
+      "name": "reversed match",
+      "args": [
+        "ab",
+        "ba"
+      ],
+      "expected": true
+    },
+    {
+      "name": "permutation in the middle",
+      "args": [
+        "abc",
+        "bbbca"
+      ],
+      "expected": true
+    },
+    {
+      "name": "letters present but never adjacent",
+      "args": [
+        "hello",
+        "ooolleoooleh"
+      ],
+      "expected": false
     }
   ]
 }

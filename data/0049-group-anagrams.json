@@ -76,6 +76,80 @@
           "a"
         ]
       ]
+    },
+    {
+      "name": "a repeated single letter",
+      "args": [
+        [
+          "a",
+          "b",
+          "a"
+        ]
+      ],
+      "expected": [
+        [
+          "a",
+          "a"
+        ],
+        [
+          "b"
+        ]
+      ]
+    },
+    {
+      "name": "three anagrams and an outsider",
+      "args": [
+        [
+          "abc",
+          "bca",
+          "cab",
+          "xyz"
+        ]
+      ],
+      "expected": [
+        [
+          "abc",
+          "bca",
+          "cab"
+        ],
+        [
+          "xyz"
+        ]
+      ]
+    },
+    {
+      "name": "two empty strings group together",
+      "args": [
+        [
+          "",
+          ""
+        ]
+      ],
+      "expected": [
+        [
+          "",
+          ""
+        ]
+      ]
+    },
+    {
+      "name": "different lengths never group",
+      "args": [
+        [
+          "ab",
+          "ba",
+          "abc"
+        ]
+      ],
+      "expected": [
+        [
+          "ab",
+          "ba"
+        ],
+        [
+          "abc"
+        ]
+      ]
     }
   ]
 }

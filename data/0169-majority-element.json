@@ -57,6 +57,52 @@
         ]
       ],
       "expected": 1
+    },
+    {
+      "name": "three values",
+      "args": [
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "majority at the end",
+      "args": [
+        [
+          6,
+          5,
+          5
+        ]
+      ],
+      "expected": 5
+    },
+    {
+      "name": "negative majority",
+      "args": [
+        [
+          -1,
+          -1,
+          2
+        ]
+      ],
+      "expected": -1
+    },
+    {
+      "name": "three of five",
+      "args": [
+        [
+          1,
+          1,
+          1,
+          2,
+          2
+        ]
+      ],
+      "expected": 1
     }
   ]
 }

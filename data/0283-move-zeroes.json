@@ -64,6 +64,77 @@
         1,
         0
       ]
+    },
+    {
+      "name": "single non-zero",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "all zeros",
+      "args": [
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "no zeros",
+      "args": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "leading zero",
+      "args": [
+        [
+          0,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        0
+      ]
+    },
+    {
+      "name": "zeros between values",
+      "args": [
+        [
+          1,
+          0,
+          2,
+          0,
+          3
+        ]
+      ],
+      "expected": [
+        1,
+        2,
+        3,
+        0,
+        0
+      ]
     }
   ]
 }

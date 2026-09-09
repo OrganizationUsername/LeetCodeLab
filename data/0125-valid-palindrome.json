@@ -41,6 +41,62 @@
         " "
       ],
       "expected": true
+    },
+    {
+      "name": "empty string",
+      "args": [
+        ""
+      ],
+      "expected": true
+    },
+    {
+      "name": "single letter",
+      "args": [
+        "a"
+      ],
+      "expected": true
+    },
+    {
+      "name": "two different letters",
+      "args": [
+        "ab"
+      ],
+      "expected": false
+    },
+    {
+      "name": "two identical letters",
+      "args": [
+        "aa"
+      ],
+      "expected": true
+    },
+    {
+      "name": "digit against letter",
+      "args": [
+        "0P"
+      ],
+      "expected": false
+    },
+    {
+      "name": "punctuation ignored",
+      "args": [
+        "a."
+      ],
+      "expected": true
+    },
+    {
+      "name": "apostrophes and commas",
+      "args": [
+        "Madam, I'm Adam"
+      ],
+      "expected": true
+    },
+    {
+      "name": "nothing alphanumeric",
+      "args": [
+        ".,"
+      ],
+      "expected": true
     }
   ]
 }

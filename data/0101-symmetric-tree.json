@@ -60,6 +60,77 @@
         ]
       ],
       "expected": true
+    },
+    {
+      "name": "single node",
+      "args": [
+        [
+          1
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "empty tree",
+      "args": [
+        null
+      ],
+      "expected": true
+    },
+    {
+      "name": "mirrored pair",
+      "args": [
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "full mirrored tree",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          3,
+          4,
+          4,
+          3
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "structure not mirrored",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          null,
+          3,
+          null,
+          3
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "left child missing on one side",
+      "args": [
+        [
+          1,
+          2,
+          2,
+          2,
+          null,
+          2
+        ]
+      ],
+      "expected": false
     }
   ]
 }

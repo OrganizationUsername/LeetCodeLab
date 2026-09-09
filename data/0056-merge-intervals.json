@@ -99,6 +99,115 @@
           4
         ]
       ]
+    },
+    {
+      "name": "single interval",
+      "args": [
+        [
+          [
+            1,
+            4
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          4
+        ]
+      ]
+    },
+    {
+      "name": "one fully inside another",
+      "args": [
+        [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          4
+        ]
+      ]
+    },
+    {
+      "name": "adjacent but not touching",
+      "args": [
+        [
+          [
+            1,
+            4
+          ],
+          [
+            5,
+            6
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          4
+        ],
+        [
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "name": "input not sorted",
+      "args": [
+        [
+          [
+            2,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          4
+        ]
+      ]
+    },
+    {
+      "name": "a chain of touching intervals",
+      "args": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          4
+        ]
+      ]
     }
   ]
 }

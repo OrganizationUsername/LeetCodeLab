@@ -53,6 +53,63 @@
         1,
         1
       ]
+    },
+    {
+      "name": "single character",
+      "args": [
+        "a"
+      ],
+      "expected": [
+        1
+      ]
+    },
+    {
+      "name": "a repeated character",
+      "args": [
+        "aa"
+      ],
+      "expected": [
+        2
+      ]
+    },
+    {
+      "name": "two separate letters",
+      "args": [
+        "ab"
+      ],
+      "expected": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "a letter that returns",
+      "args": [
+        "aba"
+      ],
+      "expected": [
+        3
+      ]
+    },
+    {
+      "name": "one long part then a short one",
+      "args": [
+        "abac"
+      ],
+      "expected": [
+        3,
+        1
+      ]
+    },
+    {
+      "name": "a is first and last",
+      "args": [
+        "caedbdedda"
+      ],
+      "expected": [
+        1,
+        9
+      ]
     }
   ]
 }
