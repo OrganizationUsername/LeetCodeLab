@@ -12,21 +12,20 @@ namespace LeetCodeLab.Harness;
 [AttributeUsage(AttributeTargets.Method)]
 public sealed class ProblemDataAttribute : DataAttribute
 {
-    public override ValueTask<IReadOnlyCollection<ITheoryDataRow>> GetData(
-        MethodInfo testMethod, DisposalTracker disposalTracker)
+    public override ValueTask<IReadOnlyCollection<ITheoryDataRow>> GetData(MethodInfo testMethod, DisposalTracker disposalTracker)
     {
-        Type problemType = ResolveProblemType(testMethod);
-        ProblemDefinition definition = CaseRepository.Load(CaseRepository.IdOf(problemType));
+        var problemType = ResolveProblemType(testMethod);
+        var definition = CaseRepository.Load(CaseRepository.IdOf(problemType));
 
         Dictionary<string, HashSet<string>> traits = new(StringComparer.OrdinalIgnoreCase)
         {
-            ["Difficulty"] = [definition.Difficulty],
-            ["Problem"] = [definition.Id.ToString()],
+            ["Difficulty"] = [definition.Difficulty,],
+            ["Problem"] = [definition.Id.ToString(),],
         };
-        if (definition.Topics.Length > 0) traits["Topic"] = [.. definition.Topics];
+        if (definition.Topics.Length > 0) { traits["Topic"] = [.. definition.Topics,]; }
 
         List<ITheoryDataRow> rows = [];
-        for (int i = 0; i < definition.Cases.Count; i++)
+        for (var i = 0; i < definition.Cases.Count; i++)
         {
             rows.Add(new TheoryDataRow<int>(i)
             {
@@ -42,11 +41,9 @@ public sealed class ProblemDataAttribute : DataAttribute
 
     private static string Describe(ProblemCase testCase)
     {
-        if (!string.IsNullOrWhiteSpace(testCase.Name)) return testCase.Name!;
+        if (!string.IsNullOrWhiteSpace(testCase.Name)) { return testCase.Name!; }
 
-        string raw = testCase.Ops is { Length: > 0 }
-            ? string.Join(",", testCase.Ops)
-            : testCase.Args.GetRawText();
+        var raw = testCase.Ops is { Length: > 0, } ? string.Join(",", testCase.Ops) : testCase.Args.GetRawText();
 
         raw = raw.Replace("\r", "").Replace("\n", "").Replace(" ", "");
         return raw.Length <= 60 ? raw : raw[..57] + "...";
@@ -58,18 +55,17 @@ public sealed class ProblemDataAttribute : DataAttribute
     /// </summary>
     private static Type ResolveProblemType(MethodInfo testMethod)
     {
-        Type? start = testMethod.ReflectedType ?? testMethod.DeclaringType;
+        var start = testMethod.ReflectedType ?? testMethod.DeclaringType;
 
-        for (Type? type = start; type is not null; type = type.BaseType)
+        for (var type = start; type is not null; type = type.BaseType)
         {
-            if (type.GetCustomAttribute<ProblemAttribute>(inherit: false) is not null) return type;
+            if (type.GetCustomAttribute<ProblemAttribute>(inherit: false) is not null) { return type; }
 
             if (type.IsGenericType)
             {
-                foreach (Type argument in type.GetGenericArguments())
+                foreach (var argument in type.GetGenericArguments())
                 {
-                    if (argument.GetCustomAttribute<ProblemAttribute>(inherit: false) is not null)
-                        return argument;
+                    if (argument.GetCustomAttribute<ProblemAttribute>(inherit: false) is not null) { return argument; }
                 }
             }
         }

@@ -30,6 +30,18 @@ public sealed class RotateImage : ProblemTests<RotateImage>
 {
     public void Solve(int[][] matrix)
     {
-        throw new NotImplementedException();
+        var size = matrix.GetLength(0);
+
+        for (var j = 0; j < size; j++)
+        {
+            for (var i = 0; i + j < size - 1; i++)
+            {
+                var endX = size - j - 1;
+                var endY = size - i - 1;
+                (matrix[i][j], matrix[endX][endY]) = (matrix[endX][endY], matrix[i][j]);
+            }
+        }
+
+        Array.Reverse(matrix);
     }
 }
