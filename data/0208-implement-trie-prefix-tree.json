@@ -75,6 +75,129 @@
         null,
         true
       ]
+    },
+    {
+      "name": "a prefix is not automatically a word",
+      "ops": [
+        "Trie",
+        "insert",
+        "search",
+        "startsWith",
+        "search"
+      ],
+      "args": [
+        [],
+        [
+          "hello"
+        ],
+        [
+          "hell"
+        ],
+        [
+          "hell"
+        ],
+        [
+          "hello"
+        ]
+      ],
+      "expected": [
+        null,
+        null,
+        false,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "nothing inserted yet",
+      "ops": [
+        "Trie",
+        "search",
+        "startsWith"
+      ],
+      "args": [
+        [],
+        [
+          "a"
+        ],
+        [
+          "a"
+        ]
+      ],
+      "expected": [
+        null,
+        false,
+        false
+      ]
+    },
+    {
+      "name": "one word is a prefix of another",
+      "ops": [
+        "Trie",
+        "insert",
+        "insert",
+        "search",
+        "search",
+        "search",
+        "startsWith"
+      ],
+      "args": [
+        [],
+        [
+          "app"
+        ],
+        [
+          "apple"
+        ],
+        [
+          "app"
+        ],
+        [
+          "apple"
+        ],
+        [
+          "appl"
+        ],
+        [
+          "appl"
+        ]
+      ],
+      "expected": [
+        null,
+        null,
+        null,
+        true,
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "name": "searching past the end of the trie",
+      "ops": [
+        "Trie",
+        "insert",
+        "search",
+        "startsWith"
+      ],
+      "args": [
+        [],
+        [
+          "ab"
+        ],
+        [
+          "abc"
+        ],
+        [
+          "abc"
+        ]
+      ],
+      "expected": [
+        null,
+        null,
+        false,
+        false
+      ]
     }
   ]
 }

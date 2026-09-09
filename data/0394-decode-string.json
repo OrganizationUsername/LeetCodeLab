@@ -1,0 +1,36 @@
+{
+  "id": 394,
+  "slug": "decode-string",
+  "title": "Decode String",
+  "difficulty": "Medium",
+  "topics": ["Stack", "String", "Recursion"],
+  "url": "https://leetcode.com/problems/decode-string/",
+  "comparison": "Exact",
+  "folder": "Stacks",
+  "className": "DecodeString",
+  "signature": "string Solve(string s)",
+  "statement": "The encoding k[encoded] means the enclosed text repeated k times, and encodings may nest. Expand the whole string. The input is always well formed and the repeat counts are always positive integers.",
+  "constraints": [
+    "1 <= s.Length <= 30",
+    "the input is always valid, with balanced brackets",
+    "repeat counts may be more than one digit",
+    "the decoded result fits comfortably in memory"
+  ],
+  "hints": [
+    "The nesting is what makes this more than string replacement: an inner group must be expanded before the outer one can repeat it.",
+    "Two stacks, one for the partly-built text and one for the pending repeat counts. An opening bracket pushes both and starts a fresh buffer.",
+    "The closing bracket is where the work happens: pop the count and the outer buffer, then append the current buffer to it that many times. Read multi-digit numbers fully before the bracket, or 10[a] becomes 1 then 0."
+  ],
+  "complexity": "O(length of the decoded output) time",
+  "cases": [
+    { "name": "two groups", "args": ["3[a]2[bc]"], "expected": "aaabcbc" },
+    { "name": "nested", "args": ["3[a2[c]]"], "expected": "accaccacc" },
+    { "name": "groups plus a tail", "args": ["2[abc]3[cd]ef"], "expected": "abcabccdcdcdef" },
+    { "name": "no encoding at all", "args": ["abc"], "expected": "abc" },
+    { "name": "two-digit count", "args": ["10[a]"], "expected": "aaaaaaaaaa" },
+    { "name": "text before the first group", "args": ["xy3[z]"], "expected": "xyzzz" },
+    { "name": "deeply nested", "args": ["2[2[2[a]]]"], "expected": "aaaaaaaa" },
+    { "name": "nesting with text on both sides", "args": ["3[a]2[b4[F]c]"],
+      "expected": "aaabFFFFcbFFFFc" }
+  ]
+}

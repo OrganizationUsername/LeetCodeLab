@@ -1,0 +1,41 @@
+{
+  "id": 221,
+  "slug": "maximal-square",
+  "title": "Maximal Square",
+  "difficulty": "Medium",
+  "topics": ["Dynamic Programming", "Matrix", "Array"],
+  "url": "https://leetcode.com/problems/maximal-square/",
+  "comparison": "Exact",
+  "folder": "Matrix",
+  "className": "MaximalSquare",
+  "signature": "int Solve(char[][] matrix)",
+  "statement": "The grid holds the characters 1 and 0. Find the largest square made entirely of 1s and return its AREA, not its side length.",
+  "constraints": [
+    "1 <= rows, cols <= 300",
+    "entries are the characters '0' and '1'",
+    "return 0 when there is no 1 anywhere"
+  ],
+  "hints": [
+    "Checking every candidate square is far too slow. Ask instead: for each cell, what is the largest square whose BOTTOM-RIGHT corner is exactly here?",
+    "A square of side k ending at a cell requires squares of side k-1 ending at the cells directly above, directly left, and diagonally up-left. Any one of them being smaller caps you.",
+    "So dp[i][j] = min of those three neighbours, plus one, when the cell is a 1. Track the largest dp value and square it at the end - forgetting to square is the usual slip, since the DP is in side lengths and the answer is an area."
+  ],
+  "complexity": "O(rows*cols) time, O(cols) space if you keep one row",
+  "cases": [
+    { "name": "the classic example",
+      "args": [[["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]],
+      "expected": 4 },
+    { "name": "no two adjacent 1s, so side 1",
+      "args": [[["0","1"],["1","0"]]], "expected": 1 },
+    { "name": "single zero", "args": [[["0"]]], "expected": 0 },
+    { "name": "single one", "args": [[["1"]]], "expected": 1 },
+    { "name": "all ones, 2x2", "args": [[["1","1"],["1","1"]]], "expected": 4 },
+    { "name": "all zeros", "args": [[["0","0"],["0","0"]]], "expected": 0 },
+    { "name": "all ones, 3x3",
+      "args": [[["1","1","1"],["1","1","1"],["1","1","1"]]], "expected": 9 },
+    { "name": "largest square is not in the corner",
+      "args": [[["1","1","0","1"],["1","1","1","1"],["1","1","1","0"]]], "expected": 4 },
+    { "name": "single row of ones", "args": [[["1","1","1","1"]]], "expected": 1 },
+    { "name": "single column of ones", "args": [[["1"],["1"],["1"]]], "expected": 1 }
+  ]
+}

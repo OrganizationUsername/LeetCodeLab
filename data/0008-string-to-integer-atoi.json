@@ -1,0 +1,42 @@
+{
+  "id": 8,
+  "slug": "string-to-integer-atoi",
+  "title": "String to Integer (atoi)",
+  "difficulty": "Medium",
+  "topics": ["String", "Parsing"],
+  "url": "https://leetcode.com/problems/string-to-integer-atoi/",
+  "comparison": "Exact",
+  "folder": "Strings",
+  "className": "StringToInteger",
+  "signature": "int Solve(string s)",
+  "statement": "Convert the leading number of a string to a 32-bit signed integer. Skip any leading spaces, accept one optional + or - sign, then read digits until a non-digit or the end. Anything after that is ignored. If no digits were read the answer is 0. Clamp results outside the signed 32-bit range to its minimum or maximum.",
+  "constraints": [
+    "0 <= s.Length <= 200",
+    "s may contain letters, digits, spaces, and the characters + - .",
+    "only SPACES are skipped, and only at the front",
+    "out-of-range values clamp rather than wrap"
+  ],
+  "hints": [
+    "Four phases in a fixed order: skip spaces, read at most one sign, read digits, stop. Never go back a phase.",
+    "The digits must stop at the first non-digit rather than skipping over it, which is why \"0-1\" is 0 and \"words and 987\" is 0.",
+    "Overflow is the real content. Check BEFORE multiplying: if the running value already exceeds int.MaxValue / 10, or equals it and the next digit would push past the last digit of int.MaxValue, clamp and stop. Accumulating in a long and clamping afterwards also works and is easier to get right."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "cases": [
+    { "name": "plain number", "args": ["42"], "expected": 42 },
+    { "name": "spaces, sign and leading zeros", "args": ["   -042"], "expected": -42 },
+    { "name": "stops at the first letter", "args": ["1337c0d3"], "expected": 1337 },
+    { "name": "stops at the sign after a digit", "args": ["0-1"], "expected": 0 },
+    { "name": "no leading digits", "args": ["words and 987"], "expected": 0 },
+    { "name": "clamps to int.MinValue", "args": ["-91283472332"], "expected": -2147483648 },
+    { "name": "clamps to int.MaxValue", "args": ["91283472332"], "expected": 2147483647 },
+    { "name": "empty string", "args": [""], "expected": 0 },
+    { "name": "explicit plus", "args": ["+1"], "expected": 1 },
+    { "name": "space inside the number ends it", "args": ["  +0 123"], "expected": 0 },
+    { "name": "a lone sign", "args": ["-"], "expected": 0 },
+    { "name": "two signs", "args": ["+-12"], "expected": 0 },
+    { "name": "stops at the decimal point", "args": ["3.14159"], "expected": 3 },
+    { "name": "exactly int.MaxValue", "args": ["2147483647"], "expected": 2147483647 },
+    { "name": "exactly int.MinValue", "args": ["-2147483648"], "expected": -2147483648 }
+  ]
+}

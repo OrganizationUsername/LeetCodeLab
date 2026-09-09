@@ -1,0 +1,35 @@
+{
+  "id": 860,
+  "slug": "lemonade-change",
+  "title": "Lemonade Change",
+  "difficulty": "Easy",
+  "topics": ["Greedy", "Array"],
+  "url": "https://leetcode.com/problems/lemonade-change/",
+  "comparison": "Exact",
+  "folder": "Greedy",
+  "className": "LemonadeChange",
+  "signature": "bool Solve(int[] bills)",
+  "statement": "Each lemonade costs 5. Customers queue up paying with a 5, 10 or 20 note, and you must give the correct change immediately from notes you have already taken. You start with nothing. Return whether every customer can be served.",
+  "constraints": [
+    "1 <= bills.Length <= 10^5",
+    "each bill is 5, 10 or 20",
+    "change must be given at the moment of sale, from notes already received"
+  ],
+  "hints": [
+    "Only the counts of fives and tens matter; a twenty is never useful as change, so there is no need to count them.",
+    "A ten needs one five. A twenty needs either a ten and a five, or three fives.",
+    "For a twenty, always prefer the ten-and-five combination. Fives are the flexible note - they can pay for a ten as well - so spending three of them when a ten was available is what makes an otherwise servable queue fail."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "cases": [
+    { "name": "the standard example", "args": [[5,5,5,10,20]], "expected": true },
+    { "name": "cannot change the last twenty", "args": [[5,5,10,10,20]], "expected": false },
+    { "name": "short queue", "args": [[5,5,10]], "expected": true },
+    { "name": "first customer pays with a ten", "args": [[10]], "expected": false },
+    { "name": "fives spent too freely on the first twenty", "args": [[5,5,5,5,20,20]], "expected": false },
+    { "name": "ten-and-five change works", "args": [[5,10,5,20]], "expected": true },
+    { "name": "all fives", "args": [[5,5,5,5]], "expected": true },
+    { "name": "three fives then a twenty", "args": [[5,5,5,20]], "expected": true },
+    { "name": "twenty first", "args": [[20]], "expected": false }
+  ]
+}

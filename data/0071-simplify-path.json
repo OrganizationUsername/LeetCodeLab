@@ -1,0 +1,36 @@
+{
+  "id": 71,
+  "slug": "simplify-path",
+  "title": "Simplify Path",
+  "difficulty": "Medium",
+  "topics": ["Stack", "String"],
+  "url": "https://leetcode.com/problems/simplify-path/",
+  "comparison": "Exact",
+  "folder": "Stacks",
+  "className": "SimplifyPath",
+  "signature": "string Solve(string path)",
+  "statement": "Turn an absolute Unix-style path into its canonical form. A single dot means the current directory, two dots means go up one level, and any run of slashes counts as one. The result starts with a slash, never ends with one unless it is the root, and contains no dot segments.",
+  "constraints": [
+    "1 <= path.Length <= 3000",
+    "the path is absolute, so it always begins with a slash",
+    "going up from the root stays at the root",
+    "a name may legitimately contain dots, such as ... or a.b"
+  ],
+  "hints": [
+    "Split on the slash and work through the pieces. Empty pieces come from repeated slashes and are simply skipped.",
+    "Keep the surviving directory names on a stack: a name pushes, .. pops if anything is there, and . does nothing.",
+    "Popping an empty stack must be a no-op rather than an error, since .. at the root is legal. And only exactly \".\" and \"..\" are special - a segment of three dots is an ordinary directory name."
+  ],
+  "complexity": "O(n) time and space",
+  "cases": [
+    { "name": "trailing slash removed", "args": ["/home/"], "expected": "/home" },
+    { "name": "up from the root stays at the root", "args": ["/../"], "expected": "/" },
+    { "name": "repeated slashes collapse", "args": ["/home//foo/"], "expected": "/home/foo" },
+    { "name": "dots and double dots", "args": ["/a/./b/../../c/"], "expected": "/c" },
+    { "name": "root only", "args": ["/"], "expected": "/" },
+    { "name": "over-popping is harmless", "args": ["/a/../../b/../c//.//"], "expected": "/c" },
+    { "name": "mixed noise", "args": ["/a//b////c/d//././/.."], "expected": "/a/b/c" },
+    { "name": "three dots is an ordinary name", "args": ["/..."], "expected": "/..." },
+    { "name": "a dotted file name", "args": ["/a/b.c/./d"], "expected": "/a/b.c/d" }
+  ]
+}

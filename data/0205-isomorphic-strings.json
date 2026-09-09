@@ -1,0 +1,36 @@
+{
+  "id": 205,
+  "slug": "isomorphic-strings",
+  "title": "Isomorphic Strings",
+  "difficulty": "Easy",
+  "topics": ["String", "Hash Table"],
+  "url": "https://leetcode.com/problems/isomorphic-strings/",
+  "comparison": "Exact",
+  "folder": "Strings",
+  "className": "IsomorphicStrings",
+  "signature": "bool Solve(string s, string t)",
+  "statement": "Two strings are isomorphic when the characters of the first can be replaced to give the second, with every occurrence of a character replaced the same way, and no two different characters mapping to the same one. A character may map to itself.",
+  "constraints": [
+    "1 <= s.Length == t.Length <= 5*10^4",
+    "the strings are the same length",
+    "the mapping must be one-to-one in BOTH directions"
+  ],
+  "hints": [
+    "One dictionary from s-characters to t-characters is the obvious start, and it is not enough on its own.",
+    "Consider \"ab\" and \"aa\". A single forward map happily sends a to a and b to a, but that is two characters collapsing onto one, which is not allowed.",
+    "So keep both directions and reject any conflict in either. Alternatively, compare the sequence of first-occurrence positions of each string - two strings are isomorphic exactly when those match."
+  ],
+  "complexity": "O(n) time, O(1) space for a fixed alphabet",
+  "cases": [
+    { "name": "simple mapping", "args": ["egg","add"], "expected": true },
+    { "name": "two characters would collide", "args": ["foo","bar"], "expected": false },
+    { "name": "longer valid mapping", "args": ["paper","title"], "expected": true },
+    { "name": "pattern mismatch", "args": ["badc","baba"], "expected": false },
+    { "name": "single character", "args": ["a","a"], "expected": true },
+    { "name": "forward map alone would wrongly accept", "args": ["ab","aa"], "expected": false },
+    { "name": "reverse map alone would wrongly accept", "args": ["aa","ab"], "expected": false },
+    { "name": "swap", "args": ["ab","ca"], "expected": true },
+    { "name": "identity", "args": ["abc","abc"], "expected": true },
+    { "name": "all one character", "args": ["aaa","bbb"], "expected": true }
+  ]
+}

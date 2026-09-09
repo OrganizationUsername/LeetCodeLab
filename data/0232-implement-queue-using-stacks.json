@@ -64,6 +64,95 @@
         1,
         false
       ]
+    },
+    {
+      "name": "interleaving forces the transfer more than once",
+      "ops": [
+        "MyQueue",
+        "Push",
+        "Pop",
+        "Push",
+        "Push",
+        "Pop",
+        "Peek",
+        "Empty",
+        "Pop",
+        "Empty"
+      ],
+      "args": [
+        [],
+        [
+          1
+        ],
+        [],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "expected": [
+        null,
+        null,
+        1,
+        null,
+        null,
+        2,
+        3,
+        false,
+        3,
+        true
+      ]
+    },
+    {
+      "name": "empty from the start",
+      "ops": [
+        "MyQueue",
+        "Empty"
+      ],
+      "args": [
+        [],
+        []
+      ],
+      "expected": [
+        null,
+        true
+      ]
+    },
+    {
+      "name": "peek does not consume",
+      "ops": [
+        "MyQueue",
+        "Push",
+        "Peek",
+        "Peek",
+        "Pop",
+        "Empty"
+      ],
+      "args": [
+        [],
+        [
+          9
+        ],
+        [],
+        [],
+        [],
+        []
+      ],
+      "expected": [
+        null,
+        null,
+        9,
+        9,
+        9,
+        true
+      ]
     }
   ]
 }

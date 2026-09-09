@@ -1,0 +1,34 @@
+{
+  "id": 231,
+  "slug": "power-of-two",
+  "title": "Power of Two",
+  "difficulty": "Easy",
+  "topics": ["Bit Manipulation", "Math", "Recursion"],
+  "url": "https://leetcode.com/problems/power-of-two/",
+  "comparison": "Exact",
+  "folder": "BitManipulation",
+  "className": "PowerOfTwo",
+  "signature": "bool Solve(int n)",
+  "statement": "Return whether n is a power of two, that is whether n equals 2 raised to some non-negative integer power. Zero and negative numbers are not.",
+  "constraints": [
+    "-2^31 <= n <= 2^31 - 1",
+    "1 counts, because it is 2^0"
+  ],
+  "hints": [
+    "Dividing by two while the number stays even works. Then ask what a power of two looks like written in binary.",
+    "Exactly one bit set. So the question becomes: does n have exactly one bit set?",
+    "n & (n - 1) clears the lowest set bit. If the result is zero there was only one bit, so the test is n > 0 && (n & (n - 1)) == 0. The n > 0 guard is not optional: without it, int.MinValue and 0 both slip through."
+  ],
+  "complexity": "O(1) time and space",
+  "cases": [
+    { "name": "2^0", "args": [1], "expected": true },
+    { "name": "2^4", "args": [16], "expected": true },
+    { "name": "not a power", "args": [3], "expected": false },
+    { "name": "zero", "args": [0], "expected": false },
+    { "name": "negative power-of-two magnitude", "args": [-16], "expected": false },
+    { "name": "2^1", "args": [2], "expected": true },
+    { "name": "2^30", "args": [1073741824], "expected": true },
+    { "name": "six", "args": [6], "expected": false },
+    { "name": "int.MinValue: one bit set but negative", "args": [-2147483648], "expected": false }
+  ]
+}

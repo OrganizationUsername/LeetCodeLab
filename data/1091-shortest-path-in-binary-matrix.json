@@ -1,0 +1,36 @@
+{
+  "id": 1091,
+  "slug": "shortest-path-in-binary-matrix",
+  "title": "Shortest Path in Binary Matrix",
+  "difficulty": "Medium",
+  "topics": ["Graph", "Breadth-First Search", "Matrix"],
+  "url": "https://leetcode.com/problems/shortest-path-in-binary-matrix/",
+  "comparison": "Exact",
+  "folder": "Graphs",
+  "className": "ShortestPathInBinaryMatrix",
+  "signature": "int Solve(int[][] grid)",
+  "statement": "In an n by n grid, 0 is clear and 1 is blocked. Walk from the top-left corner to the bottom-right, moving to any of the EIGHT surrounding cells. Return the number of CELLS on the shortest clear path, counting both ends, or -1 if there is none.",
+  "constraints": [
+    "1 <= n <= 100",
+    "cells are 0 or 1",
+    "movement is 8-directional, including diagonals",
+    "the answer counts cells visited, not steps taken, so a 1x1 clear grid answers 1"
+  ],
+  "hints": [
+    "Every move costs the same, so breadth-first search finds the shortest path; no priority queue is needed.",
+    "The only differences from a normal grid search are eight offsets instead of four, and that the answer counts cells rather than edges.",
+    "Check both endpoints before you start: if the start or the goal is blocked the answer is -1 immediately. Mark cells visited as you enqueue them, or the eight-way branching will queue the same cell many times over."
+  ],
+  "complexity": "O(n^2) time",
+  "cases": [
+    { "name": "one diagonal step", "args": [[[0,1],[1,0]]], "expected": 2 },
+    { "name": "around an obstacle", "args": [[[0,0,0],[1,1,0],[1,1,0]]], "expected": 4 },
+    { "name": "start is blocked", "args": [[[1,0,0],[1,1,0],[1,1,0]]], "expected": -1 },
+    { "name": "1x1 clear", "args": [[[0]]], "expected": 1 },
+    { "name": "1x1 blocked", "args": [[[1]]], "expected": -1 },
+    { "name": "2x2 wide open", "args": [[[0,0],[0,0]]], "expected": 2 },
+    { "name": "goal is blocked", "args": [[[0,0],[0,1]]], "expected": -1 },
+    { "name": "fully walled off", "args": [[[0,1,0],[1,1,0],[0,0,0]]], "expected": -1 },
+    { "name": "straight diagonal run", "args": [[[0,0,0],[0,0,0],[0,0,0]]], "expected": 3 }
+  ]
+}

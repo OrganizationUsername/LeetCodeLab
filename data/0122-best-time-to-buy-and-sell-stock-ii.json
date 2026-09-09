@@ -1,0 +1,35 @@
+{
+  "id": 122,
+  "slug": "best-time-to-buy-and-sell-stock-ii",
+  "title": "Best Time to Buy and Sell Stock II",
+  "difficulty": "Medium",
+  "topics": ["Greedy", "Array", "Dynamic Programming"],
+  "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/",
+  "comparison": "Exact",
+  "folder": "Greedy",
+  "className": "BestTimeToBuyAndSellStockII",
+  "signature": "int Solve(int[] prices)",
+  "statement": "You may buy and sell as often as you like, but you can hold at most one share at a time and must sell before buying again. Selling and buying again on the same day is allowed. Return the greatest total profit.",
+  "constraints": [
+    "1 <= prices.Length <= 3*10^4",
+    "0 <= prices[i] <= 10^4",
+    "at most one share held at any moment",
+    "unlimited transactions, unlike Best Time to Buy and Sell Stock"
+  ],
+  "hints": [
+    "Because you may trade every day, you never have to choose between two rises - you can take them all.",
+    "Any profitable multi-day run can be split into its consecutive day-to-day steps without losing anything, since the intermediate buys and sells cancel.",
+    "So just add up every positive difference between consecutive days. Trying to find the actual peaks and valleys gives the same number with far more code."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "cases": [
+    { "name": "the standard example", "args": [[7,1,5,3,6,4]], "expected": 7 },
+    { "name": "monotone rise, one long hold", "args": [[1,2,3,4,5]], "expected": 4 },
+    { "name": "monotone fall, never trade", "args": [[7,6,4,3,1]], "expected": 0 },
+    { "name": "single day", "args": [[1]], "expected": 0 },
+    { "name": "two separate rises", "args": [[2,1,2,0,1]], "expected": 2 },
+    { "name": "sawtooth", "args": [[1,2,1,2]], "expected": 2 },
+    { "name": "flat prices", "args": [[3,3,3]], "expected": 0 },
+    { "name": "two days, no profit", "args": [[2,1]], "expected": 0 }
+  ]
+}

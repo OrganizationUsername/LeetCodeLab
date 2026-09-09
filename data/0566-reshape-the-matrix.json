@@ -1,0 +1,38 @@
+{
+  "id": 566,
+  "slug": "reshape-the-matrix",
+  "title": "Reshape the Matrix",
+  "difficulty": "Easy",
+  "topics": ["Array", "Matrix", "Simulation"],
+  "url": "https://leetcode.com/problems/reshape-the-matrix/",
+  "comparison": "Exact",
+  "folder": "Matrix",
+  "className": "ReshapeTheMatrix",
+  "signature": "int[][] Solve(int[][] mat, int r, int c)",
+  "statement": "Refill the values of mat, read row by row, into a new matrix with r rows and c columns. If the new shape cannot hold exactly the same number of values, return the original matrix unchanged.",
+  "constraints": [
+    "1 <= rows, cols <= 100",
+    "1 <= r, c <= 300",
+    "return mat itself when rows*cols != r*c"
+  ],
+  "hints": [
+    "Check feasibility first: the reshape is possible exactly when rows*cols == r*c. Everything else is index arithmetic.",
+    "Give every cell a running position k from 0 upward. In the source that position is row k/cols, column k%cols; in the destination it is row k/c, column k%c.",
+    "That one identity replaces any attempt to track two pairs of counters by hand, and it is the same trick behind Convert 1D Array Into 2D Array."
+  ],
+  "complexity": "O(rows*cols) time and space",
+  "cases": [
+    { "name": "2x2 to 1x4", "args": [[[1,2],[3,4]], 1, 4], "expected": [[1,2,3,4]] },
+    { "name": "2x2 to 4x1", "args": [[[1,2],[3,4]], 4, 1], "expected": [[1],[2],[3],[4]] },
+    { "name": "impossible, returned unchanged", "args": [[[1,2],[3,4]], 2, 4],
+      "expected": [[1,2],[3,4]] },
+    { "name": "1x4 to 2x2", "args": [[[1,2,3,4]], 2, 2], "expected": [[1,2],[3,4]] },
+    { "name": "same shape is a no-op reshape", "args": [[[1,2],[3,4]], 2, 2],
+      "expected": [[1,2],[3,4]] },
+    { "name": "1x1", "args": [[[7]], 1, 1], "expected": [[7]] },
+    { "name": "2x3 to 3x2", "args": [[[1,2,3],[4,5,6]], 3, 2],
+      "expected": [[1,2],[3,4],[5,6]] },
+    { "name": "2x3 flattened to a single column",
+      "args": [[[1,2,3],[4,5,6]], 6, 1], "expected": [[1],[2],[3],[4],[5],[6]] }
+  ]
+}

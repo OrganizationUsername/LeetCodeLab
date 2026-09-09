@@ -1,0 +1,44 @@
+{
+  "id": 443,
+  "slug": "string-compression",
+  "title": "String Compression",
+  "difficulty": "Medium",
+  "topics": ["String", "Two Pointers"],
+  "url": "https://leetcode.com/problems/string-compression/",
+  "comparison": "InPlacePrefix",
+  "prefixOrdered": true,
+  "folder": "Strings",
+  "className": "StringCompression",
+  "signature": "int Solve(char[] chars)",
+  "statement": "Compress the array in place. Each run of the same character becomes that character followed by the run length in decimal, except that a run of length 1 is written as the character alone. Return the new length; only the first that many entries are checked, and the rest may hold anything.",
+  "constraints": [
+    "1 <= chars.Length <= 2000",
+    "entries are letters, digits or symbols",
+    "a run of length 1 gets NO number after it",
+    "a run of 10 or more contributes several digit characters, one per array slot"
+  ],
+  "hints": [
+    "Two indices moving at different speeds: one reading the runs, one writing the compressed form behind it. The write index never overtakes the read index, which is why this fits in place.",
+    "For each run, write the character, then - only if the length is above 1 - write the digits of that length.",
+    "The multi-digit case is where this breaks: a run of 12 needs the characters '1' and '2' in two separate slots. Convert the count to a string, or write the digits backwards and reverse that stretch."
+  ],
+  "complexity": "O(n) time, O(1) extra space",
+  "cases": [
+    { "name": "three runs", "args": [["a","a","b","b","c","c","c"]],
+      "expected": 6, "expectedArray": ["a","2","b","2","c","3"] },
+    { "name": "single character, no count", "args": [["a"]],
+      "expected": 1, "expectedArray": ["a"] },
+    { "name": "a run of twelve needs two digit slots",
+      "args": [["a","b","b","b","b","b","b","b","b","b","b","b","b"]],
+      "expected": 4, "expectedArray": ["a","b","1","2"] },
+    { "name": "a pair", "args": [["a","a"]], "expected": 2, "expectedArray": ["a","2"] },
+    { "name": "no run longer than one", "args": [["a","b","c"]],
+      "expected": 3, "expectedArray": ["a","b","c"] },
+    { "name": "one long run", "args": [["b","b","b","b","b","b","b","b","b","b","b","b"]],
+      "expected": 3, "expectedArray": ["b","1","2"] },
+    { "name": "run of exactly ten", "args": [["x","x","x","x","x","x","x","x","x","x"]],
+      "expected": 3, "expectedArray": ["x","1","0"] },
+    { "name": "singleton then a run", "args": [["a","b","b"]],
+      "expected": 3, "expectedArray": ["a","b","2"] }
+  ]
+}

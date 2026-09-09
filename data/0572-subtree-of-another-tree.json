@@ -64,6 +64,78 @@
         ]
       ],
       "expected": false
+    },
+    {
+      "name": "a single node matches a leaf",
+      "args": [
+        [
+          1,
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "identical single nodes",
+      "args": [
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "different single nodes",
+      "args": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "expected": false
+    },
+    {
+      "name": "the whole tree is its own subtree",
+      "args": [
+        [
+          3,
+          4,
+          5,
+          1,
+          2
+        ],
+        [
+          3,
+          4,
+          5,
+          1,
+          2
+        ]
+      ],
+      "expected": true
+    },
+    {
+      "name": "same values, mirrored structure",
+      "args": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          null,
+          2
+        ]
+      ],
+      "expected": false
     }
   ]
 }

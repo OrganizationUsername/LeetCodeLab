@@ -1,0 +1,34 @@
+{
+  "id": 201,
+  "slug": "bitwise-and-of-numbers-range",
+  "title": "Bitwise AND of Numbers Range",
+  "difficulty": "Medium",
+  "topics": ["Bit Manipulation"],
+  "url": "https://leetcode.com/problems/bitwise-and-of-numbers-range/",
+  "comparison": "Exact",
+  "folder": "BitManipulation",
+  "className": "BitwiseAndOfNumbersRange",
+  "signature": "int Solve(int left, int right)",
+  "statement": "Return the bitwise AND of every integer from left to right inclusive. The range can span two billion values, so looping over it is not an option.",
+  "constraints": [
+    "0 <= left <= right <= 2^31 - 1",
+    "the range may contain billions of values, so the answer must not depend on iterating it"
+  ],
+  "hints": [
+    "A bit survives the AND only if it is 1 in EVERY number of the range. Ask what makes a bit flip somewhere inside the range.",
+    "If left and right differ anywhere at or below some bit position, that bit takes both values somewhere between them, so it ends up 0. Only the shared leading prefix can survive.",
+    "So the answer is the common binary prefix of left and right, padded with zeros. Shift both right until they are equal, counting the shifts, then shift back. Equivalently, keep clearing the lowest set bit of right until right <= left."
+  ],
+  "complexity": "O(1) time, O(1) space",
+  "cases": [
+    { "name": "5 to 7", "args": [5, 7], "expected": 4 },
+    { "name": "zero to zero", "args": [0, 0], "expected": 0 },
+    { "name": "the whole positive range", "args": [1, 2147483647], "expected": 0 },
+    { "name": "a single value", "args": [5, 5], "expected": 5 },
+    { "name": "adjacent pair", "args": [6, 7], "expected": 6 },
+    { "name": "spanning a power of two", "args": [0, 1], "expected": 0 },
+    { "name": "one full binary block", "args": [8, 15], "expected": 8 },
+    { "name": "upper half of a block", "args": [12, 15], "expected": 12 },
+    { "name": "no power-of-two boundary crossed", "args": [20, 23], "expected": 20 }
+  ]
+}

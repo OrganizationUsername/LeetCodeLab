@@ -1,0 +1,35 @@
+{
+  "id": 137,
+  "slug": "single-number-ii",
+  "title": "Single Number II",
+  "difficulty": "Medium",
+  "topics": ["Bit Manipulation", "Array"],
+  "url": "https://leetcode.com/problems/single-number-ii/",
+  "comparison": "Exact",
+  "folder": "BitManipulation",
+  "className": "SingleNumberII",
+  "signature": "int Solve(int[] nums)",
+  "statement": "Every value appears exactly three times except one, which appears once. Return that one. Use constant extra space, so counting in a dictionary does not qualify.",
+  "constraints": [
+    "1 <= nums.Length <= 3*10^4",
+    "-2^31 <= nums[i] <= 2^31 - 1",
+    "every value but one appears exactly three times",
+    "O(1) extra space and linear time"
+  ],
+  "hints": [
+    "XOR solved the appears-twice version because XOR cancels pairs. Three of a kind does not cancel under XOR, so you need a counter that wraps at three rather than at two.",
+    "Work one bit position at a time: count how many of the 32 positions hold a 1 across all numbers, and take that count modulo 3. What survives is the lone number's bit.",
+    "That gives a clean O(32n) solution. The slicker version keeps two masks, ones and twos, updating them so each bit cycles through 1, 2, 0 as it is seen again - but be careful reconstructing a negative answer if you go the per-bit route, since bit 31 is the sign."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "cases": [
+    { "name": "the standard example", "args": [[2,2,3,2]], "expected": 3 },
+    { "name": "longer", "args": [[0,1,0,1,0,1,99]], "expected": 99 },
+    { "name": "single element", "args": [[1]], "expected": 1 },
+    { "name": "negative repeats, positive single", "args": [[-2,-2,1,-2]], "expected": 1 },
+    { "name": "negative single", "args": [[2,2,2,-4]], "expected": -4 },
+    { "name": "larger values", "args": [[30000,500,100,30000,100,30000,100]], "expected": 500 },
+    { "name": "single is zero", "args": [[7,7,7,0]], "expected": 0 },
+    { "name": "all negative", "args": [[-1,-1,-1,-8]], "expected": -8 }
+  ]
+}

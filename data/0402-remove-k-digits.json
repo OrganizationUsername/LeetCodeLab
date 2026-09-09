@@ -1,0 +1,36 @@
+{
+  "id": 402,
+  "slug": "remove-k-digits",
+  "title": "Remove K Digits",
+  "difficulty": "Medium",
+  "topics": ["Stack", "Greedy", "String", "Monotonic Stack"],
+  "url": "https://leetcode.com/problems/remove-k-digits/",
+  "comparison": "Exact",
+  "folder": "Stacks",
+  "className": "RemoveKDigits",
+  "signature": "string Solve(string num, int k)",
+  "statement": "Remove exactly k digits from the number so that what remains, read in the same order, is the smallest possible. Return it as a string with no leading zeros, or \"0\" if everything is removed.",
+  "constraints": [
+    "1 <= num.Length <= 10^5",
+    "0 <= k <= num.Length",
+    "num has no leading zeros of its own, except the single digit \"0\"",
+    "the result must not have leading zeros; the empty result is \"0\""
+  ],
+  "hints": [
+    "A digit is worth removing when a smaller digit follows it, because the earlier position carries more weight.",
+    "Sweep left to right keeping a stack that never decreases: while the top is greater than the incoming digit and removals remain, pop it.",
+    "Three loose ends decide whether this passes: unused removals at the end must come off the BACK, leading zeros need stripping afterwards, and an empty result becomes \"0\". Each of those has its own test here."
+  ],
+  "complexity": "O(n) time",
+  "cases": [
+    { "name": "the standard example", "args": ["1432219", 3], "expected": "1219" },
+    { "name": "leading zero appears after removal", "args": ["10200", 1], "expected": "200" },
+    { "name": "everything removed", "args": ["10", 2], "expected": "0" },
+    { "name": "remove from the back", "args": ["112", 1], "expected": "11" },
+    { "name": "single digit removed", "args": ["9", 1], "expected": "0" },
+    { "name": "result is all zeros", "args": ["10001", 4], "expected": "0" },
+    { "name": "keep only the smallest digit", "args": ["1234567890", 9], "expected": "0" },
+    { "name": "nothing to remove", "args": ["112", 0], "expected": "112" },
+    { "name": "already increasing, so trim the tail", "args": ["12345", 2], "expected": "123" }
+  ]
+}

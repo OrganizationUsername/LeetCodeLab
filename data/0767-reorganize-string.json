@@ -1,0 +1,38 @@
+{
+  "id": 767,
+  "slug": "reorganize-string",
+  "title": "Reorganize String",
+  "difficulty": "Medium",
+  "topics": ["Heap (Priority Queue)", "Greedy", "Counting", "String"],
+  "url": "https://leetcode.com/problems/reorganize-string/",
+  "comparison": "AnyValid",
+  "folder": "Heap",
+  "className": "ReorganizeString",
+  "signature": "string Solve(string s)",
+  "statement": "Rearrange the letters so that no two neighbours are the same. Return any arrangement that works, or the empty string if none exists. Several answers are usually valid and all are accepted.",
+  "constraints": [
+    "1 <= s.Length <= 500",
+    "s is lowercase letters",
+    "any valid arrangement is accepted",
+    "return \"\" when it is impossible"
+  ],
+  "hints": [
+    "Work out first when it is impossible: if one letter appears more than half the time (rounded up) there is no way to keep its copies apart.",
+    "Otherwise place the most frequent remaining letter each step, but never the one you just placed. A max-heap keyed on remaining count gives you that.",
+    "Pop the top two, append both, decrement, and push back whichever still has copies left. Taking two at a time is what guarantees you never repeat - the alternative is to fill even indices first, then odd, starting with the most frequent letter."
+  ],
+  "complexity": "O(n log 26) time",
+  "extraMembers": [
+    "/// <summary>Harness plumbing: any arrangement with the same letters and no equal neighbours passes.</summary>\npublic static bool Validate(object?[] args, object? actual, JsonElement expected)\n{\n    string input = (string)args[0]!;\n    string want = expected.GetString() ?? \"\";\n    string got = actual as string ?? \"\";\n\n    if (want.Length == 0) return got.Length == 0;\n    if (got.Length != input.Length) return false;\n    for (int i = 1; i < got.Length; i++)\n        if (got[i] == got[i - 1]) return false;\n\n    return string.Concat(got.OrderBy(c => c)) == string.Concat(input.OrderBy(c => c));\n}"
+  ],
+  "cases": [
+    { "name": "one repeat to separate", "args": ["aab"], "expected": "aba" },
+    { "name": "impossible: a dominates", "args": ["aaab"], "expected": "" },
+    { "name": "single letter", "args": ["a"], "expected": "a" },
+    { "name": "two of the same is impossible", "args": ["aa"], "expected": "" },
+    { "name": "three v's just fit", "args": ["vvvlo"], "expected": "vlvov" },
+    { "name": "even split", "args": ["aaabbb"], "expected": "ababab" },
+    { "name": "three pairs", "args": ["aabbcc"], "expected": "abcabc" },
+    { "name": "exactly half is still possible", "args": ["aabb"], "expected": "abab" }
+  ]
+}

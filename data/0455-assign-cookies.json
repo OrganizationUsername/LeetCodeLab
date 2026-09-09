@@ -1,0 +1,34 @@
+{
+  "id": 455,
+  "slug": "assign-cookies",
+  "title": "Assign Cookies",
+  "difficulty": "Easy",
+  "topics": ["Greedy", "Array", "Sorting", "Two Pointers"],
+  "url": "https://leetcode.com/problems/assign-cookies/",
+  "comparison": "Exact",
+  "folder": "Greedy",
+  "className": "AssignCookies",
+  "signature": "int Solve(int[] g, int[] s)",
+  "statement": "g holds each child's greed factor and s holds each cookie's size. A child is content when given one cookie at least as big as their greed factor. Each child gets at most one cookie and each cookie goes to at most one child. Return the greatest number of content children.",
+  "constraints": [
+    "1 <= g.Length <= 3*10^4",
+    "0 <= s.Length <= 3*10^4, so there may be no cookies at all",
+    "one cookie per child, one child per cookie"
+  ],
+  "hints": [
+    "Sort both. Then the question is which cookie to give to which child, and the greedy rule is about not wasting the big ones.",
+    "Serve the least greedy child with the smallest cookie that satisfies them. Spending a larger cookie there can only cost you later.",
+    "Two pointers walking the two sorted arrays: advance the cookie pointer always, and the child pointer only when the current cookie is big enough."
+  ],
+  "complexity": "O(n log n + m log m) time",
+  "cases": [
+    { "name": "one child satisfied", "args": [[1,2,3],[1,1]], "expected": 1 },
+    { "name": "more cookies than children", "args": [[1,2],[1,2,3]], "expected": 2 },
+    { "name": "greedy children, small cookies", "args": [[10,9,8,7],[5,6,7,8]], "expected": 2 },
+    { "name": "no cookies at all", "args": [[1],[]], "expected": 0 },
+    { "name": "one big cookie for the least greedy", "args": [[1,2,3],[3]], "expected": 1 },
+    { "name": "identical needs", "args": [[1,1,1],[1,1]], "expected": 2 },
+    { "name": "every cookie too small", "args": [[5,6],[1,2,3]], "expected": 0 },
+    { "name": "exact matches", "args": [[1,2,3],[1,2,3]], "expected": 3 }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": 43,
+  "slug": "multiply-strings",
+  "title": "Multiply Strings",
+  "difficulty": "Medium",
+  "topics": ["String", "Math", "Simulation"],
+  "url": "https://leetcode.com/problems/multiply-strings/",
+  "comparison": "Exact",
+  "folder": "Strings",
+  "className": "MultiplyStrings",
+  "signature": "string Solve(string num1, string num2)",
+  "statement": "Multiply two non-negative integers given as strings and return the product as a string. The numbers can be far longer than any built-in integer type, so you must do the arithmetic yourself rather than converting.",
+  "constraints": [
+    "1 <= num1.Length, num2.Length <= 200",
+    "both are digit strings with no leading zeros, except \"0\" itself",
+    "converting to a built-in integer type is not allowed and would overflow anyway",
+    "the result must have no leading zeros"
+  ],
+  "hints": [
+    "Long multiplication on paper: every digit of one number times every digit of the other, each landing in a known column.",
+    "Digit i of num1 times digit j of num2 contributes to positions i+j and i+j+1 of the result, counting from the left. An array of num1.Length + num2.Length digits always has room.",
+    "Accumulate all the products first, then do one carry pass over the array from the right. Finally strip leading zeros - and remember the all-zero product must come back as \"0\", not \"\"."
+  ],
+  "complexity": "O(n*m) time",
+  "cases": [
+    { "name": "single digits", "args": ["2","3"], "expected": "6" },
+    { "name": "three by three", "args": ["123","456"], "expected": "56088" },
+    { "name": "zero times something", "args": ["0","52"], "expected": "0" },
+    { "name": "carrying", "args": ["9","9"], "expected": "81" },
+    { "name": "nine digits each", "args": ["123456789","987654321"], "expected": "121932631112635269" },
+    { "name": "maximum carrying", "args": ["999","999"], "expected": "998001" },
+    { "name": "zero times zero", "args": ["0","0"], "expected": "0" },
+    { "name": "one is the identity", "args": ["1","999999"], "expected": "999999" },
+    { "name": "powers of ten", "args": ["100","100"], "expected": "10000" }
+  ]
+}

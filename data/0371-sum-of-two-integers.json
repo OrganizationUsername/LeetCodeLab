@@ -1,0 +1,34 @@
+{
+  "id": 371,
+  "slug": "sum-of-two-integers",
+  "title": "Sum of Two Integers",
+  "difficulty": "Medium",
+  "topics": ["Bit Manipulation", "Math"],
+  "url": "https://leetcode.com/problems/sum-of-two-integers/",
+  "comparison": "Exact",
+  "folder": "BitManipulation",
+  "className": "SumOfTwoIntegers",
+  "signature": "int Solve(int a, int b)",
+  "statement": "Return a + b without using the + or - operators. Negative inputs must work, which is where this stops being a party trick and starts being about two's complement.",
+  "constraints": [
+    "-1000 <= a, b <= 1000",
+    "the + and - operators are off limits, including inside compound assignment"
+  ],
+  "hints": [
+    "Split addition into two halves: the part that adds without carrying, and the carry itself.",
+    "XOR is addition ignoring carries. AND finds the positions that generate a carry, and that carry lands one place to the left, so shift it.",
+    "Loop: while the carry is non-zero, take sum = a ^ b and carry = (a & b) << 1, then repeat with those. In C# you must do the shift in unsigned or in a checked-off context, because shifting a negative carry left is where this overflows."
+  ],
+  "complexity": "O(1) time, O(1) space",
+  "cases": [
+    { "name": "small positives", "args": [1, 2], "expected": 3 },
+    { "name": "carry propagates", "args": [2, 3], "expected": 5 },
+    { "name": "cancelling to zero", "args": [-1, 1], "expected": 0 },
+    { "name": "both negative", "args": [-2, -3], "expected": -5 },
+    { "name": "zeros", "args": [0, 0], "expected": 0 },
+    { "name": "mixed signs, positive result", "args": [5, -3], "expected": 2 },
+    { "name": "mixed signs, negative result", "args": [3, -5], "expected": -2 },
+    { "name": "long carry chain", "args": [999, 1], "expected": 1000 },
+    { "name": "cancelling larger values", "args": [-1000, 1000], "expected": 0 }
+  ]
+}

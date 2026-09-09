@@ -1,0 +1,32 @@
+{
+  "id": 190,
+  "slug": "reverse-bits",
+  "title": "Reverse Bits",
+  "difficulty": "Easy",
+  "topics": ["Bit Manipulation", "Divide and Conquer"],
+  "url": "https://leetcode.com/problems/reverse-bits/",
+  "comparison": "Exact",
+  "folder": "BitManipulation",
+  "className": "ReverseBits",
+  "signature": "uint Solve(uint n)",
+  "statement": "Reverse the order of the 32 bits of an unsigned integer, so bit 0 becomes bit 31 and vice versa. All 32 bits count, including leading zeros.",
+  "constraints": [
+    "the input is exactly 32 bits wide",
+    "leading zeros are significant: reversing them is what moves the low bits up"
+  ],
+  "hints": [
+    "Build the answer one bit at a time. Pull the lowest bit off the input and push it onto the bottom of a result you keep shifting left.",
+    "Thirty-two iterations, each doing result = (result << 1) | (n & 1) then n >>= 1. Run the loop a fixed 32 times rather than until n is zero, or a small input loses its leading zeros.",
+    "There is a divide-and-conquer version that swaps halves, then quarters, then bytes, then pairs, then single bits, using masks like 0xFFFF0000. It is O(log 32) instead of O(32) and is what an interviewer means by 'can you do better'."
+  ],
+  "complexity": "O(1) time, O(1) space",
+  "cases": [
+    { "name": "the standard example", "args": [43261596], "expected": 964176192 },
+    { "name": "high bits set", "args": [4294967293], "expected": 3221225471 },
+    { "name": "zero", "args": [0], "expected": 0 },
+    { "name": "lowest bit becomes the highest", "args": [1], "expected": 2147483648 },
+    { "name": "highest bit becomes the lowest", "args": [2147483648], "expected": 1 },
+    { "name": "all ones is its own reverse", "args": [4294967295], "expected": 4294967295 },
+    { "name": "two low bits", "args": [3], "expected": 3221225472 }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "id": 677,
+  "slug": "map-sum-pairs",
+  "title": "Map Sum Pairs",
+  "difficulty": "Medium",
+  "topics": ["Trie", "Hash Table", "Design", "String"],
+  "url": "https://leetcode.com/problems/map-sum-pairs/",
+  "comparison": "Design",
+  "folder": "Tries",
+  "className": "MapSumPairsTests",
+  "statement": "Build a map from string keys to integer values supporting two operations. Insert stores a key and value, REPLACING any value already stored under that key. Sum returns the total of the values of every key starting with the given prefix.",
+  "constraints": [
+    "keys and prefixes are lowercase letters, 1 to 50 characters",
+    "1 <= value <= 1000",
+    "up to 50 calls in total",
+    "inserting an existing key overwrites rather than adds"
+  ],
+  "hints": [
+    "A plain dictionary makes Insert trivial and turns Sum into a scan of every key. A trie makes Sum a walk down the prefix. Both are acceptable at this size; the trie is the point of the exercise.",
+    "Store a running total on every trie node, so Sum is just a descent to the prefix node and a single read.",
+    "Overwriting is the trap. If a key already exists you must apply the DIFFERENCE between the new and old values along its path, not the new value - otherwise a re-insert inflates every total above it. Keep a separate dictionary of current values to compute that delta."
+  ],
+  "complexity": "O(key length) per operation",
+  "design": {
+    "type": "MapSum",
+    "members": [
+      "MapSum()",
+      "void Insert(string key, int val)",
+      "int Sum(string prefix)"
+    ]
+  },
+  "cases": [
+    {
+      "name": "the standard example",
+      "ops": ["MapSum", "insert", "sum", "insert", "sum"],
+      "args": [[], ["apple", 3], ["ap"], ["app", 2], ["ap"]],
+      "expected": [null, null, 3, null, 5]
+    },
+    {
+      "name": "re-inserting a key replaces its value",
+      "ops": ["MapSum", "insert", "insert", "sum"],
+      "args": [[], ["a", 3], ["a", 2], ["a"]],
+      "expected": [null, null, null, 2]
+    },
+    {
+      "name": "prefix matching nothing",
+      "ops": ["MapSum", "insert", "sum", "sum"],
+      "args": [[], ["apple", 3], ["b"], ["apple"]],
+      "expected": [null, null, 0, 3]
+    },
+    {
+      "name": "several keys under one prefix, then an overwrite",
+      "ops": ["MapSum", "insert", "insert", "insert", "sum", "insert", "sum"],
+      "args": [[], ["ab", 1], ["ac", 2], ["ad", 4], ["a"], ["ab", 10], ["a"]],
+      "expected": [null, null, null, null, 7, null, 16]
+    }
+  ]
+}

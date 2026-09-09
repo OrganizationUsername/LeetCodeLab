@@ -1,0 +1,35 @@
+{
+  "id": 151,
+  "slug": "reverse-words-in-a-string",
+  "title": "Reverse Words in a String",
+  "difficulty": "Medium",
+  "topics": ["String", "Two Pointers"],
+  "url": "https://leetcode.com/problems/reverse-words-in-a-string/",
+  "comparison": "Exact",
+  "folder": "Strings",
+  "className": "ReverseWordsInAString",
+  "signature": "string Solve(string s)",
+  "statement": "Reverse the order of the words. A word is a run of non-space characters. The result must have exactly one space between words and none at either end, however the input was spaced.",
+  "constraints": [
+    "1 <= s.Length <= 10^4",
+    "the string may have leading, trailing and repeated spaces",
+    "there is at least one word",
+    "the words themselves are not reversed, only their order"
+  ],
+  "hints": [
+    "Splitting on spaces and discarding the empty pieces handles all the spacing rules at once, then you reverse and rejoin.",
+    "In C# that is s.Split(' ', StringSplitOptions.RemoveEmptyEntries), then Array.Reverse, then string.Join(\" \", ...).",
+    "The interview version usually bans the library call. Then it becomes: reverse the whole string in place, reverse each word back, and compact the spaces in a single pass - all with two pointers and no extra allocation."
+  ],
+  "complexity": "O(n) time",
+  "cases": [
+    { "name": "the standard example", "args": ["the sky is blue"], "expected": "blue is sky the" },
+    { "name": "leading and trailing spaces", "args": ["  hello world  "], "expected": "world hello" },
+    { "name": "repeated spaces between words", "args": ["a good   example"], "expected": "example good a" },
+    { "name": "single word", "args": ["a"], "expected": "a" },
+    { "name": "single word with padding", "args": ["   spaced   "], "expected": "spaced" },
+    { "name": "mixed case is preserved", "args": ["  Bob    Loves  Alice   "], "expected": "Alice Loves Bob" },
+    { "name": "two words", "args": ["one two"], "expected": "two one" },
+    { "name": "punctuation travels with the word", "args": ["hello, world!"], "expected": "world! hello," }
+  ]
+}

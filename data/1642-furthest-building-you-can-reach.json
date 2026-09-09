@@ -1,0 +1,36 @@
+{
+  "id": 1642,
+  "slug": "furthest-building-you-can-reach",
+  "title": "Furthest Building You Can Reach",
+  "difficulty": "Medium",
+  "topics": ["Heap (Priority Queue)", "Greedy", "Array"],
+  "url": "https://leetcode.com/problems/furthest-building-you-can-reach/",
+  "comparison": "Exact",
+  "folder": "Heap",
+  "className": "FurthestBuilding",
+  "signature": "int Solve(int[] heights, int bricks, int ladders)",
+  "statement": "You start on building 0 and move to the next building each step. Going down or staying level is free. Going UP by d costs either d bricks or one ladder, and a ladder covers any height. Return the index of the furthest building you can reach.",
+  "constraints": [
+    "1 <= heights.Length <= 10^5",
+    "0 <= bricks <= 10^9, 0 <= ladders <= heights.Length",
+    "descents and level moves are always free",
+    "return an INDEX, not a count of buildings"
+  ],
+  "hints": [
+    "Ladders are the scarce resource and they are worth most on the biggest climbs - but you do not know which climbs are biggest until you have seen them.",
+    "So commit ladders greedily to every climb as you meet it, and take one back later when a bigger climb turns up.",
+    "Keep the ladder-assigned climbs in a MIN-heap. When a new climb arrives and no ladders remain, pop the smallest ladder climb; if the new climb is bigger, give it the ladder and pay bricks for the small one instead. Run out of bricks and the previous index is the answer."
+  ],
+  "complexity": "O(n log n) time",
+  "cases": [
+    { "name": "the standard example", "args": [[4,2,7,6,9,14,12], 5, 1], "expected": 4 },
+    { "name": "more resources", "args": [[4,12,2,7,3,18,20,3,19], 10, 2], "expected": 7 },
+    { "name": "bricks only", "args": [[14,3,19,3], 17, 0], "expected": 3 },
+    { "name": "nothing to spend, one climb", "args": [[1,2], 0, 0], "expected": 0 },
+    { "name": "exactly enough bricks", "args": [[1,2], 1, 0], "expected": 1 },
+    { "name": "descents are free but the climb still stops you", "args": [[5,1,2], 0, 0], "expected": 1 },
+    { "name": "all descents", "args": [[9,7,5,3], 0, 0], "expected": 3 },
+    { "name": "single building", "args": [[7], 0, 0], "expected": 0 },
+    { "name": "ladder saved for the big climb", "args": [[1,2,100], 1, 1], "expected": 2 }
+  ]
+}

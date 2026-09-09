@@ -1,0 +1,37 @@
+{
+  "id": 605,
+  "slug": "can-place-flowers",
+  "title": "Can Place Flowers",
+  "difficulty": "Easy",
+  "topics": ["Greedy", "Array"],
+  "url": "https://leetcode.com/problems/can-place-flowers/",
+  "comparison": "Exact",
+  "folder": "Greedy",
+  "className": "CanPlaceFlowers",
+  "signature": "bool Solve(int[] flowerbed, int n)",
+  "statement": "The flowerbed is a row of plots, 1 planted and 0 empty. No two flowers may occupy adjacent plots. Return whether n more flowers can be planted without breaking that rule.",
+  "constraints": [
+    "1 <= flowerbed.Length <= 2*10^4",
+    "the existing arrangement already obeys the no-adjacent rule",
+    "0 <= n <= flowerbed.Length",
+    "the plots before the first and after the last count as empty"
+  ],
+  "hints": [
+    "Sweep left to right and plant the moment a plot is legal. Planting as early as possible never blocks a placement you could otherwise have made.",
+    "A plot is legal when it is empty and both neighbours are empty - treating off-the-end as empty, which is what makes the first and last plots plantable.",
+    "Remember to actually WRITE the flower into the array as you plant, or the next plot will not see it and you will double-plant adjacent cells. Stop early once you have placed n."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "cases": [
+    { "name": "one fits in the middle", "args": [[1,0,0,0,1], 1], "expected": true },
+    { "name": "two do not", "args": [[1,0,0,0,1], 2], "expected": false },
+    { "name": "single empty plot", "args": [[0], 1], "expected": true },
+    { "name": "planting nothing always succeeds", "args": [[0], 0], "expected": true },
+    { "name": "two empty plots hold one flower", "args": [[0,0], 1], "expected": true },
+    { "name": "two empty plots cannot hold two", "args": [[0,0], 2], "expected": false },
+    { "name": "four-gap holds only one", "args": [[1,0,0,0,0,1], 2], "expected": false },
+    { "name": "three empty plots hold two", "args": [[0,0,0], 2], "expected": true },
+    { "name": "no room anywhere", "args": [[1,0,1,0,1], 1], "expected": false },
+    { "name": "empty bed of five", "args": [[0,0,0,0,0], 3], "expected": true }
+  ]
+}

@@ -64,6 +64,132 @@
         null,
         2.0
       ]
+    },
+    {
+      "name": "median after each of three inserts",
+      "ops": [
+        "MedianFinder",
+        "addNum",
+        "findMedian",
+        "addNum",
+        "findMedian",
+        "addNum",
+        "findMedian"
+      ],
+      "args": [
+        [],
+        [
+          1
+        ],
+        [],
+        [
+          3
+        ],
+        [],
+        [
+          2
+        ],
+        []
+      ],
+      "expected": [
+        null,
+        null,
+        1.0,
+        null,
+        2.0,
+        null,
+        2.0
+      ]
+    },
+    {
+      "name": "negatives",
+      "ops": [
+        "MedianFinder",
+        "addNum",
+        "addNum",
+        "findMedian"
+      ],
+      "args": [
+        [],
+        [
+          -1
+        ],
+        [
+          -2
+        ],
+        []
+      ],
+      "expected": [
+        null,
+        null,
+        null,
+        -1.5
+      ]
+    },
+    {
+      "name": "inserted in descending order",
+      "ops": [
+        "MedianFinder",
+        "addNum",
+        "addNum",
+        "addNum",
+        "addNum",
+        "findMedian"
+      ],
+      "args": [
+        [],
+        [
+          5
+        ],
+        [
+          4
+        ],
+        [
+          3
+        ],
+        [
+          2
+        ],
+        []
+      ],
+      "expected": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        3.5
+      ]
+    },
+    {
+      "name": "all duplicates",
+      "ops": [
+        "MedianFinder",
+        "addNum",
+        "addNum",
+        "addNum",
+        "findMedian"
+      ],
+      "args": [
+        [],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        []
+      ],
+      "expected": [
+        null,
+        null,
+        null,
+        null,
+        2.0
+      ]
     }
   ]
 }

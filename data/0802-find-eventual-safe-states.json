@@ -1,0 +1,36 @@
+{
+  "id": 802,
+  "slug": "find-eventual-safe-states",
+  "title": "Find Eventual Safe States",
+  "difficulty": "Medium",
+  "topics": ["Graph", "Depth-First Search", "Topological Sort"],
+  "url": "https://leetcode.com/problems/find-eventual-safe-states/",
+  "comparison": "Exact",
+  "folder": "Graphs",
+  "className": "FindEventualSafeStates",
+  "signature": "int[] Solve(int[][] graph)",
+  "statement": "graph[i] lists the nodes reachable in one step from node i, directed. A node is safe when EVERY path leaving it reaches a terminal node - one with no outgoing edges - in a finite number of steps. Return the safe nodes in ascending order.",
+  "constraints": [
+    "1 <= graph.Length <= 10^4",
+    "the graph is directed and may contain cycles and self-loops",
+    "return the answer sorted ascending"
+  ],
+  "hints": [
+    "A node is unsafe exactly when some path from it can enter a cycle. So this is cycle detection, but you need it per starting node rather than as a yes/no for the whole graph.",
+    "Three-colour depth-first search: white unvisited, grey on the current stack, black finished and safe. Meeting a grey node means you closed a cycle.",
+    "A node is safe only if every one of its successors comes back safe. Cache the verdict per node so each is decided once, which is what keeps this linear. The alternative is a topological sort on the REVERSED graph, peeling off terminal nodes."
+  ],
+  "complexity": "O(nodes + edges) time",
+  "cases": [
+    { "name": "the standard example", "args": [[[1,2],[2,3],[5],[0],[5],[],[]]],
+      "expected": [2,4,5,6] },
+    { "name": "only the terminal node is safe", "args": [[[1,2,3,4],[1,2],[3,4],[0,4],[]]],
+      "expected": [4] },
+    { "name": "single terminal node", "args": [[[]]], "expected": [0] },
+    { "name": "two-node cycle, nothing safe", "args": [[[1],[0]]], "expected": [] },
+    { "name": "a chain into a terminal node", "args": [[[],[0],[1]]], "expected": [0,1,2] },
+    { "name": "self-loop is unsafe", "args": [[[0]]], "expected": [] },
+    { "name": "node pointing at a self-loop", "args": [[[1],[1]]], "expected": [] },
+    { "name": "branch where one path cycles", "args": [[[1,2],[],[2]]], "expected": [1] }
+  ]
+}

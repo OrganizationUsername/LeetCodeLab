@@ -70,6 +70,152 @@
         0,
         -2
       ]
+    },
+    {
+      "name": "duplicate minimums survive one pop",
+      "ops": [
+        "MinStack",
+        "push",
+        "push",
+        "push",
+        "getMin",
+        "pop",
+        "getMin",
+        "pop",
+        "getMin"
+      ],
+      "args": [
+        [],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "expected": [
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1
+      ]
+    },
+    {
+      "name": "the minimum rises again once it is popped",
+      "ops": [
+        "MinStack",
+        "push",
+        "push",
+        "getMin",
+        "pop",
+        "getMin",
+        "top"
+      ],
+      "args": [
+        [],
+        [
+          5
+        ],
+        [
+          3
+        ],
+        [],
+        [],
+        [],
+        []
+      ],
+      "expected": [
+        null,
+        null,
+        null,
+        3,
+        null,
+        5,
+        5
+      ]
+    },
+    {
+      "name": "single element",
+      "ops": [
+        "MinStack",
+        "push",
+        "top",
+        "getMin",
+        "pop"
+      ],
+      "args": [
+        [],
+        [
+          7
+        ],
+        [],
+        [],
+        []
+      ],
+      "expected": [
+        null,
+        null,
+        7,
+        7,
+        null
+      ]
+    },
+    {
+      "name": "a new low after popping a duplicate",
+      "ops": [
+        "MinStack",
+        "push",
+        "push",
+        "push",
+        "getMin",
+        "pop",
+        "getMin",
+        "push",
+        "getMin"
+      ],
+      "args": [
+        [],
+        [
+          0
+        ],
+        [
+          -1
+        ],
+        [
+          -1
+        ],
+        [],
+        [],
+        [],
+        [
+          -2
+        ],
+        []
+      ],
+      "expected": [
+        null,
+        null,
+        null,
+        null,
+        -1,
+        null,
+        -1,
+        null,
+        -2
+      ]
     }
   ]
 }

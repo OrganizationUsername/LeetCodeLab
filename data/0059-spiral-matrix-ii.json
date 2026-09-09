@@ -1,0 +1,32 @@
+{
+  "id": 59,
+  "slug": "spiral-matrix-ii",
+  "title": "Spiral Matrix II",
+  "difficulty": "Medium",
+  "topics": ["Array", "Matrix", "Simulation"],
+  "url": "https://leetcode.com/problems/spiral-matrix-ii/",
+  "comparison": "Exact",
+  "folder": "Matrix",
+  "className": "SpiralMatrixII",
+  "signature": "int[][] Solve(int n)",
+  "statement": "Build an n by n matrix holding 1 to n*n placed in spiral order: left to right along the top, down the right side, right to left along the bottom, up the left side, then inward. This is Spiral Matrix run backwards - you are writing the cells rather than reading them.",
+  "constraints": [
+    "1 <= n <= 20"
+  ],
+  "hints": [
+    "The traversal is identical to reading a spiral. Only the body of the loop changes: assign a counter instead of appending to a list.",
+    "Four boundaries again - top, bottom, left, right - each shrinking after the edge it owns has been walked.",
+    "Because the matrix is square you never hit the non-square degenerate case, but an odd n still ends on a single centre cell. Stop on the count reaching n*n rather than trying to detect that separately."
+  ],
+  "complexity": "O(n^2) time, O(1) extra space",
+  "cases": [
+    { "name": "n=1", "args": [1], "expected": [[1]] },
+    { "name": "n=2", "args": [2], "expected": [[1,2],[4,3]] },
+    { "name": "n=3: odd, ends on the centre", "args": [3],
+      "expected": [[1,2,3],[8,9,4],[7,6,5]] },
+    { "name": "n=4: two full laps, no centre", "args": [4],
+      "expected": [[1,2,3,4],[12,13,14,5],[11,16,15,6],[10,9,8,7]] },
+    { "name": "n=5: two laps then a lone centre", "args": [5],
+      "expected": [[1,2,3,4,5],[16,17,18,19,6],[15,24,25,20,7],[14,23,22,21,8],[13,12,11,10,9]] }
+  ]
+}

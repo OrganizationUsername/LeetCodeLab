@@ -1,0 +1,38 @@
+{
+  "id": 867,
+  "slug": "transpose-matrix",
+  "title": "Transpose Matrix",
+  "difficulty": "Easy",
+  "topics": ["Array", "Matrix", "Simulation"],
+  "url": "https://leetcode.com/problems/transpose-matrix/",
+  "comparison": "Exact",
+  "folder": "Matrix",
+  "className": "TransposeMatrix",
+  "signature": "int[][] Solve(int[][] matrix)",
+  "statement": "Return the transpose: the matrix flipped over its main diagonal, so row i column j of the answer is row j column i of the input. The matrix need not be square, so the result may have different dimensions from the input.",
+  "constraints": [
+    "1 <= rows, cols <= 1000",
+    "the input is rectangular: every row has the same length"
+  ],
+  "hints": [
+    "The answer has cols rows and rows columns. Allocate it that way round before you write anything into it.",
+    "This is why Rotate Image can transpose in place and this cannot: a non-square transpose does not fit back into the original array.",
+    "One double loop, result[j][i] = matrix[i][j]. The whole difficulty is not muddling the two extents."
+  ],
+  "complexity": "O(rows*cols) time and space",
+  "cases": [
+    { "name": "square", "args": [[[1,2,3],[4,5,6],[7,8,9]]],
+      "expected": [[1,4,7],[2,5,8],[3,6,9]] },
+    { "name": "wide becomes tall", "args": [[[1,2,3],[4,5,6]]],
+      "expected": [[1,4],[2,5],[3,6]] },
+    { "name": "tall becomes wide", "args": [[[1,2],[3,4],[5,6]]],
+      "expected": [[1,3,5],[2,4,6]] },
+    { "name": "single row", "args": [[[1,2,3,4]]],
+      "expected": [[1],[2],[3],[4]] },
+    { "name": "single column", "args": [[[1],[2],[3]]],
+      "expected": [[1,2,3]] },
+    { "name": "1x1", "args": [[[7]]], "expected": [[7]] },
+    { "name": "negative values", "args": [[[-1,0],[5,-9]]],
+      "expected": [[-1,5],[0,-9]] }
+  ]
+}

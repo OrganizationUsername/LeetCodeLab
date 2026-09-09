@@ -79,6 +79,109 @@
         true,
         true
       ]
+    },
+    {
+      "name": "a single dot matches one character only",
+      "ops": [
+        "WordDictionary",
+        "AddWord",
+        "Search",
+        "Search"
+      ],
+      "args": [
+        [],
+        [
+          "a"
+        ],
+        [
+          "."
+        ],
+        [
+          ".."
+        ]
+      ],
+      "expected": [
+        null,
+        null,
+        true,
+        false
+      ]
+    },
+    {
+      "name": "dots in several positions",
+      "ops": [
+        "WordDictionary",
+        "AddWord",
+        "AddWord",
+        "Search",
+        "Search",
+        "Search"
+      ],
+      "args": [
+        [],
+        [
+          "at"
+        ],
+        [
+          "and"
+        ],
+        [
+          "a."
+        ],
+        [
+          ".."
+        ],
+        [
+          "a.d"
+        ]
+      ],
+      "expected": [
+        null,
+        null,
+        null,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "length must still match",
+      "ops": [
+        "WordDictionary",
+        "AddWord",
+        "Search"
+      ],
+      "args": [
+        [],
+        [
+          "abc"
+        ],
+        [
+          "ab"
+        ]
+      ],
+      "expected": [
+        null,
+        null,
+        false
+      ]
+    },
+    {
+      "name": "search before anything is added",
+      "ops": [
+        "WordDictionary",
+        "Search"
+      ],
+      "args": [
+        [],
+        [
+          "a"
+        ]
+      ],
+      "expected": [
+        null,
+        false
+      ]
     }
   ]
 }

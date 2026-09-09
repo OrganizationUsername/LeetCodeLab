@@ -129,6 +129,249 @@
           4
         ]
       ]
+    },
+    {
+      "name": "zero in the FIRST ROW: marker row must not fool you",
+      "args": [
+        [
+          [
+            1,
+            0,
+            3
+          ],
+          [
+            4,
+            5,
+            6
+          ],
+          [
+            7,
+            8,
+            9
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          0,
+          6
+        ],
+        [
+          7,
+          0,
+          9
+        ]
+      ]
+    },
+    {
+      "name": "zero in the FIRST COLUMN",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            0,
+            5,
+            6
+          ],
+          [
+            7,
+            8,
+            9
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "name": "zero at the origin, where both markers collide",
+      "args": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "zero in the last cell",
+      "args": [
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6
+          ],
+          [
+            7,
+            8,
+            0
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          2,
+          0
+        ],
+        [
+          4,
+          5,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "single row containing a zero",
+      "args": [
+        [
+          [
+            1,
+            0,
+            3
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "single column containing a zero",
+      "args": [
+        [
+          [
+            1
+          ],
+          [
+            0
+          ],
+          [
+            3
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "name": "1x1 zero",
+      "args": [
+        [
+          [
+            0
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "name": "1x1 non-zero",
+      "args": [
+        [
+          [
+            1
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "name": "every cell zero",
+      "args": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
     }
   ]
 }

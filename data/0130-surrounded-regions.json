@@ -1,0 +1,44 @@
+{
+  "id": 130,
+  "slug": "surrounded-regions",
+  "title": "Surrounded Regions",
+  "difficulty": "Medium",
+  "topics": ["Matrix", "Depth-First Search", "Breadth-First Search", "Union Find"],
+  "url": "https://leetcode.com/problems/surrounded-regions/",
+  "comparison": "MutatedArg",
+  "folder": "Matrix",
+  "className": "SurroundedRegions",
+  "signature": "void Solve(char[][] board)",
+  "statement": "The board holds the characters X and O. An O region is captured when it is completely surrounded by X, meaning no cell of the region touches the border. Flip every captured region to X in place. The answer is the mutated board rather than a return value.",
+  "constraints": [
+    "1 <= rows, cols <= 200",
+    "entries are the characters 'X' and 'O'",
+    "a region connects through the four side-adjacent neighbours, not diagonally"
+  ],
+  "hints": [
+    "Searching each O region and asking whether it reached the border works, but it re-walks regions and is fiddly to get right.",
+    "Invert the question. Rather than finding the surrounded regions, find the SURVIVORS: every O reachable from an O on the border.",
+    "Flood fill inward from the border Os, marking them temporarily. Then one sweep: marked cells become O, every other O becomes X. This is the same border-seeded idea as Pacific Atlantic Water Flow."
+  ],
+  "complexity": "O(rows*cols) time",
+  "cases": [
+    { "name": "interior region captured, border O survives",
+      "args": [[["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]],
+      "expected": [["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]] },
+    { "name": "single X", "args": [[["X"]]], "expected": [["X"]] },
+    { "name": "single O is on the border, so survives", "args": [[["O"]]], "expected": [["O"]] },
+    { "name": "every cell on the border", "args": [[["O","O"],["O","O"]]],
+      "expected": [["O","O"],["O","O"]] },
+    { "name": "lone interior O captured",
+      "args": [[["X","X","X"],["X","O","X"],["X","X","X"]]],
+      "expected": [["X","X","X"],["X","X","X"],["X","X","X"]] },
+    { "name": "a chain reaching the border saves the whole region",
+      "args": [[["X","X","X","X"],["X","O","O","X"],["X","O","X","X"],["O","O","X","X"]]],
+      "expected": [["X","X","X","X"],["X","O","O","X"],["X","O","X","X"],["O","O","X","X"]] },
+    { "name": "diagonal contact does not connect",
+      "args": [[["X","O","X"],["O","X","O"],["X","O","X"]]],
+      "expected": [["X","O","X"],["O","X","O"],["X","O","X"]] },
+    { "name": "nothing to capture", "args": [[["X","X"],["X","X"]]],
+      "expected": [["X","X"],["X","X"]] }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": 212,
+  "slug": "word-search-ii",
+  "title": "Word Search II",
+  "difficulty": "Hard",
+  "topics": ["Trie", "Backtracking", "Matrix"],
+  "url": "https://leetcode.com/problems/word-search-ii/",
+  "comparison": "Unordered",
+  "folder": "Tries",
+  "className": "WordSearchII",
+  "signature": "IList<string> Solve(char[][] board, string[] words)",
+  "statement": "Return every word from the list that can be spelled by walking the board between side-adjacent cells, without using any cell twice within one word. Order does not matter and each found word is reported once.",
+  "constraints": [
+    "1 <= rows, cols <= 12",
+    "1 <= words.Length <= 3*10^4",
+    "a cell may not be reused within a single word, but words are independent of each other",
+    "the answer may be returned in any order"
+  ],
+  "hints": [
+    "Running Word Search once per word re-walks the same board thousands of times. The words share prefixes; exploit that.",
+    "Build a trie of the words, then run ONE backtracking search over the board, descending the trie as you step. Abandon a branch the moment the trie has no child for the letter you are standing on.",
+    "Two things make this fast enough: mark a word found at the trie node rather than searching for it, and prune the trie as you go - once a word is collected, clear its end marker, and leaf nodes with no children can be unlinked so later searches never revisit them."
+  ],
+  "complexity": "O(cells * 4^maxWordLength) worst case, far less with pruning",
+  "cases": [
+    { "name": "two of four words found",
+      "args": [[["o","a","a","n"],["e","t","a","e"],["i","h","k","r"],["i","f","l","v"]],
+               ["oath","pea","eat","rain"]],
+      "expected": ["oath","eat"] },
+    { "name": "not reachable by adjacency",
+      "args": [[["a","b"],["c","d"]], ["abcb"]], "expected": [] },
+    { "name": "single cell", "args": [[["a"]], ["a"]], "expected": ["a"] },
+    { "name": "single cell, wrong letter", "args": [[["a"]], ["b"]], "expected": [] },
+    { "name": "a word and its reverse both fit",
+      "args": [[["a","b"]], ["ab","ba"]], "expected": ["ab","ba"] },
+    { "name": "cells cannot be reused within a word",
+      "args": [[["a","a"]], ["aaa"]], "expected": [] },
+    { "name": "shared prefixes, all found",
+      "args": [[["a","b"],["c","d"]], ["ab","abd","abdc","ac"]],
+      "expected": ["ab","abd","abdc","ac"] }
+  ]
+}

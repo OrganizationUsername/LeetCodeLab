@@ -1,0 +1,35 @@
+{
+  "id": 1094,
+  "slug": "car-pooling",
+  "title": "Car Pooling",
+  "difficulty": "Medium",
+  "topics": ["Intervals", "Prefix Sum", "Sorting", "Heap (Priority Queue)"],
+  "url": "https://leetcode.com/problems/car-pooling/",
+  "comparison": "Exact",
+  "folder": "Intervals",
+  "className": "CarPooling",
+  "signature": "bool Solve(int[][] trips, int capacity)",
+  "statement": "The car drives east only, never turning back. Each trip [passengers, from, to] picks that many people up at from and sets them down at to. Return whether every trip can be served without ever exceeding the capacity.",
+  "constraints": [
+    "1 <= trips.Length <= 1000",
+    "1 <= passengers <= 100",
+    "0 <= from < to <= 1000",
+    "passengers get off AT the drop point, so a trip ending at x frees seats for a trip starting at x"
+  ],
+  "hints": [
+    "Only the points where the load changes matter, and there are at most 1001 of them.",
+    "A difference array over the locations: add passengers at from, subtract at to. Then one running total across it gives the load everywhere.",
+    "The drop-off convention is the whole trap. Subtracting at to rather than at to+1 is what makes a trip ending at x free its seats for one starting at x - get that backwards and back-to-back trips fail incorrectly."
+  ],
+  "complexity": "O(n + maxLocation) time",
+  "cases": [
+    { "name": "over capacity", "args": [[[2,1,5],[3,3,7]], 4], "expected": false },
+    { "name": "exactly at capacity", "args": [[[2,1,5],[3,3,7]], 5], "expected": true },
+    { "name": "one trip ends where the next begins", "args": [[[2,1,5],[3,5,7]], 3], "expected": true },
+    { "name": "three overlapping trips fit", "args": [[[3,2,7],[3,7,9],[8,3,9]], 11], "expected": true },
+    { "name": "a single trip already exceeds capacity", "args": [[[9,0,1],[3,3,7]], 4], "expected": false },
+    { "name": "one trip, exact fit", "args": [[[5,0,10]], 5], "expected": true },
+    { "name": "one trip, one seat short", "args": [[[5,0,10]], 4], "expected": false },
+    { "name": "disjoint trips reuse the seats", "args": [[[4,0,1],[4,1,2],[4,2,3]], 4], "expected": true }
+  ]
+}

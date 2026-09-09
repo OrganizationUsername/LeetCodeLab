@@ -4,7 +4,7 @@ LeetCode as a failing unit test suite. Open the solution in Visual Studio, look 
 Explorer, pick a red test, make it green. No browser, no login, no network — and you get
 breakpoints, the watch window and the profiler, which the website does not give you.
 
-**165 problems, 601 test cases.** 57 Easy / 96 Medium / 12 Hard, across 31 topics.
+**215 problems, 1111 test cases.** 65 Easy / 137 Medium / 13 Hard, across 31 topics.
 
 18 of them are original engineering problems with no LeetCode page, where the point is to
 work the solution out rather than recall it — see [Original problems](#original-problems).
@@ -16,7 +16,7 @@ reference solution that passes its cases (see [Verification](#verification)).
 ## Quick start
 
 ```
-dotnet test --project practice/LeetCodeLab.Practice   # 601 red, 1 green
+dotnet test --project practice/LeetCodeLab.Practice   # 1111 red, 1 green
 ```
 
 Or open `LeetCodeLab.slnx` in Visual Studio and use Test Explorer. That is the XML solution
@@ -110,17 +110,17 @@ passing case.
 
 | Folder | # | Folder | # | Folder | # |
 | --- | --- | --- | --- | --- | --- |
-| Arrays | 20 | MeshTopology | 4 | Greedy | 2 |
-| DynamicProgramming | 18 | Numerics | 4 | Layout | 2 |
-| Trees | 17 | Stacks | 4 | LoadCases | 2 |
-| LinkedLists | 11 | Heap | 3 | Parsing | 2 |
-| TwoPointers | 8 | Intervals | 3 | PlaneGeometry | 2 |
-| Backtracking | 7 | Matrix | 3 | SectionProperties | 2 |
-| Design | 7 | MonotonicStack | 3 | Simulation | 2 |
-| Graphs | 7 | PrefixSums | 3 | Strings | 2 |
-| Searching | 7 | UnionFind | 3 | Tries | 2 |
-| SlidingWindow | 6 | BitManipulation | 2 | | |
-| Numbers | 5 | Fabrication | 2 | | |
+| Arrays | 20 | Backtracking | 7 | PrefixSums | 3 |
+| DynamicProgramming | 18 | Design | 7 | UnionFind | 3 |
+| Trees | 17 | Greedy | 7 | Fabrication | 2 |
+| Graphs | 13 | Searching | 7 | Layout | 2 |
+| Matrix | 12 | Strings | 7 | LoadCases | 2 |
+| LinkedLists | 11 | SlidingWindow | 6 | Parsing | 2 |
+| Stacks | 9 | Tries | 6 | PlaneGeometry | 2 |
+| BitManipulation | 8 | Numbers | 5 | SectionProperties | 2 |
+| Heap | 8 | MeshTopology | 4 | Simulation | 2 |
+| Intervals | 8 | Numerics | 4 | | |
+| TwoPointers | 8 | MonotonicStack | 3 | | |
 
 ## Original problems
 
@@ -170,7 +170,7 @@ The case files are hand-written, and hand-written expectations are worth nothing
 something proves them. So every problem has a reference solution in `verify/`, and
 
 ```
-dotnet test --project verify/LeetCodeLab.Verify      # 622 tests, all green
+dotnet test --project verify/LeetCodeLab.Verify      # 1132 tests, all green
 ```
 
 going green means the expectations you are judged against are correct. It caught three real
@@ -187,14 +187,14 @@ LeetCode is not uniformly "assert equal", which is why you cannot just write `As
 
 | Mode | # | Meaning | Example |
 | --- | --- | --- | --- |
-| `Exact` | 118 | deep structural equality | most problems |
+| `Exact` | 161 | deep structural equality | most problems |
 | `FloatTolerance` | 12 | numeric within 1e-5 | Pow(x, n), most of the engineering set |
-| `MutatedArg` | 9 | the answer is the mutated argument, not the return | Move Zeroes, Game of Life |
-| `Unordered` | 7 | flat sequence, order irrelevant | Two Sum, Permutations |
-| `Design` | 7 | constructor + method-call sequence on a stateful object | LRU Cache, Trie |
+| `MutatedArg` | 10 | the answer is the mutated argument, not the return | Move Zeroes, Game of Life |
+| `Unordered` | 9 | flat sequence, order irrelevant | Two Sum, Permutations |
+| `Design` | 9 | constructor + method-call sequence on a stateful object | LRU Cache, Trie |
 | `UnorderedNested` | 6 | sequence of sequences, neither order matters | 3Sum, Free Edges of a Mesh |
-| `AnyValid` | 4 | several answers accepted; a `Validate` method judges | Find Peak Element |
-| `InPlacePrefix` | 2 | returns `k`; only the first `k` mutated elements count | Remove Duplicates |
+| `AnyValid` | 5 | several answers accepted; a `Validate` method judges | Find Peak Element |
+| `InPlacePrefix` | 3 | returns `k`; only the first `k` mutated elements count | Remove Duplicates |
 
 Arguments bind by **your method signature**, not by a type hint in the data. The same JSON
 `[1,2,3]` becomes an `int[]`, a `ListNode` or a `TreeNode` depending on what your method

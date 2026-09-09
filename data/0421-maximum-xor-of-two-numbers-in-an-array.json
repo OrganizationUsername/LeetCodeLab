@@ -1,0 +1,36 @@
+{
+  "id": 421,
+  "slug": "maximum-xor-of-two-numbers-in-an-array",
+  "title": "Maximum XOR of Two Numbers in an Array",
+  "difficulty": "Medium",
+  "topics": ["Trie", "Bit Manipulation", "Array", "Hash Table"],
+  "url": "https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/",
+  "comparison": "Exact",
+  "folder": "Tries",
+  "className": "MaximumXor",
+  "signature": "int Solve(int[] nums)",
+  "statement": "Return the largest value of nums[i] XOR nums[j] over all pairs of positions, where i and j may be the same position. With a single element the answer is therefore 0.",
+  "constraints": [
+    "1 <= nums.Length <= 2*10^5",
+    "0 <= nums[i] < 2^31",
+    "i and j may be equal, so a one-element array answers 0",
+    "the quadratic double loop is too slow at the upper size"
+  ],
+  "hints": [
+    "To make a XOR large you want the highest bits to DIFFER. That is a prefix-matching question, which is what a trie is for.",
+    "Insert every number as a path of 31 bits, most significant first. Then for each number, walk down preferring the OPPOSITE bit at every step, taking the same bit only when the opposite branch is absent.",
+    "That greedy descent is optimal because a higher bit outweighs every lower bit combined. There is also a neat hash-set solution: build the answer bit by bit from the top, and at each step ask whether some pair of observed prefixes XORs to the candidate."
+  ],
+  "complexity": "O(31n) time",
+  "cases": [
+    { "name": "the standard example", "args": [[3,10,5,25,2,8]], "expected": 28 },
+    { "name": "single element pairs with itself", "args": [[0]], "expected": 0 },
+    { "name": "two elements", "args": [[2,4]], "expected": 6 },
+    { "name": "three elements", "args": [[8,10,2]], "expected": 10 },
+    { "name": "twelve elements",
+      "args": [[14,70,53,83,49,91,36,80,92,51,66,70]], "expected": 127 },
+    { "name": "all identical", "args": [[5,5,5]], "expected": 0 },
+    { "name": "zero and a large value", "args": [[0,2147483647]], "expected": 2147483647 },
+    { "name": "powers of two", "args": [[1,2,4,8]], "expected": 12 }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": 260,
+  "slug": "single-number-iii",
+  "title": "Single Number III",
+  "difficulty": "Medium",
+  "topics": ["Bit Manipulation", "Array"],
+  "url": "https://leetcode.com/problems/single-number-iii/",
+  "comparison": "Unordered",
+  "folder": "BitManipulation",
+  "className": "SingleNumberIII",
+  "signature": "int[] Solve(int[] nums)",
+  "statement": "Exactly two values appear once; every other value appears twice. Return the two singles in any order, in linear time and constant extra space.",
+  "constraints": [
+    "2 <= nums.Length <= 3*10^4",
+    "exactly two values appear once, the rest appear twice",
+    "either order is accepted"
+  ],
+  "hints": [
+    "XOR everything. The pairs cancel, leaving the XOR of the two answers - which is not either answer, but it is not useless either.",
+    "Any bit set in that combined XOR is a bit where the two answers DIFFER. Pick one such bit and it splits every value into two groups, with one answer in each.",
+    "Take the lowest set bit with x & -x, partition on it, and XOR each group separately. Values that appear twice land in the same group as their twin and cancel, so each group reduces to one answer."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "cases": [
+    { "name": "the standard example", "args": [[1,2,1,3,2,5]], "expected": [3,5] },
+    { "name": "just the two singles", "args": [[-1,0]], "expected": [-1,0] },
+    { "name": "two singles, one pair", "args": [[0,1,0,2]], "expected": [1,2] },
+    { "name": "negatives", "args": [[-1,-2,-1,-3]], "expected": [-2,-3] },
+    { "name": "answers differ only in the low bit", "args": [[2,3,7,7]], "expected": [2,3] },
+    { "name": "one answer is zero", "args": [[0,9,4,4]], "expected": [0,9] },
+    { "name": "large values", "args": [[1000000,5,1000000,7]], "expected": [5,7] }
+  ]
+}

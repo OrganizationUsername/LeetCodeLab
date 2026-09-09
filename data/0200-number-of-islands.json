@@ -95,6 +95,124 @@
         ]
       ],
       "expected": 3
+    },
+    {
+      "name": "one cell of land",
+      "args": [
+        [
+          [
+            "1"
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "one cell of water",
+      "args": [
+        [
+          [
+            "0"
+          ]
+        ]
+      ],
+      "expected": 0
+    },
+    {
+      "name": "alternating single row",
+      "args": [
+        [
+          [
+            "1",
+            "0",
+            "1",
+            "0",
+            "1"
+          ]
+        ]
+      ],
+      "expected": 3
+    },
+    {
+      "name": "alternating single column",
+      "args": [
+        [
+          [
+            "1"
+          ],
+          [
+            "0"
+          ],
+          [
+            "1"
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "one solid block",
+      "args": [
+        [
+          [
+            "1",
+            "1"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ]
+      ],
+      "expected": 1
+    },
+    {
+      "name": "diagonals do not connect",
+      "args": [
+        [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ]
+      ],
+      "expected": 2
+    },
+    {
+      "name": "checkerboard",
+      "args": [
+        [
+          [
+            "1",
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0",
+            "1"
+          ]
+        ]
+      ],
+      "expected": 8
     }
   ]
 }

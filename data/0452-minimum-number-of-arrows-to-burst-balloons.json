@@ -1,0 +1,36 @@
+{
+  "id": 452,
+  "slug": "minimum-number-of-arrows-to-burst-balloons",
+  "title": "Minimum Number of Arrows to Burst Balloons",
+  "difficulty": "Medium",
+  "topics": ["Intervals", "Greedy", "Sorting"],
+  "url": "https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/",
+  "comparison": "Exact",
+  "folder": "Intervals",
+  "className": "MinimumArrows",
+  "signature": "int Solve(int[][] points)",
+  "statement": "Each balloon spans [start, end] on a horizontal line. An arrow fired straight up at x bursts every balloon whose span contains x, endpoints included. Return the fewest arrows that burst them all.",
+  "constraints": [
+    "1 <= points.Length <= 10^5",
+    "-2^31 <= start <= end <= 2^31 - 1",
+    "touching at an endpoint counts as overlapping, so [1,2] and [2,3] share an arrow"
+  ],
+  "hints": [
+    "This is the maximum number of pairwise non-overlapping balloons in disguise: each of those needs its own arrow.",
+    "Sort by END coordinate, not by start. Then repeatedly fire at the earliest end you have not yet covered.",
+    "Firing at the smallest end is optimal because any balloon that arrow misses starts after that point anyway. Sort by end, keep the last arrow position, and add an arrow whenever a balloon starts strictly after it. Beware sorting by subtracting the two ends - that overflows on the extreme coordinates here; use a comparison instead."
+  ],
+  "complexity": "O(n log n) time",
+  "cases": [
+    { "name": "the standard example", "args": [[[10,16],[2,8],[1,6],[7,12]]], "expected": 2 },
+    { "name": "no overlaps at all", "args": [[[1,2],[3,4],[5,6],[7,8]]], "expected": 4 },
+    { "name": "touching endpoints share an arrow", "args": [[[1,2],[2,3],[3,4],[4,5]]], "expected": 2 },
+    { "name": "single balloon", "args": [[[1,2]]], "expected": 1 },
+    { "name": "one wide balloon over several small ones",
+      "args": [[[1,10],[2,3],[4,5],[6,7],[8,9]]], "expected": 4 },
+    { "name": "all identical", "args": [[[1,5],[1,5],[1,5]]], "expected": 1 },
+    { "name": "nested balloons", "args": [[[1,10],[2,9],[3,8]]], "expected": 1 },
+    { "name": "extreme coordinates would overflow a subtracting comparator",
+      "args": [[[-2147483648,2147483647],[-2147483648,2147483647]]], "expected": 1 }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": 735,
+  "slug": "asteroid-collision",
+  "title": "Asteroid Collision",
+  "difficulty": "Medium",
+  "topics": ["Stack", "Array", "Simulation"],
+  "url": "https://leetcode.com/problems/asteroid-collision/",
+  "comparison": "Exact",
+  "folder": "Stacks",
+  "className": "AsteroidCollision",
+  "signature": "int[] Solve(int[] asteroids)",
+  "statement": "Each value is an asteroid: the magnitude is its size and the sign is its direction, positive for right and negative for left. All move at the same speed. When two meet, the smaller explodes; if they are the same size both explode. Asteroids moving the same way, or apart, never meet. Return the state once everything has settled.",
+  "constraints": [
+    "2 <= asteroids.Length <= 10^4",
+    "values are non-zero",
+    "a collision happens only when a right-mover is immediately followed by a left-mover",
+    "equal sizes destroy each other"
+  ],
+  "hints": [
+    "A collision needs a positive asteroid on the left and a negative one on the right. Two negatives, two positives, or a negative then a positive all pass by untouched.",
+    "Keep the survivors on a stack. A new left-mover has to fight the right-movers on top until one of them wins or it is destroyed.",
+    "Three outcomes per fight and they are easy to muddle: the stack top is smaller so it pops and the fight continues; sizes are equal so both die; the top is bigger so the newcomer dies. Only the case where the newcomer survives every fight lets it get pushed."
+  ],
+  "complexity": "O(n) time",
+  "cases": [
+    { "name": "the small left-mover loses", "args": [[5,10,-5]], "expected": [5,10] },
+    { "name": "equal sizes annihilate", "args": [[8,-8]], "expected": [] },
+    { "name": "left-mover clears two then loses", "args": [[10,2,-5]], "expected": [10] },
+    { "name": "no collisions possible", "args": [[-2,-1,1,2]], "expected": [-2,-1,1,2] },
+    { "name": "one right-mover destroyed, the rest pass", "args": [[1,-2,-2,-2]], "expected": [-2,-2,-2] },
+    { "name": "a left-mover survives to the far left", "args": [[-2,2,1,-2]], "expected": [-2] },
+    { "name": "all moving right", "args": [[1,2,3]], "expected": [1,2,3] },
+    { "name": "all moving left", "args": [[-1,-2,-3]], "expected": [-1,-2,-3] },
+    { "name": "chain of annihilations", "args": [[10,-10,10,-10]], "expected": [] }
+  ]
+}

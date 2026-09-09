@@ -1,0 +1,38 @@
+{
+  "id": 743,
+  "slug": "network-delay-time",
+  "title": "Network Delay Time",
+  "difficulty": "Medium",
+  "topics": ["Graph", "Shortest Path", "Heap (Priority Queue)"],
+  "url": "https://leetcode.com/problems/network-delay-time/",
+  "comparison": "Exact",
+  "folder": "Graphs",
+  "className": "NetworkDelayTime",
+  "signature": "int Solve(int[][] times, int n, int k)",
+  "statement": "Nodes are numbered 1 to n. Each entry [u, v, w] is a one-way link from u to v taking w time. A signal starts at node k. Return the time for every node to receive it, that is the largest of the shortest arrival times, or -1 if some node never receives it.",
+  "constraints": [
+    "1 <= n <= 100",
+    "1 <= times.Length <= 6000",
+    "edges are DIRECTED and weights are positive",
+    "nodes are numbered from 1, not 0"
+  ],
+  "hints": [
+    "Breadth-first search finds the fewest hops, which is not the same as the least time once edges have different weights. You need shortest paths by weight.",
+    "Dijkstra: keep the best known arrival time per node, always expand the unvisited node with the smallest one, and relax its outgoing edges.",
+    "A PriorityQueue of (node, time) does the choosing. Two things to get right: skip an entry when you pop it and it is already worse than the recorded best, and answer -1 if any node is still at infinity. Watch the 1-based numbering against 0-based arrays."
+  ],
+  "complexity": "O(E log V) time",
+  "cases": [
+    { "name": "the standard example", "args": [[[2,1,1],[2,3,1],[3,4,1]], 4, 2], "expected": 2 },
+    { "name": "one edge, reachable", "args": [[[1,2,1]], 2, 1], "expected": 1 },
+    { "name": "one edge, wrong direction", "args": [[[1,2,1]], 2, 2], "expected": -1 },
+    { "name": "single node, no edges", "args": [[], 1, 1], "expected": 0 },
+    { "name": "a longer direct edge loses to two short ones",
+      "args": [[[1,2,1],[2,3,2],[1,3,4]], 3, 1], "expected": 3 },
+    { "name": "unreachable node", "args": [[[1,2,1]], 3, 1], "expected": -1 },
+    { "name": "cycle does not trap the search",
+      "args": [[[1,2,1],[2,3,1],[3,1,1]], 3, 1], "expected": 2 },
+    { "name": "parallel edges, cheaper one wins",
+      "args": [[[1,2,5],[1,2,2]], 2, 1], "expected": 2 }
+  ]
+}

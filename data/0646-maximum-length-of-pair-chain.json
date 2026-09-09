@@ -1,0 +1,35 @@
+{
+  "id": 646,
+  "slug": "maximum-length-of-pair-chain",
+  "title": "Maximum Length of Pair Chain",
+  "difficulty": "Medium",
+  "topics": ["Intervals", "Greedy", "Dynamic Programming", "Sorting"],
+  "url": "https://leetcode.com/problems/maximum-length-of-pair-chain/",
+  "comparison": "Exact",
+  "folder": "Intervals",
+  "className": "MaximumLengthOfPairChain",
+  "signature": "int Solve(int[][] pairs)",
+  "statement": "Pair [a, b] may follow pair [c, d] when b < c, strictly. Choose pairs in any order and return the length of the longest chain you can form.",
+  "constraints": [
+    "1 <= pairs.Length <= 1000",
+    "each pair has a < b",
+    "pairs may be used in any order, not the order given",
+    "the follow condition is STRICT: [1,2] cannot be followed by [2,3]"
+  ],
+  "hints": [
+    "This is the same shape as scheduling non-overlapping activities: take as many as possible, and the greedy rule is about which one to finish first.",
+    "Sort by the SECOND value. Then walk the list taking any pair that starts strictly after the last one you took ended.",
+    "Sorting by the first value instead needs dynamic programming to recover the same answer; sorting by the end makes the greedy choice provably safe, because finishing earliest leaves the most room."
+  ],
+  "complexity": "O(n log n) time",
+  "cases": [
+    { "name": "overlapping chain", "args": [[[1,2],[2,3],[3,4]]], "expected": 2 },
+    { "name": "all three chain", "args": [[[1,2],[7,8],[4,5]]], "expected": 3 },
+    { "name": "single pair", "args": [[[1,2]]], "expected": 1 },
+    { "name": "a wide pair must be dropped", "args": [[[1,5],[2,3],[4,6]]], "expected": 2 },
+    { "name": "strictness matters", "args": [[[1,2],[2,3]]], "expected": 1 },
+    { "name": "nested pairs", "args": [[[1,10],[2,3],[4,5]]], "expected": 2 },
+    { "name": "identical pairs", "args": [[[1,2],[1,2],[1,2]]], "expected": 1 },
+    { "name": "already in order", "args": [[[1,2],[3,4],[5,6],[7,8]]], "expected": 4 }
+  ]
+}

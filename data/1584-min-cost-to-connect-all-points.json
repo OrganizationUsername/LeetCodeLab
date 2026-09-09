@@ -1,0 +1,35 @@
+{
+  "id": 1584,
+  "slug": "min-cost-to-connect-all-points",
+  "title": "Min Cost to Connect All Points",
+  "difficulty": "Medium",
+  "topics": ["Graph", "Minimum Spanning Tree", "Union Find"],
+  "url": "https://leetcode.com/problems/min-cost-to-connect-all-points/",
+  "comparison": "Exact",
+  "folder": "Graphs",
+  "className": "MinCostToConnectAllPoints",
+  "signature": "int Solve(int[][] points)",
+  "statement": "Every pair of points can be joined at a cost equal to their Manhattan distance, the sum of the absolute differences in x and y. Return the least total cost to connect all the points so that any point is reachable from any other.",
+  "constraints": [
+    "1 <= points.Length <= 1000",
+    "-10^6 <= x, y <= 10^6",
+    "the graph is complete: every pair is a candidate edge",
+    "a single point costs 0"
+  ],
+  "hints": [
+    "Connecting everything as cheaply as possible with no redundant links is a minimum spanning tree. n-1 edges, no cycles.",
+    "Because every pair is joinable, the graph is dense with n^2 edges. That favours Prim's algorithm over sorting all the edges for Kruskal.",
+    "Prim: keep the cheapest known distance from the growing tree to each outside point, repeatedly absorb the nearest one, then update its neighbours. An O(n^2) array version beats a heap here, since the edge count is already n^2."
+  ],
+  "complexity": "O(n^2) time with Prim",
+  "cases": [
+    { "name": "the standard example", "args": [[[0,0],[2,2],[3,10],[5,2],[7,0]]], "expected": 20 },
+    { "name": "three points", "args": [[[3,12],[-2,5],[-4,1]]], "expected": 18 },
+    { "name": "single point costs nothing", "args": [[[0,0]]], "expected": 0 },
+    { "name": "two points", "args": [[[0,0],[1,1]]], "expected": 2 },
+    { "name": "collinear points", "args": [[[0,0],[1,0],[2,0],[3,0]]], "expected": 3 },
+    { "name": "unit square: any three edges", "args": [[[0,0],[0,1],[1,0],[1,1]]], "expected": 3 },
+    { "name": "duplicate points are free to join", "args": [[[0,0],[0,0],[5,0]]], "expected": 5 },
+    { "name": "negative coordinates", "args": [[[-2,-3],[-1,-1],[0,0]]], "expected": 5 }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": 678,
+  "slug": "valid-parenthesis-string",
+  "title": "Valid Parenthesis String",
+  "difficulty": "Medium",
+  "topics": ["Greedy", "String", "Stack", "Dynamic Programming"],
+  "url": "https://leetcode.com/problems/valid-parenthesis-string/",
+  "comparison": "Exact",
+  "folder": "Greedy",
+  "className": "ValidParenthesisString",
+  "signature": "bool Solve(string s)",
+  "statement": "The string holds only the characters (, ) and *. Each * may stand for a single open bracket, a single close bracket, or nothing at all. Return whether some choice makes the whole string a balanced parenthesis sequence.",
+  "constraints": [
+    "1 <= s.Length <= 100",
+    "the string contains only the characters '(', ')' and '*'",
+    "each star is decided independently"
+  ],
+  "hints": [
+    "Trying all three options per star is exponential. Instead of committing, track the RANGE of open-bracket counts still possible.",
+    "Carry two numbers: the fewest open brackets you could have, and the most. An open bracket raises both, a close lowers both, and a star lowers the low and raises the high.",
+    "Clamp the low at zero, since you can never owe brackets, and fail immediately if the high ever drops below zero. The string is valid exactly when the low is back to zero at the end."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "cases": [
+    { "name": "plain pair", "args": ["()"], "expected": true },
+    { "name": "star as nothing", "args": ["(*)"], "expected": true },
+    { "name": "star as an opener", "args": ["(*))"], "expected": true },
+    { "name": "unmatched open", "args": ["("], "expected": false },
+    { "name": "unmatched close", "args": [")"], "expected": false },
+    { "name": "star must be an opener", "args": ["*)"], "expected": true },
+    { "name": "star must be a closer", "args": ["(*"], "expected": true },
+    { "name": "star closes the inner pair", "args": ["((*)"], "expected": true },
+    { "name": "star opens then closes", "args": ["(*()"], "expected": true },
+    { "name": "too many closers", "args": ["())"], "expected": false },
+    { "name": "all stars", "args": ["***"], "expected": true },
+    { "name": "close before open", "args": [")("], "expected": false }
+  ]
+}

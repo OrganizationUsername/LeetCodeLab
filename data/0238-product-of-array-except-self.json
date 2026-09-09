@@ -57,6 +57,90 @@
         0,
         0
       ]
+    },
+    {
+      "name": "two ones",
+      "args": [
+        [
+          1,
+          1
+        ]
+      ],
+      "expected": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "two values",
+      "args": [
+        [
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        3,
+        2
+      ]
+    },
+    {
+      "name": "two zeros",
+      "args": [
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "one zero of two",
+      "args": [
+        [
+          1,
+          0
+        ]
+      ],
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "all negative",
+      "args": [
+        [
+          -1,
+          -2,
+          -3
+        ]
+      ],
+      "expected": [
+        6,
+        3,
+        2
+      ]
+    },
+    {
+      "name": "a single zero among four",
+      "args": [
+        [
+          1,
+          2,
+          0,
+          4
+        ]
+      ],
+      "expected": [
+        0,
+        0,
+        8,
+        0
+      ]
     }
   ]
 }

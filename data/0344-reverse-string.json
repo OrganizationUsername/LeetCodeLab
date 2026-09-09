@@ -60,6 +60,62 @@
         "a",
         "H"
       ]
+    },
+    {
+      "name": "single character",
+      "args": [
+        [
+          "a"
+        ]
+      ],
+      "expected": [
+        "a"
+      ]
+    },
+    {
+      "name": "two characters",
+      "args": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "expected": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "three characters",
+      "args": [
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ],
+      "expected": [
+        "c",
+        "b",
+        "a"
+      ]
+    },
+    {
+      "name": "palindrome is unchanged",
+      "args": [
+        [
+          "A",
+          "B",
+          "B",
+          "A"
+        ]
+      ],
+      "expected": [
+        "A",
+        "B",
+        "B",
+        "A"
+      ]
     }
   ]
 }

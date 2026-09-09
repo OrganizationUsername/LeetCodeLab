@@ -1,0 +1,35 @@
+{
+  "id": 1288,
+  "slug": "remove-covered-intervals",
+  "title": "Remove Covered Intervals",
+  "difficulty": "Medium",
+  "topics": ["Intervals", "Greedy", "Sorting"],
+  "url": "https://leetcode.com/problems/remove-covered-intervals/",
+  "comparison": "Exact",
+  "folder": "Intervals",
+  "className": "RemoveCoveredIntervals",
+  "signature": "int Solve(int[][] intervals)",
+  "statement": "Interval [a, b) is covered by [c, d) when c <= a and b <= d. Remove every covered interval and return how many remain.",
+  "constraints": [
+    "1 <= intervals.Length <= 1000",
+    "0 <= left < right <= 10^5",
+    "all intervals are distinct as given, but one may still cover another",
+    "an interval covers itself only trivially and is not removed for it"
+  ],
+  "hints": [
+    "Sort so that a covering interval is always seen BEFORE the one it covers. Then one pass with a running maximum end is enough.",
+    "Sort by start ascending. Ties need care: when two intervals share a start, the longer one covers the shorter, so it must come first - sort ties by end DESCENDING.",
+    "Then walk keeping the largest end seen. An interval is covered exactly when its end is <= that maximum. Without the descending tie-break, equal starts get counted twice."
+  ],
+  "complexity": "O(n log n) time",
+  "cases": [
+    { "name": "the standard example", "args": [[[1,4],[3,6],[2,8]]], "expected": 2 },
+    { "name": "one covers the other", "args": [[[1,4],[2,3]]], "expected": 1 },
+    { "name": "partial overlap covers nothing", "args": [[[0,10],[5,12]]], "expected": 2 },
+    { "name": "shared start: the longer one wins", "args": [[[1,2],[1,4],[3,4]]], "expected": 1 },
+    { "name": "single interval", "args": [[[1,2]]], "expected": 1 },
+    { "name": "shared end", "args": [[[1,8],[5,8]]], "expected": 1 },
+    { "name": "no interval covers another", "args": [[[1,2],[3,4],[5,6]]], "expected": 3 },
+    { "name": "one interval swallows everything", "args": [[[0,100],[1,2],[3,4],[5,6]]], "expected": 1 }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": 841,
+  "slug": "keys-and-rooms",
+  "title": "Keys and Rooms",
+  "difficulty": "Medium",
+  "topics": ["Graph", "Depth-First Search", "Breadth-First Search"],
+  "url": "https://leetcode.com/problems/keys-and-rooms/",
+  "comparison": "Exact",
+  "folder": "Graphs",
+  "className": "KeysAndRooms",
+  "signature": "bool Solve(int[][] rooms)",
+  "statement": "There are n rooms numbered 0 to n-1, all locked except room 0. rooms[i] lists the keys found in room i, each opening the room of that number. Starting in room 0, return whether you can get into every room.",
+  "constraints": [
+    "2 <= rooms.Length <= 1000",
+    "a key may appear more than once and may open a room you have already entered",
+    "room 0 starts unlocked"
+  ],
+  "hints": [
+    "This is reachability from node 0, with keys as directed edges. The rooms you can enter are exactly the nodes you can reach.",
+    "Depth-first or breadth-first from room 0, marking rooms as you enter them, then check whether the count of entered rooms equals the total.",
+    "Duplicate keys are the trap: without a visited check you will revisit rooms forever on a cyclic key layout. Mark on entry, not on exit."
+  ],
+  "complexity": "O(rooms + keys) time",
+  "cases": [
+    { "name": "a straight chain", "args": [[[1],[2],[3],[]]], "expected": true },
+    { "name": "room 2 unreachable", "args": [[[1,3],[3,0,1],[2],[0]]], "expected": false },
+    { "name": "two rooms, key present", "args": [[[1],[]]], "expected": true },
+    { "name": "two rooms, no keys at all", "args": [[[],[]]], "expected": false },
+    { "name": "keys pointing back do not help", "args": [[[0],[]]], "expected": false },
+    { "name": "duplicate and self keys", "args": [[[1,1,0],[0,1]]], "expected": true },
+    { "name": "branching keys reach everything", "args": [[[1,2],[3],[],[]]], "expected": true },
+    { "name": "one room left out", "args": [[[1,2],[],[],[]]], "expected": false }
+  ]
+}

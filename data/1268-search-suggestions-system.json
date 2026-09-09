@@ -1,0 +1,46 @@
+{
+  "id": 1268,
+  "slug": "search-suggestions-system",
+  "title": "Search Suggestions System",
+  "difficulty": "Medium",
+  "topics": ["Trie", "String", "Binary Search", "Sorting"],
+  "url": "https://leetcode.com/problems/search-suggestions-system/",
+  "comparison": "Exact",
+  "folder": "Tries",
+  "className": "SearchSuggestionsSystem",
+  "signature": "IList<IList<string>> Solve(string[] products, string searchWord)",
+  "statement": "As each character of searchWord is typed, suggest up to three products that start with what has been typed so far, choosing the lexicographically smallest three. Return one list of suggestions per character typed, so the answer has exactly searchWord.Length entries.",
+  "constraints": [
+    "1 <= products.Length <= 1000",
+    "1 <= searchWord.Length <= 1000",
+    "products and searchWord are lowercase letters",
+    "at most three suggestions per keystroke, lexicographically smallest first",
+    "the outer list has one entry per character, even when there are no matches"
+  ],
+  "hints": [
+    "Sort the products once. After that, everything matching a prefix sits in one contiguous block, and the smallest three are simply the first three of that block.",
+    "Binary search for the start of the block on each keystroke, then take up to three while they still carry the prefix.",
+    "The trie version stores, at each node, the three smallest words passing through it - built once, then each keystroke is a single step down. Either is accepted; the sorted-array version is far less code."
+  ],
+  "complexity": "O(n log n + searchWord.Length * log n) time",
+  "cases": [
+    { "name": "the standard example",
+      "args": [["mobile","mouse","moneypot","monitor","mousepad"], "mouse"],
+      "expected": [["mobile","moneypot","monitor"],["mobile","moneypot","monitor"],
+                   ["mouse","mousepad"],["mouse","mousepad"],["mouse","mousepad"]] },
+    { "name": "one product matching throughout",
+      "args": [["havana"], "havana"],
+      "expected": [["havana"],["havana"],["havana"],["havana"],["havana"],["havana"]] },
+    { "name": "block narrows as you type",
+      "args": [["bags","baggage","banner","box","cloths"], "bags"],
+      "expected": [["baggage","bags","banner"],["baggage","bags","banner"],
+                   ["baggage","bags"],["bags"]] },
+    { "name": "no match at all",
+      "args": [["apple"], "z"], "expected": [[]] },
+    { "name": "matches stop partway",
+      "args": [["ab"], "abc"], "expected": [["ab"],["ab"],[]] },
+    { "name": "more than three candidates",
+      "args": [["aa","ab","ac","ad","ae"], "a"],
+      "expected": [["aa","ab","ac"]] }
+  ]
+}

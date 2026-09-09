@@ -1,0 +1,39 @@
+{
+  "id": 692,
+  "slug": "top-k-frequent-words",
+  "title": "Top K Frequent Words",
+  "difficulty": "Medium",
+  "topics": ["Heap (Priority Queue)", "Hash Table", "Sorting", "Trie"],
+  "url": "https://leetcode.com/problems/top-k-frequent-words/",
+  "comparison": "Exact",
+  "folder": "Heap",
+  "className": "TopKFrequentWords",
+  "signature": "IList<string> Solve(string[] words, int k)",
+  "statement": "Return the k most frequent words, most frequent first. Words appearing the same number of times are ordered lexicographically, smallest first.",
+  "constraints": [
+    "1 <= words.Length <= 500",
+    "words are lowercase letters",
+    "1 <= k <= number of distinct words",
+    "the tie-break is lexicographic ASCENDING, while the frequency ordering is DESCENDING"
+  ],
+  "hints": [
+    "Count first with a dictionary. The whole problem is then how you order the distinct words.",
+    "The comparison has two keys pulling in opposite directions: higher count wins, but on a tie the SMALLER word wins. Getting one of them backwards is the bug this problem is really testing.",
+    "Sorting all distinct words is O(d log d) and perfectly acceptable. For O(d log k), keep a heap of size k whose comparator is deliberately INVERTED - the worst entry sits on top so it can be evicted - then reverse what you drain out."
+  ],
+  "complexity": "O(d log k) time with a bounded heap",
+  "cases": [
+    { "name": "the standard example",
+      "args": [["i","love","leetcode","i","love","coding"], 2], "expected": ["i","love"] },
+    { "name": "four-way with ties",
+      "args": [["the","day","is","sunny","the","the","the","sunny","is","is"], 4],
+      "expected": ["the","is","sunny","day"] },
+    { "name": "single word", "args": [["a"], 1], "expected": ["a"] },
+    { "name": "all tied, already ordered", "args": [["a","b"], 2], "expected": ["a","b"] },
+    { "name": "all tied, reversed input", "args": [["b","a"], 2], "expected": ["a","b"] },
+    { "name": "tie broken lexicographically, not by first appearance",
+      "args": [["zebra","apple","zebra","apple","mango"], 2], "expected": ["apple","zebra"] },
+    { "name": "k smaller than the distinct count",
+      "args": [["a","a","a","b","b","c"], 1], "expected": ["a"] }
+  ]
+}

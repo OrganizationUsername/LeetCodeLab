@@ -1,0 +1,37 @@
+{
+  "id": 498,
+  "slug": "diagonal-traverse",
+  "title": "Diagonal Traverse",
+  "difficulty": "Medium",
+  "topics": ["Array", "Matrix", "Simulation"],
+  "url": "https://leetcode.com/problems/diagonal-traverse/",
+  "comparison": "Exact",
+  "folder": "Matrix",
+  "className": "DiagonalTraverse",
+  "signature": "int[] Solve(int[][] mat)",
+  "statement": "Read the matrix in diagonal order, zig-zagging: the first diagonal travels up and to the right, the next travels down and to the left, and so on. Return the values in the order visited.",
+  "constraints": [
+    "1 <= rows, cols <= 10^4",
+    "1 <= rows*cols <= 10^4"
+  ],
+  "hints": [
+    "Every cell on one diagonal shares the same row+col. Grouping by that sum turns this into a bucketing problem rather than a walking one.",
+    "There are rows+cols-1 diagonals. For each, collect its cells, then reverse the order on alternating diagonals so the zig-zag comes out right.",
+    "If you walk it instead of bucketing, the awkward part is turning a corner: when you run off the top going up-right you move RIGHT if you can and DOWN otherwise, and the mirror of that going down-left. Getting those two fallbacks the wrong way round is the classic bug, and it only shows on non-square input."
+  ],
+  "complexity": "O(rows*cols) time",
+  "cases": [
+    { "name": "3x3", "args": [[[1,2,3],[4,5,6],[7,8,9]]],
+      "expected": [1,2,4,7,5,3,6,8,9] },
+    { "name": "2x2", "args": [[[1,2],[3,4]]], "expected": [1,2,3,4] },
+    { "name": "1x1", "args": [[[7]]], "expected": [7] },
+    { "name": "single row", "args": [[[1,2,3]]], "expected": [1,2,3] },
+    { "name": "single column", "args": [[[1],[2],[3]]], "expected": [1,2,3] },
+    { "name": "3x2: taller than wide", "args": [[[1,2],[3,4],[5,6]]],
+      "expected": [1,2,3,5,4,6] },
+    { "name": "2x3: wider than tall", "args": [[[1,2,3],[4,5,6]]],
+      "expected": [1,2,4,5,3,6] },
+    { "name": "4x4", "args": [[[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]],
+      "expected": [1,2,5,9,6,3,4,7,10,13,14,11,8,12,15,16] }
+  ]
+}

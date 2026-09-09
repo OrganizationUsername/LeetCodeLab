@@ -94,6 +94,177 @@
         3,
         4
       ]
+    },
+    {
+      "name": "capacity of one evicts every time",
+      "ops": [
+        "LRUCache",
+        "put",
+        "get",
+        "put",
+        "get",
+        "get"
+      ],
+      "args": [
+        [
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "expected": [
+        null,
+        null,
+        1,
+        null,
+        -1,
+        2
+      ]
+    },
+    {
+      "name": "updating an existing key also refreshes it",
+      "ops": [
+        "LRUCache",
+        "put",
+        "put",
+        "put",
+        "get",
+        "put",
+        "get",
+        "get"
+      ],
+      "args": [
+        [
+          2
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          2
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": [
+        null,
+        null,
+        null,
+        null,
+        10,
+        null,
+        -1,
+        10
+      ]
+    },
+    {
+      "name": "a get refreshes recency so the other key is evicted",
+      "ops": [
+        "LRUCache",
+        "put",
+        "put",
+        "get",
+        "put",
+        "get",
+        "get"
+      ],
+      "args": [
+        [
+          2
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          1
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          2
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": [
+        null,
+        null,
+        null,
+        1,
+        null,
+        -1,
+        1
+      ]
+    },
+    {
+      "name": "miss on an empty cache",
+      "ops": [
+        "LRUCache",
+        "get",
+        "put",
+        "get"
+      ],
+      "args": [
+        [
+          2
+        ],
+        [
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "expected": [
+        null,
+        -1,
+        null,
+        1
+      ]
     }
   ]
 }
