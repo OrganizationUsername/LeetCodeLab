@@ -63,7 +63,6 @@ public sealed class SpiralMatrix : ProblemTests<SpiralMatrix>
 
                 while (counted < total)
                 {
-
                     var shouldBreak = false;
                     switch (direction.Cardinal)
                     {
