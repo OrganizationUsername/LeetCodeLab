@@ -19,7 +19,8 @@ reference solution that passes its cases (see [Verification](#verification)).
 dotnet test --project practice/LeetCodeLab.Practice   # 598 red, 1 green
 ```
 
-Or open `LeetCodeLab.sln` in Visual Studio and use Test Explorer.
+Or open `LeetCodeLab.slnx` in Visual Studio and use Test Explorer. That is the XML solution
+format, which needs Visual Studio 17.13 or newer; there is no classic `.sln` here.
 
 The single green test is `CoverageTests`, which fails only if a case file has no stub.
 
@@ -85,6 +86,25 @@ dotnet test --project practice/LeetCodeLab.Practice --filter-trait "Difficulty=E
 dotnet test --project practice/LeetCodeLab.Practice --filter-trait "Topic=Sliding Window"
 dotnet test --project practice/LeetCodeLab.Practice --filter-trait "Problem=42"
 ```
+
+### Printing things while you work
+
+`Console.WriteLine` is not much use here. It is captured, but it arrives unattributed in a
+single lump at the end of the run, so with hundreds of cases going you cannot tell which
+one printed what. Use the ambient output helper instead:
+
+```csharp
+TestContext.Current.TestOutputHelper?.WriteLine($"lo={lo} hi={hi} mid={mid}");
+```
+
+It needs no constructor plumbing, and it works from inside `Solve` even though the harness
+invokes that by reflection on its own worker thread. The text appears under **Standard
+output** in the report for the exact case that failed. `Xunit` is in the practice project's
+global usings, so no `using` line is needed in the stub.
+
+The command line only prints this for failing tests, which suits the red-to-green loop. A
+`Debug.WriteLine` plus a breakpoint is still the better tool when you want to inspect a
+passing case.
 
 ## Coverage
 
