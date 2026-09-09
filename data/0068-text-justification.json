@@ -1,0 +1,36 @@
+{
+  "id": 68,
+  "slug": "text-justification",
+  "title": "Text Justification",
+  "difficulty": "Hard",
+  "topics": ["Simulation", "String", "Greedy"],
+  "url": "https://leetcode.com/problems/text-justification/",
+  "comparison": "Exact",
+  "folder": "Simulation",
+  "className": "TextJustification",
+  "signature": "IList<string> Solve(string[] words, int maxWidth)",
+  "statement": "Lay the words out into lines of exactly maxWidth characters, greedily packing as many words per line as fit with at least one space between neighbours. Pad each line by distributing the leftover spaces between the words as evenly as possible, giving the extra spaces to the LEFTMOST gaps first. A line holding one word, and the last line, are instead left-justified with all the padding at the end.",
+  "constraints": [
+    "1 <= words.Length <= 300",
+    "1 <= words[i].Length <= 20 <= maxWidth <= 100",
+    "every word fits on a line by itself",
+    "words contain no spaces"
+  ],
+  "hints": [
+    "Two separable jobs: decide which words go on each line, then render one line. Do not try to do both in one loop.",
+    "For the packing, a line holding words of total letter count L with g gaps needs L + g characters at minimum. Add the next word while that still fits in maxWidth.",
+    "For the rendering with g gaps and s spaces to place, every gap gets s / g and the first s % g gaps get one more. Handle the two left-justified exceptions before you reach that code, or you will divide by zero on a single-word line."
+  ],
+  "complexity": "O(total input length) time",
+  "cases": [
+    { "args": [["This","is","an","example","of","text","justification."], 16],
+      "expected": ["This    is    an","example  of text","justification.  "] },
+    { "args": [["What","must","be","acknowledgment","shall","be"], 16],
+      "expected": ["What   must   be","acknowledgment  ","shall be        "] },
+    { "args": [["Science","is","what","we","understand","well","enough","to","explain","to","a","computer.","Art","is","everything","else","we","do"], 20],
+      "expected": ["Science  is  what we","understand      well","enough to explain to","a  computer.  Art is","everything  else  we","do                  "] },
+    { "args": [["a"], 1], "expected": ["a"] },
+    { "args": [["ask","not","what","your","country"], 7],
+      "expected": ["ask not","what   ","your   ","country"] }
+  ]
+}

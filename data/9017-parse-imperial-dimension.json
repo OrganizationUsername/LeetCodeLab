@@ -1,0 +1,49 @@
+{
+  "id": 9017,
+  "slug": "parse-imperial-dimension",
+  "title": "Parse an Imperial Dimension",
+  "difficulty": "Medium",
+  "topics": ["Original", "Parsing", "String"],
+  "url": "",
+  "comparison": "FloatTolerance",
+  "folder": "Parsing",
+  "className": "ParseImperialDimension",
+  "signature": "double Solve(string text)",
+  "statement": "Read a dimension the way a drawing writes it and return it in inches. The text may carry feet, marked with an apostrophe; inches, marked with a double quote; or both, separated by a hyphen. The inches part may be a whole number, a fraction like 1/2, or a whole number and a fraction like 6 1/2. Spaces may appear anywhere, including around the hyphen and at the ends. Return -1 for anything you cannot read as a dimension.",
+  "constraints": [
+    "0 <= text.Length <= 100",
+    "feet and inches are non-negative whole numbers; fraction denominators are non-zero",
+    "the empty string is not a dimension",
+    "answers are checked to 1e-5"
+  ],
+  "hints": [
+    "Do not try to write one regular expression for the whole thing. Strip the spaces you do not need, then take the string apart at the two markers.",
+    "Split on the apostrophe first: what comes before it is feet, what comes after is the inches part with its hyphen and double quote to remove. No apostrophe means the whole thing is inches.",
+    "The inches part has three shapes: whole, fraction, and whole-plus-fraction. Splitting it on a space tells you which one you have, and splitting a piece on the slash gives numerator and denominator. Fail closed - anything that does not parse as a number is -1, not an exception."
+  ],
+  "complexity": "O(n) time, O(n) space",
+  "cases": [
+    { "name": "feet and whole inches",
+      "args": ["12'-6\""], "expected": 150 },
+    { "name": "inches only",
+      "args": ["6\""], "expected": 6 },
+    { "name": "feet only",
+      "args": ["12'"], "expected": 144 },
+    { "name": "inches with a fraction",
+      "args": ["6 1/2\""], "expected": 6.5 },
+    { "name": "all three parts",
+      "args": ["12'-6 1/2\""], "expected": 150.5 },
+    { "name": "bare fraction",
+      "args": ["1/2\""], "expected": 0.5 },
+    { "name": "zero",
+      "args": ["0'-0\""], "expected": 0 },
+    { "name": "three foot eleven and three quarters",
+      "args": ["3'-11 3/4\""], "expected": 47.75 },
+    { "name": "spaces everywhere",
+      "args": ["  12' - 6 1/2\"  "], "expected": 150.5 },
+    { "name": "not a dimension",
+      "args": ["banana"], "expected": -1 },
+    { "name": "empty",
+      "args": [""], "expected": -1 }
+  ]
+}

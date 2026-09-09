@@ -1,0 +1,30 @@
+{
+  "id": 684,
+  "slug": "redundant-connection",
+  "title": "Redundant Connection",
+  "difficulty": "Medium",
+  "topics": ["Union Find", "Graph", "Depth-First Search"],
+  "url": "https://leetcode.com/problems/redundant-connection/",
+  "comparison": "Exact",
+  "folder": "UnionFind",
+  "className": "RedundantConnection",
+  "signature": "int[] Solve(int[][] edges)",
+  "statement": "You are given a tree with one extra edge added, so the graph has n nodes numbered 1..n and exactly n edges. Exactly one cycle exists. Return the edge that can be removed to leave a tree. If several edges would work, return the one that appears last in the input.",
+  "constraints": [
+    "n == edges.Length, 3 <= n <= 1000",
+    "the graph is connected and has exactly one cycle",
+    "no self-loops and no repeated edges"
+  ],
+  "hints": [
+    "Process the edges in order. The moment an edge joins two nodes that were already reachable from each other, that edge closed the cycle.",
+    "You need a structure that answers 'are these two already connected?' while you add edges one at a time.",
+    "Disjoint set union: a parent array, Find with path compression, Union by size. If Find(a) == Find(b) before you union, this edge is the answer."
+  ],
+  "complexity": "O(n a(n)) time, O(n) space",
+  "cases": [
+    { "args": [[[1,2],[1,3],[2,3]]], "expected": [2,3] },
+    { "args": [[[1,2],[2,3],[3,4],[1,4],[1,5]]], "expected": [1,4] },
+    { "args": [[[1,4],[3,4],[1,3],[1,2],[4,5]]], "expected": [1,3] },
+    { "args": [[[1,2],[2,3],[1,3]]], "expected": [1,3] }
+  ]
+}

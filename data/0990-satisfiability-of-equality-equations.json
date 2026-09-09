@@ -1,0 +1,32 @@
+{
+  "id": 990,
+  "slug": "satisfiability-of-equality-equations",
+  "title": "Satisfiability of Equality Equations",
+  "difficulty": "Medium",
+  "topics": ["Union Find", "Graph", "String"],
+  "url": "https://leetcode.com/problems/satisfiability-of-equality-equations/",
+  "comparison": "Exact",
+  "folder": "UnionFind",
+  "className": "SatisfiabilityOfEqualityEquations",
+  "signature": "bool Solve(string[] equations)",
+  "statement": "Each equation is four characters: a lowercase letter, then == or !=, then another lowercase letter. Decide whether integers can be assigned to the letters so that every equation holds at once.",
+  "constraints": [
+    "1 <= equations.Length <= 500",
+    "each equation has the form \"a==b\" or \"a!=b\"",
+    "letters are lowercase a-z"
+  ],
+  "hints": [
+    "Equality is transitive and inequality is not, so the two kinds of equation are not symmetric. Order matters.",
+    "Merge everything the equalities force to be equal first, then check the inequalities against the result.",
+    "Union the == pairs into 26 disjoint sets, then a != pair is a contradiction exactly when both letters landed in the same set."
+  ],
+  "complexity": "O(n a(n)) time, O(1) space",
+  "cases": [
+    { "args": [["a==b","b!=a"]], "expected": false },
+    { "args": [["b==a","a==b"]], "expected": true },
+    { "args": [["a==b","b==c","a==c"]], "expected": true },
+    { "args": [["a==b","b!=c","c==a"]], "expected": false },
+    { "args": [["c==c","b==d","x!=z"]], "expected": true },
+    { "args": [["a!=a"]], "expected": false }
+  ]
+}

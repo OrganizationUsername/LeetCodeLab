@@ -1,0 +1,43 @@
+{
+  "id": 9018,
+  "slug": "evaluate-load-combination",
+  "title": "Evaluate a Load Combination",
+  "difficulty": "Medium",
+  "topics": ["Original", "Parsing", "String"],
+  "url": "",
+  "comparison": "FloatTolerance",
+  "folder": "Parsing",
+  "className": "EvaluateLoadCombination",
+  "signature": "double Solve(string expression, string[] names, double[] values)",
+  "statement": "Evaluate a load combination written the way a code table writes it, such as 1.2D + 1.6L + 0.5S. Each term is an optional sign, an optional decimal coefficient, and a load case name; a missing coefficient means 1. Terms are joined by + or -, and spaces may appear anywhere or nowhere. names and values line up, giving the numeric value of each case. Return the total.",
+  "constraints": [
+    "1 <= names.Length == values.Length <= 20",
+    "names are letters only, and CAN be more than one letter - Lr and L may both be in the list",
+    "every name used in the expression appears in names",
+    "answers are checked to 1e-5"
+  ],
+  "hints": [
+    "Split into terms before you evaluate anything: scan for + and - that separate terms, keeping the sign with the term that follows it.",
+    "Within a term, the leading run of digits, dots and the sign is the coefficient and the rest is the name. An empty coefficient means 1, and a lone minus means -1.",
+    "Watch the name matching. If the list holds both L and Lr, matching the first name that fits turns 1.6Lr into 1.6 times L with a stray r left over. Match the LONGEST name that the term ends with, and the ambiguity disappears."
+  ],
+  "complexity": "O(expression length * names) time",
+  "cases": [
+    { "name": "dead plus live",
+      "args": ["1.2D + 1.6L", ["D","L"], [10,20]], "expected": 44 },
+    { "name": "coefficients left off",
+      "args": ["D + L", ["D","L"], [10,20]], "expected": 30 },
+    { "name": "wind uplift case",
+      "args": ["0.9D - 1.0W", ["D","W"], [100,40]], "expected": 50 },
+    { "name": "roof live load has a two-letter name",
+      "args": ["1.2D + 1.6Lr + 0.5S", ["D","Lr","S"], [10,20,30]], "expected": 59 },
+    { "name": "a bare negative term",
+      "args": ["-D", ["D"], [10]], "expected": -10 },
+    { "name": "no spaces at all",
+      "args": ["1.2D+1.6L+0.5S", ["D","L","S"], [10,10,10]], "expected": 33 },
+    { "name": "L and Lr both defined: the longer name must win",
+      "args": ["1.0Lr", ["L","Lr"], [100,5]], "expected": 5 },
+    { "name": "seismic combination",
+      "args": ["0.6D + 0.7E", ["D","E"], [100,50]], "expected": 95 }
+  ]
+}

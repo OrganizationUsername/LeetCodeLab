@@ -1,0 +1,44 @@
+{
+  "id": 9016,
+  "slug": "fastener-layout",
+  "title": "Fastener Layout",
+  "difficulty": "Easy",
+  "topics": ["Original", "Fabrication", "Math"],
+  "url": "",
+  "comparison": "Exact",
+  "folder": "Fabrication",
+  "className": "FastenerLayout",
+  "signature": "int Solve(double runLength, double maxSpacing, double endDistance)",
+  "statement": "Fasteners run along a member of the given length. The first and last sit endDistance in from each end, and the rest are spread evenly between them. Centre-to-centre spacing may not exceed maxSpacing. Return the fewest fasteners that satisfies this. When the two end fasteners would meet or cross - that is, when the length between them is zero or negative - a single fastener is the answer.",
+  "constraints": [
+    "runLength > 0, maxSpacing > 0, endDistance >= 0",
+    "the answer is a count, so it is exact - but getting there involves division",
+    "compare with a relative slop of about 1e-9: in binary, 1.1 / 0.1 is 11.000000000000002, and rounding that up adds a fastener nobody needs"
+  ],
+  "hints": [
+    "Fasteners and gaps are different counts. Work out the number of GAPS first, then convert.",
+    "The span to cover is runLength minus twice endDistance. If g gaps must each be at most maxSpacing, the smallest g is that span divided by maxSpacing, rounded up - and the fastener count is g + 1.",
+    "Rounding up is where this breaks. Math.Ceiling on a quotient that should be a whole number can land one too high, so subtract a small relative epsilon before the ceiling. Also force at least one gap, and deal with the zero-or-negative span before you divide anything."
+  ],
+  "complexity": "O(1) time and space",
+  "cases": [
+    { "name": "96 in of run at 12 in maximum",
+      "args": [100, 12, 2], "expected": 9 },
+    { "name": "spacing that does not divide evenly",
+      "args": [100, 12.5, 2], "expected": 9 },
+    { "name": "shorter than one full spacing",
+      "args": [10, 12, 2], "expected": 2 },
+    { "name": "end distances exactly meet",
+      "args": [4, 12, 2], "expected": 1 },
+    { "name": "end distances overlap",
+      "args": [3, 12, 2], "expected": 1 },
+    { "name": "exact division, no end distance",
+      "args": [100, 10, 0], "expected": 11 },
+    { "name": "48 at 16",
+      "args": [48, 16, 0], "expected": 4 },
+    { "name": "one inch over an exact division",
+      "args": [49, 16, 0], "expected": 5 },
+    { "name": "the binary rounding trap",
+      "args": [1.1, 0.1, 0], "expected": 12 }
+  ]
+}

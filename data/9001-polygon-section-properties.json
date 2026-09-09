@@ -1,0 +1,37 @@
+{
+  "id": 9001,
+  "slug": "polygon-section-properties",
+  "title": "Polygon Section Properties",
+  "difficulty": "Medium",
+  "topics": ["Original", "Geometry", "Section Properties"],
+  "url": "",
+  "comparison": "FloatTolerance",
+  "folder": "SectionProperties",
+  "className": "PolygonSectionProperties",
+  "signature": "double[] Solve(double[][] vertices)",
+  "statement": "A cross-section is given as a simple closed polygon: a list of (x, y) vertices in order, with the closing edge from the last back to the first implied. Return its area and centroid as [area, cx, cy]. The winding may be clockwise or counter-clockwise and the area you return must be positive either way.",
+  "constraints": [
+    "3 <= vertices.Length <= 1000",
+    "the polygon is simple: edges meet only at shared vertices",
+    "coordinates fit comfortably in a double",
+    "answers are checked to 1e-5"
+  ],
+  "hints": [
+    "Chopping the shape into triangles or trapezoids and adding them up works, but there is a closed form that needs one pass and no case analysis.",
+    "Walk the edges. Each edge from (xi, yi) to (xj, yj) contributes a cross product xi*yj - xj*yi. Half the sum of those is the SIGNED area, and the sign is exactly the winding direction.",
+    "Reuse each cross term for the centroid: cx = sum((xi + xj) * cross) / (6 * signedArea), and cy the same with (yi + yj). Divide by the SIGNED area here, then take the absolute value only at the very end, or a clockwise polygon comes out mirrored."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "cases": [
+    { "name": "4x4 square, counter-clockwise",
+      "args": [[[0,0],[4,0],[4,4],[0,4]]], "expected": [16, 2, 2] },
+    { "name": "same square, clockwise",
+      "args": [[[0,0],[0,4],[4,4],[4,0]]], "expected": [16, 2, 2] },
+    { "name": "right triangle",
+      "args": [[[0,0],[6,0],[0,3]]], "expected": [9, 2, 1] },
+    { "name": "L-shaped section",
+      "args": [[[0,0],[6,0],[6,2],[2,2],[2,6],[0,6]]], "expected": [20, 2.2, 2.2] },
+    { "name": "rectangle away from the origin",
+      "args": [[[2,3],[10,3],[10,9],[2,9]]], "expected": [48, 6, 6] }
+  ]
+}

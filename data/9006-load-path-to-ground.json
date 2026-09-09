@@ -1,0 +1,39 @@
+{
+  "id": 9006,
+  "slug": "load-path-to-ground",
+  "title": "Load Path to Ground",
+  "difficulty": "Easy",
+  "topics": ["Original", "Mesh Topology", "Breadth-First Search"],
+  "url": "",
+  "comparison": "Exact",
+  "folder": "MeshTopology",
+  "className": "LoadPathToGround",
+  "signature": "int[] Solve(int n, int[][] members, int[] supports)",
+  "statement": "Nodes 0..n-1 are joined by members, and some nodes are supported. A node is grounded when a chain of members leads from it to any support. Anything not grounded is floating: the analysis will fail on it, or worse, quietly return nonsense. Return the floating node numbers in ascending order, or an empty list if every node is grounded.",
+  "constraints": [
+    "1 <= n <= 10^5",
+    "0 <= members.Length <= 2*10^5",
+    "members are undirected and join two different nodes",
+    "supports may be empty, in which case every node is floating"
+  ],
+  "hints": [
+    "This is reachability, but not from one starting node - from any of several at once.",
+    "You do not need a separate search per support. Push every support into the queue before the loop starts and run one traversal.",
+    "Breadth-first or depth-first both work; mark nodes visited as you enqueue them, not as you dequeue them, or a cycle will let you queue the same node twice. Whatever stays unmarked is the answer."
+  ],
+  "complexity": "O(n + m) time, O(n + m) space",
+  "cases": [
+    { "name": "a detached pair",
+      "args": [5, [[0,1],[1,2],[3,4]], [0]], "expected": [3,4] },
+    { "name": "everything reaches the support",
+      "args": [3, [[0,1],[1,2]], [2]], "expected": [] },
+    { "name": "no members at all",
+      "args": [4, [], [0]], "expected": [1,2,3] },
+    { "name": "two groups, one support each",
+      "args": [4, [[0,1],[2,3]], [0,2]], "expected": [] },
+    { "name": "a loop plus an island plus a stray node",
+      "args": [6, [[0,1],[1,2],[2,0],[3,4]], [1]], "expected": [3,4,5] },
+    { "name": "no supports anywhere",
+      "args": [3, [[0,1],[1,2]], []], "expected": [0,1,2] }
+  ]
+}

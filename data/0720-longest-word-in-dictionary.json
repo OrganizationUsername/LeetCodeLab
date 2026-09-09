@@ -1,0 +1,31 @@
+{
+  "id": 720,
+  "slug": "longest-word-in-dictionary",
+  "title": "Longest Word in Dictionary",
+  "difficulty": "Medium",
+  "topics": ["Trie", "Hash Table", "String", "Sorting"],
+  "url": "https://leetcode.com/problems/longest-word-in-dictionary/",
+  "comparison": "Exact",
+  "folder": "Tries",
+  "className": "LongestWordInDictionary",
+  "signature": "string Solve(string[] words)",
+  "statement": "Return the longest word that can be built one letter at a time, where every prefix along the way is also a word in the list. Break ties by taking the lexicographically smallest. Return the empty string if nothing qualifies.",
+  "constraints": [
+    "1 <= words.Length <= 1000",
+    "1 <= words[i].Length <= 30",
+    "lowercase English letters only"
+  ],
+  "hints": [
+    "Buildable is recursive: w qualifies when w without its last letter also qualifies, and a single letter qualifies on its own.",
+    "So a word can only be judged after all its prefixes have been. Sorting by length, or walking a trie in breadth-first order, gives you that ordering for free.",
+    "Sort the words, then keep a HashSet of the ones you have accepted. Accept w when w.Length == 1 or the set already contains w minus its last character. Sorted order also makes the first longest word you find the lexicographically smallest."
+  ],
+  "complexity": "O(n log n + total length) time",
+  "cases": [
+    { "args": [["w","wo","wor","worl","world"]], "expected": "world" },
+    { "args": [["a","banana","app","appl","ap","apply","apple"]], "expected": "apple" },
+    { "args": [["ab","abc"]], "expected": "" },
+    { "args": [["a","b","c"]], "expected": "a" },
+    { "args": [["yo","ew","fgt","bolt","xte","xt","x","xtq","xtqk"]], "expected": "xtqk" }
+  ]
+}

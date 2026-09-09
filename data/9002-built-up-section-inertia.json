@@ -1,0 +1,36 @@
+{
+  "id": 9002,
+  "slug": "built-up-section-inertia",
+  "title": "Built-Up Section Inertia",
+  "difficulty": "Medium",
+  "topics": ["Original", "Section Properties"],
+  "url": "",
+  "comparison": "FloatTolerance",
+  "folder": "SectionProperties",
+  "className": "BuiltUpSectionInertia",
+  "signature": "double[] Solve(double[][] rectangles)",
+  "statement": "A plate girder is built up from rectangles, each given as [x, y, width, height] where (x, y) is its lower-left corner. Return [area, ybar, Ixx]: the total area, the height of the combined centroid above y = 0, and the second moment of area about the horizontal axis through THAT centroid. The rectangles do not overlap.",
+  "constraints": [
+    "1 <= rectangles.Length <= 100",
+    "width > 0 and height > 0",
+    "rectangles do not overlap",
+    "answers are checked to 1e-5"
+  ],
+  "hints": [
+    "Area and ybar first: ybar is the area-weighted average of the individual centroid heights, not the average of the heights.",
+    "For Ixx you cannot just add each rectangle's own b*h^3/12, because those are measured about each rectangle's OWN centroid, and the answer is wanted about the combined one.",
+    "Parallel axis theorem: a piece of area A whose centroid sits a distance d from the reference axis contributes I_own + A*d^2. So compute ybar first, then sum b*h^3/12 + A*(yc - ybar)^2 over the pieces."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "cases": [
+    { "name": "single 2x10 plate",
+      "args": [[[0,0,2,10]]], "expected": [20, 5, 166.66666667] },
+    { "name": "symmetric plate girder",
+      "args": [[[0,0,8,1],[3.5,1,1,10],[0,11,8,1]]],
+      "expected": [26, 6, 568.66666667] },
+    { "name": "unsymmetric tee",
+      "args": [[[0,0,4,2],[0,2,2,6]]], "expected": [20, 3.4, 115.46666667] },
+    { "name": "two plates side by side, same height",
+      "args": [[[0,0,2,10],[4,0,2,10]]], "expected": [40, 5, 333.33333333] }
+  ]
+}

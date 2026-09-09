@@ -70,7 +70,7 @@ public static class Program
         string badge = $"[{d.Difficulty}]";
         int pad = Math.Max(1, Width - heading.Length - badge.Length - 1);
         sb.Append("//  ").Append(heading).Append(new string(' ', pad)).AppendLine(badge);
-        sb.Append("//  ").AppendLine(d.Url);
+        if (!string.IsNullOrWhiteSpace(d.Url)) sb.Append("//  ").AppendLine(d.Url);
         sb.Append("// ").AppendLine(new string('-', Width));
 
         foreach (string line in Wrap(d.Statement)) sb.Append("//  ").AppendLine(line);

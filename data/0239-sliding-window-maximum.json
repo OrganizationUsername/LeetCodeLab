@@ -1,0 +1,35 @@
+{
+  "id": 239,
+  "slug": "sliding-window-maximum",
+  "title": "Sliding Window Maximum",
+  "difficulty": "Hard",
+  "topics": ["Monotonic Stack", "Sliding Window", "Heap (Priority Queue)"],
+  "url": "https://leetcode.com/problems/sliding-window-maximum/",
+  "comparison": "Exact",
+  "folder": "MonotonicStack",
+  "className": "SlidingWindowMaximum",
+  "signature": "int[] Solve(int[] nums, int k)",
+  "statement": "A window of width k slides one step at a time from the left end of nums to the right. Return the maximum inside the window at each of its n-k+1 positions.",
+  "constraints": [
+    "1 <= k <= nums.Length <= 10^5",
+    "-10^4 <= nums[i] <= 10^4",
+    "rescanning the window at every step is O(nk) and will not pass the stress case"
+  ],
+  "hints": [
+    "When a new element enters on the right, which of the elements already in the window could still be the answer later?",
+    "Not the ones smaller than the newcomer and to its left: the newcomer outlives them and beats them, so they can be discarded forever.",
+    "Keep a deque of indices whose values decrease from front to back. Pop from the back while the newcomer is larger, push it, then drop the front if it has fallen out of the window. The front is always the maximum."
+  ],
+  "complexity": "O(n) time, O(k) space",
+  "cases": [
+    { "args": [[1,3,-1,-3,5,3,6,7], 3], "expected": [3,3,5,5,6,7] },
+    { "args": [[1], 1], "expected": [1] },
+    { "args": [[1,-1], 1], "expected": [1,-1] },
+    { "args": [[7,2,4], 2], "expected": [7,4] },
+    { "args": [[9,8,7,6,5], 3], "expected": [9,8,7] },
+    { "args": [[1,3,1,2,0,5], 3], "expected": [3,3,2,5] },
+    { "name": "stress: 200k, single window",
+      "args": [{ "$gen": "permutation", "seed": 11, "count": 200000 }, 200000],
+      "expected": [199999] }
+  ]
+}

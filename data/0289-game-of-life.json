@@ -1,0 +1,33 @@
+{
+  "id": 289,
+  "slug": "game-of-life",
+  "title": "Game of Life",
+  "difficulty": "Medium",
+  "topics": ["Simulation", "Array", "Matrix"],
+  "url": "https://leetcode.com/problems/game-of-life/",
+  "comparison": "MutatedArg",
+  "folder": "Simulation",
+  "className": "GameOfLife",
+  "signature": "void Solve(int[][] board)",
+  "statement": "Each cell is 1 for live or 0 for dead and has up to eight neighbours. Advance the board one generation in place: a live cell with fewer than two or more than three live neighbours dies, a live cell with two or three survives, and a dead cell with exactly three live neighbours comes alive. Every cell updates simultaneously from the ORIGINAL board, and the answer is the mutated board rather than a return value.",
+  "constraints": [
+    "1 <= rows, cols <= 25",
+    "board[i][j] is 0 or 1",
+    "cells outside the board are treated as dead"
+  ],
+  "hints": [
+    "The trap is updating in place while still reading neighbours: a cell you already flipped would feed the wrong value to its neighbour.",
+    "Copying the board first is the honest fix and costs O(mn) extra memory. Now find the version that needs none.",
+    "Each cell only has to remember two bits: what it was and what it becomes. Encode the next state in a second bit (write 2 for a cell that changes, say) so the old state survives the pass, then divide it away in a second pass."
+  ],
+  "complexity": "O(mn) time, O(1) extra space",
+  "cases": [
+    { "args": [[[0,1,0],[0,0,1],[1,1,1],[0,0,0]]],
+      "expected": [[0,0,0],[1,0,1],[0,1,1],[0,1,0]] },
+    { "args": [[[1,1],[1,0]]], "expected": [[1,1],[1,1]] },
+    { "args": [[[0,1,0],[0,1,0],[0,1,0]]], "expected": [[0,0,0],[1,1,1],[0,0,0]] },
+    { "args": [[[0,0,0],[0,0,0],[0,0,0]]], "expected": [[0,0,0],[0,0,0],[0,0,0]] },
+    { "args": [[[1]]], "expected": [[0]] },
+    { "args": [[[1,1],[1,1]]], "expected": [[1,1],[1,1]] }
+  ]
+}

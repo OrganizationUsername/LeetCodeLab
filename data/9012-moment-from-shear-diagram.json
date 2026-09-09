@@ -1,0 +1,37 @@
+{
+  "id": 9012,
+  "slug": "moment-from-shear-diagram",
+  "title": "Moment from a Shear Diagram",
+  "difficulty": "Easy",
+  "topics": ["Original", "Numerics", "Prefix Sum"],
+  "url": "",
+  "comparison": "FloatTolerance",
+  "folder": "Numerics",
+  "className": "MomentFromShearDiagram",
+  "signature": "double[] Solve(double[] x, double[] v)",
+  "statement": "A solver reports shear v at stations x along a member, and moment is the running integral of shear. Return the moment at every station, taking the moment at the first station as zero and integrating between stations with the trapezoidal rule. The stations are increasing but NOT evenly spaced, which is what a mesh refined near the supports looks like.",
+  "constraints": [
+    "2 <= x.Length == v.Length <= 10^5",
+    "x is strictly increasing",
+    "the first returned value is always 0",
+    "answers are checked to 1e-5"
+  ],
+  "hints": [
+    "The area under the shear between two stations is a trapezoid: the average of the two shear values times the distance between them.",
+    "Assuming a constant station spacing is the mistake to avoid. Take the spacing from the x values every step.",
+    "Carry a running total rather than re-summing from the start at each station, which turns an O(n^2) loop into a single pass - the same prefix-sum idea, over a non-uniform grid."
+  ],
+  "complexity": "O(n) time, O(n) space for the result",
+  "cases": [
+    { "name": "constant shear",
+      "args": [[0,1,2],[10,10,10]], "expected": [0,10,20] },
+    { "name": "uniformly loaded simple span: moment closes back to zero",
+      "args": [[0,5,10],[50,0,-50]], "expected": [0,125,0] },
+    { "name": "one span, linearly varying shear",
+      "args": [[0,2],[3,7]], "expected": [0,10] },
+    { "name": "no shear anywhere",
+      "args": [[0,1,2,3],[0,0,0,0]], "expected": [0,0,0,0] },
+    { "name": "unequal station spacing",
+      "args": [[0,1,4],[10,10,4]], "expected": [0,10,31] }
+  ]
+}

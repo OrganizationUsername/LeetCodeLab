@@ -1,0 +1,40 @@
+{
+  "id": 9008,
+  "slug": "axle-train-maximum-reaction",
+  "title": "Axle Train Maximum Reaction",
+  "difficulty": "Hard",
+  "topics": ["Original", "Load Cases", "Greedy"],
+  "url": "",
+  "comparison": "FloatTolerance",
+  "folder": "LoadCases",
+  "className": "AxleTrainMaximumReaction",
+  "signature": "double Solve(double span, double[] loads, double[] offsets)",
+  "statement": "A simply supported span runs from x = 0 to x = span. A vehicle rolls across it as a rigid train of point loads: axle i carries loads[i] and sits offsets[i] behind the lead axle, with offsets[0] = 0. The train may sit anywhere, including partly off either end, and only axles with 0 <= x <= span put any load on the span. A single axle at position x contributes load * (span - x) / span to the reaction at the left support. Return the largest left-hand reaction over every position the train can take.",
+  "constraints": [
+    "1 <= loads.Length == offsets.Length <= 100",
+    "span > 0, loads[i] > 0",
+    "offsets are strictly increasing and offsets[0] == 0",
+    "the train may be longer than the span",
+    "answers are checked to 1e-5"
+  ],
+  "hints": [
+    "The train's position is a continuous variable, so you cannot try them all. Sweeping in small steps gets close but will miss the exact peak, and the tolerance here is tight.",
+    "Hold the set of axles currently on the span fixed. Over that range of positions, how does the reaction behave as the train advances? Work out whether it rises, falls, or can turn around.",
+    "It falls linearly, because every axle on the span is moving away from the left support. So the peak of each stretch is at its left-hand end - the instants when the set of on-span axles changes. Those are exactly the positions where some axle sits at x = 0 or at x = span, which is a finite list of candidates you can evaluate directly."
+  ],
+  "complexity": "O(n^2) time, O(1) space",
+  "cases": [
+    { "name": "one axle",
+      "args": [10, [10], [0]], "expected": 10 },
+    { "name": "two equal axles, lead axle at the support wins",
+      "args": [10, [10,10], [0,4]], "expected": 16 },
+    { "name": "heavier trailing axle",
+      "args": [10, [10,20], [0,4]], "expected": 22 },
+    { "name": "trailing axle heavy enough to govern alone",
+      "args": [10, [5,20], [0,3]], "expected": 20 },
+    { "name": "train longer than the span",
+      "args": [5, [10,10,10], [0,3,6]], "expected": 14 },
+    { "name": "three-axle truck on a 20 ft span",
+      "args": [20, [8,32,32], [0,4.3,8.6]], "expected": 57.12 }
+  ]
+}

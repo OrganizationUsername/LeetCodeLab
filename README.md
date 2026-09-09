@@ -4,7 +4,10 @@ LeetCode as a failing unit test suite. Open the solution in Visual Studio, look 
 Explorer, pick a red test, make it green. No browser, no login, no network — and you get
 breakpoints, the watch window and the profiler, which the website does not give you.
 
-**132 problems, 401 test cases.** 51 Easy / 75 Medium / 6 Hard, across 18 topics.
+**165 problems, 598 test cases.** 57 Easy / 96 Medium / 12 Hard, across 31 topics.
+
+18 of them are original engineering problems with no LeetCode page, where the point is to
+work the solution out rather than recall it — see [Original problems](#original-problems).
 
 Every problem carries its own description, constraints, worked examples and graded hints,
 so you never need the website open. And every problem is provably solvable: each one has a
@@ -13,7 +16,7 @@ reference solution that passes its cases (see [Verification](#verification)).
 ## Quick start
 
 ```
-dotnet test --project practice/LeetCodeLab.Practice   # 401 red, 1 green
+dotnet test --project practice/LeetCodeLab.Practice   # 598 red, 1 green
 ```
 
 Or open `LeetCodeLab.sln` in Visual Studio and use Test Explorer.
@@ -87,12 +90,48 @@ dotnet test --project practice/LeetCodeLab.Practice --filter-trait "Problem=42"
 
 | Folder | # | Folder | # | Folder | # |
 | --- | --- | --- | --- | --- | --- |
-| Arrays | 20 | Graphs | 7 | Matrix | 3 |
-| DynamicProgramming | 18 | Searching | 7 | Heap | 3 |
-| Trees | 17 | Design | 7 | Intervals | 3 |
-| LinkedLists | 11 | SlidingWindow | 6 | BitManipulation | 2 |
-| TwoPointers | 8 | Numbers | 5 | Greedy | 2 |
-| Backtracking | 7 | Stacks | 4 | Strings | 2 |
+| Arrays | 20 | MeshTopology | 4 | Greedy | 2 |
+| DynamicProgramming | 18 | Numerics | 4 | Layout | 2 |
+| Trees | 17 | Stacks | 4 | LoadCases | 2 |
+| LinkedLists | 11 | Heap | 3 | Parsing | 2 |
+| TwoPointers | 8 | Intervals | 3 | PlaneGeometry | 2 |
+| Backtracking | 7 | Matrix | 3 | SectionProperties | 2 |
+| Design | 7 | MonotonicStack | 3 | Simulation | 2 |
+| Graphs | 7 | PrefixSums | 3 | Strings | 2 |
+| Searching | 7 | UnionFind | 3 | Tries | 2 |
+| SlidingWindow | 6 | BitManipulation | 2 | | |
+| Numbers | 5 | Fabrication | 2 | | |
+
+## Original problems
+
+The 18 problems numbered 9001 and up are not from LeetCode. They have no published
+solution to half-remember, which is the point: you have to derive the approach. They are
+posed in structural-engineering terms, but each one is carrying an ordinary computer
+science idea underneath.
+
+```
+dotnet test --project practice/LeetCodeLab.Practice --filter-trait "Topic=Original"
+```
+
+| Folder | Problems | The idea underneath |
+| --- | --- | --- |
+| SectionProperties | polygon area and centroid, built-up inertia | one-pass accumulation, signed area |
+| MeshTopology | free edges, node merging, bandwidth, load path | hashing normalised keys, union-find, BFS, brute-force search |
+| LoadCases | combination envelopes, axle train reactions | per-element extrema, optimising over a continuum by finding the finite candidate set |
+| Numerics | linear solve, root bracketing, table lookup, integration | pivoting, bisection, clamped interpolation, prefix sums |
+| Layout | convex hull, point in polygon | orientation tests, exact integer predicates |
+| Fabrication | stock cutting, fastener spacing | first-fit-decreasing, floating-point rounding |
+| Parsing | imperial dimensions, load combination expressions | hand-written tokenising, longest-match |
+
+Three of them are worth calling out because the naive answer looks right and is not:
+
+- **9004 Merge Coincident Nodes.** Snapping coordinates to a tolerance-sized grid is the
+  obvious approach and it is wrong, because merging is transitive.
+- **9008 Axle Train Maximum Reaction.** The train position is continuous, so stepping
+  along in small increments misses the peak. The reaction falls monotonically between
+  breakpoints, which collapses the search to a handful of positions.
+- **9016 Fastener Layout.** `Math.Ceiling(1.1 / 0.1)` is 12, not 11, and that adds a
+  fastener that is not needed.
 
 ## Layout
 
@@ -111,13 +150,14 @@ The case files are hand-written, and hand-written expectations are worth nothing
 something proves them. So every problem has a reference solution in `verify/`, and
 
 ```
-dotnet test --project verify/LeetCodeLab.Verify      # 422 tests, all green
+dotnet test --project verify/LeetCodeLab.Verify      # 619 tests, all green
 ```
 
 going green means the expectations you are judged against are correct. It caught three real
 bugs while this was built: empty `ListNode`/`TreeNode` canonicalising to `null` instead of
 `[]`, a `PriorityQueue` used with a constant priority, and a folder named `Math` shadowing
-`System.Math`.
+`System.Math`. It has since caught a hand-written expectation too — Next Greater Element II
+was entered as though it were the linear version, when the whole point of it is the wrap.
 
 **`verify/` contains full solutions to every problem. Stay out of it unless you mean to.**
 
@@ -127,13 +167,13 @@ LeetCode is not uniformly "assert equal", which is why you cannot just write `As
 
 | Mode | # | Meaning | Example |
 | --- | --- | --- | --- |
-| `Exact` | 97 | deep structural equality | most problems |
-| `MutatedArg` | 8 | the answer is the mutated argument, not the return | Move Zeroes, Rotate Image |
+| `Exact` | 118 | deep structural equality | most problems |
+| `FloatTolerance` | 12 | numeric within 1e-5 | Pow(x, n), most of the engineering set |
+| `MutatedArg` | 9 | the answer is the mutated argument, not the return | Move Zeroes, Game of Life |
 | `Unordered` | 7 | flat sequence, order irrelevant | Two Sum, Permutations |
 | `Design` | 7 | constructor + method-call sequence on a stateful object | LRU Cache, Trie |
-| `UnorderedNested` | 5 | sequence of sequences, neither order matters | 3Sum, Subsets |
+| `UnorderedNested` | 6 | sequence of sequences, neither order matters | 3Sum, Free Edges of a Mesh |
 | `AnyValid` | 4 | several answers accepted; a `Validate` method judges | Find Peak Element |
-| `FloatTolerance` | 2 | numeric within 1e-5 | Pow(x, n) |
 | `InPlacePrefix` | 2 | returns `k`; only the first `k` mutated elements count | Remove Duplicates |
 
 Arguments bind by **your method signature**, not by a type hint in the data. The same JSON
@@ -147,12 +187,13 @@ Every case runs on a dedicated worker thread with a wall-clock budget (5 s by de
 fails the test with a specific message rather than hanging the run.
 
 A timer alone would be theatre, though: an O(n²) Two Sum finishes instantly on
-`[2,7,11,15]`. So twelve problems also carry a **stress case** with a large generated input,
+`[2,7,11,15]`. So thirteen problems also carry a **stress case** with a large generated input,
 sized so the intended complexity passes comfortably and the naive approach cannot:
 
 | Problem | Input | Traps |
 | --- | --- | --- |
 | 3, 42, 53, 55, 121, 128, 215, 217 | 200k elements | O(n²) scans |
+| 239 Sliding Window Maximum | 200k elements, k = n | O(nk) rescanning of the window |
 | 300 Longest Increasing Subsequence | 100k elements | O(n²) DP |
 | 139 Word Break | 1000 `a`s | exponential recursion |
 | 322 Coin Change | amount 100000 | unmemoised recursion |
@@ -218,6 +259,10 @@ than one. Design problems declare their shape instead:
 
 Op names in the data are matched case-insensitively, so LeetCode's `put` finds your `Put`.
 
+`url` may be left out or left empty, in which case no link line is rendered — that is how
+the original problems in the 9000 range are written. Give those a `"topics"` entry of
+`"Original"` so they stay filterable as a set.
+
 One rule when choosing `folder`: it becomes a namespace segment, so **do not name it after a
 BCL type**. A folder called `Math` makes `Math.Abs` resolve to the namespace and fail to
 compile, which is why the folders here are `Numbers`, `Stacks` and `LinkedLists`.
@@ -227,8 +272,12 @@ compile, which is why the folders here are `Numbers`, `Stacks` and `LinkedLists`
 **These are the published example cases plus hand-written stress cases, not LeetCode's judge
 suite.** The hidden tests are not available anywhere, so green here means your logic handles
 the examples, the edge cases in the data, and — on the twelve problems that have one — a
-large input. It does not mean you would get "Accepted": the other 120 problems have no
+large input. It does not mean you would get "Accepted": the other 152 problems have no
 timing pressure, and nothing here checks for integer overflow on adversarial inputs.
+
+The original problems in the 9000 range are a different case again. They have no judge
+anywhere, so their expectations are hand-computed and then held to a reference solution by
+`verify/` — which is the only thing standing behind them.
 
 What it does catch is the errors you actually make while learning, in a debugger, offline.
 

@@ -1,0 +1,41 @@
+{
+  "id": 9011,
+  "slug": "design-table-lookup",
+  "title": "Design Table Lookup",
+  "difficulty": "Medium",
+  "topics": ["Original", "Numerics", "Binary Search"],
+  "url": "",
+  "comparison": "FloatTolerance",
+  "folder": "Numerics",
+  "className": "DesignTableLookup",
+  "signature": "double Solve(double[] rowKeys, double[] colKeys, double[][] table, double row, double col)",
+  "statement": "A code table is indexed by rowKeys down the side and colKeys across the top, both strictly increasing, with table[i][j] the value at rowKeys[i] and colKeys[j]. Return the value at (row, col), interpolating linearly in both directions between the four surrounding entries. Do not extrapolate: an argument outside the table clamps to the nearest edge, which is what the code commentary means by using the boundary value.",
+  "constraints": [
+    "1 <= rowKeys.Length, colKeys.Length <= 1000",
+    "rowKeys and colKeys are strictly increasing",
+    "table is rowKeys.Length by colKeys.Length",
+    "answers are checked to 1e-5"
+  ],
+  "hints": [
+    "Do the two directions separately. Interpolating along a row is one problem; combining two row results down the columns is the same problem again.",
+    "For each axis you need the bracketing pair of keys and how far between them you sit - a fraction from 0 to 1. Clamp that fraction to [0, 1] and the no-extrapolation rule handles itself.",
+    "Watch the degenerate cases: a table with a single row or column has no pair to bracket with, and an argument landing exactly on the last key must not run off the end of the array. Both are fixed by clamping the bracket INDEX to length - 2 before computing the fraction."
+  ],
+  "complexity": "O(log n) time with binary search, O(1) space",
+  "cases": [
+    { "name": "dead centre of a 2x2 table",
+      "args": [[0,10],[0,10],[[0,10],[10,20]], 5, 5], "expected": 10 },
+    { "name": "exactly on the first corner",
+      "args": [[0,10],[0,10],[[0,10],[10,20]], 0, 0], "expected": 0 },
+    { "name": "row below the table clamps to the top edge",
+      "args": [[0,10],[0,10],[[0,10],[10,20]], -5, 5], "expected": 5 },
+    { "name": "both arguments past the far corner",
+      "args": [[0,10],[0,10],[[0,10],[10,20]], 20, 20], "expected": 20 },
+    { "name": "exactly on a grid point of a 3x2 table",
+      "args": [[0,10,20],[0,5],[[1,2],[3,4],[5,6]], 10, 5], "expected": 4 },
+    { "name": "halfway in both directions",
+      "args": [[0,10,20],[0,5],[[1,2],[3,4],[5,6]], 15, 2.5], "expected": 4.5 },
+    { "name": "single-entry table",
+      "args": [[7],[7],[[42]], 3, 99], "expected": 42 }
+  ]
+}

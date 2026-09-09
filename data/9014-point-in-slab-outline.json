@@ -1,0 +1,42 @@
+{
+  "id": 9014,
+  "slug": "point-in-slab-outline",
+  "title": "Point in Slab Outline",
+  "difficulty": "Medium",
+  "topics": ["Original", "Layout", "Geometry"],
+  "url": "",
+  "comparison": "Exact",
+  "folder": "Layout",
+  "className": "PointInSlabOutline",
+  "signature": "bool Solve(int[][] polygon, int[] point)",
+  "statement": "A slab edge is a simple closed polygon, given as vertices in order with the closing edge implied. Decide whether a load point lies on the slab. A point exactly on an edge or exactly on a vertex counts as on the slab, because a column on the slab edge is still on the slab.",
+  "constraints": [
+    "3 <= polygon.Length <= 10^5",
+    "the polygon is simple and may be convex or concave, wound either way",
+    "coordinates are integers, so boundary cases can be decided exactly"
+  ],
+  "hints": [
+    "Handle the boundary first and separately. Walk the edges and test whether the point lies on any of them; only then worry about inside versus outside.",
+    "For the interior test, fire a ray from the point - straight along +x is easiest - and count how many edges it crosses. Odd means inside.",
+    "Getting the crossing rule right is the whole problem: an edge counts when exactly one of its endpoints is strictly above the ray, which is the half-open convention that stops a vertex on the ray being counted twice. Compare with cross products on integers rather than computing an intersection in floating point."
+  ],
+  "complexity": "O(n) time, O(1) space",
+  "cases": [
+    { "name": "well inside a square",
+      "args": [[[0,0],[4,0],[4,4],[0,4]], [2,2]], "expected": true },
+    { "name": "outside to the right",
+      "args": [[[0,0],[4,0],[4,4],[0,4]], [5,2]], "expected": false },
+    { "name": "exactly on a vertex",
+      "args": [[[0,0],[4,0],[4,4],[0,4]], [0,0]], "expected": true },
+    { "name": "exactly on an edge",
+      "args": [[[0,0],[4,0],[4,4],[0,4]], [2,0]], "expected": true },
+    { "name": "in the notch of an L, so outside",
+      "args": [[[0,0],[6,0],[6,2],[2,2],[2,6],[0,6]], [4,4]], "expected": false },
+    { "name": "in the upper leg of the L",
+      "args": [[[0,0],[6,0],[6,2],[2,2],[2,6],[0,6]], [1,4]], "expected": true },
+    { "name": "in the lower leg of the L",
+      "args": [[[0,0],[6,0],[6,2],[2,2],[2,6],[0,6]], [4,1]], "expected": true },
+    { "name": "level with a vertex but outside",
+      "args": [[[0,0],[4,0],[4,4],[0,4]], [-1,4]], "expected": false }
+  ]
+}

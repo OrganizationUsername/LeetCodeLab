@@ -1,0 +1,31 @@
+{
+  "id": 974,
+  "slug": "subarray-sums-divisible-by-k",
+  "title": "Subarray Sums Divisible by K",
+  "difficulty": "Medium",
+  "topics": ["Prefix Sum", "Hash Table", "Array"],
+  "url": "https://leetcode.com/problems/subarray-sums-divisible-by-k/",
+  "comparison": "Exact",
+  "folder": "PrefixSums",
+  "className": "SubarraySumsDivisibleByK",
+  "signature": "int Solve(int[] nums, int k)",
+  "statement": "Count the contiguous subarrays whose sum is a multiple of k. A sum of zero counts as a multiple.",
+  "constraints": [
+    "1 <= nums.Length <= 3*10^4",
+    "-10^4 <= nums[i] <= 10^4",
+    "2 <= k <= 10^4"
+  ],
+  "hints": [
+    "Same prefix-sum setup as counting sums equal to k, but the condition is now that P[j] - P[i] is divisible by k.",
+    "That holds exactly when P[j] and P[i] leave the same remainder. So group the prefixes by remainder and count the pairs inside each group.",
+    "C# gives a negative result for % on a negative number, so normalise the remainder into 0..k-1 first. Then an int array of k counts is all you need, and each group of c prefixes contributes c*(c-1)/2."
+  ],
+  "complexity": "O(n) time, O(k) space",
+  "cases": [
+    { "args": [[4,5,0,-2,-3,1], 5], "expected": 7 },
+    { "args": [[5], 9], "expected": 0 },
+    { "args": [[-1,2,9], 2], "expected": 2 },
+    { "args": [[2,-2,2,-4], 6], "expected": 2 },
+    { "args": [[7,7,7], 7], "expected": 6 }
+  ]
+}

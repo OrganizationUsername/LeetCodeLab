@@ -1,0 +1,31 @@
+{
+  "id": 1319,
+  "slug": "number-of-operations-to-make-network-connected",
+  "title": "Number of Operations to Make Network Connected",
+  "difficulty": "Medium",
+  "topics": ["Union Find", "Graph", "Depth-First Search"],
+  "url": "https://leetcode.com/problems/number-of-operations-to-make-network-connected/",
+  "comparison": "Exact",
+  "folder": "UnionFind",
+  "className": "MakeNetworkConnected",
+  "signature": "int Solve(int n, int[][] connections)",
+  "statement": "There are n computers numbered 0..n-1 joined by ethernet cables. You may unplug any cable and replug it between any two computers. Return the fewest moves that make every computer reachable from every other, or -1 if it cannot be done.",
+  "constraints": [
+    "1 <= n <= 10^5",
+    "0 <= connections.Length <= 10^5",
+    "no duplicate cables and no self-loops"
+  ],
+  "hints": [
+    "Before writing any code, ask how many cables it takes at minimum to connect n computers. If you have fewer than that, no amount of rearranging helps.",
+    "A cable is spare exactly when it joins two computers that were already connected. Count those while you build the components.",
+    "With c components you need c-1 moves, and you have enough spare cables as long as connections.Length >= n-1. Then the answer is c-1."
+  ],
+  "complexity": "O(n + m) time, O(n) space",
+  "cases": [
+    { "args": [4, [[0,1],[0,2],[1,2]]], "expected": 1 },
+    { "args": [6, [[0,1],[0,2],[0,3],[1,2],[1,3]]], "expected": 2 },
+    { "args": [6, [[0,1],[0,2],[0,3],[1,2]]], "expected": -1 },
+    { "args": [5, [[0,1],[0,2],[3,4],[2,3]]], "expected": 0 },
+    { "args": [1, []], "expected": 0 }
+  ]
+}

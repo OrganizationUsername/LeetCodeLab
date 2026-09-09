@@ -1,0 +1,39 @@
+{
+  "id": 9010,
+  "slug": "bracketed-polynomial-root",
+  "title": "Bracketed Polynomial Root",
+  "difficulty": "Easy",
+  "topics": ["Original", "Numerics", "Binary Search"],
+  "url": "",
+  "comparison": "FloatTolerance",
+  "folder": "Numerics",
+  "className": "BracketedPolynomialRoot",
+  "signature": "double Solve(double[] coefficients, double lo, double hi)",
+  "statement": "coefficients gives a polynomial in ascending powers, so [-2, 0, 1] means x^2 - 2. The interval [lo, hi] is guaranteed to bracket exactly one root: the polynomial changes sign across it, or is exactly zero at an end. Return that root.",
+  "constraints": [
+    "1 <= coefficients.Length <= 20",
+    "lo < hi",
+    "exactly one root lies in [lo, hi]",
+    "the answer is checked to 1e-5, so iterate until the interval is far tighter than that"
+  ],
+  "hints": [
+    "You are not given a derivative, so Newton-Raphson is out unless you differentiate the polynomial yourself. There is a method that needs nothing but the ability to evaluate and compare.",
+    "A sign change across an interval means a root is inside it. Cut the interval in half and ask which half still has the sign change - the answer is one bisection step.",
+    "Test the sign with f(mid) * f(lo) <= 0 rather than by comparing magnitudes, and evaluate the polynomial by Horner's rule rather than calling Math.Pow. Around 100 halvings takes any starting interval below double precision, so a fixed iteration count is safer than a while loop on tolerance."
+  ],
+  "complexity": "O(iterations * degree) time, O(1) space",
+  "cases": [
+    { "name": "x^2 - 2 on [0,2]",
+      "args": [[-2,0,1], 0, 2], "expected": 1.4142135623730951 },
+    { "name": "x - 3 on [0,10]",
+      "args": [[-3,1], 0, 10], "expected": 3 },
+    { "name": "3 - x: decreasing across the bracket",
+      "args": [[3,-1], 0, 10], "expected": 3 },
+    { "name": "x^3 - x - 2 on [1,2]",
+      "args": [[-2,-1,0,1], 1, 2], "expected": 1.5213797068045676 },
+    { "name": "root sitting exactly on the upper end",
+      "args": [[-4,0,1], 0, 2], "expected": 2 },
+    { "name": "x^2 - 9 on [0,5]",
+      "args": [[-9,0,1], 0, 5], "expected": 3 }
+  ]
+}

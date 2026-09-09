@@ -1,0 +1,43 @@
+{
+  "id": 9005,
+  "slug": "minimum-bandwidth-numbering",
+  "title": "Minimum Bandwidth Numbering",
+  "difficulty": "Hard",
+  "topics": ["Original", "Mesh Topology", "Backtracking"],
+  "url": "",
+  "comparison": "Exact",
+  "folder": "MeshTopology",
+  "className": "MinimumBandwidthNumbering",
+  "signature": "int Solve(int n, int[][] members)",
+  "statement": "A banded solver stores the stiffness matrix out to its furthest non-zero, so the cost depends on how the nodes were numbered. For a given numbering, the bandwidth is the largest difference between the two numbers of any member. Renumber the nodes however you like - every node gets a distinct number from 0 to n-1 - and return the smallest bandwidth achievable. With no members at all the bandwidth is 0.",
+  "constraints": [
+    "1 <= n <= 8",
+    "0 <= members.Length <= n*(n-1)/2",
+    "members join two different nodes and are not repeated",
+    "n is small on purpose: this problem is NP-hard in general"
+  ],
+  "hints": [
+    "n is at most 8. That is a very deliberate bound - it is telling you that searching every numbering is on the table, and that no clever formula is expected.",
+    "8! is 40320, so generate the permutations of 0..n-1, score each by the largest member span it produces, and keep the best.",
+    "You can prune hard if you want: build the numbering position by position and abandon a partial numbering the moment its span already reaches the best complete answer so far. Real solvers give up on the exact answer entirely and use a heuristic like reverse Cuthill-McKee - this problem is why."
+  ],
+  "complexity": "O(n! * m) time without pruning",
+  "cases": [
+    { "name": "a straight chain of four",
+      "args": [4, [[0,1],[1,2],[2,3]]], "expected": 1 },
+    { "name": "one node joined to three others",
+      "args": [4, [[0,1],[0,2],[0,3]]], "expected": 2 },
+    { "name": "everything joined to everything",
+      "args": [4, [[0,1],[0,2],[0,3],[1,2],[1,3],[2,3]]], "expected": 3 },
+    { "name": "a closed loop of four",
+      "args": [4, [[0,1],[1,2],[2,3],[3,0]]], "expected": 2 },
+    { "name": "two separate members",
+      "args": [4, [[0,1],[2,3]]], "expected": 1 },
+    { "name": "nothing connected",
+      "args": [3, []], "expected": 0 },
+    { "name": "a chain, but numbered badly",
+      "args": [6, [[0,5],[5,2],[2,3],[3,1],[1,4]]], "expected": 1 },
+    { "name": "one node joined to four others",
+      "args": [5, [[0,1],[0,2],[0,3],[0,4]]], "expected": 2 }
+  ]
+}

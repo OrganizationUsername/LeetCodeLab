@@ -1,0 +1,35 @@
+{
+  "id": 648,
+  "slug": "replace-words",
+  "title": "Replace Words",
+  "difficulty": "Medium",
+  "topics": ["Trie", "Hash Table", "String"],
+  "url": "https://leetcode.com/problems/replace-words/",
+  "comparison": "Exact",
+  "folder": "Tries",
+  "className": "ReplaceWords",
+  "signature": "string Solve(string[] dictionary, string sentence)",
+  "statement": "A root followed by other letters forms a derivative: cat is a root of cattle. Replace every word of the sentence that has a root in the dictionary with that root, and when several roots apply use the shortest. Words are separated by single spaces.",
+  "constraints": [
+    "1 <= dictionary.Length <= 1000",
+    "1 <= sentence length <= 10^6",
+    "lowercase letters and single spaces only"
+  ],
+  "hints": [
+    "Checking every root against every word is roots x words x length. The roots share a great many prefixes, which is the waste to attack.",
+    "Store the roots in a prefix tree, one node per letter, marking the nodes where a root ends.",
+    "Then walk each word down the trie one letter at a time and stop at the first end-of-root marker you hit; that is the shortest root by construction. Fall back to the original word if you run out of trie."
+  ],
+  "complexity": "O(total input length) time",
+  "cases": [
+    { "args": [["cat","bat","rat"], "the cattle was rattled by the battery"],
+      "expected": "the cat was rat by the bat" },
+    { "args": [["a","b","c"], "aadsfasf absbs bbab cadsfafs"],
+      "expected": "a a b c" },
+    { "args": [["catt","cat","bat","rat"], "the cattle was rattled by the battery"],
+      "expected": "the cat was rat by the bat" },
+    { "args": [["a","aa","aaa","aaaa"], "a aa a aaaa aaa aaa aaa aaaaaa bbb baba ababa"],
+      "expected": "a a a a a a a a bbb baba a" },
+    { "args": [["dog"], "cat and mouse"], "expected": "cat and mouse" }
+  ]
+}

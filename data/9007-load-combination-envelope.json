@@ -1,0 +1,41 @@
+{
+  "id": 9007,
+  "slug": "load-combination-envelope",
+  "title": "Load Combination Envelope",
+  "difficulty": "Medium",
+  "topics": ["Original", "Load Cases", "Array"],
+  "url": "",
+  "comparison": "FloatTolerance",
+  "folder": "LoadCases",
+  "className": "LoadCombinationEnvelope",
+  "signature": "double[][] Solve(double[][] caseResults, double[][] factors)",
+  "statement": "caseResults has one row per load case and one column per station along a member, holding that case's result at that station. factors has one row per load combination and one entry per load case. A combination's result at a station is the sum over load cases of factor times that case's value there. Return [maxEnvelope, minEnvelope]: two rows, each with one entry per station, giving the largest and smallest value any combination produces there.",
+  "constraints": [
+    "1 <= load cases <= 50",
+    "1 <= stations <= 1000",
+    "1 <= combinations <= 200",
+    "every row of factors has exactly one entry per load case",
+    "factors may be negative, and the envelope is taken per station independently",
+    "answers are checked to 1e-5"
+  ],
+  "hints": [
+    "The envelope is taken station by station. The combination that governs at one station need not govern at any other, so you cannot pick a single worst combination up front.",
+    "Three nested loops do it: for each combination, for each station, sum over the load cases. Track a running max and min per station rather than storing every combination.",
+    "Seed the running max and min from the FIRST combination, not from zero. A set of combinations that are all negative would otherwise report a maximum of zero, which is the kind of bug that quietly under-designs something."
+  ],
+  "complexity": "O(combinations * stations * cases) time, O(stations) extra space",
+  "cases": [
+    { "name": "two cases, two combinations",
+      "args": [[[10,20],[5,5]], [[1,1],[1.2,1.6]]],
+      "expected": [[20,32],[15,25]] },
+    { "name": "uplift: a negative factor governs the minimum",
+      "args": [[[100],[60]], [[1.4,0],[0.9,-1.0]]],
+      "expected": [[140],[30]] },
+    { "name": "a single combination is its own envelope",
+      "args": [[[1,2,3]], [[2]]],
+      "expected": [[2,4,6],[2,4,6]] },
+    { "name": "different combinations govern at different stations",
+      "args": [[[10,-10,0],[2,2,2]], [[1,0],[0,1],[1,-1]]],
+      "expected": [[10,2,2],[2,-12,-2]] }
+  ]
+}

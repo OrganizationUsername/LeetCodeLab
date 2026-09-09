@@ -1,0 +1,33 @@
+{
+  "id": 560,
+  "slug": "subarray-sum-equals-k",
+  "title": "Subarray Sum Equals K",
+  "difficulty": "Medium",
+  "topics": ["Prefix Sum", "Hash Table", "Array"],
+  "url": "https://leetcode.com/problems/subarray-sum-equals-k/",
+  "comparison": "Exact",
+  "folder": "PrefixSums",
+  "className": "SubarraySumEqualsK",
+  "signature": "int Solve(int[] nums, int k)",
+  "statement": "Count the contiguous subarrays whose values sum to exactly k. Values may be negative, so a sliding window does not work here.",
+  "constraints": [
+    "1 <= nums.Length <= 2*10^4",
+    "-1000 <= nums[i] <= 1000",
+    "-10^7 <= k <= 10^7",
+    "the sliding-window trick needs non-negative values; this problem does not have them"
+  ],
+  "hints": [
+    "Write P[j] for the sum of the first j elements. The subarray from i to j-1 sums to P[j] - P[i].",
+    "So you want to count pairs i < j with P[j] - P[i] == k. Rearranged: for each j, how many earlier prefixes equal P[j] - k?",
+    "One pass, a running sum, and a Dictionary from prefix value to how many times you have seen it. Seed it with 0 mapped to 1 so subarrays starting at index 0 get counted."
+  ],
+  "complexity": "O(n) time, O(n) space",
+  "cases": [
+    { "args": [[1,1,1], 2], "expected": 2 },
+    { "args": [[1,2,3], 3], "expected": 2 },
+    { "args": [[1,-1,0], 0], "expected": 3 },
+    { "args": [[3,4,7,2,-3,1,4,2], 7], "expected": 4 },
+    { "args": [[1], 0], "expected": 0 },
+    { "args": [[0,0,0], 0], "expected": 6 }
+  ]
+}

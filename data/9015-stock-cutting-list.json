@@ -1,0 +1,42 @@
+{
+  "id": 9015,
+  "slug": "stock-cutting-list",
+  "title": "Stock Cutting List",
+  "difficulty": "Medium",
+  "topics": ["Original", "Fabrication", "Greedy"],
+  "url": "",
+  "comparison": "Exact",
+  "folder": "Fabrication",
+  "className": "StockCuttingList",
+  "signature": "int Solve(int[] pieces, int stockLength, int kerf)",
+  "statement": "You need a list of pieces cut from stock lengths, and every cut separating two pieces wastes kerf of material. A stock length holding c pieces therefore uses the sum of those pieces plus kerf times (c - 1). Report how many stock lengths the FIRST-FIT-DECREASING rule uses: sort the pieces longest first, and put each into the first stock length it still fits in, starting a new one only when it fits in none. Return -1 if any single piece is longer than the stock.",
+  "constraints": [
+    "1 <= pieces.Length <= 10^4",
+    "1 <= stockLength <= 10^6, 0 <= kerf < stockLength",
+    "first-fit-decreasing is a heuristic, not the optimum: it can use more stock than the best possible packing, and finding that optimum is NP-hard. The answer wanted here is what the stated rule produces."
+  ],
+  "hints": [
+    "Do the accounting before the algorithm. Track the length already used in each open stock length, and remember that adding a piece to a stock length that is not empty costs kerf as well as the piece.",
+    "First-fit-decreasing is two steps: sort descending, then for each piece scan the open stock lengths in the order they were opened and take the first that fits.",
+    "The -1 check is easiest before you start - if the longest piece does not fit an empty stock length, nothing will. Scanning all open bins per piece is O(n^2) and fine at this size; a real cutting optimiser would keep the remaining capacities in a tree."
+  ],
+  "complexity": "O(n^2) time, O(n) space",
+  "cases": [
+    { "name": "four pieces into two sticks",
+      "args": [[60,40,30,70], 100, 0], "expected": 2 },
+    { "name": "three halves need two sticks",
+      "args": [[50,50,50], 100, 0], "expected": 2 },
+    { "name": "kerf pushes the second piece onto a new stick",
+      "args": [[50,50], 100, 1], "expected": 2 },
+    { "name": "three pieces plus two kerfs still fit",
+      "args": [[30,30,30], 100, 1], "expected": 1 },
+    { "name": "a piece exactly as long as the stock",
+      "args": [[100], 100, 5], "expected": 1 },
+    { "name": "a piece longer than the stock",
+      "args": [[120,50], 100, 0], "expected": -1 },
+    { "name": "eight pieces, perfect packing",
+      "args": [[95,80,75,60,55,45,40,25], 100, 0], "expected": 5 },
+    { "name": "kerf twice on one stick",
+      "args": [[40,40,10], 100, 5], "expected": 1 }
+  ]
+}

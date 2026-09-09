@@ -1,0 +1,39 @@
+{
+  "id": 9004,
+  "slug": "merge-coincident-nodes",
+  "title": "Merge Coincident Nodes",
+  "difficulty": "Medium",
+  "topics": ["Original", "Mesh Topology", "Union Find"],
+  "url": "",
+  "comparison": "Exact",
+  "folder": "MeshTopology",
+  "className": "MergeCoincidentNodes",
+  "signature": "int Solve(double[][] points, double tolerance)",
+  "statement": "Geometry imported from several drawings has nodes that should be one node but sit a hair apart. Two nodes are coincident when the distance between them is at most the tolerance, and coincidence spreads: if A merges with B and B merges with C then A, B and C all become one node, even if A and C are further apart than the tolerance. Return how many distinct nodes remain after merging.",
+  "constraints": [
+    "1 <= points.Length <= 2000",
+    "points are 2D, given as [x, y]",
+    "tolerance > 0",
+    "distance is straight-line, and exactly equal to the tolerance still merges"
+  ],
+  "hints": [
+    "The obvious approach is to snap every coordinate onto a grid of tolerance-sized cells and count the distinct cells. Try that on three points spaced 0.6 apart with a tolerance of 0.7 and see what it does.",
+    "Merging is transitive, which is what breaks snapping: a chain of nodes each within tolerance of the next is a single node however long the chain gets.",
+    "That is exactly a connected-components question. Union every pair within tolerance and count the surviving roots. Compare squared distances against the squared tolerance and you never need a square root."
+  ],
+  "complexity": "O(n^2 a(n)) time, O(n) space",
+  "cases": [
+    { "name": "a near-duplicate and a far node",
+      "args": [[[0,0],[0,0.001],[5,5]], 0.01], "expected": 2 },
+    { "name": "chain of three, each within tolerance of the next",
+      "args": [[[0,0],[0.6,0],[1.2,0]], 0.7], "expected": 1 },
+    { "name": "same three, tolerance too small to reach",
+      "args": [[[0,0],[1,0],[2,0]], 0.5], "expected": 3 },
+    { "name": "single node",
+      "args": [[[3,4]], 1], "expected": 1 },
+    { "name": "four corners, joined through the sides",
+      "args": [[[0,0],[0,0.5],[0.5,0],[0.5,0.5]], 0.6], "expected": 1 },
+    { "name": "one near-pair in a line of four",
+      "args": [[[0,0],[10,0],[10.05,0],[20,0]], 0.1], "expected": 3 }
+  ]
+}

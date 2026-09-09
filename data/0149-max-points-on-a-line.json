@@ -1,0 +1,32 @@
+{
+  "id": 149,
+  "slug": "max-points-on-a-line",
+  "title": "Max Points on a Line",
+  "difficulty": "Hard",
+  "topics": ["Geometry", "Hash Table", "Math", "Array"],
+  "url": "https://leetcode.com/problems/max-points-on-a-line/",
+  "comparison": "Exact",
+  "folder": "PlaneGeometry",
+  "className": "MaxPointsOnALine",
+  "signature": "int Solve(int[][] points)",
+  "statement": "Given distinct points on a plane, return the greatest number of them that lie on one straight line.",
+  "constraints": [
+    "1 <= points.Length <= 300",
+    "-10^4 <= x, y <= 10^4",
+    "all points are distinct"
+  ],
+  "hints": [
+    "Any line through two or more of these points passes through at least one of them, so you can afford to anchor on each point in turn.",
+    "Anchored at point p, two other points are on the same line through p exactly when they share a direction from p. Count directions and keep the biggest bucket.",
+    "Do not key the bucket on a double slope: dy/dx loses precision and blows up on vertical lines. Reduce (dx, dy) by their gcd and force a canonical sign, then use that pair as the key."
+  ],
+  "complexity": "O(n^2) time, O(n) space",
+  "cases": [
+    { "args": [[[1,1],[2,2],[3,3]]], "expected": 3 },
+    { "args": [[[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]]], "expected": 4 },
+    { "args": [[[0,0]]], "expected": 1 },
+    { "args": [[[1,1],[1,2],[1,3],[2,2]]], "expected": 3 },
+    { "args": [[[0,0],[1,65536],[65536,0]]], "expected": 2 },
+    { "args": [[[2,3],[3,3],[-5,3]]], "expected": 3 }
+  ]
+}
